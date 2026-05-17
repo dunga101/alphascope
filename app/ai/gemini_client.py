@@ -1,4 +1,5 @@
 import os
+import json
 from dotenv import load_dotenv
 from google import genai
 
@@ -12,26 +13,49 @@ if not api_key:
 client = genai.Client(api_key=api_key)
 
 
-def analyze_market(report_text: str):
+def analyze_market(
+    report_text: str,
+    macro_context: dict,
+    sector_breadth: dict
+):
     prompt = f"""
-You are a disciplined financial market analyst.
+You are a disciplined professional financial market intelligence analyst.
 
-Analyze the following technical stock screening report.
+Return ONLY valid JSON.
 
-Tasks:
-1. Summarize overall market conditions.
-2. Identify strongest watchlist candidates.
-3. Highlight overheated names.
-4. Identify weak / avoid names.
-5. Provide short-term observations (days to weeks).
-6. Provide medium-term observations (1–6 months).
-7. Mention major risks.
+No markdown.
+No explanations.
+No prose outside JSON.
 
-Do NOT provide direct financial advice.
-Do NOT say BUY or SELL.
-Use professional concise language.
+Required JSON schema:
 
-REPORT:
+{{
+  "market_regime": "RISK_ON | RISK_OFF | MIXED",
+  "confidence": 0-100,
+  "macro_summary": [],
+  "strong_sectors": [],
+  "weak_sectors": [],
+  "top_candidates": [],
+  "overheated_names": [],
+  "weak_names": [],
+  "short_term_outlook": "",
+  "medium_term_outlook": "",
+  "major_risks": []
+}}
+
+Rules:
+- Base conclusions ONLY on provided data.
+- If uncertain, lower confidence.
+- Do not invent macro narratives unsupported by inputs.
+- No BUY/SELL language.
+
+MARKET MACRO CONTEXT:
+{macro_context}
+
+SECTOR BREADTH:
+{sector_breadth}
+
+TECHNICAL STOCK SCREENING REPORT:
 {report_text}
 """
 
@@ -40,13 +64,9 @@ REPORT:
         contents=prompt
     )
 
-    return response.text
+    raw = response.text.strip()
 
+    if raw.startswith("```json"):
+        raw = raw.replace("```json", "").replace("```", "").strip()
 
-if __name__ == "__main__":
-    with open("reports/daily_report.md", "r") as f:
-        report = f.read()
-
-    analysis = analyze_market(report)
-
-    print(analysis)
+    return json.loads(raw)

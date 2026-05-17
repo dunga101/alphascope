@@ -1,0 +1,30 @@
+core:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+
+macro:
+  - "^GSPC"
+  - "^IXIC"
+  - "^DJI"
+  - "^VIX"
+  - "^TNX"
+  - "GC=F"
+  - "CL=F"
+  - "BTC-USD"
+
+sectors:
+  - XLK
+  - XLF
+  - XLE
+  - XLV
+  - XLI
+  - XLY
+  - XLP
+  - XLU
+  - XLC
+  - XLRE
