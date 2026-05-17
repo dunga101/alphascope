@@ -6,6 +6,7 @@ from app.renderers.telegram import send_telegram_message
 from app.config import get_symbols
 from app.collectors.macro import collect_macro_context
 from app.collectors.breadth import collect_sector_breadth
+from app.collectors.earnings import collect_earnings_context
 
 
 def format_ai_summary(ai: dict) -> str:
@@ -23,6 +24,9 @@ Weak Sectors:
 
 Top Candidates:
 - """ + "\n- ".join(ai["top_candidates"]) + f"""
+
+Event Risks:
+- """ + "\n- ".join(ai["event_risk_names"]) + f"""
 
 Overheated:
 - """ + "\n- ".join(ai["overheated_names"]) + f"""
@@ -51,10 +55,15 @@ def build_full_report():
         get_symbols("sectors")
     )
 
+    earnings_context = collect_earnings_context(
+        get_symbols("core")
+    )
+
     ai = analyze_market(
         technical_report,
         macro_context,
-        sector_breadth
+        sector_breadth,
+        earnings_context
     )
 
     ai_summary = format_ai_summary(ai)
@@ -69,6 +78,12 @@ Generated: {timestamp}
 AI EXECUTIVE SUMMARY
 
 {ai_summary}
+
+==============================
+
+EARNINGS EVENT CONTEXT
+
+{earnings_context}
 
 ==============================
 
