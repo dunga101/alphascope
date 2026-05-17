@@ -1,5 +1,5 @@
-from app.indicators import calculate_indicators
-from app.screener import score_stock, classify
+from app.processors.indicators import calculate_indicators
+from app.processors.screener import score_stock, classify
 from datetime import datetime
 
 

@@ -1,4 +1,4 @@
-from app.indicators import calculate_indicators
+from app.processors.indicators import calculate_indicators
 
 
 def score_stock(metrics):

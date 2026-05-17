@@ -1,7 +1,7 @@
 from datetime import datetime
-from app.report_generator import generate_report
-from app.ai_analyzer import analyze_market
-from app.notifier import send_telegram_message
+from app.renderers.report import generate_report
+from app.ai.gemini_client import analyze_market
+from app.renderers.telegram import send_telegram_message
 
 
 def build_full_report():
