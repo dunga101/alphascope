@@ -1,6 +1,9 @@
 from app.processors.indicators import calculate_indicators
 from app.processors.screener import score_stock, classify
 from datetime import datetime
+from app.processors.signal_fusion import fuse_signals
+from app.collectors.advanced_breadth import collect_advanced_breadth
+from app.collectors.macro_signals import collect_macro_signals
 
 
 WATCHLIST = [
@@ -17,15 +20,39 @@ WATCHLIST = [
 ]
 
 
+def apply_regime_penalty(score, regime):
+    if regime == "STRONG RISK-OFF":
+        return max(score - 25, 0)
+    elif regime == "RISK-OFF":
+        return max(score - 15, 0)
+    elif regime == "RISK-ON":
+        return min(score + 10, 100)
+    elif regime == "STRONG RISK-ON":
+        return min(score + 15, 100)
+
+    return score
+
+
 def generate_report():
     results = []
+
+    advanced_breadth = collect_advanced_breadth()
+    macro_signals = collect_macro_signals()
+    market_regime = fuse_signals(advanced_breadth, macro_signals)
 
     for ticker in WATCHLIST:
         metrics = calculate_indicators(ticker)
         scored = score_stock(metrics)
 
         if scored:
-            scored["classification"] = classify(scored["score"])
+            adjusted_score = apply_regime_penalty(
+                scored["score"],
+                market_regime["regime"]
+            )
+
+            scored["score"] = adjusted_score
+            scored["classification"] = classify(adjusted_score)
+
             results.append(scored)
 
     results.sort(key=lambda x: x["score"], reverse=True)
@@ -35,6 +62,20 @@ def generate_report():
     report = []
     report.append("# AlphaScope Daily Market Intelligence Report")
     report.append(f"Generated: {timestamp}")
+    report.append("")
+
+    report.append("## Market Regime")
+    report.append("")
+    report.append(f"**Regime:** {market_regime['regime']}")
+    report.append(f"**Confidence:** {market_regime['confidence']}%")
+    report.append(f"**Bias:** {market_regime['bias']}")
+    report.append(f"**Composite Score:** {market_regime['score']}")
+    report.append("")
+
+    report.append("### Signal Breakdown")
+    for note in market_regime["notes"]:
+        report.append(f"- {note}")
+
     report.append("")
 
     for stock in results:
