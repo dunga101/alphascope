@@ -1,160 +1,235 @@
 # AlphaScope 📈🧠
 
-**AI-powered daily market intelligence platform for retail investors, analysts, and market observers.**
+**AI-assisted modular market intelligence platform for structured market analysis, catalyst awareness, and decision-support intelligence.**
 
-AlphaScope combines live market data, technical analysis, macro sentiment detection, and AI-driven interpretation to generate actionable daily market intelligence reports.
+AlphaScope transforms fragmented market data into disciplined, institutional-style intelligence by combining structured financial data, macro regime analysis, technical screening, event awareness, and AI-powered synthesis.
 
----
-
-## Overview
-
-AlphaScope is a Python-based market intelligence engine designed to transform raw market data into concise, decision-ready insights.
-
-Instead of manually checking multiple websites, indicators, and economic signals, AlphaScope automates:
-
-* Market regime analysis
-* Technical screening
-* Sector rotation awareness
-* Risk detection
-* Earnings event monitoring
-* AI-generated strategic commentary
-* Automated delivery via Telegram (email distribution planned)
+It is designed as an engineering-driven intelligence platform—not a hype-driven trading bot.
 
 ---
 
-## Core Features
+# Philosophy
 
-### Market Regime Intelligence
+Modern markets produce overwhelming amounts of data:
 
-Evaluates overall market conditions using:
+- price action
+- macroeconomic signals
+- earnings catalysts
+- sector rotation
+- news flow
+- analyst sentiment
+- volatility signals
 
-* S&P 500
-* Nasdaq 100
-* Dow Jones
-* Russell 2000
-* VIX
-* US 10Y Treasury Yield
+Raw information is abundant.
 
-Detects:
+Actionable intelligence is scarce.
 
-* Risk-on
-* Neutral
-* Risk-off
-* Strong risk-off
+AlphaScope exists to bridge that gap.
 
-With confidence scoring and capital allocation bias guidance.
+Its purpose is to ingest noisy market data, filter signal from distraction, and produce structured daily intelligence that supports rational decision-making.
 
 ---
 
-### Technical Stock Screening
+# Current Capabilities
 
-Screens watchlist securities using technical indicators:
+## Market Regime Intelligence
 
-* RSI
-* Moving averages
-* Volume confirmation
-* Momentum scoring
+AlphaScope evaluates overall market conditions using macro market proxies:
 
-Current watchlist includes:
+- S&P 500 (`^GSPC`)
+- Nasdaq 100 (`^NDX`)
+- Dow Jones (`^DJI`)
+- Russell 2000 (`^RUT`)
+- VIX (`^VIX`)
+- US 10Y Treasury Yield (`^TNX`)
+- Gold
+- Oil
+- Bitcoin (market sentiment proxy)
 
-* SPY
-* QQQ
-* NVDA
-* MSFT
-* AMD
-* TSLA
-* GOOGL
-* META
-* SHOP
-* AMZN
+It classifies market conditions into regimes such as:
 
----
+- Risk-On
+- Neutral
+- Risk-Off
+- Strong Risk-Off
 
-### Sector Rotation Analysis
-
-Tracks ETF sector strength:
-
-* XLK
-* XLF
-* XLI
-* XLY
-* XLU
-* XLRE
-* XLC
-* XLV
-* XLP
-
-Identifies:
-
-* Strong sectors
-* Weak sectors
-* Relative leadership changes
+with confidence scoring and tactical bias interpretation.
 
 ---
 
-### Earnings Event Awareness
+## Technical Screening Engine
 
-Flags upcoming high-impact earnings catalysts.
+Watchlist securities are analyzed using technical indicators:
 
-Examples:
+- RSI
+- moving averages
+- momentum scoring
+- volume confirmation
+- signal classification
 
-* NVDA
-* AAPL
-* MSFT
-* AMZN
-* META
-* TSLA
+Current watchlist examples:
 
-Helps avoid blind exposure into event risk.
+- SPY
+- QQQ
+- NVDA
+- MSFT
+- AMD
+- TSLA
+- GOOGL
+- META
+- SHOP
+- AMZN
+
+AlphaScope identifies:
+
+- strong candidates
+- overheated names
+- weak names
+- neutral setups
 
 ---
 
-### AI Market Commentary
+## Sector Rotation Intelligence
 
-Uses Google Gemini AI to interpret raw signals into actionable narrative intelligence.
+Sector ETF monitoring detects leadership changes across:
 
-Examples:
+- XLK
+- XLF
+- XLI
+- XLY
+- XLU
+- XLRE
+- XLC
+- XLV
+- XLP
+- XLE
 
-* Short-term outlook
-* Medium-term outlook
-* Major risk factors
-* Opportunity themes
-* Tactical positioning guidance
+Used for identifying:
+
+- sector leadership
+- defensive rotation
+- cyclical weakness
+- broad market participation
 
 ---
 
-### Automated Delivery
+## Structured Financial Intelligence (FMP)
 
-Current delivery method:
+Integrated Financial Modeling Prep (FMP) data sources provide:
 
-✅ Telegram bot notifications
+- live quote intelligence
+- company profile data
+- structured fundamentals
+- valuation context
+- company metadata
+
+This layer supports higher-quality contextual interpretation beyond pure technical analysis.
+
+---
+
+## News Intelligence Pipeline
+
+AlphaScope now includes a structured catalyst awareness engine.
+
+### Finnhub Integration
+
+Ticker-specific financial news ingestion:
+
+- earnings catalysts
+- analyst commentary
+- event-driven headlines
+- major corporate developments
+
+---
+
+### Signal Filtering
+
+Raw news feeds are aggressively filtered.
+
+Implemented controls include:
+
+- ticker relevance validation
+- alias matching
+- junk suppression
+- clickbait rejection
+- crypto noise suppression
+- low-signal opinion filtering
+- catalyst prioritization
+
+Goal:
+
+AI receives meaningful signal—not random finance content.
+
+---
+
+## AI Intelligence Layer
+
+Google Gemini is used as AlphaScope's reasoning engine.
+
+Responsibilities:
+
+- interpreting structured signals
+- synthesizing macro + technical context
+- identifying tactical risks
+- generating executive summaries
+- producing institutional-style commentary
+
+AlphaScope is explicitly designed as:
+
+**decision-support intelligence**
+
+NOT:
+
+- automated trade execution
+- high-frequency trading
+- meme-stock speculation
+- retail hype commentary
+
+---
+
+## Automated Delivery
+
+Current:
+
+✅ Telegram delivery
 
 Planned:
 
-* HTML email distribution
-* subscriber lists
-* scheduled daily reports
+- HTML email reports
+- scheduled distribution
+- watchlist-specific delivery
+- dashboard interface
 
 ---
 
-## Architecture
+# Architecture
 
 ```text
 AlphaScope
 │
 ├── app/
+│   │
 │   ├── ai/
 │   │   └── gemini_client.py
 │   │
 │   ├── collectors/
 │   │   ├── advanced_breadth.py
+│   │   ├── earnings.py
 │   │   ├── macro.py
-│   │   └── earnings.py
+│   │   ├── fmp_quotes.py
+│   │   ├── fmp_profile.py
+│   │   ├── fmp_fundamentals.py
+│   │   ├── fmp_news.py
+│   │   └── finnhub_news.py
+│   │
+│   ├── config/
+│   │   └── ticker_aliases.py
 │   │
 │   ├── processors/
 │   │   ├── indicators.py
+│   │   ├── regime.py
 │   │   ├── screener.py
-│   │   └── regime.py
+│   │   └── news_filter.py
 │   │
 │   ├── renderers/
 │   │   ├── report.py
@@ -162,6 +237,8 @@ AlphaScope
 │   │
 │   └── main.py
 │
+├── data/
+├── reports/
 ├── .env
 ├── requirements.txt
 └── README.md
@@ -169,72 +246,81 @@ AlphaScope
 
 ---
 
-## Technology Stack
-
-**Language**
-
-* Python 3.x
-
-**Libraries**
-
-* yfinance
-* pandas
-* requests
-* python-dotenv
-
-**AI**
-
-* Google Gemini API
-
-**Messaging**
-
-* Telegram Bot API
-
-**Infrastructure**
-
-* Ubuntu Server
-* Python virtual environment
-* GitHub version control
-
----
-
-## Example Workflow
+# Example Intelligence Workflow
 
 ```text
 Market data collection
         ↓
-Macro signal analysis
+Macro regime scoring
         ↓
 Technical screening
         ↓
-Regime scoring
+Financial context enrichment
         ↓
-AI interpretation
+News catalyst ingestion
         ↓
-Report generation
+Signal filtering / relevance validation
+        ↓
+AI reasoning & synthesis
+        ↓
+Markdown report generation
         ↓
 Telegram delivery
 ```
 
 ---
 
-## Example Output
+# Technology Stack
 
-AlphaScope generates intelligence like:
+## Language
 
-* Market regime classification
-* Composite risk score
-* Technical ranking
-* Overheated names
-* Sector weakness
-* Earnings event warnings
-* Tactical AI commentary
+- Python 3.x
 
 ---
 
-## Setup
+## Market Data
 
-### Clone repo
+- yfinance
+- Financial Modeling Prep (FMP)
+- Finnhub
+
+---
+
+## AI
+
+- Google Gemini API
+
+---
+
+## Messaging
+
+- Telegram Bot API
+
+---
+
+## Core Libraries
+
+- requests
+- pandas
+- python-dotenv
+- finnhub-python
+
+---
+
+## Infrastructure
+
+Deployed and developed on:
+
+- Ubuntu Server
+- Python virtual environments
+- GitHub
+- homelab infrastructure
+
+---
+
+# Setup
+
+## Clone repository
 
 ```bash
 git clone https://github.com/dunga101/alphascope.git
@@ -243,7 +329,7 @@ cd alphascope
 
 ---
 
-### Create virtual environment
+## Create environment
 
 ```bash
 python3 -m venv .venv
@@ -252,7 +338,7 @@ source .venv/bin/activate
 
 ---
 
-### Install dependencies
+## Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -260,7 +346,7 @@ pip install -r requirements.txt
 
 ---
 
-### Configure environment
+## Configure environment
 
 Create:
 
@@ -271,16 +357,18 @@ Create:
 Example:
 
 ```env
-GEMINI_API_KEY=your_key_here
+GEMINI_API_KEY=your_key
+FMP_API_KEY=your_key
+FINNHUB_API_KEY=your_key
 TELEGRAM_BOT_TOKEN=your_bot_token
 TELEGRAM_CHAT_ID=your_chat_id
 ```
 
 ---
 
-## Run AlphaScope
+# Running AlphaScope
 
-Generate report:
+Generate intelligence report:
 
 ```bash
 python -m app.renderers.report
@@ -294,48 +382,123 @@ python -m app.main
 
 ---
 
-## Roadmap
+# Roadmap
 
-### Near-term
+## Phase 4 (In Progress)
 
-* HTML email delivery
-* subscriber distribution lists
-* better visual report formatting
-* scheduled daily execution
+### News Intelligence Expansion
 
-### Mid-term
+Planned:
 
-* database-backed historical intelligence
-* signal accuracy tracking
-* portfolio watchlists
-* customizable alerts
-
-### Long-term
-
-* web dashboard
-* public AlphaScope portal
-* multi-user subscriptions
-* API access
-* premium intelligence tiers
+- RSS redundancy layer
+- Reuters feed integration
+- Yahoo Finance feed integration
+- MarketWatch integration
+- multi-source news fusion
 
 ---
 
-## Design Philosophy
+## Phase 5
 
-AlphaScope was built around a simple principle:
+### Macro Intelligence Expansion
 
-> Raw market data is abundant. Actionable intelligence is rare.
+Planned integration:
 
-The goal is not to produce noise.
+- FRED economic data
 
-The goal is to produce concise, strategic market awareness.
+Examples:
+
+- CPI
+- Core CPI
+- unemployment
+- Fed funds rate
+- GDP
+- yield curve
+- consumer sentiment
+- jobless claims
 
 ---
 
-## Author
+## Phase 6
+
+### Corporate Event Intelligence
+
+Planned:
+
+SEC EDGAR integration
+
+Examples:
+
+- 8-K filings
+- executive departures
+- share issuance
+- litigation
+- acquisitions
+- insider disclosures
+
+---
+
+## Phase 7
+
+### Market Sentiment Intelligence
+
+Potential integrations:
+
+- CBOE volatility data
+- options sentiment
+- put/call ratios
+- volatility term structure
+
+---
+
+## Phase 8
+
+### Historical Intelligence Platform
+
+Planned:
+
+database-backed historical market intelligence
+
+Potential capabilities:
+
+- signal calibration
+- regime comparison
+- historical analytics
+- performance validation
+- eventual ML experimentation
+
+---
+
+# Design Principles
+
+AlphaScope follows several design rules:
+
+- modular architecture
+- API cost discipline
+- cache-aware engineering
+- signal-over-noise filtering
+- deterministic preprocessing before AI reasoning
+- decision-support over speculation
+- infrastructure-first engineering mindset
+
+---
+
+# Disclaimer
+
+AlphaScope is an educational / engineering intelligence project.
+
+It does **not** provide financial advice.
+
+Users remain responsible for their own investment decisions.
+
+---
+
+# Author
 
 **Dulanga Mudalige**
-Infrastructure | Cloud | Security | Automation
+
+Infrastructure | Cloud | Security | Automation | Systems Engineering
 
 GitHub:
+
 https://github.com/dunga101
