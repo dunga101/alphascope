@@ -2,71 +2,78 @@ from app.processors.indicators import calculate_indicators
 
 
 def score_stock(metrics):
-    score = 0
-    reasons = []
-
     if not metrics:
         return None
 
-    # Trend (40 pts)
-    if metrics["price"] > metrics["sma20"]:
-        score += 20
-        reasons.append("Above SMA20")
-    else:
-        reasons.append("Below SMA20")
+    score = 50
+    reasons = []
 
-    if metrics["sma20"] > metrics["sma50"]:
-        score += 20
-        reasons.append("Bullish trend (SMA20 > SMA50)")
-    else:
-        reasons.append("Bearish trend (SMA20 < SMA50)")
-
-    # RSI (25 pts)
+    price = metrics["price"]
+    sma20 = metrics["sma20"]
+    sma50 = metrics["sma50"]
     rsi = metrics["rsi"]
-
-    if 50 <= rsi <= 70:
-        score += 25
-        reasons.append("Healthy momentum")
-
-    elif 40 <= rsi < 50:
-        score += 15
-        reasons.append("Moderate momentum")
-
-    elif 70 < rsi <= 80:
-        score += 10
-        reasons.append("Strong but overheated")
-
-    elif rsi < 30:
-        score += 5
-        reasons.append("Oversold / possible reversal")
-
-    else:
-        reasons.append("Weak momentum")
-
-    # Volume participation (20 pts)
     vr = metrics["volume_ratio"]
 
+    # Trend structure
+    if price > sma20:
+        score += 10
+        reasons.append("Above SMA20")
+    else:
+        score -= 10
+        reasons.append("Below SMA20")
+
+    if sma20 > sma50:
+        score += 10
+        reasons.append("Bullish trend (SMA20 > SMA50)")
+    else:
+        score -= 10
+        reasons.append("Bearish trend (SMA20 < SMA50)")
+
+    if price > sma50:
+        score += 8
+        reasons.append("Above SMA50")
+    else:
+        score -= 8
+        reasons.append("Below SMA50")
+
+    # Momentum
+    if 55 <= rsi <= 68:
+        score += 10
+        reasons.append("Healthy momentum")
+
+    elif 45 <= rsi < 55:
+        score += 3
+        reasons.append("Moderate momentum")
+
+    elif 68 < rsi <= 75:
+        score -= 5
+        reasons.append("Strong but overheated")
+
+    elif rsi < 35:
+        score -= 10
+        reasons.append("Weak momentum")
+
+    else:
+        reasons.append("Neutral momentum")
+
+    # Participation
     if vr >= 2.0:
-        score += 20
-        reasons.append("Heavy volume surge")
+        score += 12
+        reasons.append("Heavy participation")
 
     elif vr >= 1.5:
-        score += 15
-        reasons.append("Elevated volume")
+        score += 8
+        reasons.append("Elevated participation")
 
     elif vr >= 1.0:
-        score += 8
+        score += 2
         reasons.append("Normal participation")
 
     else:
+        score -= 10
         reasons.append("Low participation")
 
-    # Stability bonus (15 pts)
-    if metrics["price"] > metrics["sma50"]:
-        score += 15
-        reasons.append("Above SMA50")
-    else:
-        reasons.append("Below SMA50")
+    score = max(0, min(100, round(score)))
 
     return {
         "ticker": metrics["ticker"],
@@ -77,12 +84,14 @@ def score_stock(metrics):
 
 
 def classify(score):
-    if score >= 80:
-        return "STRONG WATCH"
-    elif score >= 65:
-        return "WATCH"
-    elif score >= 50:
+    if score >= 75:
+        return "HIGH CONVICTION"
+    elif score >= 60:
+        return "WATCHLIST"
+    elif score >= 45:
         return "NEUTRAL"
+    elif score >= 30:
+        return "WEAK"
     return "AVOID"
 
 

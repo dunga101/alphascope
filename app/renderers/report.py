@@ -1,5 +1,5 @@
 from app.processors.indicators import calculate_indicators
-from app.processors.screener import score_stock, classify
+from app.processors.screener import score_stock
 from datetime import datetime
 from app.processors.signal_fusion import fuse_signals
 from app.collectors.advanced_breadth import collect_advanced_breadth
@@ -51,8 +51,6 @@ def generate_report():
             )
 
             scored["score"] = adjusted_score
-            scored["classification"] = classify(adjusted_score)
-
             results.append(scored)
 
     results.sort(key=lambda x: x["score"], reverse=True)
@@ -77,14 +75,14 @@ def generate_report():
         report.append(f"- {note}")
 
     report.append("")
+    report.append("## Technical Signal Matrix")
+    report.append("")
 
     for stock in results:
         metrics = stock["metrics"]
 
-        report.append(
-            f"## {stock['ticker']} — {stock['classification']} ({stock['score']}/100)"
-        )
-
+        report.append(f"## {stock['ticker']}")
+        report.append(f"- Raw Score: {stock['score']}/100")
         report.append(f"- Price: {metrics['price']}")
         report.append(f"- RSI: {metrics['rsi']}")
         report.append(f"- Volume Ratio: {metrics['volume_ratio']}")
@@ -101,8 +99,7 @@ if __name__ == "__main__":
 
     filename = "reports/daily_report.md"
 
-    with open(filename, "w") as f:
+    with open(filename, "w", encoding="utf-8") as f:
         f.write(report)
 
     print(report)
-    print(f"\nSaved to {filename}")
