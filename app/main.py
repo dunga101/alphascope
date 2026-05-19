@@ -3,14 +3,16 @@ import time
 
 from app.renderers.report import generate_report
 from app.ai.gemini_client import analyze_market
+from app.ai.news_analyzer import analyze_news_events
 from app.renderers.telegram import send_telegram_message
-from app.config import get_symbols
 from app.collectors.macro import collect_macro_context
 from app.collectors.breadth import collect_sector_breadth
 from app.collectors.earnings import collect_earnings_context
 from app.collectors.fmp_quotes import collect_fmp_quotes
 from app.collectors.fmp_profile import collect_company_profile
 from app.collectors.fmp_fundamentals import collect_fundamentals
+from app.collectors.news_intelligence import collect_news_intelligence
+from app.processors.confidence_engine import unify_confidence
 from app.logger import setup_logger
 
 log = setup_logger()
@@ -25,7 +27,100 @@ FMP_WATCHLIST = [
     "GOOGL",
 ]
 
-SKIP_FUNDAMENTALS = {"SPY", "QQQ"}
+FUNDAMENTAL_SYMBOLS = [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+]
+
+MACRO_SYMBOLS = [
+    "^GSPC",
+    "^IXIC",
+    "^DJI",
+    "^VIX",
+    "^TNX",
+    "GC=F",
+    "CL=F",
+    "BTC-USD",
+]
+
+SECTOR_SYMBOLS = [
+    "XLF",
+    "XLK",
+    "XLE",
+    "XLI",
+    "XLV",
+    "XLY",
+    "XLP",
+    "XLU",
+    "XLRE",
+    "XLC",
+]
+
+CORE_SYMBOLS = [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "AMZN",
+    "META",
+    "GOOGL",
+    "TSLA",
+]
+
+
+def extract_headlines(news_events) -> list:
+    headlines = []
+
+    if isinstance(news_events, list):
+        for item in news_events:
+            if isinstance(item, dict):
+                title = (
+                    item.get("title")
+                    or item.get("headline")
+                    or item.get("summary")
+                )
+
+                if title:
+                    headlines.append(str(title))
+
+    elif isinstance(news_events, dict):
+        for value in news_events.values():
+            if isinstance(value, list):
+                for item in value:
+                    if isinstance(item, dict):
+                        title = (
+                            item.get("title")
+                            or item.get("headline")
+                            or item.get("summary")
+                        )
+
+                        if title:
+                            headlines.append(str(title))
+
+    return headlines
+
+
+def format_unified_confidence(unified: dict) -> str:
+    diagnostics = "\n".join(
+        [f"- {item}" for item in unified.get("diagnostics", [])]
+    )
+
+    return f"""Final Regime: {unified['final_regime']}
+Final Confidence: {unified['final_confidence']}%
+Composite Score: {unified['combined_score']}
+Systemic Event Detected: {unified.get('systemic_event', False)}
+
+Inputs:
+- Market AI: {unified['market_regime']} ({unified['market_confidence']}%)
+- Event AI Raw/Governed: {unified.get('event_raw_confidence', unified['event_confidence'])}% → {unified['event_confidence']}%
+
+Weights:
+- Market Weight: {unified['market_weight']}
+- Event Weight: {unified['event_weight']}
+
+Fusion Diagnostics:
+{diagnostics}
+"""
 
 
 def format_ai_summary(ai: dict) -> str:
@@ -48,10 +143,18 @@ Event Risks:
 - """ + "\n- ".join(ai["event_risk_names"]) + f"""
 
 Overheated:
-- """ + "\n- ".join(ai["overheated_names"]) + f"""
+- """ + (
+        "\n- ".join(ai["overheated_names"])
+        if ai["overheated_names"]
+        else "None"
+    ) + f"""
 
 Weak Names:
-- """ + "\n- ".join(ai["weak_names"]) + f"""
+- """ + (
+        "\n- ".join(ai["weak_names"])
+        if ai["weak_names"]
+        else "None"
+    ) + f"""
 
 Short-Term Outlook:
 {ai["short_term_outlook"]}
@@ -61,6 +164,32 @@ Medium-Term Outlook:
 
 Major Risks:
 - """ + "\n- ".join(ai["major_risks"])
+
+
+def format_news_intelligence(news: dict) -> str:
+    macro_opps = (
+        "\n- ".join(news["macro_opportunities"])
+        if news["macro_opportunities"]
+        else "None"
+    )
+
+    return f"""Market Regime Bias: {news['market_regime_bias']}
+Raw AI Confidence: {news['confidence']}%
+
+Executive Summary:
+{news['executive_summary']}
+
+Macro Risks:
+- """ + "\n- ".join(news["macro_risks"]) + f"""
+
+Macro Opportunities:
+- {macro_opps}
+
+Sector Watchlist:
+- """ + "\n- ".join(news["sector_watchlist"]) + f"""
+
+Key Catalysts:
+- """ + "\n- ".join(news["key_catalysts"])
 
 
 def format_earnings_context(data: dict) -> str:
@@ -90,13 +219,6 @@ def format_fmp_snapshot(data: dict) -> str:
             f"{quote['changePercentage']:.2f}% | "
             f"Vol {int(quote['volume']):,}"
         )
-
-    if data.get("errors"):
-        lines.append("")
-        lines.append("FMP ERRORS:")
-
-        for symbol, err in data["errors"].items():
-            lines.append(f"{symbol}: {err}")
 
     return "\n".join(lines)
 
@@ -145,6 +267,9 @@ def format_fundamentals(data: dict) -> str:
             f"NetMargin={f.get('net_margin')}"
         )
 
+    if not lines:
+        return "Fundamentals unavailable (API quota exhausted or cache cold)."
+
     return "\n".join(lines)
 
 
@@ -153,27 +278,19 @@ def build_full_report():
     technical_report = generate_report()
 
     log.info("Collecting macro context")
-    macro_context = collect_macro_context(get_symbols("macro"))
+    macro_context = collect_macro_context(MACRO_SYMBOLS)
 
     log.info("Collecting sector breadth")
-    sector_breadth = collect_sector_breadth(get_symbols("sectors"))
+    sector_breadth = collect_sector_breadth(SECTOR_SYMBOLS)
 
     log.info("Collecting earnings context")
-    earnings_context = collect_earnings_context(get_symbols("core"))
+    earnings_context = collect_earnings_context(CORE_SYMBOLS)
 
-    log.info(f"Collecting FMP quote snapshot ({len(FMP_WATCHLIST)} symbols)")
+    log.info("Collecting FMP quote snapshot")
     fmp_quotes = collect_fmp_quotes(FMP_WATCHLIST)
-
-    cache_stats = fmp_quotes.get("cache_stats", {})
-    log.info(
-        f"FMP cache stats: "
-        f"HIT={cache_stats.get('hits', 0)} "
-        f"MISS={cache_stats.get('misses', 0)}"
-    )
-
     fmp_snapshot = format_fmp_snapshot(fmp_quotes)
 
-    log.info("Collecting company profile intelligence")
+    log.info("Collecting company profiles")
     company_profiles = {}
 
     for symbol in FMP_WATCHLIST:
@@ -181,32 +298,26 @@ def build_full_report():
 
         if profile.get("status") == "OK":
             company_profiles[symbol] = profile
-        else:
-            log.warning(
-                f"Profile lookup failed for {symbol}: "
-                f"{profile.get('reason', 'Unknown error')}"
-            )
 
     company_profile_summary = format_company_profiles(company_profiles)
 
-    log.info("Collecting fundamentals intelligence")
+    log.info("Collecting fundamentals")
     fundamentals = {}
 
-    for symbol in FMP_WATCHLIST:
-        if symbol in SKIP_FUNDAMENTALS:
-            continue
-
+    for symbol in FUNDAMENTAL_SYMBOLS:
         f = collect_fundamentals(symbol)
 
         if f.get("status") == "OK":
             fundamentals[symbol] = f
-        else:
-            log.warning(
-                f"Fundamentals lookup failed for {symbol}: "
-                f"{f.get('reason', 'Unknown error')}"
-            )
 
     fundamentals_summary = format_fundamentals(fundamentals)
+
+    log.info("Collecting event intelligence")
+    news_events = collect_news_intelligence()
+
+    log.info("Running Gemini event synthesis")
+    news_ai = analyze_news_events(news_events)
+    news_ai["headlines"] = extract_headlines(news_events)
 
     enhanced_context = f"""
 LIVE MARKET SNAPSHOT
@@ -234,7 +345,12 @@ TECHNICAL ANALYSIS
         earnings_context
     )
 
+    log.info("Running confidence arbitration")
+    unified = unify_confidence(ai, news_ai)
+
     ai_summary = format_ai_summary(ai)
+    news_summary = format_news_intelligence(news_ai)
+    unified_summary = format_unified_confidence(unified)
     earnings_summary = format_earnings_context(earnings_context)
 
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -244,13 +360,25 @@ Generated: {timestamp}
 
 ==============================
 
+UNIFIED MARKET REGIME
+
+{unified_summary}
+
+==============================
+
 QUICK TAKE
 
 {ai['quick_take']}
 
 ==============================
 
-AI EXECUTIVE SUMMARY
+AI EVENT INTELLIGENCE
+
+{news_summary}
+
+==============================
+
+AI MARKET INTELLIGENCE
 
 {ai_summary}
 
@@ -308,32 +436,16 @@ def main():
         report = build_full_report()
         filename = save_report(report)
 
-        telegram_limit = 4000
-
         telegram_report = report.split(
             "==============================\n\nTECHNICAL APPENDIX"
         )[0]
 
-        if len(telegram_report) > telegram_limit:
-            chunks = [
-                telegram_report[i:i + telegram_limit]
-                for i in range(0, len(telegram_report), telegram_limit)
-            ]
-
-            log.info(
-                f"Sending Telegram executive summary in {len(chunks)} chunks"
-            )
-
-            for chunk in chunks:
-                send_telegram_message(chunk)
-
-        else:
-            log.info("Sending Telegram executive summary")
-            send_telegram_message(telegram_report)
+        log.info("Sending Telegram report")
+        send_telegram_message(telegram_report)
 
         duration = round(time.time() - start, 2)
 
-        log.info(f"AlphaScope completed successfully in {duration}s")
+        log.info(f"AlphaScope completed in {duration}s")
 
         print(report)
         print(f"\nSaved to {filename}")
