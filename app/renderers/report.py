@@ -1,6 +1,7 @@
-from app.processors.indicators import calculate_indicators
-from app.processors.screener import score_stock
 from datetime import datetime
+
+from app.processors.indicators import calculate_indicators
+from app.processors.screener import score_stock, classify
 from app.processors.signal_fusion import fuse_signals
 from app.collectors.advanced_breadth import collect_advanced_breadth
 from app.collectors.macro_signals import collect_macro_signals
@@ -16,21 +17,67 @@ WATCHLIST = [
     "GOOGL",
     "AMZN",
     "META",
-    "TSLA"
+    "TSLA",
 ]
 
 
 def apply_regime_penalty(score, regime):
     if regime == "STRONG RISK-OFF":
         return max(score - 25, 0)
-    elif regime == "RISK-OFF":
+    if regime == "RISK-OFF":
         return max(score - 15, 0)
-    elif regime == "RISK-ON":
+    if regime == "RISK-ON":
         return min(score + 10, 100)
-    elif regime == "STRONG RISK-ON":
+    if regime == "STRONG RISK-ON":
         return min(score + 15, 100)
 
     return score
+
+
+def derive_technical_snapshot(stock: dict, market_regime: dict) -> dict:
+    score = stock["score"]
+    metrics = stock["metrics"]
+    reasons = stock["reasons"]
+
+    trend_score = 50
+    if metrics["price"] > metrics["sma20"]:
+        trend_score += 20
+    else:
+        trend_score -= 20
+
+    if metrics["sma20"] > metrics["sma50"]:
+        trend_score += 20
+    else:
+        trend_score -= 20
+
+    momentum_score = 50
+    rsi = metrics["rsi"]
+
+    if 55 <= rsi <= 68:
+        momentum_score = 80
+    elif 45 <= rsi < 55:
+        momentum_score = 60
+    elif 68 < rsi <= 75:
+        momentum_score = 55
+    elif rsi < 35:
+        momentum_score = 25
+
+    volatility_score = 50
+    risk_score = max(0, min(100, 100 - score))
+
+    return {
+        "signal_score": score,
+        "trend_score": max(0, min(100, trend_score)),
+        "momentum_score": momentum_score,
+        "volatility_score": volatility_score,
+        "risk_score": risk_score,
+        "technical_regime": classify(score),
+        "technical_confidence": score,
+        "ticker": stock["ticker"],
+        "metrics": metrics,
+        "reasons": reasons,
+        "market_regime": market_regime,
+    }
 
 
 def generate_report():
@@ -47,10 +94,16 @@ def generate_report():
         if scored:
             adjusted_score = apply_regime_penalty(
                 scored["score"],
-                market_regime["regime"]
+                market_regime["regime"],
             )
 
             scored["score"] = adjusted_score
+            scored["classification"] = classify(adjusted_score)
+            scored["technical_snapshot"] = derive_technical_snapshot(
+                scored,
+                market_regime,
+            )
+
             results.append(scored)
 
     results.sort(key=lambda x: x["score"], reverse=True)
@@ -83,6 +136,7 @@ def generate_report():
 
         report.append(f"## {stock['ticker']}")
         report.append(f"- Raw Score: {stock['score']}/100")
+        report.append(f"- Classification: {stock['classification']}")
         report.append(f"- Price: {metrics['price']}")
         report.append(f"- RSI: {metrics['rsi']}")
         report.append(f"- Volume Ratio: {metrics['volume_ratio']}")
@@ -91,11 +145,16 @@ def generate_report():
         report.append(f"- Signals: {', '.join(stock['reasons'])}")
         report.append("")
 
-    return "\n".join(report)
+    return {
+        "report": "\n".join(report),
+        "market_regime": market_regime,
+        "technical_results": results,
+    }
 
 
 if __name__ == "__main__":
-    report = generate_report()
+    result = generate_report()
+    report = result["report"]
 
     filename = "reports/daily_report.md"
 

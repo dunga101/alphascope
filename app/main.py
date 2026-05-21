@@ -1,4 +1,5 @@
 from datetime import datetime
+import sys
 import time
 
 from app.renderers.report import generate_report
@@ -13,25 +14,20 @@ from app.collectors.fmp_profile import collect_company_profile
 from app.collectors.fmp_fundamentals import collect_fundamentals
 from app.collectors.news_intelligence import collect_news_intelligence
 from app.processors.confidence_engine import unify_confidence
+from app.db.repositories import save_market_snapshot
+from app.db.intelligence_persistence import (
+    persist_intelligence_report,
+    persist_event_snapshot,
+    persist_technical_snapshot,
+)
 from app.logger import setup_logger
 
 log = setup_logger()
 
-FMP_WATCHLIST = [
-    "SPY",
-    "AAPL",
-    "MSFT",
-    "NVDA",
-    "AMZN",
-    "META",
-    "GOOGL",
-]
+VALID_MODES = {"full", "degraded", "offline"}
 
-FUNDAMENTAL_SYMBOLS = [
-    "AAPL",
-    "MSFT",
-    "NVDA",
-]
+FMP_WATCHLIST = ["SPY", "AAPL", "MSFT", "NVDA", "AMZN", "META", "GOOGL"]
+FUNDAMENTAL_SYMBOLS = ["AAPL", "MSFT", "NVDA"]
 
 MACRO_SYMBOLS = [
     "^GSPC",
@@ -57,15 +53,19 @@ SECTOR_SYMBOLS = [
     "XLC",
 ]
 
-CORE_SYMBOLS = [
-    "AAPL",
-    "MSFT",
-    "NVDA",
-    "AMZN",
-    "META",
-    "GOOGL",
-    "TSLA",
-]
+CORE_SYMBOLS = ["AAPL", "MSFT", "NVDA", "AMZN", "META", "GOOGL", "TSLA"]
+
+
+def parse_mode() -> str:
+    if len(sys.argv) < 2:
+        return "full"
+
+    mode = sys.argv[1].strip().lower()
+
+    if mode not in VALID_MODES:
+        raise ValueError(f"Invalid mode '{mode}'. Use: full, degraded, offline")
+
+    return mode
 
 
 def extract_headlines(news_events) -> list:
@@ -74,12 +74,7 @@ def extract_headlines(news_events) -> list:
     if isinstance(news_events, list):
         for item in news_events:
             if isinstance(item, dict):
-                title = (
-                    item.get("title")
-                    or item.get("headline")
-                    or item.get("summary")
-                )
-
+                title = item.get("title") or item.get("headline") or item.get("summary")
                 if title:
                     headlines.append(str(title))
 
@@ -88,22 +83,92 @@ def extract_headlines(news_events) -> list:
             if isinstance(value, list):
                 for item in value:
                     if isinstance(item, dict):
-                        title = (
-                            item.get("title")
-                            or item.get("headline")
-                            or item.get("summary")
-                        )
-
+                        title = item.get("title") or item.get("headline") or item.get("summary")
                         if title:
                             headlines.append(str(title))
 
     return headlines
 
 
+def build_offline_market_ai() -> dict:
+    return {
+        "market_regime": "MIXED",
+        "confidence": 50,
+        "quick_take": (
+            "Offline mode active. AI market analysis is unavailable, so AlphaScope "
+            "is using a deterministic fallback."
+        ),
+        "macro_summary": [
+            "Macro and technical data collected where available.",
+            "AI interpretation disabled in offline mode.",
+        ],
+        "strong_sectors": ["Unavailable in offline fallback"],
+        "weak_sectors": ["Unavailable in offline fallback"],
+        "watchlist_names": ["Unavailable in offline fallback"],
+        "event_risk_names": ["Unavailable in offline fallback"],
+        "overheated_names": [],
+        "weak_names": [],
+        "short_term_outlook": "Neutral until AI analysis or expanded deterministic scoring is available.",
+        "medium_term_outlook": "Monitor trend, volatility, breadth, and macro conditions.",
+        "major_risks": [
+            "AI provider unavailable",
+            "Reduced signal quality in offline mode",
+        ],
+        "recommended_posture": "Defensive-neutral posture until full intelligence is restored.",
+        "bullish_signals": [],
+        "bearish_signals": [],
+        "risk_flags": ["Offline fallback mode", "AI market interpretation unavailable"],
+        "executive_summary": "Offline fallback intelligence generated.",
+    }
+
+
+def build_offline_news_ai(news_events=None) -> dict:
+    headlines = extract_headlines(news_events) if news_events else []
+
+    return {
+        "market_regime_bias": "MIXED",
+        "event_regime": "MIXED",
+        "confidence": 50,
+        "event_confidence": 50,
+        "executive_summary": (
+            "Offline mode active. Event AI synthesis is unavailable; raw headlines "
+            "are retained where available."
+        ),
+        "macro_risks": ["Event classification unavailable in offline mode"],
+        "macro_opportunities": [],
+        "sector_watchlist": [],
+        "key_catalysts": headlines[:10],
+        "major_headlines": headlines[:10],
+        "bullish_events": [],
+        "bearish_events": [],
+        "neutral_events": headlines[:10],
+        "risk_events": ["AI event interpretation unavailable"],
+        "headlines": headlines,
+    }
+
+
+def build_offline_unified(ai: dict, news_ai: dict) -> dict:
+    return {
+        "final_regime": "MIXED",
+        "final_confidence": 50,
+        "combined_score": 0,
+        "systemic_event": False,
+        "market_regime": ai.get("market_regime", "MIXED"),
+        "market_confidence": ai.get("confidence", 50),
+        "event_confidence": news_ai.get("event_confidence", news_ai.get("confidence", 50)),
+        "event_raw_confidence": news_ai.get("confidence", 50),
+        "market_weight": 0.50,
+        "event_weight": 0.50,
+        "diagnostics": [
+            "Offline deterministic fallback active",
+            "Gemini calls bypassed",
+            "FMP disabled in offline mode",
+        ],
+    }
+
+
 def format_unified_confidence(unified: dict) -> str:
-    diagnostics = "\n".join(
-        [f"- {item}" for item in unified.get("diagnostics", [])]
-    )
+    diagnostics = "\n".join([f"- {item}" for item in unified.get("diagnostics", [])])
 
     return f"""Final Regime: {unified['final_regime']}
 Final Confidence: {unified['final_confidence']}%
@@ -120,6 +185,73 @@ Weights:
 
 Fusion Diagnostics:
 {diagnostics}
+"""
+
+
+def build_telegram_summary(
+    mode: str,
+    unified: dict,
+    ai: dict,
+    news_ai: dict,
+    macro_context: dict,
+) -> str:
+    macro_lines = []
+
+    if isinstance(macro_context, dict):
+        for symbol, data in macro_context.items():
+            if isinstance(data, dict):
+                change = (
+                    data.get("change_pct")
+                    or data.get("changePercent")
+                    or data.get("change_percentage")
+                )
+
+                if change is not None:
+                    try:
+                        macro_lines.append(f"{symbol}: {float(change):+.2f}%")
+                    except (TypeError, ValueError):
+                        pass
+
+    macro_snapshot = "\n".join(macro_lines[:6]) or "Macro snapshot unavailable."
+
+    strong_names = ", ".join(ai.get("watchlist_names", [])[:4]) or "N/A"
+    overheated = ", ".join(ai.get("overheated_names", [])[:3]) or "None"
+    weak_names = ", ".join(ai.get("weak_names", [])[:3]) or "None"
+
+    event_regime = news_ai.get("event_regime") or news_ai.get("market_regime_bias") or "MIXED"
+    event_conf = news_ai.get("event_confidence") or news_ai.get("confidence") or 50
+
+    quick_take = ai.get("quick_take", "No summary available.")
+    if len(quick_take) > 450:
+        quick_take = quick_take[:450] + "..."
+
+    posture = ai.get("recommended_posture") or "Cautious positioning advised."
+    if len(posture) > 250:
+        posture = posture[:250] + "..."
+
+    return f"""AlphaScope Daily Brief
+Mode: {mode.upper()}
+Generated: {datetime.now().strftime("%Y-%m-%d %H:%M")}
+
+FINAL REGIME
+{unified['final_regime']} ({unified['final_confidence']}%)
+
+QUICK TAKE
+{quick_take}
+
+MARKET SNAPSHOT
+{macro_snapshot}
+
+EVENT RISK
+{event_regime} ({event_conf}%)
+
+TECHNICAL SIGNALS
+Strong: {strong_names}
+Overheated: {overheated}
+Weak: {weak_names}
+
+POSTURE
+{posture}
 """
 
 
@@ -143,18 +275,10 @@ Event Risks:
 - """ + "\n- ".join(ai["event_risk_names"]) + f"""
 
 Overheated:
-- """ + (
-        "\n- ".join(ai["overheated_names"])
-        if ai["overheated_names"]
-        else "None"
-    ) + f"""
+- """ + ("\n- ".join(ai["overheated_names"]) if ai["overheated_names"] else "None") + f"""
 
 Weak Names:
-- """ + (
-        "\n- ".join(ai["weak_names"])
-        if ai["weak_names"]
-        else "None"
-    ) + f"""
+- """ + ("\n- ".join(ai["weak_names"]) if ai["weak_names"] else "None") + f"""
 
 Short-Term Outlook:
 {ai["short_term_outlook"]}
@@ -167,11 +291,9 @@ Major Risks:
 
 
 def format_news_intelligence(news: dict) -> str:
-    macro_opps = (
-        "\n- ".join(news["macro_opportunities"])
-        if news["macro_opportunities"]
-        else "None"
-    )
+    macro_opps = "\n- ".join(news["macro_opportunities"]) if news["macro_opportunities"] else "None"
+    sector_watchlist = "\n- ".join(news["sector_watchlist"]) if news["sector_watchlist"] else "None"
+    key_catalysts = "\n- ".join(news["key_catalysts"]) if news["key_catalysts"] else "None"
 
     return f"""Market Regime Bias: {news['market_regime_bias']}
 Raw AI Confidence: {news['confidence']}%
@@ -186,24 +308,22 @@ Macro Opportunities:
 - {macro_opps}
 
 Sector Watchlist:
-- """ + "\n- ".join(news["sector_watchlist"]) + f"""
+- {sector_watchlist}
 
 Key Catalysts:
-- """ + "\n- ".join(news["key_catalysts"])
+- {key_catalysts}"""
 
 
 def format_earnings_context(data: dict) -> str:
     lines = []
 
     for symbol, details in data.items():
-        if details["status"] != "OK":
+        if details.get("status") != "OK":
             continue
 
-        lines.append(
-            f"{symbol} — {details['earnings_date']} ({details['event_risk']})"
-        )
+        lines.append(f"{symbol} — {details['earnings_date']} ({details['event_risk']})")
 
-    return "\n".join(lines)
+    return "\n".join(lines) if lines else "No earnings context available."
 
 
 def format_fmp_snapshot(data: dict) -> str:
@@ -230,19 +350,17 @@ def format_company_profiles(profiles: dict) -> str:
     lines = []
 
     for symbol, profile in profiles.items():
-        if profile.get("status") != "OK":
-            continue
+        if profile.get("status") == "OK":
+            lines.append(
+                f"{symbol}: "
+                f"{profile.get('company_name')} | "
+                f"Sector: {profile.get('sector')} | "
+                f"Industry: {profile.get('industry')} | "
+                f"Beta: {profile.get('beta')} | "
+                f"Market Cap: {profile.get('market_cap')}"
+            )
 
-        lines.append(
-            f"{symbol}: "
-            f"{profile.get('company_name')} | "
-            f"Sector: {profile.get('sector')} | "
-            f"Industry: {profile.get('industry')} | "
-            f"Beta: {profile.get('beta')} | "
-            f"Market Cap: {profile.get('market_cap')}"
-        )
-
-    return "\n".join(lines)
+    return "\n".join(lines) if lines else "No company profile context available."
 
 
 def format_fundamentals(data: dict) -> str:
@@ -252,39 +370,31 @@ def format_fundamentals(data: dict) -> str:
     lines = []
 
     for symbol, f in data.items():
-        if f.get("status") != "OK":
-            continue
+        if f.get("status") == "OK":
+            lines.append(
+                f"{symbol}: "
+                f"Revenue={f.get('revenue')} | "
+                f"NetIncome={f.get('net_income')} | "
+                f"FCF={f.get('free_cash_flow')} | "
+                f"Debt={f.get('total_debt')} | "
+                f"CurrentRatio={f.get('current_ratio')} | "
+                f"GrossMargin={f.get('gross_margin')} | "
+                f"OperatingMargin={f.get('operating_margin')} | "
+                f"NetMargin={f.get('net_margin')}"
+            )
 
-        lines.append(
-            f"{symbol}: "
-            f"Revenue={f.get('revenue')} | "
-            f"NetIncome={f.get('net_income')} | "
-            f"FCF={f.get('free_cash_flow')} | "
-            f"Debt={f.get('total_debt')} | "
-            f"CurrentRatio={f.get('current_ratio')} | "
-            f"GrossMargin={f.get('gross_margin')} | "
-            f"OperatingMargin={f.get('operating_margin')} | "
-            f"NetMargin={f.get('net_margin')}"
+    return "\n".join(lines) if lines else "Fundamentals unavailable."
+
+
+def collect_fmp_layer(mode: str):
+    if mode in {"degraded", "offline"}:
+        log.info("FMP layer disabled by selected mode")
+        return (
+            {},
+            "FMP disabled by selected AlphaScope mode.",
+            "Company profile intelligence disabled by selected AlphaScope mode.",
+            "Fundamental intelligence disabled by selected AlphaScope mode.",
         )
-
-    if not lines:
-        return "Fundamentals unavailable (API quota exhausted or cache cold)."
-
-    return "\n".join(lines)
-
-
-def build_full_report():
-    log.info("Generating technical report")
-    technical_report = generate_report()
-
-    log.info("Collecting macro context")
-    macro_context = collect_macro_context(MACRO_SYMBOLS)
-
-    log.info("Collecting sector breadth")
-    sector_breadth = collect_sector_breadth(SECTOR_SYMBOLS)
-
-    log.info("Collecting earnings context")
-    earnings_context = collect_earnings_context(CORE_SYMBOLS)
 
     log.info("Collecting FMP quote snapshot")
     fmp_quotes = collect_fmp_quotes(FMP_WATCHLIST)
@@ -312,12 +422,55 @@ def build_full_report():
 
     fundamentals_summary = format_fundamentals(fundamentals)
 
+    return fmp_quotes, fmp_snapshot, company_profile_summary, fundamentals_summary
+
+
+def persist_technical_results(technical_results: list):
+    if not technical_results:
+        log.info("No technical results available to persist")
+        return
+
+    for stock in technical_results:
+        symbol = stock.get("ticker")
+        snapshot = stock.get("technical_snapshot")
+
+        if not symbol or not snapshot:
+            continue
+
+        persist_technical_snapshot(symbol, snapshot)
+
+    log.info(f"Persisted {len(technical_results)} technical snapshots")
+
+
+def build_full_report(mode: str):
+    log.info(f"AlphaScope operating mode: {mode.upper()}")
+
+    log.info("Generating technical report")
+    technical_payload = generate_report()
+    technical_report = technical_payload["report"]
+    technical_results = technical_payload["technical_results"]
+
+    log.info("Collecting macro context")
+    macro_context = collect_macro_context(MACRO_SYMBOLS)
+
+    log.info("Collecting sector breadth")
+    sector_breadth = collect_sector_breadth(SECTOR_SYMBOLS)
+
+    log.info("Collecting earnings context")
+    earnings_context = collect_earnings_context(CORE_SYMBOLS)
+
+    fmp_quotes, fmp_snapshot, company_profile_summary, fundamentals_summary = collect_fmp_layer(mode)
+
     log.info("Collecting event intelligence")
     news_events = collect_news_intelligence()
 
-    log.info("Running Gemini event synthesis")
-    news_ai = analyze_news_events(news_events)
-    news_ai["headlines"] = extract_headlines(news_events)
+    if mode == "offline":
+        log.info("Offline mode active: bypassing Gemini event synthesis")
+        news_ai = build_offline_news_ai(news_events)
+    else:
+        log.info("Running Gemini event synthesis")
+        news_ai = analyze_news_events(news_events)
+        news_ai["headlines"] = extract_headlines(news_events)
 
     enhanced_context = f"""
 LIVE MARKET SNAPSHOT
@@ -337,16 +490,36 @@ TECHNICAL ANALYSIS
 {technical_report}
 """
 
-    log.info("Running Gemini market analysis")
-    ai = analyze_market(
-        enhanced_context,
-        macro_context,
-        sector_breadth,
-        earnings_context
-    )
+    if mode == "offline":
+        log.info("Offline mode active: bypassing Gemini market analysis")
+        ai = build_offline_market_ai()
+        unified = build_offline_unified(ai, news_ai)
+    else:
+        log.info("Running Gemini market analysis")
+        ai = analyze_market(
+            enhanced_context,
+            macro_context,
+            sector_breadth,
+            earnings_context,
+        )
 
-    log.info("Running confidence arbitration")
-    unified = unify_confidence(ai, news_ai)
+        log.info("Running confidence arbitration")
+        unified = unify_confidence(ai, news_ai)
+
+    log.info("Persisting market snapshot")
+    if fmp_quotes and fmp_quotes.get("status") == "OK":
+        save_market_snapshot(fmp_quotes, unified)
+    else:
+        log.info("Skipping market snapshot persistence because FMP quotes are unavailable")
+
+    log.info("Persisting technical snapshots")
+    persist_technical_results(technical_results)
+
+    log.info("Persisting AI intelligence report")
+    persist_intelligence_report(ai)
+
+    log.info("Persisting event intelligence snapshot")
+    persist_event_snapshot(news_ai)
 
     ai_summary = format_ai_summary(ai)
     news_summary = format_news_intelligence(news_ai)
@@ -357,6 +530,7 @@ TECHNICAL ANALYSIS
 
     full_report = f"""AlphaScope Daily Market Intelligence
 Generated: {timestamp}
+Mode: {mode.upper()}
 
 ==============================
 
@@ -413,11 +587,17 @@ TECHNICAL APPENDIX
 {technical_report}
 """
 
-    return full_report
+    return {
+        "report": full_report,
+        "ai": ai,
+        "news_ai": news_ai,
+        "unified": unified,
+        "macro_context": macro_context,
+    }
 
 
-def save_report(report_text):
-    filename = f"reports/alphascope_{datetime.now().strftime('%Y%m%d')}.md"
+def save_report(report_text: str, mode: str):
+    filename = f"reports/alphascope_{mode}_{datetime.now().strftime('%Y%m%d')}.md"
 
     with open(filename, "w", encoding="utf-8") as f:
         f.write(report_text)
@@ -429,18 +609,31 @@ def save_report(report_text):
 
 def main():
     start = time.time()
+    mode = parse_mode()
 
     log.info("AlphaScope run started")
+    log.info(f"Requested mode: {mode.upper()}")
 
     try:
-        report = build_full_report()
-        filename = save_report(report)
+        result = build_full_report(mode)
 
-        telegram_report = report.split(
-            "==============================\n\nTECHNICAL APPENDIX"
-        )[0]
+        report = result["report"]
+        ai = result["ai"]
+        news_ai = result["news_ai"]
+        unified = result["unified"]
+        macro_context = result["macro_context"]
 
-        log.info("Sending Telegram report")
+        filename = save_report(report, mode)
+
+        telegram_report = build_telegram_summary(
+            mode,
+            unified,
+            ai,
+            news_ai,
+            macro_context,
+        )
+
+        log.info("Sending Telegram executive summary")
         send_telegram_message(telegram_report)
 
         duration = round(time.time() - start, 2)
@@ -449,7 +642,7 @@ def main():
 
         print(report)
         print(f"\nSaved to {filename}")
-        print("Telegram delivery complete.")
+        print("Telegram executive summary delivered.")
 
     except Exception as e:
         log.exception(f"AlphaScope failed: {e}")
