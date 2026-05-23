@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-05-23 21:52 EST",
+  "regime": "MIXED",
+  "confidence": 35,
+  "summary": "Markets are exhibiting a risk-on sentiment with broad index gains and declining volatility. However, participation quality is a concern, with some key technology names showing signs of overheating or technical weakness despite generally positive trends. Event risk is currently low for major tech companies. Investors should remain cautious due to the mixed signals in breadth and the potential for concentrated risk in leading technology names.",
+  "bullish": [
+    "SPY",
+    "QQQ",
+    "AMD",
+    "GOOGL",
+    "AMZN"
+  ],
+  "bearish": [
+    "META",
+    "SHOP.TO"
+  ],
+  "ticker": [
+    {
+      "symbol": "SPY",
+      "price": "$745.64",
+      "change": "+0.39%"
+    },
+    {
+      "symbol": "AAPL",
+      "price": "$308.82",
+      "change": "+1.26%"
+    },
+    {
+      "symbol": "MSFT",
+      "price": "$418.57",
+      "change": "-0.12%"
+    },
+    {
+      "symbol": "NVDA",
+      "price": "$215.33",
+      "change": "-1.90%"
+    },
+    {
+      "symbol": "AMZN",
+      "price": "$266.32",
+      "change": "-0.80%"
+    },
+    {
+      "symbol": "META",
+      "price": "$610.26",
+      "change": "+0.47%"
+    },
+    {
+      "symbol": "GOOGL",
+      "price": "$382.97",
+      "change": "-1.21%"
+    }
+  ]
+}
