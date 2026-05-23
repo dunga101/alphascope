@@ -610,7 +610,7 @@ def save_report(report_text: str, mode: str):
 
 
 def main():
-        start = time.time()
+    start = time.time()
     mode = parse_mode()
 
     log.info("AlphaScope run started")
