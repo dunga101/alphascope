@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlphaScope | AI Market Intelligence</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: linear-gradient(135deg, #020617, #0f172a, #020617);
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(18px);
+  background: rgba(2, 6, 23, 0.8);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 20px 40px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(96,165,250,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo svg {
+  width: 34px;
+  height: 34px;
+}
+
+.brand h1 {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.brand p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.ticker {
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(2,6,23,0.7);
+  padding: 14px 0;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: inline-block;
+  animation: scroll 25s linear infinite;
+}
+
+.ticker span {
+  margin-right: 40px;
+  font-size: 0.95rem;
+}
+
+.green { color: #22c55e; }
+.red { color: #ef4444; }
+
+.hero {
+  text-align: center;
+  padding: 90px 30px 70px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(96,165,250,0.25);
+  color: #bfdbfe;
+  margin-bottom: 28px;
+}
+
+.hero h2 {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.hero p {
+  max-width: 850px;
+  margin: 30px auto;
+  font-size: 1.2rem;
+  color: #cbd5e1;
+}
+
+.dashboard {
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 30px 80px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 28px;
+  border-radius: 24px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+
+.card h3 {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.metric {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.summary {
+  margin-top: 25px;
+}
+
+.summary p {
+  line-height: 1.8;
+  color: #d1d5db;
+}
+
+.dual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+ul {
+  padding-left: 20px;
+  line-height: 2;
+}
+
+.footer {
+  text-align: center;
+  padding: 50px;
+  color: #64748b;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media(max-width: 768px) {
+  .hero h2 {
+    font-size: 2.4rem;
+  }
+
+  .dual-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<div class="container">
+
+<header>
+  <div class="brand">
+    <div class="logo">
+      <svg viewBox="0 0 120 120">
+        <defs>
+          <linearGradient id="alphaGrad" x1="0" y1="0" x2="120" y2="120">
+            <stop offset="0%" stop-color="#93C5FD"/>
+            <stop offset="50%" stop-color="#3B82F6"/>
+            <stop offset="100%" stop-color="#06B6D4"/>
+          </linearGradient>
+        </defs>
+        <polygon points="60,10 95,30 95,75 60,110 25,75 25,30"
+          stroke="url(#alphaGrad)" stroke-width="5"
+          fill="rgba(59,130,246,0.08)" />
+        <polygon points="60,38 76,54 60,70 44,54" fill="url(#alphaGrad)" />
+      </svg>
+    </div>
+    <div>
+      <h1>AlphaScope</h1>
+      <p>AI Market Intelligence Platform</p>
+    </div>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<section class="hero">
+  <div class="badge">Institutional-grade clarity for modern investors</div>
+  <h2>Stop reacting.<br>Start understanding.</h2>
+  <p>
+    AlphaScope transforms fragmented market data into disciplined, explainable AI-powered decision support.
+  </p>
+</section>
+
+<section class="dashboard">
+
+<div class="cards">
+  <div class="card">
+    <h3>Market Regime</h3>
+    <div class="metric" id="regime">Loading...</div>
+  </div>
+
+  <div class="card">
+    <h3>Confidence</h3>
+    <div class="metric" id="confidence">--%</div>
+  </div>
+
+  <div class="card">
+    <h3>Last Update</h3>
+    <div class="metric" id="timestamp" style="font-size:1.3rem;">--</div>
+  </div>
+</div>
+
+<div class="card summary">
+  <h3>Executive Summary</h3>
+  <p id="summary">Loading...</p>
+</div>
+
+<div class="dual-grid">
+  <div class="card">
+    <h3>Bullish Opportunities</h3>
+    <ul id="bullish"></ul>
+  </div>
+
+  <div class="card">
+    <h3>Risk / Weakness Watchlist</h3>
+    <ul id="bearish"></ul>
+  </div>
+</div>
+
+</section>
+
+<div class="footer">
+  AlphaScope Prototype • Live auto-updating market intelligence
+</div>
+
+</div>
+
+<script>
+async function loadData() {
+  const res = await fetch('data/latest-report.json?t=' + Date.now());
+  const data = await res.json();
+
+  document.getElementById('regime').textContent = data.regime;
+  document.getElementById('confidence').textContent = data.confidence + '%';
+  document.getElementById('timestamp').textContent = data.generated_at;
+  document.getElementById('summary').textContent = data.summary;
+
+  const bullish = document.getElementById('bullish');
+  bullish.innerHTML = '';
+  data.bullish.forEach(item => {
+    bullish.innerHTML += `<li>${item}</li>`;
+  });
+
+  const bearish = document.getElementById('bearish');
+  bearish.innerHTML = '';
+  data.bearish.forEach(item => {
+    bearish.innerHTML += `<li>${item}</li>`;
+  });
+
+  const ticker = document.getElementById('ticker');
+  ticker.innerHTML = data.ticker.map(item =>
+    `<span><strong>${item.symbol}</strong> ${item.price} <span class="${item.change.startsWith('-') ? 'red' : 'green'}">${item.change}</span></span>`
+  ).join(' ') +
+  data.ticker.map(item =>
+    `<span><strong>${item.symbol}</strong> ${item.price} <span class="${item.change.startsWith('-') ? 'red' : 'green'}">${item.change}</span></span>`
+  ).join(' ');
+}
+
+loadData();
+setInterval(loadData, 300000);
+</script>
+
+</body>
+</html>
