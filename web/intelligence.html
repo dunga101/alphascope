@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlphaScope | Full Intelligence Report</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: linear-gradient(135deg, #020617, #0f172a, #020617);
+  color: white;
+  min-height: 100vh;
+}
+
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  max-width: 1400px;
+  margin: auto;
+  padding: 40px 30px 80px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(96,165,250,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo svg {
+  width: 34px;
+  height: 34px;
+}
+
+.brand h1 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.brand p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.back-btn {
+  padding: 14px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: white;
+  background: rgba(59,130,246,0.15);
+  border: 1px solid rgba(96,165,250,0.35);
+  font-weight: 700;
+}
+
+.hero {
+  margin-bottom: 30px;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+}
+
+.report-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 30px;
+  border-radius: 24px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+
+.timestamp {
+  color: #94a3b8;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+}
+
+@media(max-width: 768px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<div class="container">
+
+  <div class="header">
+    <div class="brand">
+      <div class="logo">
+        <svg viewBox="0 0 120 120">
+          <defs>
+            <linearGradient id="alphaGrad" x1="0" y1="0" x2="120" y2="120">
+              <stop offset="0%" stop-color="#93C5FD"/>
+              <stop offset="50%" stop-color="#3B82F6"/>
+              <stop offset="100%" stop-color="#06B6D4"/>
+            </linearGradient>
+          </defs>
+          <polygon points="60,10 95,30 95,75 60,110 25,75 25,30"
+            stroke="url(#alphaGrad)" stroke-width="5"
+            fill="rgba(59,130,246,0.08)" />
+          <polygon points="60,38 76,54 60,70 44,54" fill="url(#alphaGrad)" />
+        </svg>
+      </div>
+
+      <div>
+        <h1>AlphaScope</h1>
+        <p>Deep Intelligence Report</p>
+      </div>
+    </div>
+
+    <a href="/" class="back-btn">← Dashboard</a>
+  </div>
+
+  <div class="hero">
+    <h2>Full Market Intelligence</h2>
+    <p>Detailed AI-assisted market analysis, technical diagnostics, event intelligence, and strategic posture.</p>
+  </div>
+
+  <div class="report-card">
+    <div class="timestamp" id="timestamp">Loading...</div>
+    <pre id="report">Loading full intelligence report...</pre>
+  </div>
+
+</div>
+
+<script>
+async function loadReport() {
+  try {
+    const res = await fetch('data/full-report.json?t=' + Date.now());
+    const data = await res.json();
+
+    document.getElementById('timestamp').textContent =
+      "Generated: " + data.generated_at;
+
+    document.getElementById('report').textContent =
+      data.full_report;
+  } catch (e) {
+    document.getElementById('report').textContent =
+      "Unable to load intelligence report.";
+    console.error(e);
+  }
+}
+
+loadReport();
+setInterval(loadReport, 300000);
+</script>
+
+</body>
+</html>

@@ -4,9 +4,9 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 
 
-def export_web_report(ai, unified, fmp_quotes):
+def export_web_report(ai, unified, fmp_quotes, full_report_text=None):
     """
-    Export AlphaScope intelligence for public dashboard consumption.
+    Export AlphaScope intelligence for public dashboard + detailed intelligence page.
     """
 
     ticker = []
@@ -23,44 +23,39 @@ def export_web_report(ai, unified, fmp_quotes):
         ZoneInfo("America/Toronto")
     ).strftime("%Y-%m-%d %H:%M %Z")
 
-    output = {
+    latest_output = {
         "generated_at": toronto_time,
-
-        "regime": unified.get(
-            "final_regime",
-            "UNKNOWN"
-        ),
-
-        "confidence": unified.get(
-            "final_confidence",
-            0
-        ),
-
+        "regime": unified.get("final_regime", "UNKNOWN"),
+        "confidence": unified.get("final_confidence", 0),
         "summary": ai.get(
             "quick_take",
             "AlphaScope intelligence currently unavailable."
         ),
-
         "bullish": ai.get(
             "watchlist_names",
             ["No active bullish opportunities"]
         )[:5],
-
         "bearish": ai.get(
             "weak_names",
             ["No immediate weakness detected"]
         )[:5],
-
         "ticker": ticker
     }
 
-    out_path = Path("web/data/latest-report.json")
-    out_path.parent.mkdir(
-        parents=True,
-        exist_ok=True
-    )
+    latest_path = Path("web/data/latest-report.json")
+    latest_path.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(output, f, indent=2)
+    with open(latest_path, "w", encoding="utf-8") as f:
+        json.dump(latest_output, f, indent=2)
 
-    print(f"Web dashboard JSON exported -> {out_path}")
+    full_output = {
+        "generated_at": toronto_time,
+        "full_report": full_report_text or "No report available."
+    }
+
+    full_path = Path("web/data/full-report.json")
+
+    with open(full_path, "w", encoding="utf-8") as f:
+        json.dump(full_output, f, indent=2)
+
+    print("Web dashboard JSON exported.")

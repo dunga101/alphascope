@@ -628,7 +628,7 @@ def main():
 
         filename = save_report(report, mode)
 
-        export_web_report(ai, unified, fmp_quotes)
+        export_web_report(ai, unified, fmp_quotes, report)
 
         telegram_report = build_telegram_summary(
             mode,
