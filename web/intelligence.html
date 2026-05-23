@@ -17,6 +17,7 @@ body {
   background: linear-gradient(135deg, #020617, #0f172a, #020617);
   color: white;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .grid-bg {
@@ -60,6 +61,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 0 0 auto;
 }
 
 .logo svg {
@@ -97,43 +99,219 @@ body {
   margin-bottom: 10px;
 }
 
-.hero p {
+.hero p,
+.muted {
   color: #cbd5e1;
-  font-size: 1.1rem;
+  line-height: 1.7;
 }
 
-.report-card {
+.status-banner {
+  display: none;
+  margin-bottom: 24px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  color: #fecaca;
+  background: rgba(239,68,68,0.12);
+  border: 1px solid rgba(248,113,113,0.3);
+}
+
+.section {
+  margin-top: 26px;
+}
+
+.section-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.section-title h3 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: #93c5fd;
+}
+
+.section-title span {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.grid {
+  display: grid;
+  gap: 18px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
-  padding: 30px;
-  border-radius: 24px;
+  padding: 24px;
+  border-radius: 18px;
   backdrop-filter: blur(16px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.32);
 }
 
-.timestamp {
+.card h4 {
   color: #94a3b8;
-  margin-bottom: 20px;
-  font-size: 0.95rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: 0;
 }
 
-pre {
+.metric {
+  font-size: 2rem;
+  font-weight: 900;
+  overflow-wrap: anywhere;
+}
+
+.metric.small {
+  font-size: 1.25rem;
+}
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: #dbeafe;
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(96,165,250,0.24);
+  font-size: 0.9rem;
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+}
+
+.list li {
+  color: #d1d5db;
+  line-height: 1.55;
+  padding-left: 16px;
+  position: relative;
+}
+
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #60a5fa;
+}
+
+.quote-card .symbol,
+.company-card .symbol,
+.technical-card .symbol {
+  font-size: 1.35rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.quote-card .price {
+  font-size: 1.75rem;
+  font-weight: 900;
+}
+
+.green { color: #22c55e; }
+.red { color: #ef4444; }
+
+.meta-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.meta-item {
+  min-height: 64px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(15,23,42,0.65);
+  border: 1px solid rgba(148,163,184,0.12);
+}
+
+.meta-item span {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.meta-item strong {
+  color: #f8fafc;
+  overflow-wrap: anywhere;
+}
+
+.report-text {
   white-space: pre-wrap;
-  word-wrap: break-word;
   line-height: 1.7;
-  font-size: 0.95rem;
   color: #e2e8f0;
 }
 
-@media(max-width: 768px) {
+.raw-report {
+  display: none;
+}
+
+@media(max-width: 1050px) {
+  .grid-4,
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media(max-width: 760px) {
+  .container {
+    padding: 28px 18px 60px;
+  }
+
   .hero h2 {
     font-size: 2rem;
   }
 
-  .header {
+  .header,
+  .section-title {
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
     align-items: flex-start;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .meta-row {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 16px;
   }
 }
 </style>
@@ -143,11 +321,10 @@ pre {
 <div class="grid-bg"></div>
 
 <div class="container">
-
   <div class="header">
     <div class="brand">
       <div class="logo">
-        <svg viewBox="0 0 120 120">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
           <defs>
             <linearGradient id="alphaGrad" x1="0" y1="0" x2="120" y2="120">
               <stop offset="0%" stop-color="#93C5FD"/>
@@ -168,7 +345,7 @@ pre {
       </div>
     </div>
 
-    <a href="/" class="back-btn">← Dashboard</a>
+    <a href="/" class="back-btn">&larr; Dashboard</a>
   </div>
 
   <div class="hero">
@@ -176,28 +353,456 @@ pre {
     <p>Detailed AI-assisted market analysis, technical diagnostics, event intelligence, and strategic posture.</p>
   </div>
 
-  <div class="report-card">
-    <div class="timestamp" id="timestamp">Loading...</div>
-    <pre id="report">Loading full intelligence report...</pre>
-  </div>
+  <div class="status-banner" id="status-banner"></div>
 
+  <main id="dashboard" aria-live="polite"></main>
 </div>
 
 <script>
+const sectionNames = {
+  unified: 'UNIFIED MARKET REGIME',
+  quickTake: 'QUICK TAKE',
+  event: 'AI EVENT INTELLIGENCE',
+  market: 'AI MARKET INTELLIGENCE',
+  snapshot: 'LIVE MARKET SNAPSHOT',
+  company: 'COMPANY INTELLIGENCE',
+  fundamentals: 'FUNDAMENTALS INTELLIGENCE',
+  earnings: 'EARNINGS EVENT CONTEXT',
+  technical: 'TECHNICAL APPENDIX'
+};
+
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined && text !== null) node.textContent = text;
+  return node;
+}
+
+function append(parent, children) {
+  children.filter(Boolean).forEach(child => parent.appendChild(child));
+  return parent;
+}
+
+function showError(message) {
+  const banner = document.getElementById('status-banner');
+  banner.textContent = message;
+  banner.style.display = 'block';
+}
+
+function getSection(report, heading) {
+  const marker = heading + '\n';
+  const start = report.indexOf(marker);
+  if (start === -1) return '';
+
+  const contentStart = start + marker.length;
+  const end = report.indexOf('\n==============================', contentStart);
+  return report.slice(contentStart, end === -1 ? report.length : end).trim();
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function blockAfter(section, label) {
+  const pattern = new RegExp(escapeRegExp(label) + ':\\s*\\n([\\s\\S]*?)(?=\\n\\n[A-Z][A-Za-z /-]+:|\\n\\n[A-Z][A-Za-z /-]+\\n|$)');
+  const match = section.match(pattern);
+  return match ? match[1].trim() : '';
+}
+
+function valueFor(section, label) {
+  const pattern = new RegExp('^' + escapeRegExp(label) + ':\\s*(.*)$', 'm');
+  const match = section.match(pattern);
+  return match ? match[1].trim() : '';
+}
+
+function listAfter(section, label) {
+  return blockAfter(section, label)
+    .split('\n')
+    .map(line => line.replace(/^[-*]\s*/, '').trim())
+    .filter(Boolean);
+}
+
+function keyValueMap(section) {
+  const output = {};
+  section.split('\n').forEach(line => {
+    const match = line.match(/^([^:\n]+):\s*(.*)$/);
+    if (match) output[match[1].trim()] = match[2].trim();
+  });
+  return output;
+}
+
+function sectionShell(title, subtitle) {
+  const section = el('section', 'section');
+  const heading = el('div', 'section-title');
+  heading.appendChild(el('h3', '', title));
+  if (subtitle) heading.appendChild(el('span', '', subtitle));
+  section.appendChild(heading);
+  return section;
+}
+
+function metricCard(label, value) {
+  const card = el('div', 'card');
+  card.appendChild(el('h4', '', label));
+  card.appendChild(el('div', 'metric', value || 'Unavailable'));
+  return card;
+}
+
+function textCard(label, text) {
+  const card = el('div', 'card');
+  card.appendChild(el('h4', '', label));
+  card.appendChild(el('p', 'muted', text || 'Unavailable'));
+  return card;
+}
+
+function listCard(label, items) {
+  const card = el('div', 'card');
+  const list = el('ul', 'list');
+  card.appendChild(el('h4', '', label));
+
+  const safeItems = items.length ? items : ['No items reported.'];
+  safeItems.forEach(item => list.appendChild(el('li', '', item)));
+  card.appendChild(list);
+  return card;
+}
+
+function pillCard(label, items) {
+  const card = el('div', 'card');
+  const row = el('div', 'pill-row');
+  card.appendChild(el('h4', '', label));
+
+  const safeItems = items.length ? items : ['None reported'];
+  safeItems.forEach(item => row.appendChild(el('span', 'pill', item)));
+  card.appendChild(row);
+  return card;
+}
+
+function parseSnapshot(section) {
+  return section.split('\n').map(line => {
+    const match = line.match(/^([^:]+):\s*\$?([^|]+)\|\s*([+-]?\d+(?:\.\d+)?)%\s*\|\s*Vol\s*(.+)$/);
+    if (!match) return null;
+    return {
+      symbol: match[1].trim(),
+      price: '$' + match[2].trim(),
+      change: match[3].trim() + '%',
+      volume: match[4].trim()
+    };
+  }).filter(Boolean);
+}
+
+function splitFirst(value, delimiter) {
+  const index = value.indexOf(delimiter);
+  if (index === -1) return [value, ''];
+  return [value.slice(0, index), value.slice(index + delimiter.length)];
+}
+
+function parseCompany(section) {
+  return section.split('\n').map(line => {
+    const [symbolPart, rest] = splitFirst(line, ': ');
+    if (!symbolPart || !rest) return null;
+
+    const parts = rest.split(' | ');
+    const company = { symbol: symbolPart.trim(), name: parts[0] || '' };
+    parts.slice(1).forEach(part => {
+      const [key, value] = splitFirst(part, ': ');
+      if (key && value) company[key.trim()] = value.trim();
+    });
+    return company;
+  }).filter(Boolean);
+}
+
+function parseFundamentals(section) {
+  return section.split('\n').map(line => {
+    const [symbolPart, rest] = splitFirst(line, ': ');
+    if (!symbolPart || !rest) return null;
+
+    const metrics = {};
+    rest.split(' | ').forEach(part => {
+      const [key, value] = splitFirst(part, '=');
+      if (key && value !== undefined) metrics[key.trim()] = value.trim();
+    });
+    return { symbol: symbolPart.trim(), metrics };
+  }).filter(Boolean);
+}
+
+function parseTechnical(section) {
+  const matrixStart = section.indexOf('## Technical Signal Matrix');
+  const matrix = matrixStart === -1 ? section : section.slice(matrixStart);
+  const blocks = matrix.split('\n\n## ').slice(1);
+
+  return blocks.map(block => {
+    const lines = block.trim().split('\n');
+    const symbol = lines.shift();
+    const values = {};
+    lines.forEach(line => {
+      const match = line.match(/^-\s*([^:]+):\s*(.*)$/);
+      if (match) values[match[1].trim()] = match[2].trim();
+    });
+    return { symbol, values };
+  }).filter(item => item.symbol && item.values['Raw Score']);
+}
+
+function compactNumber(value) {
+  const number = Number(String(value).replace(/,/g, ''));
+  if (!Number.isFinite(number)) return value || 'Unavailable';
+
+  if (Math.abs(number) >= 1000000) {
+    return new Intl.NumberFormat('en-US', {
+      notation: 'compact',
+      maximumFractionDigits: 2
+    }).format(number);
+  }
+
+  return new Intl.NumberFormat('en-US', {
+    maximumFractionDigits: 3
+  }).format(number);
+}
+
+function formatMetric(key, value) {
+  if (value === undefined || value === null || value === '') return 'Unavailable';
+  const number = Number(value);
+
+  if (Number.isFinite(number) && key.toLowerCase().includes('margin')) {
+    return new Intl.NumberFormat('en-US', {
+      style: 'percent',
+      maximumFractionDigits: 1
+    }).format(number);
+  }
+
+  return compactNumber(value);
+}
+
+function renderUnified(report) {
+  const data = keyValueMap(getSection(report, sectionNames.unified));
+  const section = sectionShell('Unified Market Regime', 'Confidence-governed final state');
+  const grid = el('div', 'grid grid-4');
+
+  append(grid, [
+    metricCard('Final Regime', data['Final Regime']),
+    metricCard('Confidence', data['Final Confidence']),
+    metricCard('Composite Score', data['Composite Score']),
+    metricCard('Systemic Event', data['Systemic Event Detected'])
+  ]);
+
+  section.appendChild(grid);
+  return section;
+}
+
+function renderQuickTake(report) {
+  const section = sectionShell('Executive Quick Take', 'Plain-English market read');
+  section.appendChild(textCard('Summary', getSection(report, sectionNames.quickTake)));
+  return section;
+}
+
+function renderEvent(report) {
+  const event = getSection(report, sectionNames.event);
+  const section = sectionShell('AI Event Intelligence', 'News and catalyst interpretation');
+  const grid = el('div', 'grid grid-2');
+
+  append(grid, [
+    textCard('Executive Summary', blockAfter(event, 'Executive Summary')),
+    metricCard('Regime Bias', valueFor(event, 'Market Regime Bias')),
+    metricCard('Raw AI Confidence', valueFor(event, 'Raw AI Confidence')),
+    listCard('Macro Risks', listAfter(event, 'Macro Risks')),
+    listCard('Macro Opportunities', listAfter(event, 'Macro Opportunities')),
+    pillCard('Sector Watchlist', listAfter(event, 'Sector Watchlist')),
+    listCard('Key Catalysts', listAfter(event, 'Key Catalysts'))
+  ]);
+
+  section.appendChild(grid);
+  return section;
+}
+
+function renderMarket(report) {
+  const market = getSection(report, sectionNames.market);
+  const section = sectionShell('AI Market Intelligence', 'Macro, sector, technical, and risk synthesis');
+  const metrics = el('div', 'grid grid-4');
+  const grid = el('div', 'grid grid-2');
+
+  append(metrics, [
+    metricCard('Market Regime', valueFor(market, 'Market Regime')),
+    metricCard('Confidence', valueFor(market, 'Confidence')),
+    pillCard('Watchlist Names', listAfter(market, 'Watchlist Names')),
+    pillCard('Overheated Names', listAfter(market, 'Overheated'))
+  ]);
+
+  append(grid, [
+    listCard('Macro Summary', listAfter(market, 'Macro Summary')),
+    pillCard('Strong Sectors', listAfter(market, 'Strong Sectors')),
+    pillCard('Weak Sectors', listAfter(market, 'Weak Sectors')),
+    pillCard('Weak Names', listAfter(market, 'Weak Names')),
+    listCard('Major Risks', listAfter(market, 'Major Risks')),
+    textCard('Short-Term Outlook', blockAfter(market, 'Short-Term Outlook')),
+    textCard('Medium-Term Outlook', blockAfter(market, 'Medium-Term Outlook'))
+  ]);
+
+  section.appendChild(metrics);
+  section.appendChild(grid);
+  return section;
+}
+
+function renderSnapshot(report) {
+  const quotes = parseSnapshot(getSection(report, sectionNames.snapshot));
+  const section = sectionShell('Live Market Snapshot', 'Latest exported quote layer');
+  const grid = el('div', 'grid grid-4');
+
+  if (!quotes.length) {
+    grid.appendChild(textCard('Quotes', 'No market snapshot available.'));
+  }
+
+  quotes.forEach(item => {
+    const card = el('div', 'card quote-card');
+    const changeClass = item.change.startsWith('-') ? 'red' : 'green';
+    append(card, [
+      el('div', 'symbol', item.symbol),
+      el('div', 'price', item.price),
+      el('div', changeClass, item.change),
+      el('p', 'muted', 'Volume ' + item.volume)
+    ]);
+    grid.appendChild(card);
+  });
+
+  section.appendChild(grid);
+  return section;
+}
+
+function renderCompany(report) {
+  const companies = parseCompany(getSection(report, sectionNames.company));
+  const section = sectionShell('Company Intelligence', 'Profile and metadata context');
+  const grid = el('div', 'grid grid-3');
+
+  companies.forEach(company => {
+    const card = el('div', 'card company-card');
+    const meta = el('div', 'meta-row');
+    append(card, [
+      el('div', 'symbol', company.symbol),
+      el('p', 'muted', company.name)
+    ]);
+    [['Sector', company.Sector], ['Industry', company.Industry], ['Beta', company.Beta], ['Market Cap', compactNumber(company['Market Cap'])]].forEach(([label, value]) => {
+      const item = el('div', 'meta-item');
+      item.appendChild(el('span', '', label));
+      item.appendChild(el('strong', '', value || 'Unavailable'));
+      meta.appendChild(item);
+    });
+    card.appendChild(meta);
+    grid.appendChild(card);
+  });
+
+  if (!companies.length) grid.appendChild(textCard('Companies', 'No company intelligence available.'));
+  section.appendChild(grid);
+  return section;
+}
+
+function renderFundamentals(report) {
+  const fundamentals = parseFundamentals(getSection(report, sectionNames.fundamentals));
+  const section = sectionShell('Fundamentals Intelligence', 'Financial quality and balance sheet metrics');
+  const grid = el('div', 'grid grid-3');
+
+  fundamentals.forEach(item => {
+    const card = el('div', 'card');
+    const meta = el('div', 'meta-row');
+    card.appendChild(el('h4', '', item.symbol));
+
+    Object.entries(item.metrics).forEach(([key, value]) => {
+      const metric = el('div', 'meta-item');
+      metric.appendChild(el('span', '', key));
+      metric.appendChild(el('strong', '', formatMetric(key, value)));
+      meta.appendChild(metric);
+    });
+
+    card.appendChild(meta);
+    grid.appendChild(card);
+  });
+
+  if (!fundamentals.length) grid.appendChild(textCard('Fundamentals', 'No fundamentals available.'));
+  section.appendChild(grid);
+  return section;
+}
+
+function renderEarnings(report) {
+  const earnings = getSection(report, sectionNames.earnings)
+    .split('\n')
+    .map(line => line.trim())
+    .filter(Boolean);
+  const section = sectionShell('Earnings Event Context', 'Upcoming reported earnings risk');
+  section.appendChild(listCard('Earnings Calendar', earnings));
+  return section;
+}
+
+function renderTechnical(report) {
+  const technicalSection = getSection(report, sectionNames.technical);
+  const entries = parseTechnical(technicalSection);
+  const section = sectionShell('Technical Appendix', 'Deterministic scoring matrix');
+  const grid = el('div', 'grid grid-3');
+
+  entries.forEach(entry => {
+    const card = el('div', 'card technical-card');
+    const meta = el('div', 'meta-row');
+    card.appendChild(el('div', 'symbol', entry.symbol));
+
+    ['Raw Score', 'Classification', 'Price', 'RSI', 'Volume Ratio', 'SMA20', 'SMA50', 'Signals'].forEach(key => {
+      if (!entry.values[key]) return;
+      const item = el('div', 'meta-item');
+      item.appendChild(el('span', '', key));
+      item.appendChild(el('strong', '', entry.values[key]));
+      meta.appendChild(item);
+    });
+
+    card.appendChild(meta);
+    grid.appendChild(card);
+  });
+
+  if (!entries.length) {
+    section.appendChild(textCard('Technical Report', technicalSection || 'No technical appendix available.'));
+    return section;
+  }
+
+  section.appendChild(grid);
+  return section;
+}
+
+function renderDashboard(payload) {
+  const dashboard = document.getElementById('dashboard');
+  const report = payload.full_report || '';
+
+  dashboard.innerHTML = '';
+
+  if (!report) {
+    showError('Full intelligence payload is missing full_report.');
+    return;
+  }
+
+  const timestamp = sectionShell('Report Timestamp', payload.generated_at || 'Generated time unavailable');
+  timestamp.appendChild(textCard('Generated At', payload.generated_at || 'Unavailable'));
+
+  append(dashboard, [
+    timestamp,
+    renderUnified(report),
+    renderQuickTake(report),
+    renderEvent(report),
+    renderMarket(report),
+    renderSnapshot(report),
+    renderCompany(report),
+    renderFundamentals(report),
+    renderEarnings(report),
+    renderTechnical(report)
+  ]);
+}
+
 async function loadReport() {
   try {
-    const res = await fetch('data/full-report.json?t=' + Date.now());
+    const res = await fetch('data/full-report.json?t=' + Date.now(), {
+      cache: 'no-store'
+    });
+
+    if (!res.ok) {
+      throw new Error(`Full report request failed: ${res.status}`);
+    }
+
     const data = await res.json();
-
-    document.getElementById('timestamp').textContent =
-      "Generated: " + data.generated_at;
-
-    document.getElementById('report').textContent =
-      data.full_report;
-  } catch (e) {
-    document.getElementById('report').textContent =
-      "Unable to load intelligence report.";
-    console.error(e);
+    renderDashboard(data);
+  } catch (error) {
+    console.error('Unable to load full AlphaScope report:', error);
+    showError('Unable to load full intelligence report. Check web/data/full-report.json and the browser console.');
   }
 }
 

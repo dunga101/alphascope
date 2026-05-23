@@ -189,7 +189,7 @@ ul {
 
 @keyframes scroll {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(-100%); }
 }
 
 @media(max-width: 768px) {
@@ -308,34 +308,125 @@ ul {
 </div>
 
 <script>
+const fallbackLatestReport = {
+  generated_at: '--',
+  regime: 'Unavailable',
+  confidence: '--',
+  summary: 'Unable to load the latest AlphaScope intelligence payload.',
+  bullish: [],
+  bearish: [],
+  ticker: []
+};
+
+function getElement(id) {
+  return document.getElementById(id);
+}
+
+function asArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+function setText(id, value) {
+  const element = getElement(id);
+  if (element) {
+    element.textContent = value ?? '';
+  }
+}
+
+function renderList(id, items, emptyText) {
+  const list = getElement(id);
+  if (!list) return;
+
+  list.innerHTML = '';
+
+  const safeItems = asArray(items).filter(Boolean);
+
+  if (!safeItems.length) {
+    const emptyItem = document.createElement('li');
+    emptyItem.textContent = emptyText;
+    list.appendChild(emptyItem);
+    return;
+  }
+
+  safeItems.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    list.appendChild(li);
+  });
+}
+
+function renderTicker(items) {
+  const ticker = getElement('ticker');
+  if (!ticker) return;
+
+  ticker.innerHTML = '';
+
+  const seen = new Set();
+  const uniqueItems = asArray(items).filter(item => {
+    if (!item || !item.symbol || seen.has(item.symbol)) return false;
+    seen.add(item.symbol);
+    return true;
+  });
+
+  if (!uniqueItems.length) {
+    const span = document.createElement('span');
+    span.textContent = 'Ticker unavailable';
+    ticker.appendChild(span);
+    return;
+  }
+
+  uniqueItems.forEach(item => {
+    const outer = document.createElement('span');
+    const symbol = document.createElement('strong');
+    const change = document.createElement('span');
+    const changeText = String(item.change ?? '0.00%');
+
+    symbol.textContent = item.symbol;
+    change.textContent = changeText;
+    change.className = changeText.trim().startsWith('-') ? 'red' : 'green';
+
+    outer.appendChild(symbol);
+    outer.append(` ${item.price ?? '--'} `);
+    outer.appendChild(change);
+    ticker.appendChild(outer);
+  });
+}
+
 async function loadData() {
-  const res = await fetch('data/latest-report.json?t=' + Date.now());
-  const data = await res.json();
+  try {
+    const res = await fetch('data/latest-report.json?t=' + Date.now(), {
+      cache: 'no-store'
+    });
 
-  document.getElementById('regime').textContent = data.regime;
-  document.getElementById('confidence').textContent = data.confidence + '%';
-  document.getElementById('timestamp').textContent = data.generated_at;
-  document.getElementById('summary').textContent = data.summary;
+    if (!res.ok) {
+      throw new Error(`Latest report request failed: ${res.status}`);
+    }
 
-  const bullish = document.getElementById('bullish');
-  bullish.innerHTML = '';
-  data.bullish.forEach(item => {
-    bullish.innerHTML += `<li>${item}</li>`;
-  });
+    const data = await res.json();
 
-  const bearish = document.getElementById('bearish');
-  bearish.innerHTML = '';
-  data.bearish.forEach(item => {
-    bearish.innerHTML += `<li>${item}</li>`;
-  });
+    setText('regime', data.regime || fallbackLatestReport.regime);
+    setText(
+      'confidence',
+      Number.isFinite(Number(data.confidence)) ? `${data.confidence}%` : '--%'
+    );
+    setText('timestamp', data.generated_at || fallbackLatestReport.generated_at);
+    setText('summary', data.summary || fallbackLatestReport.summary);
 
-  const ticker = document.getElementById('ticker');
-  ticker.innerHTML = data.ticker.map(item =>
-    `<span><strong>${item.symbol}</strong> ${item.price} <span class="${item.change.startsWith('-') ? 'red' : 'green'}">${item.change}</span></span>`
-  ).join(' ') +
-  data.ticker.map(item =>
-    `<span><strong>${item.symbol}</strong> ${item.price} <span class="${item.change.startsWith('-') ? 'red' : 'green'}">${item.change}</span></span>`
-  ).join(' ');
+    renderList('bullish', data.bullish, 'No bullish opportunities reported.');
+    renderList('bearish', data.bearish, 'No weakness watchlist reported.');
+    renderTicker(data.ticker);
+  } catch (error) {
+    console.error('Unable to load latest AlphaScope report:', error);
+
+    setText('regime', fallbackLatestReport.regime);
+    setText('confidence', '--%');
+    setText('timestamp', fallbackLatestReport.generated_at);
+    setText('summary', fallbackLatestReport.summary);
+
+    renderList('bullish', fallbackLatestReport.bullish, 'No bullish opportunities reported.');
+    renderList('bearish', fallbackLatestReport.bearish, 'No weakness watchlist reported.');
+    renderTicker(fallbackLatestReport.ticker);
+  }
 }
 
 loadData();
