@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-23 21:52 EST",
+  "generated_at": "2026-05-23 18:14 EDT",
   "regime": "MIXED",
-  "confidence": 35,
-  "summary": "Markets are exhibiting a risk-on sentiment with broad index gains and declining volatility. However, participation quality is a concern, with some key technology names showing signs of overheating or technical weakness despite generally positive trends. Event risk is currently low for major tech companies. Investors should remain cautious due to the mixed signals in breadth and the potential for concentrated risk in leading technology names.",
+  "confidence": 37,
+  "summary": "Markets are exhibiting a risk-on sentiment with broad index gains and declining volatility. However, participation is concentrated, and some leading technology names show signs of overheating. While major earnings events are distant, careful monitoring of individual stock technicals and fundamentals is advised given the mixed signals and moderate confidence.",
   "bullish": [
     "SPY",
     "QQQ",
@@ -11,8 +11,8 @@
     "AMZN"
   ],
   "bearish": [
-    "META",
-    "SHOP.TO"
+    "SHOP.TO",
+    "META"
   ],
   "ticker": [
     {
