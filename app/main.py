@@ -3,6 +3,7 @@ import sys
 import time
 
 from app.renderers.report import generate_report
+from app.renderers.web_export import export_web_report
 from app.ai.gemini_client import analyze_market
 from app.ai.news_analyzer import analyze_news_events
 from app.renderers.telegram import send_telegram_message
@@ -593,6 +594,7 @@ TECHNICAL APPENDIX
         "news_ai": news_ai,
         "unified": unified,
         "macro_context": macro_context,
+        "fmp_quotes": fmp_quotes,
     }
 
 
@@ -622,8 +624,11 @@ def main():
         news_ai = result["news_ai"]
         unified = result["unified"]
         macro_context = result["macro_context"]
+        fmp_quotes = result["fmp_quotes"]
 
         filename = save_report(report, mode)
+
+        export_web_report(ai, unified, fmp_quotes)
 
         telegram_report = build_telegram_summary(
             mode,
@@ -642,6 +647,7 @@ def main():
 
         print(report)
         print(f"\nSaved to {filename}")
+        print("Web dashboard JSON exported.")
         print("Telegram executive summary delivered.")
 
     except Exception as e:
