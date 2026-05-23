@@ -610,7 +610,7 @@ def save_report(report_text: str, mode: str):
 
 
 def main():
-    start = time.time()
+        start = time.time()
     mode = parse_mode()
 
     log.info("AlphaScope run started")
@@ -628,7 +628,12 @@ def main():
 
         filename = save_report(report, mode)
 
-        export_web_report(ai, unified, fmp_quotes, report)
+        export_web_report(
+            ai,
+            unified,
+            fmp_quotes,
+            filename
+        )
 
         telegram_report = build_telegram_summary(
             mode,
@@ -642,8 +647,7 @@ def main():
         send_telegram_message(telegram_report)
 
         duration = round(time.time() - start, 2)
-
-        log.info(f"AlphaScope completed in {duration}s")
+        log.info(f"AlphaScope completed successfully in {duration}s")
 
         print(report)
         print(f"\nSaved to {filename}")
