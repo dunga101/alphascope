@@ -1,54 +1,51 @@
 {
-  "generated_at": "2026-05-23 18:21 EDT",
-  "regime": "MIXED",
-  "confidence": 37,
-  "summary": "Markets are exhibiting a risk-on sentiment with broad index gains and declining volatility. However, participation is concentrated, and several leading technology names show signs of overheating. While short-term trends are constructive, caution is warranted due to potential for pullbacks in overextended names and a lack of broad-based strength.",
+  "generated_at": "2026-05-31 14:15 EDT",
+  "regime": "RISK_OFF",
+  "confidence": 46,
+  "summary": "Markets show mixed signals with broad indices slightly up, but sector performance is uneven. Technology sectors are leading, while consumer discretionary and staples lag. Volatility is subdued, and treasury yields are stable. Gold is up, but oil is down. Several large-cap tech names exhibit strong technicals but also signs of overheating. Event risk is low for most major tech companies in the near term, except for Tesla. Overall, a cautious approach is warranted due to mixed breadth and potential technical overextension in key names.",
   "bullish": [
-    "SPY",
-    "QQQ",
-    "AMD",
-    "GOOGL",
-    "AMZN"
-  ],
-  "bearish": [
     "META",
-    "SHOP.TO"
+    "NVDA",
+    "GOOGL",
+    "QQQ",
+    "AMD"
   ],
+  "bearish": [],
   "ticker": [
     {
       "symbol": "SPY",
-      "price": "$745.64",
-      "change": "+0.39%"
+      "price": "$756.48",
+      "change": "+0.25%"
     },
     {
       "symbol": "AAPL",
-      "price": "$308.82",
-      "change": "+1.26%"
+      "price": "$312.06",
+      "change": "-0.14%"
     },
     {
       "symbol": "MSFT",
-      "price": "$418.57",
-      "change": "-0.12%"
+      "price": "$450.24",
+      "change": "+5.45%"
     },
     {
       "symbol": "NVDA",
-      "price": "$215.33",
-      "change": "-1.90%"
+      "price": "$211.14",
+      "change": "-1.45%"
     },
     {
       "symbol": "AMZN",
-      "price": "$266.32",
-      "change": "-0.80%"
+      "price": "$270.64",
+      "change": "-1.23%"
     },
     {
       "symbol": "META",
-      "price": "$610.26",
-      "change": "+0.47%"
+      "price": "$632.51",
+      "change": "-0.44%"
     },
     {
       "symbol": "GOOGL",
-      "price": "$382.97",
-      "change": "-1.21%"
+      "price": "$380.34",
+      "change": "-2.51%"
     }
   ]
 }

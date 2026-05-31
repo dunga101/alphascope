@@ -4,11 +4,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 
 
-def export_web_report(ai, unified, fmp_quotes, full_report_text=None):
-    """
-    Export AlphaScope intelligence for public dashboard + detailed intelligence page.
-    """
-
+def export_web_report(ai, unified, fmp_quotes, report_file_path=None):
     ticker = []
 
     if fmp_quotes and fmp_quotes.get("status") == "OK":
@@ -29,33 +25,37 @@ def export_web_report(ai, unified, fmp_quotes, full_report_text=None):
         "confidence": unified.get("final_confidence", 0),
         "summary": ai.get(
             "quick_take",
-            "AlphaScope intelligence currently unavailable."
+            "AlphaScope intelligence unavailable."
         ),
         "bullish": ai.get(
             "watchlist_names",
-            ["No active bullish opportunities"]
+            []
         )[:5],
         "bearish": ai.get(
             "weak_names",
-            ["No immediate weakness detected"]
+            []
         )[:5],
         "ticker": ticker
     }
 
-    latest_path = Path("web/data/latest-report.json")
-    latest_path.parent.mkdir(parents=True, exist_ok=True)
+    Path("web/data").mkdir(parents=True, exist_ok=True)
 
-    with open(latest_path, "w", encoding="utf-8") as f:
+    with open("web/data/latest-report.json", "w", encoding="utf-8") as f:
         json.dump(latest_output, f, indent=2)
+
+    full_report_text = "No report available."
+
+    if report_file_path:
+        report_path = Path(report_file_path)
+        if report_path.exists():
+            full_report_text = report_path.read_text(encoding="utf-8")
 
     full_output = {
         "generated_at": toronto_time,
-        "full_report": full_report_text or "No report available."
+        "full_report": full_report_text
     }
 
-    full_path = Path("web/data/full-report.json")
-
-    with open(full_path, "w", encoding="utf-8") as f:
+    with open("web/data/full-report.json", "w", encoding="utf-8") as f:
         json.dump(full_output, f, indent=2)
 
-    print("Web dashboard JSON exported.")
+    print("Web exports complete.")
