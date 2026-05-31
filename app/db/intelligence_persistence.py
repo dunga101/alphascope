@@ -5,6 +5,11 @@ from datetime import date
 import psycopg2
 from dotenv import load_dotenv
 
+try:
+    from psycopg2.extras import RealDictCursor
+except ImportError:
+    RealDictCursor = None
+
 load_dotenv()
 
 DB_HOST = os.getenv("DB_HOST")
@@ -276,6 +281,79 @@ def persist_investor_score(score: dict):
 def persist_investor_scores(scores: list[dict]):
     for score in scores:
         persist_investor_score(score)
+
+
+def fetch_latest_investor_rankings() -> list[dict]:
+    conn = get_connection()
+    if RealDictCursor is None:
+        cur = conn.cursor()
+    else:
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+
+    cur.execute(
+        """
+        WITH latest_scores AS (
+            SELECT MAX(score_date) AS score_date
+            FROM investor_scores
+        )
+        SELECT
+            ROW_NUMBER() OVER (ORDER BY scores.buy_score DESC) AS rank,
+            scores.score_date,
+            scores.symbol,
+            scores.company_name,
+            scores.sector,
+            scores.buy_score,
+            scores.recommendation,
+            scores.valuation_score,
+            scores.dividend_score,
+            scores.financial_quality_score,
+            scores.price_position_score,
+            scores.technical_score,
+            scores.dividend_yield,
+            scores.pe_ratio,
+            scores.distance_from_52w_low,
+            scores.rsi,
+            scores.raw_score,
+            fundamentals.roe,
+            fundamentals.debt_to_equity,
+            fundamentals.free_cash_flow,
+            technicals.raw_signals AS technical_raw_signals
+        FROM investor_scores scores
+        JOIN latest_scores latest
+            ON scores.score_date = latest.score_date
+        LEFT JOIN LATERAL (
+            SELECT
+                roe,
+                debt_to_equity,
+                free_cash_flow
+            FROM fundamental_snapshots
+            WHERE symbol = scores.symbol
+            ORDER BY snapshot_date DESC
+            LIMIT 1
+        ) fundamentals ON TRUE
+        LEFT JOIN LATERAL (
+            SELECT raw_signals
+            FROM technical_snapshots
+            WHERE symbol = scores.symbol
+            ORDER BY report_date DESC
+            LIMIT 1
+        ) technicals ON TRUE
+        ORDER BY scores.buy_score DESC;
+        """
+    )
+
+    fetched = cur.fetchall()
+
+    if RealDictCursor is None:
+        columns = [column[0] for column in cur.description]
+        rows = [dict(zip(columns, row)) for row in fetched]
+    else:
+        rows = [dict(row) for row in fetched]
+
+    cur.close()
+    conn.close()
+
+    return rows
 
 
 def persist_technical_snapshot(symbol: str, technical_output: dict):
