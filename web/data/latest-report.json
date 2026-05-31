@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-31 14:15 EDT",
+  "generated_at": "2026-05-31 15:57 EDT",
   "regime": "RISK_OFF",
-  "confidence": 46,
-  "summary": "Markets show mixed signals with broad indices slightly up, but sector performance is uneven. Technology sectors are leading, while consumer discretionary and staples lag. Volatility is subdued, and treasury yields are stable. Gold is up, but oil is down. Several large-cap tech names exhibit strong technicals but also signs of overheating. Event risk is low for most major tech companies in the near term, except for Tesla. Overall, a cautious approach is warranted due to mixed breadth and potential technical overextension in key names.",
+  "confidence": 55,
+  "summary": "The market shows mixed signals with some broad index strength but weak sector participation. Technology and Financials are leading, while Consumer Discretionary and Staples lag. Volatility is subdued, and yields are stable. Several technology names exhibit strong technicals but require monitoring for potential overheating and concentration risk. Event risk is currently low.",
   "bullish": [
     "META",
     "NVDA",

@@ -140,6 +140,69 @@ def persist_event_snapshot(event_output: dict):
     conn.close()
 
 
+def persist_fundamental_snapshot(symbol: str, fundamentals: dict):
+    conn = get_connection()
+    cur = conn.cursor()
+
+    cur.execute(
+        """
+        INSERT INTO fundamental_snapshots (
+            symbol,
+            snapshot_date,
+            revenue,
+            net_income,
+            total_assets,
+            total_liabilities,
+            cash_and_equivalents,
+            total_debt,
+            operating_cash_flow,
+            free_cash_flow,
+            pe_ratio,
+            eps,
+            roe,
+            debt_to_equity,
+            source
+        )
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 'FMP')
+        ON CONFLICT (symbol, snapshot_date)
+        DO UPDATE SET
+            revenue = EXCLUDED.revenue,
+            net_income = EXCLUDED.net_income,
+            total_assets = EXCLUDED.total_assets,
+            total_liabilities = EXCLUDED.total_liabilities,
+            cash_and_equivalents = EXCLUDED.cash_and_equivalents,
+            total_debt = EXCLUDED.total_debt,
+            operating_cash_flow = EXCLUDED.operating_cash_flow,
+            free_cash_flow = EXCLUDED.free_cash_flow,
+            pe_ratio = EXCLUDED.pe_ratio,
+            eps = EXCLUDED.eps,
+            roe = EXCLUDED.roe,
+            debt_to_equity = EXCLUDED.debt_to_equity,
+            source = EXCLUDED.source;
+        """,
+        (
+            symbol.upper(),
+            date.today(),
+            fundamentals.get("revenue"),
+            fundamentals.get("net_income"),
+            fundamentals.get("total_assets"),
+            fundamentals.get("total_liabilities"),
+            fundamentals.get("cash_and_equivalents"),
+            fundamentals.get("total_debt"),
+            fundamentals.get("operating_cash_flow"),
+            fundamentals.get("free_cash_flow"),
+            fundamentals.get("pe_ratio"),
+            fundamentals.get("eps"),
+            fundamentals.get("roe"),
+            fundamentals.get("debt_to_equity"),
+        ),
+    )
+
+    conn.commit()
+    cur.close()
+    conn.close()
+
+
 def persist_technical_snapshot(symbol: str, technical_output: dict):
     conn = get_connection()
     cur = conn.cursor()

@@ -3,15 +3,18 @@ import requests
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
+from app.logger import setup_logger
 
 load_dotenv(".env")
 
 FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY")
+log = setup_logger()
 
 
 def collect_finnhub_news(days_back: int = 1, limit: int = 30):
     if not FINNHUB_API_KEY:
-        raise ValueError("FINNHUB_API_KEY missing")
+        log.warning("Finnhub news collection skipped: FINNHUB_API_KEY missing")
+        return []
 
     today = datetime.utcnow().date()
     start = today - timedelta(days=days_back)
@@ -24,10 +27,23 @@ def collect_finnhub_news(days_back: int = 1, limit: int = 30):
         "token": FINNHUB_API_KEY
     }
 
-    response = requests.get(url, params=params, timeout=15)
-    response.raise_for_status()
+    try:
+        response = requests.get(url, params=params, timeout=15)
+        response.raise_for_status()
 
-    data = response.json()
+        data = response.json()
+
+    except requests.exceptions.RequestException as e:
+        log.warning(f"Finnhub news collection failed: {e}")
+        return []
+
+    except ValueError as e:
+        log.warning(f"Finnhub news payload could not be decoded: {e}")
+        return []
+
+    if not isinstance(data, list):
+        log.warning("Finnhub news collection returned unexpected payload shape")
+        return []
 
     articles = []
 

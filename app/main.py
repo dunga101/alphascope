@@ -19,6 +19,7 @@ from app.db.repositories import save_market_snapshot
 from app.db.intelligence_persistence import (
     persist_intelligence_report,
     persist_event_snapshot,
+    persist_fundamental_snapshot,
     persist_technical_snapshot,
 )
 from app.logger import setup_logger
@@ -395,6 +396,7 @@ def collect_fmp_layer(mode: str):
             "FMP disabled by selected AlphaScope mode.",
             "Company profile intelligence disabled by selected AlphaScope mode.",
             "Fundamental intelligence disabled by selected AlphaScope mode.",
+            {},
         )
 
     log.info("Collecting FMP quote snapshot")
@@ -423,7 +425,30 @@ def collect_fmp_layer(mode: str):
 
     fundamentals_summary = format_fundamentals(fundamentals)
 
-    return fmp_quotes, fmp_snapshot, company_profile_summary, fundamentals_summary
+    return (
+        fmp_quotes,
+        fmp_snapshot,
+        company_profile_summary,
+        fundamentals_summary,
+        fundamentals,
+    )
+
+
+def persist_fundamental_results(fundamentals: dict):
+    if not fundamentals:
+        log.info("No fundamentals available to persist")
+        return
+
+    persisted_count = 0
+
+    for symbol, snapshot in fundamentals.items():
+        if not symbol or not snapshot:
+            continue
+
+        persist_fundamental_snapshot(symbol, snapshot)
+        persisted_count += 1
+
+    log.info(f"Persisted {persisted_count} fundamental snapshots")
 
 
 def persist_technical_results(technical_results: list):
@@ -460,7 +485,13 @@ def build_full_report(mode: str):
     log.info("Collecting earnings context")
     earnings_context = collect_earnings_context(CORE_SYMBOLS)
 
-    fmp_quotes, fmp_snapshot, company_profile_summary, fundamentals_summary = collect_fmp_layer(mode)
+    (
+        fmp_quotes,
+        fmp_snapshot,
+        company_profile_summary,
+        fundamentals_summary,
+        fundamentals,
+    ) = collect_fmp_layer(mode)
 
     log.info("Collecting event intelligence")
     news_events = collect_news_intelligence()
@@ -515,6 +546,9 @@ TECHNICAL ANALYSIS
 
     log.info("Persisting technical snapshots")
     persist_technical_results(technical_results)
+
+    log.info("Persisting fundamental snapshots")
+    persist_fundamental_results(fundamentals)
 
     log.info("Persisting AI intelligence report")
     persist_intelligence_report(ai)

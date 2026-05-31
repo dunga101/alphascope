@@ -51,6 +51,13 @@ def _save_cache(symbol: str, data: dict):
         json.dump(data, f, indent=2)
 
 
+def _calculate_roe(net_income, total_stockholders_equity):
+    if net_income is None or total_stockholders_equity in (None, 0):
+        return None
+
+    return net_income / total_stockholders_equity
+
+
 def collect_fundamentals(symbol: str):
     symbol = symbol.strip().upper()
 
@@ -82,22 +89,26 @@ def collect_fundamentals(symbol: str):
         balance = responses["balance"][0] if responses["balance"] else {}
         cashflow = responses["cashflow"][0] if responses["cashflow"] else {}
         ratios = responses["ratios"][0] if responses["ratios"] else {}
+        roe = _calculate_roe(
+            income.get("netIncome"),
+            balance.get("totalStockholdersEquity"),
+        )
 
         result = {
             "status": "OK",
             "cache_status": "MISS",
             "symbol": symbol,
 
-            "pe_ratio": ratios.get("priceEarningsRatioTTM"),
+            "pe_ratio": ratios.get("priceToEarningsRatioTTM"),
             "price_to_book": ratios.get("priceToBookRatioTTM"),
             "earnings_yield": ratios.get("earningsYieldTTM"),
 
             "gross_margin": ratios.get("grossProfitMarginTTM"),
             "operating_margin": ratios.get("operatingProfitMarginTTM"),
             "net_margin": ratios.get("netProfitMarginTTM"),
-            "roe": ratios.get("returnOnEquityTTM"),
+            "roe": roe,
 
-            "debt_to_equity": ratios.get("debtEquityRatioTTM"),
+            "debt_to_equity": ratios.get("debtToEquityRatioTTM"),
             "current_ratio": ratios.get("currentRatioTTM"),
             "cash_and_equivalents": balance.get("cashAndCashEquivalents"),
             "total_debt": balance.get("totalDebt"),
