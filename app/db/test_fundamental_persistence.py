@@ -25,6 +25,7 @@ class FundamentalPersistenceTests(unittest.TestCase):
             "pe_ratio": 28.4,
             "roe": 1.36,
             "debt_to_equity": 1.87,
+            "dividend_yield": 0.0034,
         }
 
         with patch("app.db.intelligence_persistence.get_connection", return_value=connection):
@@ -49,6 +50,7 @@ class FundamentalPersistenceTests(unittest.TestCase):
         self.assertIsNone(params[11])
         self.assertEqual(params[12], fundamentals["roe"])
         self.assertEqual(params[13], fundamentals["debt_to_equity"])
+        self.assertEqual(params[14], fundamentals["dividend_yield"])
 
         connection.commit.assert_called_once()
         cursor.close.assert_called_once()

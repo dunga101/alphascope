@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-31 15:57 EDT",
+  "generated_at": "2026-05-31 16:43 EDT",
   "regime": "RISK_OFF",
   "confidence": 55,
-  "summary": "The market shows mixed signals with some broad index strength but weak sector participation. Technology and Financials are leading, while Consumer Discretionary and Staples lag. Volatility is subdued, and yields are stable. Several technology names exhibit strong technicals but require monitoring for potential overheating and concentration risk. Event risk is currently low.",
+  "summary": "The market shows mixed signals with broad indices slightly positive, but sector performance is uneven. Technology sectors are leading, while consumer discretionary and staples are lagging. Volatility is subdued. Event risk from upcoming earnings is currently low. Several large-cap technology names exhibit strong technicals but some are showing signs of overheating, while others are on a watchlist due to mixed technical signals. Fundamentals for many tech leaders remain robust.",
   "bullish": [
     "META",
     "NVDA",
@@ -46,6 +46,11 @@
       "symbol": "GOOGL",
       "price": "$380.34",
       "change": "-2.51%"
+    },
+    {
+      "symbol": "TSLA",
+      "price": "$435.79",
+      "change": "-1.43%"
     }
   ]
 }

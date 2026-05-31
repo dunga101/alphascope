@@ -22,6 +22,13 @@ FUNDAMENTAL_CACHE_HOURS = int(
     os.getenv("FMP_FUNDAMENTAL_CACHE_HOURS", "24")
 )
 
+REQUIRED_INVESTOR_FIELDS = (
+    "pe_ratio",
+    "roe",
+    "debt_to_equity",
+    "dividend_yield",
+)
+
 
 def _cache_file(symbol: str) -> Path:
     safe_symbol = symbol.upper().replace("/", "_")
@@ -46,6 +53,12 @@ def _load_cache(symbol: str):
     return data
 
 
+def _cache_has_required_investor_fields(symbol: str) -> bool:
+    data = _load_cache(symbol)
+
+    return all(data.get(field) is not None for field in REQUIRED_INVESTOR_FIELDS)
+
+
 def _save_cache(symbol: str, data: dict):
     with open(_cache_file(symbol), "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
@@ -67,7 +80,7 @@ def collect_fundamentals(symbol: str):
             "reason": "Missing FMP_API_KEY",
         }
 
-    if _cache_is_valid(symbol):
+    if _cache_is_valid(symbol) and _cache_has_required_investor_fields(symbol):
         return _load_cache(symbol)
 
     try:
@@ -102,6 +115,7 @@ def collect_fundamentals(symbol: str):
             "pe_ratio": ratios.get("priceToEarningsRatioTTM"),
             "price_to_book": ratios.get("priceToBookRatioTTM"),
             "earnings_yield": ratios.get("earningsYieldTTM"),
+            "dividend_yield": ratios.get("dividendYieldTTM"),
 
             "gross_margin": ratios.get("grossProfitMarginTTM"),
             "operating_margin": ratios.get("operatingProfitMarginTTM"),

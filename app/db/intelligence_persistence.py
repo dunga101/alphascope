@@ -161,9 +161,10 @@ def persist_fundamental_snapshot(symbol: str, fundamentals: dict):
             eps,
             roe,
             debt_to_equity,
+            dividend_yield,
             source
         )
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 'FMP')
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 'FMP')
         ON CONFLICT (symbol, snapshot_date)
         DO UPDATE SET
             revenue = EXCLUDED.revenue,
@@ -178,6 +179,7 @@ def persist_fundamental_snapshot(symbol: str, fundamentals: dict):
             eps = EXCLUDED.eps,
             roe = EXCLUDED.roe,
             debt_to_equity = EXCLUDED.debt_to_equity,
+            dividend_yield = EXCLUDED.dividend_yield,
             source = EXCLUDED.source;
         """,
         (
@@ -195,12 +197,85 @@ def persist_fundamental_snapshot(symbol: str, fundamentals: dict):
             fundamentals.get("eps"),
             fundamentals.get("roe"),
             fundamentals.get("debt_to_equity"),
+            fundamentals.get("dividend_yield"),
         ),
     )
 
     conn.commit()
     cur.close()
     conn.close()
+
+
+def persist_investor_score(score: dict):
+    conn = get_connection()
+    cur = conn.cursor()
+
+    cur.execute(
+        """
+        INSERT INTO investor_scores (
+            score_date,
+            symbol,
+            company_name,
+            sector,
+            buy_score,
+            recommendation,
+            valuation_score,
+            dividend_score,
+            financial_quality_score,
+            price_position_score,
+            technical_score,
+            dividend_yield,
+            pe_ratio,
+            distance_from_52w_low,
+            rsi,
+            raw_score
+        )
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ON CONFLICT (score_date, symbol)
+        DO UPDATE SET
+            company_name = EXCLUDED.company_name,
+            sector = EXCLUDED.sector,
+            buy_score = EXCLUDED.buy_score,
+            recommendation = EXCLUDED.recommendation,
+            valuation_score = EXCLUDED.valuation_score,
+            dividend_score = EXCLUDED.dividend_score,
+            financial_quality_score = EXCLUDED.financial_quality_score,
+            price_position_score = EXCLUDED.price_position_score,
+            technical_score = EXCLUDED.technical_score,
+            dividend_yield = EXCLUDED.dividend_yield,
+            pe_ratio = EXCLUDED.pe_ratio,
+            distance_from_52w_low = EXCLUDED.distance_from_52w_low,
+            rsi = EXCLUDED.rsi,
+            raw_score = EXCLUDED.raw_score;
+        """,
+        (
+            date.today(),
+            score.get("symbol"),
+            score.get("company"),
+            score.get("sector"),
+            score.get("buy_score"),
+            score.get("recommendation"),
+            score.get("valuation_score"),
+            score.get("dividend_score"),
+            score.get("financial_quality_score"),
+            score.get("price_position_score"),
+            score.get("technical_score"),
+            score.get("dividend_yield"),
+            score.get("pe_ratio"),
+            score.get("distance_from_52w_low"),
+            score.get("rsi"),
+            json.dumps(score.get("raw_score", {})),
+        ),
+    )
+
+    conn.commit()
+    cur.close()
+    conn.close()
+
+
+def persist_investor_scores(scores: list[dict]):
+    for score in scores:
+        persist_investor_score(score)
 
 
 def persist_technical_snapshot(symbol: str, technical_output: dict):

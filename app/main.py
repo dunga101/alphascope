@@ -14,12 +14,15 @@ from app.collectors.fmp_quotes import collect_fmp_quotes
 from app.collectors.fmp_profile import collect_company_profile
 from app.collectors.fmp_fundamentals import collect_fundamentals
 from app.collectors.news_intelligence import collect_news_intelligence
+from app.analytics.investor_ranking import build_investor_rankings
+from app.config.symbols import CORE_SYMBOLS, FMP_WATCHLIST, FUNDAMENTAL_SYMBOLS
 from app.processors.confidence_engine import unify_confidence
 from app.db.repositories import save_market_snapshot
 from app.db.intelligence_persistence import (
     persist_intelligence_report,
     persist_event_snapshot,
     persist_fundamental_snapshot,
+    persist_investor_scores,
     persist_technical_snapshot,
 )
 from app.logger import setup_logger
@@ -27,9 +30,6 @@ from app.logger import setup_logger
 log = setup_logger()
 
 VALID_MODES = {"full", "degraded", "offline"}
-
-FMP_WATCHLIST = ["SPY", "AAPL", "MSFT", "NVDA", "AMZN", "META", "GOOGL"]
-FUNDAMENTAL_SYMBOLS = ["AAPL", "MSFT", "NVDA"]
 
 MACRO_SYMBOLS = [
     "^GSPC",
@@ -54,9 +54,6 @@ SECTOR_SYMBOLS = [
     "XLRE",
     "XLC",
 ]
-
-CORE_SYMBOLS = ["AAPL", "MSFT", "NVDA", "AMZN", "META", "GOOGL", "TSLA"]
-
 
 def parse_mode() -> str:
     if len(sys.argv) < 2:
@@ -397,6 +394,7 @@ def collect_fmp_layer(mode: str):
             "Company profile intelligence disabled by selected AlphaScope mode.",
             "Fundamental intelligence disabled by selected AlphaScope mode.",
             {},
+            {},
         )
 
     log.info("Collecting FMP quote snapshot")
@@ -431,6 +429,7 @@ def collect_fmp_layer(mode: str):
         company_profile_summary,
         fundamentals_summary,
         fundamentals,
+        company_profiles,
     )
 
 
@@ -449,6 +448,18 @@ def persist_fundamental_results(fundamentals: dict):
         persisted_count += 1
 
     log.info(f"Persisted {persisted_count} fundamental snapshots")
+
+
+def persist_investor_results(investor_rankings: list):
+    if not investor_rankings:
+        log.info("No investor rankings available to persist")
+        return
+
+    try:
+        persist_investor_scores(investor_rankings)
+        log.info(f"Persisted {len(investor_rankings)} investor score snapshots")
+    except Exception as e:
+        log.warning(f"Investor score persistence skipped: {e}")
 
 
 def persist_technical_results(technical_results: list):
@@ -491,6 +502,7 @@ def build_full_report(mode: str):
         company_profile_summary,
         fundamentals_summary,
         fundamentals,
+        company_profiles,
     ) = collect_fmp_layer(mode)
 
     log.info("Collecting event intelligence")
@@ -549,6 +561,16 @@ TECHNICAL ANALYSIS
 
     log.info("Persisting fundamental snapshots")
     persist_fundamental_results(fundamentals)
+
+    log.info("Generating investor rankings")
+    investor_rankings = build_investor_rankings(
+        fundamentals=fundamentals,
+        company_profiles=company_profiles,
+        fmp_quotes=fmp_quotes,
+    )
+
+    log.info("Persisting investor rankings")
+    persist_investor_results(investor_rankings)
 
     log.info("Persisting AI intelligence report")
     persist_intelligence_report(ai)
@@ -629,6 +651,7 @@ TECHNICAL APPENDIX
         "unified": unified,
         "macro_context": macro_context,
         "fmp_quotes": fmp_quotes,
+        "investor_rankings": investor_rankings,
     }
 
 
