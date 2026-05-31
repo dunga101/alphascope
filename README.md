@@ -1,403 +1,198 @@
 # AlphaScope 📈🧠
 
-**AI-assisted stateful financial market intelligence platform engineered for resilient market analysis, structured signal governance, and disciplined decision-support workflows.**
+### AI-Powered Investor Intelligence Platform
 
-AlphaScope is a modular Python-based intelligence system that transforms fragmented financial data into structured, interpretable market intelligence.
+AlphaScope is a Python-based investment intelligence platform that combines market data, company fundamentals, technical analysis, AI reasoning, and historical persistence to identify and rank potential investment opportunities.
 
-It combines deterministic market analytics, structured financial enrichment, event-aware intelligence pipelines, confidence governance, persistent historical memory, and AI-assisted reasoning to generate institutional-style daily intelligence briefings.
+The platform transforms raw market information into structured investor-focused intelligence through a transparent scoring and recommendation engine.
 
 AlphaScope is not a trading bot.
 
-It is an engineering-driven intelligence platform.
+It is a decision-support platform designed to help investors identify quality opportunities using a disciplined, data-driven approach.
 
 ---
 
-# Philosophy
+# Key Features
 
-Modern markets generate overwhelming quantities of data:
+## Investor Scoring Engine
 
-* macroeconomic signals
-* price action
-* volatility shifts
-* earnings catalysts
-* analyst revisions
-* geopolitical events
-* sector rotation
-* bond market divergence
-* sentiment noise
-* financial headlines
+AlphaScope evaluates each company using multiple scoring dimensions:
 
-Raw information is abundant.
+* Valuation Score
+* Financial Quality Score
+* Dividend Score
+* Technical Score
+* Price Position Score
 
-Actionable intelligence is scarce.
+Scores are combined into a composite:
 
-AlphaScope exists to bridge that gap through disciplined engineering.
+**BUY_SCORE (0-100)**
 
-The platform is designed to:
-
-* collect
-* normalize
-* enrich
-* classify
-* score
-* synthesize
-* persist
-* evaluate
-
-market intelligence using a layered, resilient architecture.
+which drives investment recommendations.
 
 ---
 
-# Core Platform Capabilities
+## Investment Rankings
 
-## Market Regime Intelligence
+The platform ranks opportunities across a watchlist and generates:
 
-AlphaScope evaluates broad market conditions using macro proxies including:
+* Strong Buy
+* Buy
+* Hold
+* Watch
+* Avoid
 
-* S&P 500 (^GSPC)
-* Nasdaq 100 (^NDX)
-* Dow Jones (^DJI)
-* Russell 2000 (^RUT)
-* VIX (^VIX)
-* US 10Y Treasury Yield (^TNX)
-* Gold
-* Oil
-* Bitcoin
-
-This enables regime classification such as:
-
-* Risk-On
-* Neutral
-* Risk-Off
-* Strong Risk-Off
-
-Outputs include:
-
-* regime classification
-* confidence scoring
-* tactical bias interpretation
-* macro context awareness
-* systemic event detection
+recommendations based on objective criteria.
 
 ---
 
-## Technical Screening Engine
+## Technical Analysis
 
-Watchlist securities are analyzed using deterministic technical scoring models.
-
-### Indicators
+Per-symbol analysis includes:
 
 * RSI
 * SMA20
 * SMA50
-* momentum structure
-* volume participation
-* trend confirmation
-
-### Example Watchlist
-
-* SPY
-* QQQ
-* NVDA
-* MSFT
-* AMD
-* TSLA
-* GOOGL
-* META
-* AMZN
-* SHOP.TO
-
-### Classification System
-
-* HIGH CONVICTION
-* WATCHLIST
-* NEUTRAL
-* WEAK
-* AVOID
-
-AlphaScope identifies:
-
-* strong setups
-* overheated conditions
-* weak technical structures
-* deteriorating participation
-* regime-sensitive setups
+* SMA200
+* ATR
+* Volatility
+* Relative Strength
+* Distance From 52-Week Low
+* Drawdown From 52-Week High
 
 ---
 
-## Sector Rotation Intelligence
+## Fundamental Analysis
 
-ETF breadth monitoring tracks sector leadership:
+AlphaScope collects and stores:
 
-* XLK
-* XLF
-* XLI
-* XLY
-* XLU
-* XLRE
-* XLC
-* XLV
-* XLP
-* XLE
+* P/E Ratio
+* Revenue
+* Net Income
+* Free Cash Flow
+* Return on Equity (ROE)
+* Debt-to-Equity
+* Dividend Yield
 
-Used for:
-
-* leadership detection
-* defensive rotation awareness
-* cyclical weakness identification
-* participation analysis
-* macro breadth interpretation
+using Financial Modeling Prep (FMP).
 
 ---
 
-## Structured Financial Intelligence
+## AI-Assisted Market Intelligence
 
-AlphaScope integrates Financial Modeling Prep (FMP) data for:
+Google Gemini provides:
 
-* live quotes
-* company profiles
-* structured fundamentals
-* valuation context
-* company metadata
-* financial statement enrichment
+* Executive summaries
+* Market interpretation
+* Risk analysis
+* Opportunity commentary
+* Investment narratives
 
-This improves contextual intelligence beyond pure technical analysis.
-
----
-
-## Event Intelligence Pipeline
-
-AlphaScope includes structured event-aware intelligence ingestion.
-
-### Data Sources
-
-* Finnhub financial news
-* curated RSS financial feeds
-* structured catalyst filtering
-
-### Capabilities
-
-* earnings event awareness
-* analyst commentary ingestion
-* headline relevance scoring
-* ticker alias matching
-* junk suppression
-* crypto noise filtering
-* clickbait rejection
-
-Goal:
-
-AI receives curated signal — not random internet noise.
+AI is applied after deterministic analysis to ensure consistency and explainability.
 
 ---
 
-## Confidence Governance Engine
+## Historical Intelligence Database
 
-AlphaScope separates:
+All intelligence is stored in PostgreSQL.
 
-* market regime confidence
-* event-driven confidence
-* weighted confidence fusion
+Current persistence includes:
 
-This avoids simplistic “AI says buy” behavior and enforces deterministic governance before AI interpretation.
+### intelligence_reports
 
-The arbitration engine supports:
+Daily market intelligence.
 
-* systemic event detection
-* confidence disagreement penalties
-* macro-first weighting
-* confidence caps during instability
+### event_snapshots
 
----
+Market events and catalysts.
 
-## AI Intelligence Layer
+### technical_snapshots
 
-Google Gemini is used strictly as a reasoning layer.
+Per-symbol technical analysis history.
 
-### Responsibilities
+### fundamental_snapshots
 
-* macro interpretation
-* signal synthesis
-* executive commentary generation
-* risk identification
-* contextual summarization
-* decision-support narrative generation
+Historical company fundamentals.
 
-AI operates **after deterministic preprocessing**.
+### investor_scores
 
-This architecture intentionally prevents noisy raw prompting.
+Historical investment rankings and Buy Scores.
 
 ---
 
-# Stateful Intelligence Memory
-
-AlphaScope evolved from a stateless script into a resilient stateful intelligence platform.
-
-The platform now persists structured historical intelligence into PostgreSQL.
-
-## Intelligence Reports
-
-Daily strategic intelligence snapshots:
-
-`intelligence_reports`
-
-Stores:
-
-* market regime
-* confidence
-* executive summary
-* tactical posture
-* bullish signals
-* bearish signals
-* risk flags
-* raw AI output
-
----
-
-## Event Intelligence Memory
-
-Daily event-aware intelligence persistence:
-
-`event_snapshots`
-
-Stores:
-
-* event regime
-* event confidence
-* major headlines
-* bullish events
-* bearish events
-* risk events
-* raw event intelligence
-
----
-
-## Technical Snapshot Persistence
-
-AlphaScope now stores structured daily technical intelligence:
-
-`technical_snapshots`
-
-Per-symbol persistence includes:
-
-* signal score
-* trend score
-* momentum score
-* volatility score
-* risk score
-* technical regime
-* technical confidence
-* raw signal structure
-
-This enables historical technical analysis across regimes.
-
----
-
-# Resilient Execution Modes
-
-## FULL MODE
-
-Uses:
-
-* FMP
-* Gemini AI
-* event intelligence
-* fundamentals
-* technical engine
-* Telegram delivery
-* persistence layer
-
-Run:
-
-```bash
-python -m app.main full
-```
-
----
-
-## DEGRADED MODE
-
-Used during API quota exhaustion or partial outages.
-
-Disables:
-
-* FMP quotes
-* company profiles
-* fundamentals
-
-Preserves:
-
-* macro analysis
-* technical intelligence
-* event intelligence
-* Gemini reasoning
-* Telegram delivery
-* persistence layer
-
-Run:
-
-```bash
-python -m app.main degraded
-```
-
----
-
-## OFFLINE MODE
-
-Disaster survivability mode.
-
-Disables:
-
-* Gemini AI
-* FMP enrichment
-
-Uses deterministic fallback intelligence.
-
-Run:
-
-```bash
-python -m app.main offline
-```
-
----
-
-# Automated Delivery
-
-Current delivery:
-
-✅ Telegram executive intelligence briefing
-
-The platform now generates concise operational briefings rather than oversized report payloads.
-
----
-
-# Engineering Highlights
-
-AlphaScope demonstrates:
-
-* modular Python architecture
-* API integration engineering
-* resilient execution design
-* graceful degradation
-* quota-aware API consumption
-* confidence arbitration
-* stateful persistence
-* PostgreSQL integration
-* structured intelligence pipelines
-* deterministic preprocessing
-* AI-assisted synthesis
-* telemetry logging
-* report rendering pipelines
-* executive delivery systems
-* historical cognition architecture
-* environment-based secret management
-
----
-
-# Architecture
+# Current Architecture
 
 ```text
-AlphaScope
+Market Data Sources
+        │
+        ▼
+Collection Layer
+        │
+        ▼
+Technical Analysis
+        │
+        ▼
+Fundamental Analysis
+        │
+        ▼
+Investor Scoring Engine
+        │
+        ▼
+Ranking Engine
+        │
+        ▼
+Gemini Intelligence Layer
+        │
+        ▼
+PostgreSQL Persistence
+        │
+        ▼
+Dashboard & Reports
+        │
+        ▼
+Telegram Delivery
+```
+
+---
+
+# Technology Stack
+
+## Languages
+
+* Python
+
+## Data Sources
+
+* Yahoo Finance
+* Financial Modeling Prep (FMP)
+* Finnhub
+* RSS Financial Feeds
+
+## AI
+
+* Google Gemini
+
+## Database
+
+* PostgreSQL
+
+## Delivery
+
+* Telegram Bot API
+
+## Infrastructure
+
+* Ubuntu Server
+* VS Code Remote SSH
+* GitHub
+* Python Virtual Environments
+
+---
+
+# Project Structure
+
+```text
+alphascope/
 │
 ├── app/
 │   ├── ai/
@@ -410,87 +205,75 @@ AlphaScope
 │   └── main.py
 │
 ├── reports/
+├── web/
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-# Intelligence Workflow
+# Current Development Status
 
-```text
-Market Data Collection
-        ↓
-Macro Regime Evaluation
-        ↓
-Technical Screening
-        ↓
-Financial Context Enrichment
-        ↓
-News Intelligence Collection
-        ↓
-Signal Filtering
-        ↓
-Event Classification
-        ↓
-Confidence Governance
-        ↓
-AI Reasoning / Synthesis
-        ↓
-Persistence Layer
-        ↓
-Executive Report Rendering
-        ↓
-Automated Delivery
-```
+## Completed
+
+✅ Market Intelligence Engine
+
+✅ Technical Analysis Engine
+
+✅ Fundamental Data Collection
+
+✅ Historical PostgreSQL Persistence
+
+✅ AI Intelligence Layer
+
+✅ Investor Scoring Engine
+
+✅ Investment Ranking Engine
+
+✅ Historical Investor Score Tracking
 
 ---
 
-# Technology Stack
+## In Progress
 
-## Core
+🔄 Investor Dashboard
 
-* Python 3.x
+Planned dashboard features:
 
-## Market Data
-
-* yfinance
-* Financial Modeling Prep (FMP)
-* Finnhub
-* RSS financial feeds
-
-## AI
-
-* Google Gemini API
-
-## Database
-
-* PostgreSQL
-
-## Delivery
-
-* Telegram Bot API
-
-## Libraries
-
-* requests
-* pandas
-* psycopg2
-* python-dotenv
-* feedparser
-* urllib3
+* Ranked Opportunities
+* Buy Scores
+* Recommendation Transparency
+* Historical Score Trends
+* Technical/Fundamental Breakdown
+* Investor-Friendly Interface
 
 ---
 
-# Infrastructure
+# Future Roadmap
 
-Developed and operated on:
+## Phase 1 (Current)
 
-* Ubuntu Server
-* Python virtual environments
-* homelab infrastructure
-* VS Code Remote SSH
-* GitHub version control
+Investor Dashboard
+
+## Phase 2
+
+Opportunity Alerts
+
+## Phase 3
+
+Confidence Calibration Engine
+
+## Phase 4
+
+Prediction Accuracy Tracking
+
+## Phase 5
+
+Family Investment Portal
+
+## Phase 6
+
+Portfolio Analytics
 
 ---
 
@@ -520,116 +303,55 @@ pip install -r requirements.txt
 
 Create:
 
-```bash
+```env
 .env
 ```
 
 Example:
 
 ```env
-GEMINI_API_KEY=your_key
-FMP_API_KEY=your_key
-FINNHUB_API_KEY=your_key
-TELEGRAM_BOT_TOKEN=your_bot_token
-TELEGRAM_CHAT_ID=your_chat_id
+GEMINI_API_KEY=
+FMP_API_KEY=
+FINNHUB_API_KEY=
 
-DB_HOST=your_host
+DB_HOST=
 DB_NAME=alphascope
-DB_USER=your_user
-DB_PASSWORD=your_password
+DB_USER=
+DB_PASSWORD=
 DB_PORT=5432
+
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=
 ```
 
 ---
 
-# Running AlphaScope
-
-## Full Mode
+# Run AlphaScope
 
 ```bash
-python -m app.main full
+python -m app.main
 ```
-
-## Degraded Mode
-
-```bash
-python -m app.main degraded
-```
-
-## Offline Mode
-
-```bash
-python -m app.main offline
-```
-
----
-
-# Roadmap
-
-## Near-Term
-
-* prediction outcome scoring
-* confidence calibration engine
-* historical regime analytics
-* longitudinal signal validation
-* enhanced executive summaries
-* dashboard interface
-* watchlist customization
-
-## Intelligence Expansion
-
-* FRED macroeconomic integration
-* SEC EDGAR event intelligence
-* richer analyst revision intelligence
-* volatility structure analysis
-* options sentiment expansion
-* cross-asset correlation analysis
-
-## Long-Term
-
-* intelligence accuracy scoring
-* AI confidence benchmarking
-* probabilistic regime forecasting
-* ML-assisted experimentation
-* historical intelligence search engine
-* multi-agent intelligence orchestration
-
----
-
-# Design Principles
-
-AlphaScope follows strict engineering principles:
-
-* deterministic preprocessing before AI reasoning
-* modular separation of concerns
-* resilience over fragility
-* signal over noise
-* structured intelligence over speculation
-* cache-aware architecture
-* quota-aware API discipline
-* graceful degradation
-* automation-first workflows
-* maintainable engineering over hype scripting
 
 ---
 
 # Disclaimer
 
-AlphaScope is an engineering and educational project.
+AlphaScope is an educational and engineering project.
 
-It does not provide investment advice.
+It does not provide financial or investment advice.
 
-No trade execution occurs.
-
-Users remain fully responsible for their own financial decisions.
+Users remain solely responsible for all investment decisions.
 
 ---
 
 # Author
 
-**Dulanga Mudalige**
+### Dulanga Mudalige
 
-Infrastructure | Cloud | Security | Automation | Systems Engineering
+Mechanical Engineer | Infrastructure Engineer | Cloud | Security | Automation
 
 GitHub:
-[https://github.com/dunga101](https://github.com/dunga101)
+https://github.com/dunga101
+
+LinkedIn:
+https://www.linkedin.com/in/dulanga-mudalige
