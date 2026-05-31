@@ -790,7 +790,7 @@ function renderDashboard(payload) {
 
 async function loadReport() {
   try {
-    const res = await fetch('data/full-report.json?t=' + Date.now(), {
+    const res = await fetch('/data/full-report.json?t=' + Date.now(), {
       cache: 'no-store'
     });
 
