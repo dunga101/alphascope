@@ -169,6 +169,121 @@ header {
   color: #d1d5db;
 }
 
+.section-header {
+  margin-bottom: 18px;
+}
+
+.section-header h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #93c5fd;
+  margin-bottom: 8px;
+}
+
+.section-header p {
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.opportunities {
+  margin-bottom: 25px;
+}
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.opportunities table {
+  width: 100%;
+  min-width: 920px;
+  border-collapse: collapse;
+}
+
+.opportunities th,
+.opportunities td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.opportunities th {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.opportunities td {
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.opportunities tbody tr:hover {
+  background: rgba(59,130,246,0.06);
+}
+
+.symbol-cell {
+  font-weight: 900;
+  color: #bfdbfe;
+}
+
+.symbol-cell a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.symbol-cell a:hover {
+  text-decoration: underline;
+}
+
+.numeric-cell {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.recommendation-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  border: 1px solid rgba(148,163,184,0.22);
+  background: rgba(148,163,184,0.12);
+  color: #e2e8f0;
+  white-space: nowrap;
+}
+
+.recommendation-buy {
+  color: #bbf7d0;
+  background: rgba(34,197,94,0.12);
+  border-color: rgba(34,197,94,0.35);
+}
+
+.recommendation-watch {
+  color: #fde68a;
+  background: rgba(245,158,11,0.12);
+  border-color: rgba(245,158,11,0.35);
+}
+
+.recommendation-avoid {
+  color: #fecaca;
+  background: rgba(239,68,68,0.12);
+  border-color: rgba(239,68,68,0.35);
+}
+
+.status-message {
+  color: #fecaca;
+  line-height: 1.6;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(248,113,113,0.24);
+}
+
 .dual-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -246,6 +361,38 @@ ul {
 </section>
 
 <section class="dashboard">
+
+<div class="card opportunities">
+  <div class="section-header">
+    <h3>Investor Opportunities</h3>
+    <p>Ranked long-term opportunities generated from AlphaScope fundamentals, valuation, dividend, quality, and technical scoring.</p>
+  </div>
+
+  <div id="rankings-status" class="status-message" style="display:none;"></div>
+
+  <div class="table-wrap">
+    <table aria-label="Investor opportunities ranking">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Symbol</th>
+          <th>Company</th>
+          <th>Buy Score</th>
+          <th>Recommendation</th>
+          <th>Dividend Yield</th>
+          <th>PE Ratio</th>
+          <th>ROE</th>
+          <th>Sector</th>
+        </tr>
+      </thead>
+      <tbody id="rankings-body">
+        <tr>
+          <td colspan="9">Loading investor opportunities...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <div class="cards">
   <div class="card">
@@ -333,6 +480,125 @@ function setText(id, value) {
   }
 }
 
+function formatNumber(value, digits = 2) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return '--';
+
+  return new Intl.NumberFormat('en-US', {
+    maximumFractionDigits: digits
+  }).format(number);
+}
+
+function formatPercent(value, digits = 2) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return '--';
+
+  return new Intl.NumberFormat('en-US', {
+    style: 'percent',
+    maximumFractionDigits: digits
+  }).format(number);
+}
+
+function recommendationClass(recommendation) {
+  const normalized = String(recommendation || '').toLowerCase();
+
+  if (normalized.includes('buy')) return 'recommendation-buy';
+  if (normalized.includes('watch')) return 'recommendation-watch';
+  if (normalized.includes('avoid')) return 'recommendation-avoid';
+
+  return '';
+}
+
+function appendCell(row, text, className) {
+  const cell = document.createElement('td');
+  if (className) cell.className = className;
+  cell.textContent = text;
+  row.appendChild(cell);
+  return cell;
+}
+
+function appendSymbolCell(row, symbol) {
+  const cell = document.createElement('td');
+  const safeSymbol = symbol || '--';
+  cell.className = 'symbol-cell';
+
+  if (symbol) {
+    const link = document.createElement('a');
+    link.href = `opportunity.html?symbol=${encodeURIComponent(symbol)}`;
+    link.textContent = symbol;
+    cell.appendChild(link);
+  } else {
+    cell.textContent = safeSymbol;
+  }
+
+  row.appendChild(cell);
+  return cell;
+}
+
+function showRankingsMessage(message) {
+  const status = getElement('rankings-status');
+  const body = getElement('rankings-body');
+
+  if (status) {
+    status.textContent = message;
+    status.style.display = 'block';
+  }
+
+  if (body) {
+    body.innerHTML = '';
+    const row = document.createElement('tr');
+    appendCell(row, message, '');
+    row.firstChild.colSpan = 9;
+    body.appendChild(row);
+  }
+}
+
+function renderRankings(rankings) {
+  const status = getElement('rankings-status');
+  const body = getElement('rankings-body');
+  if (!body) return;
+
+  if (status) {
+    status.textContent = '';
+    status.style.display = 'none';
+  }
+
+  body.innerHTML = '';
+
+  const sortedRankings = rankings
+    .slice()
+    .sort((a, b) => Number(a.rank ?? Infinity) - Number(b.rank ?? Infinity));
+
+  if (!sortedRankings.length) {
+    showRankingsMessage('No investor opportunities are available in the latest ranking payload.');
+    return;
+  }
+
+  sortedRankings.forEach(item => {
+    const row = document.createElement('tr');
+    const recommendation = item.recommendation || '--';
+
+    appendCell(row, item.rank ?? '--', 'numeric-cell');
+    appendSymbolCell(row, item.symbol);
+    appendCell(row, item.company || '--', '');
+    appendCell(row, formatNumber(item.buy_score), 'numeric-cell');
+
+    const recommendationCell = document.createElement('td');
+    const badge = document.createElement('span');
+    badge.className = `recommendation-badge ${recommendationClass(recommendation)}`.trim();
+    badge.textContent = recommendation;
+    recommendationCell.appendChild(badge);
+    row.appendChild(recommendationCell);
+
+    appendCell(row, formatPercent(item.dividend_yield), 'numeric-cell');
+    appendCell(row, formatNumber(item.pe_ratio), 'numeric-cell');
+    appendCell(row, formatPercent(item.roe), 'numeric-cell');
+    appendCell(row, item.sector || '--', '');
+
+    body.appendChild(row);
+  });
+}
+
 function renderList(id, items, emptyText) {
   const list = getElement(id);
   if (!list) return;
@@ -392,6 +658,29 @@ function renderTicker(items) {
   });
 }
 
+async function loadRankings() {
+  try {
+    const res = await fetch('data/investor-rankings.json?t=' + Date.now(), {
+      cache: 'no-store'
+    });
+
+    if (!res.ok) {
+      throw new Error(`Investor rankings request failed: ${res.status}`);
+    }
+
+    const payload = await res.json();
+
+    if (!payload || !Array.isArray(payload.rankings)) {
+      throw new Error('Investor rankings payload is missing rankings array.');
+    }
+
+    renderRankings(payload.rankings);
+  } catch (error) {
+    console.error('Unable to load investor rankings:', error);
+    showRankingsMessage('Unable to load the latest AlphaScope investor opportunities.');
+  }
+}
+
 async function loadData() {
   try {
     const res = await fetch('data/latest-report.json?t=' + Date.now(), {
@@ -429,7 +718,9 @@ async function loadData() {
   }
 }
 
+loadRankings();
 loadData();
+setInterval(loadRankings, 300000);
 setInterval(loadData, 300000);
 </script>
 
