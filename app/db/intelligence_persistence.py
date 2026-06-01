@@ -403,3 +403,131 @@ def persist_technical_snapshot(symbol: str, technical_output: dict):
     conn.commit()
     cur.close()
     conn.close()
+
+
+def persist_fred_observations(fred_payload: dict):
+    series_map = fred_payload.get("series", {}) if isinstance(fred_payload, dict) else {}
+    if not series_map:
+        return 0
+
+    conn = get_connection()
+    cur = conn.cursor()
+    persisted_count = 0
+
+    for series_id, series_data in series_map.items():
+        observations = series_data.get("observations", []) if isinstance(series_data, dict) else []
+
+        for observation in observations:
+            observation_date = observation.get("date")
+            if not observation_date:
+                continue
+
+            cur.execute(
+                """
+                INSERT INTO fred_observations (
+                    series_id,
+                    observation_date,
+                    value,
+                    realtime_start,
+                    realtime_end,
+                    raw_observation
+                )
+                VALUES (%s, %s, %s, %s, %s, %s)
+                ON CONFLICT (series_id, observation_date)
+                DO UPDATE SET
+                    value = EXCLUDED.value,
+                    realtime_start = EXCLUDED.realtime_start,
+                    realtime_end = EXCLUDED.realtime_end,
+                    raw_observation = EXCLUDED.raw_observation,
+                    updated_at = NOW();
+                """,
+                (
+                    series_id,
+                    observation_date,
+                    observation.get("value"),
+                    observation.get("realtime_start"),
+                    observation.get("realtime_end"),
+                    json.dumps(observation.get("raw_observation", observation)),
+                ),
+            )
+            persisted_count += 1
+
+    conn.commit()
+    cur.close()
+    conn.close()
+
+    return persisted_count
+
+
+def persist_macro_snapshot(macro_snapshot: dict):
+    if not macro_snapshot:
+        return
+
+    conn = get_connection()
+    cur = conn.cursor()
+
+    cur.execute(
+        """
+        INSERT INTO macro_snapshots (
+            snapshot_date,
+            fed_funds_rate,
+            cpi_value,
+            cpi_yoy,
+            cpi_3m_annualized,
+            unemployment_rate,
+            unemployment_trend,
+            treasury_10y,
+            treasury_2y,
+            yield_curve_spread,
+            yield_curve_state,
+            interest_rate_trend,
+            inflation_trend,
+            macro_regime,
+            macro_risk_score,
+            summary,
+            raw_macro
+        )
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ON CONFLICT (snapshot_date)
+        DO UPDATE SET
+            fed_funds_rate = EXCLUDED.fed_funds_rate,
+            cpi_value = EXCLUDED.cpi_value,
+            cpi_yoy = EXCLUDED.cpi_yoy,
+            cpi_3m_annualized = EXCLUDED.cpi_3m_annualized,
+            unemployment_rate = EXCLUDED.unemployment_rate,
+            unemployment_trend = EXCLUDED.unemployment_trend,
+            treasury_10y = EXCLUDED.treasury_10y,
+            treasury_2y = EXCLUDED.treasury_2y,
+            yield_curve_spread = EXCLUDED.yield_curve_spread,
+            yield_curve_state = EXCLUDED.yield_curve_state,
+            interest_rate_trend = EXCLUDED.interest_rate_trend,
+            inflation_trend = EXCLUDED.inflation_trend,
+            macro_regime = EXCLUDED.macro_regime,
+            macro_risk_score = EXCLUDED.macro_risk_score,
+            summary = EXCLUDED.summary,
+            raw_macro = EXCLUDED.raw_macro;
+        """,
+        (
+            date.today(),
+            macro_snapshot.get("fed_funds_rate"),
+            macro_snapshot.get("cpi_value"),
+            macro_snapshot.get("cpi_yoy"),
+            macro_snapshot.get("cpi_3m_annualized"),
+            macro_snapshot.get("unemployment_rate"),
+            macro_snapshot.get("unemployment_trend"),
+            macro_snapshot.get("treasury_10y"),
+            macro_snapshot.get("treasury_2y"),
+            macro_snapshot.get("yield_curve_spread"),
+            macro_snapshot.get("yield_curve_state"),
+            macro_snapshot.get("interest_rate_trend"),
+            macro_snapshot.get("inflation_trend"),
+            macro_snapshot.get("macro_regime"),
+            macro_snapshot.get("macro_risk_score"),
+            macro_snapshot.get("summary"),
+            json.dumps(macro_snapshot),
+        ),
+    )
+
+    conn.commit()
+    cur.close()
+    conn.close()

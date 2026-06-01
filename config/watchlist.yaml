@@ -7,6 +7,33 @@ core:
   - GOOGL
   - TSLA
 
+investor:
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMZN
+  - META
+  - GOOGL
+  - TSLA
+  - AVGO
+  - AMD
+  - ORCL
+  - CSCO
+  - IBM
+  - JPM
+  - BAC
+  - V
+  - MA
+  - UNH
+  - JNJ
+  - LLY
+  - MRK
+  - XOM
+  - CVX
+  - PG
+  - KO
+  - PEP
+
 macro:
   - "^GSPC"
   - "^IXIC"

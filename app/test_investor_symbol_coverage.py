@@ -4,6 +4,9 @@ from app.config.symbols import CORE_SYMBOLS, FMP_WATCHLIST, FUNDAMENTAL_SYMBOLS
 
 
 class InvestorSymbolCoverageTests(unittest.TestCase):
+    def test_core_universe_has_sprint_1a_size(self):
+        self.assertEqual(len(CORE_SYMBOLS), 25)
+
     def test_fundamentals_cover_core_investor_symbols(self):
         self.assertEqual(set(CORE_SYMBOLS), set(FUNDAMENTAL_SYMBOLS))
 

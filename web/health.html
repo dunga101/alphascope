@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlphaScope | Data Health</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: linear-gradient(135deg, #020617, #0f172a, #020617);
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  max-width: 1400px;
+  margin: auto;
+  padding: 34px 30px 70px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 34px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(96,165,250,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+.brand h1 {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.brand p,
+.muted {
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.nav-link {
+  color: #dbeafe;
+  text-decoration: none;
+  font-weight: 800;
+  border: 1px solid rgba(96,165,250,0.35);
+  background: rgba(59,130,246,0.14);
+  padding: 11px 16px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.hero {
+  margin-bottom: 22px;
+}
+
+.hero h2 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 22px;
+  border-radius: 8px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.32);
+}
+
+.card h3 {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.metric {
+  font-size: 1.65rem;
+  font-weight: 900;
+}
+
+.table-card {
+  margin-top: 18px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 1040px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 13px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  color: #94a3b8;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+td {
+  color: #e5e7eb;
+  font-size: 0.92rem;
+}
+
+.symbol {
+  color: #bfdbfe;
+  font-weight: 900;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 900;
+  border: 1px solid rgba(148,163,184,0.22);
+}
+
+.status-complete {
+  color: #bbf7d0;
+  background: rgba(34,197,94,0.12);
+  border-color: rgba(34,197,94,0.34);
+}
+
+.status-partial {
+  color: #fde68a;
+  background: rgba(245,158,11,0.12);
+  border-color: rgba(245,158,11,0.34);
+}
+
+.status-missing {
+  color: #fecaca;
+  background: rgba(239,68,68,0.12);
+  border-color: rgba(239,68,68,0.34);
+}
+
+.dot {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.22);
+}
+
+.yes { background: #22c55e; }
+.no { background: #ef4444; }
+
+.status-banner {
+  display: none;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  color: #fecaca;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(248,113,113,0.24);
+}
+
+@media(max-width: 980px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media(max-width: 680px) {
+  .container {
+    padding: 28px 18px 60px;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<div class="container">
+  <div class="header">
+    <div class="brand">
+      <div class="logo">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <defs>
+            <linearGradient id="alphaGrad" x1="0" y1="0" x2="120" y2="120">
+              <stop offset="0%" stop-color="#93C5FD"/>
+              <stop offset="50%" stop-color="#3B82F6"/>
+              <stop offset="100%" stop-color="#06B6D4"/>
+            </linearGradient>
+          </defs>
+          <polygon points="60,10 95,30 95,75 60,110 25,75 25,30"
+            stroke="url(#alphaGrad)" stroke-width="5"
+            fill="rgba(59,130,246,0.08)" />
+          <polygon points="60,38 76,54 60,70 44,54" fill="url(#alphaGrad)" />
+        </svg>
+      </div>
+      <div>
+        <h1>AlphaScope Data Health</h1>
+        <p>Investor universe data coverage diagnostics</p>
+      </div>
+    </div>
+    <a class="nav-link" href="/">Investor Dashboard</a>
+  </div>
+
+  <section class="hero">
+    <h2>Coverage Dashboard</h2>
+    <p class="muted" id="generated-at">Loading data health snapshot...</p>
+  </section>
+
+  <div class="status-banner" id="status-banner"></div>
+
+  <section class="cards" aria-label="Data health summary">
+    <div class="card">
+      <h3>Total Symbols</h3>
+      <div class="metric" id="total-symbols">--</div>
+    </div>
+    <div class="card">
+      <h3>Complete Symbols</h3>
+      <div class="metric" id="complete-symbols">--</div>
+    </div>
+    <div class="card">
+      <h3>Partial Symbols</h3>
+      <div class="metric" id="partial-symbols">--</div>
+    </div>
+    <div class="card">
+      <h3>Missing Symbols</h3>
+      <div class="metric" id="missing-symbols">--</div>
+    </div>
+    <div class="card">
+      <h3>Coverage</h3>
+      <div class="metric" id="coverage">--%</div>
+    </div>
+  </section>
+
+  <section class="card table-card">
+    <div class="table-wrap">
+      <table aria-label="Investor data health table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Status</th>
+            <th>Quote</th>
+            <th>Profile</th>
+            <th>Ratios</th>
+            <th>Income</th>
+            <th>Balance</th>
+            <th>Cash Flow</th>
+            <th>Technical</th>
+            <th>Fundamental</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody id="health-body">
+          <tr>
+            <td colspan="11">Loading data health...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<script>
+function getElement(id) {
+  return document.getElementById(id);
+}
+
+function setText(id, value) {
+  const element = getElement(id);
+  if (element) element.textContent = value ?? '';
+}
+
+function showError(message) {
+  const banner = getElement('status-banner');
+  if (!banner) return;
+  banner.textContent = message;
+  banner.style.display = 'block';
+}
+
+function statusClass(status) {
+  const normalized = String(status || '').toLowerCase();
+  if (normalized === 'complete') return 'status-complete';
+  if (normalized === 'partial') return 'status-partial';
+  return 'status-missing';
+}
+
+function appendCell(row, childOrText, className) {
+  const cell = document.createElement('td');
+  if (className) cell.className = className;
+  if (childOrText instanceof Node) {
+    cell.appendChild(childOrText);
+  } else {
+    cell.textContent = childOrText;
+  }
+  row.appendChild(cell);
+}
+
+function dot(value) {
+  const node = document.createElement('span');
+  node.className = `dot ${value ? 'yes' : 'no'}`;
+  node.title = value ? 'Available' : 'Unavailable';
+  node.setAttribute('aria-label', node.title);
+  return node;
+}
+
+function statusPill(status) {
+  const node = document.createElement('span');
+  node.className = `status ${statusClass(status)}`;
+  node.textContent = status || 'MISSING';
+  return node;
+}
+
+function renderSummary(summary) {
+  setText('total-symbols', summary.total_symbols ?? '--');
+  setText('complete-symbols', summary.complete_symbols ?? '--');
+  setText('partial-symbols', summary.partial_symbols ?? '--');
+  setText('missing-symbols', summary.missing_symbols ?? '--');
+  setText('coverage', `${summary.coverage_percentage ?? '--'}%`);
+
+  if (Array.isArray(summary.warnings) && summary.warnings.length) {
+    showError(summary.warnings.join(' '));
+  }
+}
+
+function renderRows(rows) {
+  const body = getElement('health-body');
+  if (!body) return;
+
+  body.innerHTML = '';
+
+  if (!Array.isArray(rows) || rows.length === 0) {
+    const row = document.createElement('tr');
+    appendCell(row, 'No data health rows available.');
+    row.firstChild.colSpan = 11;
+    body.appendChild(row);
+    return;
+  }
+
+  rows.forEach(item => {
+    const row = document.createElement('tr');
+    appendCell(row, item.symbol || '--', 'symbol');
+    appendCell(row, statusPill(item.status));
+    appendCell(row, dot(item.quote_available));
+    appendCell(row, dot(item.profile_available));
+    appendCell(row, dot(item.ratios_available));
+    appendCell(row, dot(item.income_statement_available));
+    appendCell(row, dot(item.balance_sheet_available));
+    appendCell(row, dot(item.cash_flow_available));
+    appendCell(row, dot(item.technical_snapshot_available));
+    appendCell(row, dot(item.fundamental_snapshot_available));
+    appendCell(row, dot(item.investor_score_available));
+    body.appendChild(row);
+  });
+}
+
+async function loadHealth() {
+  try {
+    const res = await fetch('data/data-health.json?t=' + Date.now(), {
+      cache: 'no-store'
+    });
+
+    if (!res.ok) {
+      throw new Error(`Data health request failed: ${res.status}`);
+    }
+
+    const payload = await res.json();
+    setText('generated-at', `Generated ${payload.generated_at || '--'}`);
+    renderSummary(payload.summary || {});
+    renderRows(payload.symbols || []);
+  } catch (error) {
+    console.error('Unable to load data health:', error);
+    showError('Unable to load AlphaScope data health payload.');
+    renderRows([]);
+  }
+}
+
+loadHealth();
+</script>
+
+</body>
+</html>

@@ -13,6 +13,7 @@ GENERATED_FILES=(
   "web/data/latest-report.json"
   "web/data/full-report.json"
   "web/data/investor-rankings.json"
+  "web/data/data-health.json"
 )
 
 mkdir -p "$LOG_DIR"
@@ -50,6 +51,7 @@ validate_json_outputs() {
   validate_json_file "web/data/latest-report.json"
   validate_json_file "web/data/full-report.json"
   validate_json_file "web/data/investor-rankings.json"
+  validate_json_file "web/data/data-health.json"
 
   if ! "$PYTHON" -c 'import json, sys; data=json.load(open(sys.argv[1], encoding="utf-8")); missing=[key for key in ("generated_at", "confidence") if key not in data]; raise SystemExit(1 if missing else 0)' web/data/latest-report.json; then
     fail_validation "web/data/latest-report.json must contain generated_at and confidence"
@@ -58,6 +60,29 @@ validate_json_outputs() {
   if ! "$PYTHON" -c 'import json, sys; data=json.load(open(sys.argv[1], encoding="utf-8")); rankings=data.get("rankings"); raise SystemExit(0 if isinstance(rankings, list) and len(rankings) > 0 else 1)' web/data/investor-rankings.json; then
     fail_validation "web/data/investor-rankings.json must contain a non-empty rankings array"
   fi
+
+  "$PYTHON" - web/data/data-health.json <<'PY' | while IFS= read -r warning; do
+import json
+import sys
+
+with open(sys.argv[1], encoding="utf-8") as file:
+    data = json.load(file)
+
+summary = data.get("summary", {})
+total = int(summary.get("total_symbols") or 0)
+fundamentals = int(summary.get("fundamentals_available") or 0)
+scores = int(summary.get("scores_available") or 0)
+coverage = float(summary.get("coverage_percentage") or 0)
+
+if fundamentals < total:
+    print(f"warning: fundamentals coverage below symbol count ({fundamentals}/{total})")
+if scores < total:
+    print(f"warning: investor score coverage below symbol count ({scores}/{total})")
+if coverage < 95:
+    print(f"warning: complete data coverage below 95% ({coverage}%)")
+PY
+    log "$warning"
+  done
 }
 
 cd "$REPO_DIR"

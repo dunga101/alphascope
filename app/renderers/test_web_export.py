@@ -13,7 +13,11 @@ sys.modules.setdefault(
     types.SimpleNamespace(RealDictCursor=object),
 )
 
-from app.renderers.web_export import export_investor_rankings
+from app.renderers.web_export import (
+    export_data_health,
+    export_investor_rankings,
+    export_web_report,
+)
 
 
 class WebExportTests(unittest.TestCase):
@@ -24,6 +28,9 @@ class WebExportTests(unittest.TestCase):
                 "symbol": "MSFT",
                 "company_name": "Microsoft Corporation",
                 "sector": "Technology",
+                "raw_score": {
+                    "current_price": 510.15,
+                },
                 "buy_score": 82.5,
                 "recommendation": "Strong Buy",
                 "valuation_score": 75,
@@ -73,8 +80,95 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(payload["rankings"][0]["rank"], 1)
         self.assertEqual(payload["rankings"][0]["symbol"], "MSFT")
         self.assertEqual(payload["rankings"][0]["company"], "Microsoft Corporation")
+        self.assertEqual(payload["rankings"][0]["current_price"], 510.15)
         self.assertEqual(payload["rankings"][0]["sma20"], 416.97)
         self.assertTrue(payload["rankings"][0]["strengths"])
+        self.assertIn("score_breakdown", payload["rankings"][0])
+
+    def test_export_data_health_writes_symbol_coverage_payload(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            previous_cwd = os.getcwd()
+            os.chdir(tmpdir)
+
+            try:
+                output = export_data_health(
+                    "2026-06-01 14:00 EDT",
+                    "2026-06-01T14:00:00-04:00",
+                    fmp_quotes={
+                        "status": "OK",
+                        "quotes": {
+                            "MSFT": {"price": 510.15},
+                        },
+                    },
+                    company_profiles={
+                        "MSFT": {"company_name": "Microsoft Corporation"},
+                    },
+                    fundamentals={
+                        "MSFT": {
+                            "pe_ratio": 31.4,
+                            "dividend_yield": 0.008,
+                            "revenue": 281724000000,
+                            "net_income": 101832000000,
+                            "total_debt": 112184000000,
+                            "free_cash_flow": 71611000000,
+                        },
+                    },
+                    investor_rankings=[
+                        {
+                            "symbol": "MSFT",
+                            "raw_score": {
+                                "technical_available": True,
+                            },
+                        },
+                    ],
+                    symbols=["MSFT", "AAPL"],
+                )
+
+                with open("web/data/data-health.json", encoding="utf-8") as f:
+                    payload = json.load(f)
+            finally:
+                os.chdir(previous_cwd)
+
+        self.assertEqual(output["summary"]["total_symbols"], 2)
+        self.assertEqual(output["summary"]["complete_symbols"], 1)
+        self.assertEqual(output["summary"]["missing_symbols"], 1)
+        self.assertEqual(payload["symbols"][0]["symbol"], "MSFT")
+        self.assertEqual(payload["symbols"][0]["status"], "COMPLETE")
+        self.assertEqual(payload["symbols"][1]["status"], "MISSING")
+        self.assertTrue(payload["summary"]["warnings"])
+
+    def test_export_web_report_adds_compact_macro_object(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            previous_cwd = os.getcwd()
+            os.chdir(tmpdir)
+
+            try:
+                with patch(
+                    "app.renderers.web_export.fetch_latest_investor_rankings",
+                    return_value=[],
+                ):
+                    export_web_report(
+                        ai={"quick_take": "Market summary", "watchlist_names": [], "weak_names": []},
+                        unified={"final_regime": "MIXED", "final_confidence": 50},
+                        fmp_quotes={"status": "ERROR", "quotes": {}},
+                        macro_snapshot={
+                            "status": "OK",
+                            "macro_regime": "MIXED",
+                            "inflation_trend": "STABLE",
+                            "interest_rate_trend": "STABLE",
+                            "yield_curve_state": "FLAT",
+                        },
+                        data_health_symbols=[],
+                    )
+
+                with open("web/data/latest-report.json", encoding="utf-8") as f:
+                    payload = json.load(f)
+            finally:
+                os.chdir(previous_cwd)
+
+        self.assertEqual(payload["regime"], "MIXED")
+        self.assertEqual(payload["macro"]["macro_regime"], "MIXED")
+        self.assertIn("ticker", payload)
 
 
 if __name__ == "__main__":

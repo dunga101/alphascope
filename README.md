@@ -238,6 +238,14 @@ alphascope/
 
 🔄 Investor Dashboard
 
+Active Sprint 1 requirements and implementation scope:
+
+* [Investor Dashboard V2](docs/INVESTOR_DASHBOARD_V2.md)
+
+Historical planning and superseded requirements:
+
+* [Documentation Archive](docs/archive/)
+
 Planned dashboard features:
 
 * Ranked Opportunities

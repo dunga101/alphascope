@@ -13,7 +13,9 @@ from app.collectors.earnings import collect_earnings_context
 from app.collectors.fmp_quotes import collect_fmp_quotes
 from app.collectors.fmp_profile import collect_company_profile
 from app.collectors.fmp_fundamentals import collect_fundamentals
+from app.collectors.fred_macro import collect_fred_macro
 from app.collectors.news_intelligence import collect_news_intelligence
+from app.analytics.macro_regime_engine import build_macro_snapshot
 from app.analytics.investor_ranking import build_investor_rankings
 from app.config.symbols import CORE_SYMBOLS, FMP_WATCHLIST, FUNDAMENTAL_SYMBOLS
 from app.processors.confidence_engine import unify_confidence
@@ -22,7 +24,9 @@ from app.db.intelligence_persistence import (
     persist_intelligence_report,
     persist_event_snapshot,
     persist_fundamental_snapshot,
+    persist_fred_observations,
     persist_investor_scores,
+    persist_macro_snapshot,
     persist_technical_snapshot,
 )
 from app.logger import setup_logger
@@ -193,6 +197,7 @@ def build_telegram_summary(
     ai: dict,
     news_ai: dict,
     macro_context: dict,
+    investor_rankings: list | None = None,
 ) -> str:
     macro_lines = []
 
@@ -228,6 +233,33 @@ def build_telegram_summary(
     if len(posture) > 250:
         posture = posture[:250] + "..."
 
+    opportunity_lines = []
+    for item in (investor_rankings or [])[:5]:
+        symbol = item.get("symbol", "N/A")
+        company = item.get("company") or symbol
+        score = item.get("buy_score")
+        recommendation = item.get("recommendation", "N/A")
+        dividend = item.get("dividend_yield")
+
+        if len(company) > 28:
+            company = company[:25] + "..."
+
+        try:
+            score_text = f"{float(score):.1f}"
+        except (TypeError, ValueError):
+            score_text = "N/A"
+
+        try:
+            dividend_text = f"{float(dividend) * 100:.2f}%"
+        except (TypeError, ValueError):
+            dividend_text = "N/A"
+
+        opportunity_lines.append(
+            f"{symbol} ({company}) | Score {score_text} | {recommendation} | Div {dividend_text}"
+        )
+
+    top_opportunities = "\n".join(opportunity_lines) or "Top opportunities unavailable."
+
     return f"""AlphaScope Daily Brief
 Mode: {mode.upper()}
 Generated: {datetime.now().strftime("%Y-%m-%d %H:%M")}
@@ -251,6 +283,9 @@ Weak: {weak_names}
 
 POSTURE
 {posture}
+
+TOP OPPORTUNITIES
+{top_opportunities}
 """
 
 
@@ -479,6 +514,55 @@ def persist_technical_results(technical_results: list):
     log.info(f"Persisted {len(technical_results)} technical snapshots")
 
 
+def collect_fred_context() -> tuple[dict, dict]:
+    try:
+        fred_payload = collect_fred_macro()
+        macro_snapshot = build_macro_snapshot(fred_payload)
+        if fred_payload.get("status") != "OK":
+            log.warning(f"FRED macro collection incomplete: {fred_payload.get('errors', {})}")
+        return fred_payload, macro_snapshot
+    except Exception as e:
+        log.warning(f"FRED macro collection skipped: {e}")
+        return (
+            {
+                "status": "ERROR",
+                "source": "FRED",
+                "series": {},
+                "errors": {
+                    "collector": str(e),
+                },
+                "cache_stats": {
+                    "hits": 0,
+                    "misses": 0,
+                },
+            },
+            {
+                "source": "FRED",
+                "status": "ERROR",
+                "macro_regime": "UNKNOWN",
+                "inflation_trend": "UNKNOWN",
+                "interest_rate_trend": "UNKNOWN",
+                "yield_curve_state": "UNKNOWN",
+                "unemployment_trend": "UNKNOWN",
+                "macro_risk_score": 35,
+                "summary": "FRED macro context unavailable.",
+            },
+        )
+
+
+def persist_fred_results(fred_payload: dict, macro_snapshot: dict):
+    try:
+        observation_count = persist_fred_observations(fred_payload)
+        if observation_count:
+            log.info(f"Persisted {observation_count} FRED observations")
+
+        if macro_snapshot:
+            persist_macro_snapshot(macro_snapshot)
+            log.info("Persisted FRED macro snapshot")
+    except Exception as e:
+        log.warning(f"FRED macro persistence skipped: {e}")
+
+
 def build_full_report(mode: str):
     log.info(f"AlphaScope operating mode: {mode.upper()}")
 
@@ -489,6 +573,9 @@ def build_full_report(mode: str):
 
     log.info("Collecting macro context")
     macro_context = collect_macro_context(MACRO_SYMBOLS)
+
+    log.info("Collecting FRED macro context")
+    fred_payload, macro_snapshot = collect_fred_context()
 
     log.info("Collecting sector breadth")
     sector_breadth = collect_sector_breadth(SECTOR_SYMBOLS)
@@ -578,6 +665,9 @@ TECHNICAL ANALYSIS
     log.info("Persisting event intelligence snapshot")
     persist_event_snapshot(news_ai)
 
+    log.info("Persisting FRED macro context")
+    persist_fred_results(fred_payload, macro_snapshot)
+
     ai_summary = format_ai_summary(ai)
     news_summary = format_news_intelligence(news_ai)
     unified_summary = format_unified_confidence(unified)
@@ -650,7 +740,11 @@ TECHNICAL APPENDIX
         "news_ai": news_ai,
         "unified": unified,
         "macro_context": macro_context,
+        "fred_payload": fred_payload,
+        "macro_snapshot": macro_snapshot,
         "fmp_quotes": fmp_quotes,
+        "fundamentals": fundamentals,
+        "company_profiles": company_profiles,
         "investor_rankings": investor_rankings,
     }
 
@@ -681,7 +775,11 @@ def main():
         news_ai = result["news_ai"]
         unified = result["unified"]
         macro_context = result["macro_context"]
+        macro_snapshot = result["macro_snapshot"]
         fmp_quotes = result["fmp_quotes"]
+        fundamentals = result["fundamentals"]
+        company_profiles = result["company_profiles"]
+        investor_rankings = result["investor_rankings"]
 
         filename = save_report(report, mode)
 
@@ -689,7 +787,11 @@ def main():
             ai,
             unified,
             fmp_quotes,
-            filename
+            filename,
+            company_profiles=company_profiles,
+            fundamentals=fundamentals,
+            investor_rankings=investor_rankings,
+            macro_snapshot=macro_snapshot,
         )
 
         telegram_report = build_telegram_summary(
@@ -698,6 +800,7 @@ def main():
             ai,
             news_ai,
             macro_context,
+            investor_rankings,
         )
 
         log.info("Sending Telegram executive summary")

@@ -5,3 +5,4 @@ reports/
 /data/
 *.pyc
 alphascope.log
+logs/

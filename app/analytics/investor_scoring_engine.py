@@ -207,11 +207,13 @@ def score_investor_opportunity(
         or quote.get("name")
         or symbol.upper()
     )
+    current_price = _to_float(quote.get("price") or profile.get("price"))
 
     result = {
         "symbol": symbol.upper(),
         "company": company_name,
         "sector": profile.get("sector"),
+        "current_price": current_price,
         "buy_score": buy_score,
         "recommendation": recommendation_for_score(buy_score),
         "valuation_score": round(valuation_score, 2),
@@ -232,6 +234,7 @@ def score_investor_opportunity(
     result["raw_score"] = {
         "fundamentals_available": bool(fundamentals),
         "technical_available": bool(technical_data),
+        "current_price": current_price,
         "weights": {
             "valuation": 0.25,
             "dividend": 0.15,

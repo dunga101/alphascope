@@ -1,15 +1,13 @@
 {
-  "generated_at": "2026-06-01 11:52 EDT",
-  "generated_at_iso": "2026-06-01T11:52:57.596690-04:00",
+  "generated_at": "2026-06-01 15:03 EDT",
+  "generated_at_iso": "2026-06-01T15:03:05.432470-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 55,
-  "summary": "The market exhibits mixed signals, with technology sectors showing strength while broader indices and other sectors display weakness. Volatility is elevated, and treasury yields are rising, suggesting a cautious environment. Concentration risk in key technology names remains a factor, and while some companies show strong fundamentals, technicals are mixed. Event risk is currently low for major tech companies.",
+  "confidence": 46,
+  "summary": "The market exhibits a mixed sentiment with technology leading gains, but broad weakness across other sectors. Volatility is elevated, and risk appetite is waning, evidenced by Bitcoin's decline. While some tech names show strong technicals, overall participation is low, and several sectors are under pressure. Event risk is low for most major companies, except for Broadcom. Caution is advised due to the lack of broad market support and signs of overheating in certain tech names.",
   "bullish": [
-    "NVDA",
-    "QQQ",
     "SPY",
-    "MSFT",
+    "QQQ",
     "AMD"
   ],
   "bearish": [
@@ -18,43 +16,189 @@
   "ticker": [
     {
       "symbol": "SPY",
-      "price": "$757.41498",
-      "change": "+0.12%"
+      "price": "$759.62",
+      "change": "+0.42%"
     },
     {
       "symbol": "AAPL",
-      "price": "$306.84",
-      "change": "-1.67%"
+      "price": "$307.757",
+      "change": "-1.38%"
     },
     {
       "symbol": "MSFT",
-      "price": "$462.81",
-      "change": "+2.79%"
+      "price": "$461.18",
+      "change": "+2.43%"
     },
     {
       "symbol": "NVDA",
-      "price": "$220.57",
-      "change": "+4.47%"
+      "price": "$224.39",
+      "change": "+6.28%"
     },
     {
       "symbol": "AMZN",
-      "price": "$264.4143",
-      "change": "-2.30%"
+      "price": "$263.28",
+      "change": "-2.72%"
     },
     {
       "symbol": "META",
-      "price": "$615.669",
-      "change": "-2.66%"
+      "price": "$605.375",
+      "change": "-4.29%"
     },
     {
       "symbol": "GOOGL",
-      "price": "$375.73",
-      "change": "-1.21%"
+      "price": "$378.12",
+      "change": "-0.58%"
     },
     {
       "symbol": "TSLA",
-      "price": "$423.0701",
-      "change": "-2.92%"
+      "price": "$418.53",
+      "change": "-3.96%"
+    },
+    {
+      "symbol": "AMD",
+      "price": "$512.3",
+      "change": "-0.74%"
+    },
+    {
+      "symbol": "CSCO",
+      "price": "$120.8685",
+      "change": "+0.37%"
+    },
+    {
+      "symbol": "JPM",
+      "price": "$296.67",
+      "change": "-0.88%"
+    },
+    {
+      "symbol": "BAC",
+      "price": "$51.585",
+      "change": "-0.03%"
+    },
+    {
+      "symbol": "V",
+      "price": "$321.23",
+      "change": "-1.57%"
+    },
+    {
+      "symbol": "UNH",
+      "price": "$378.8",
+      "change": "-0.40%"
+    },
+    {
+      "symbol": "JNJ",
+      "price": "$224.03",
+      "change": "-0.58%"
+    },
+    {
+      "symbol": "XOM",
+      "price": "$148.645",
+      "change": "+2.33%"
+    },
+    {
+      "symbol": "CVX",
+      "price": "$186.23",
+      "change": "+2.07%"
+    },
+    {
+      "symbol": "KO",
+      "price": "$78.82",
+      "change": "-0.24%"
+    },
+    {
+      "symbol": "PEP",
+      "price": "$141.875",
+      "change": "-1.61%"
     }
-  ]
+  ],
+  "macro": {
+    "source": "FRED",
+    "status": "OK",
+    "fed_funds_rate": 3.64,
+    "fed_funds_date": "2026-04-01",
+    "cpi_value": 332.407,
+    "cpi_date": "2026-04-01",
+    "cpi_yoy": 3.95,
+    "cpi_3m_annualized": 7.32,
+    "unemployment_rate": 4.3,
+    "unemployment_date": "2026-04-01",
+    "unemployment_trend": "STABLE",
+    "treasury_10y": 4.45,
+    "treasury_10y_date": "2026-05-28",
+    "treasury_2y": 3.99,
+    "treasury_2y_date": "2026-05-28",
+    "yield_curve_spread": 0.46,
+    "yield_curve_state": "NORMAL",
+    "interest_rate_trend": "STABLE",
+    "inflation_trend": "REACCELERATING",
+    "macro_regime": "MIXED",
+    "macro_risk_score": 65,
+    "errors": {},
+    "summary": "Macro regime is MIXED. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.46%."
+  },
+  "top_opportunities": [
+    {
+      "rank": 1,
+      "symbol": "KO",
+      "company": "The Coca-Cola Company",
+      "sector": "Consumer Defensive",
+      "current_price": 78.82,
+      "dividend_yield": 0.02616039,
+      "buy_score": 80.4,
+      "recommendation": "Strong Buy"
+    },
+    {
+      "rank": 2,
+      "symbol": "META",
+      "company": "Meta Platforms, Inc.",
+      "sector": "Communication Services",
+      "current_price": 605.375,
+      "dividend_yield": 0.00332011,
+      "buy_score": 76.5,
+      "recommendation": "Buy"
+    },
+    {
+      "rank": 3,
+      "symbol": "BAC",
+      "company": "Bank of America Corporation",
+      "sector": "Financial Services",
+      "current_price": 51.585,
+      "dividend_yield": 0.02126015,
+      "buy_score": 76.05,
+      "recommendation": "Buy"
+    },
+    {
+      "rank": 4,
+      "symbol": "PEP",
+      "company": "PepsiCo, Inc.",
+      "sector": "Consumer Defensive",
+      "current_price": 141.875,
+      "dividend_yield": 0.04002814,
+      "buy_score": 75.6,
+      "recommendation": "Buy"
+    },
+    {
+      "rank": 5,
+      "symbol": "XOM",
+      "company": "Exxon Mobil Corporation",
+      "sector": "Energy",
+      "current_price": 148.645,
+      "dividend_yield": 0.02746365,
+      "buy_score": 74.4,
+      "recommendation": "Buy"
+    }
+  ],
+  "data_quality": {
+    "total_symbols": 25,
+    "complete_symbols": 14,
+    "partial_symbols": 11,
+    "missing_symbols": 0,
+    "coverage_percentage": 56.0,
+    "quotes_available": 18,
+    "fundamentals_available": 18,
+    "scores_available": 25,
+    "warnings": [
+      "Fundamentals coverage below symbol count: 18/25.",
+      "Complete coverage below 95%: 56.0%."
+    ]
+  }
 }

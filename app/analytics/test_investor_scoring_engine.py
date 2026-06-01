@@ -27,6 +27,9 @@ class InvestorScoringEngineTests(unittest.TestCase):
                 "company_name": "Apple Inc.",
                 "sector": "Technology",
             },
+            quote={
+                "price": 201.25,
+            },
             technical_indicators={
                 "distance_from_52w_low_pct": 18,
                 "rsi14": 58,
@@ -36,6 +39,7 @@ class InvestorScoringEngineTests(unittest.TestCase):
         self.assertEqual(result["symbol"], "AAPL")
         self.assertEqual(result["company"], "Apple Inc.")
         self.assertEqual(result["sector"], "Technology")
+        self.assertEqual(result["current_price"], 201.25)
         self.assertIn("buy_score", result)
         self.assertIn(result["recommendation"], {"Strong Buy", "Buy", "Watch", "Avoid"})
         self.assertEqual(result["pe_ratio"], 22)
