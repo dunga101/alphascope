@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-01 11:47 EDT",
-  "generated_at_iso": "2026-06-01T11:47:41.997239-04:00",
+  "generated_at": "2026-06-01 11:52 EDT",
+  "generated_at_iso": "2026-06-01T11:52:57.596690-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
   "confidence": 55,
-  "summary": "The market exhibits mixed signals, with technology sectors showing strength while broader indices and other sectors are mixed or declining. Volatility is elevated, and treasury yields are rising, suggesting a cautious risk environment. While some technology names show strong technicals, their RSI levels indicate potential overheating. Event risk from upcoming earnings is currently low. Focus remains on resilient technology and energy sectors, with caution advised due to mixed breadth and rising yields.",
+  "summary": "The market exhibits mixed signals, with technology sectors showing strength while broader indices and other sectors display weakness. Volatility is elevated, and treasury yields are rising, suggesting a cautious environment. Concentration risk in key technology names remains a factor, and while some companies show strong fundamentals, technicals are mixed. Event risk is currently low for major tech companies.",
   "bullish": [
     "NVDA",
+    "QQQ",
+    "SPY",
     "MSFT",
-    "AAPL",
-    "AMZN",
-    "GOOGL"
+    "AMD"
   ],
   "bearish": [
     "META"
