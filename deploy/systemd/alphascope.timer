@@ -1,0 +1,12 @@
+[Unit]
+Description=Run AlphaScope refresh three times daily
+
+[Timer]
+OnCalendar=*-*-* 09:00:00
+OnCalendar=*-*-* 13:00:00
+OnCalendar=*-*-* 17:00:00
+Persistent=true
+Unit=alphascope.service
+
+[Install]
+WantedBy=timers.target

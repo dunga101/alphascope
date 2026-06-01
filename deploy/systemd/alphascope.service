@@ -1,0 +1,17 @@
+[Unit]
+Description=AlphaScope market intelligence refresh
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/dmudalige/projects/alphascope
+EnvironmentFile=/home/dmudalige/projects/alphascope/.env
+ExecStart=/home/dmudalige/projects/alphascope/scripts/alphascope_refresh.sh
+TimeoutStartSec=1800
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=alphascope
+
+[Install]
+WantedBy=multi-user.target
