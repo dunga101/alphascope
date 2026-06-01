@@ -1,56 +1,60 @@
 {
-  "generated_at": "2026-05-31 16:43 EDT",
+  "generated_at": "2026-06-01 11:47 EDT",
+  "generated_at_iso": "2026-06-01T11:47:41.997239-04:00",
+  "generation_status": "success",
   "regime": "RISK_OFF",
   "confidence": 55,
-  "summary": "The market shows mixed signals with broad indices slightly positive, but sector performance is uneven. Technology sectors are leading, while consumer discretionary and staples are lagging. Volatility is subdued. Event risk from upcoming earnings is currently low. Several large-cap technology names exhibit strong technicals but some are showing signs of overheating, while others are on a watchlist due to mixed technical signals. Fundamentals for many tech leaders remain robust.",
+  "summary": "The market exhibits mixed signals, with technology sectors showing strength while broader indices and other sectors are mixed or declining. Volatility is elevated, and treasury yields are rising, suggesting a cautious risk environment. While some technology names show strong technicals, their RSI levels indicate potential overheating. Event risk from upcoming earnings is currently low. Focus remains on resilient technology and energy sectors, with caution advised due to mixed breadth and rising yields.",
   "bullish": [
-    "META",
     "NVDA",
-    "GOOGL",
-    "QQQ",
-    "AMD"
+    "MSFT",
+    "AAPL",
+    "AMZN",
+    "GOOGL"
   ],
-  "bearish": [],
+  "bearish": [
+    "META"
+  ],
   "ticker": [
     {
       "symbol": "SPY",
-      "price": "$756.48",
-      "change": "+0.25%"
+      "price": "$757.41498",
+      "change": "+0.12%"
     },
     {
       "symbol": "AAPL",
-      "price": "$312.06",
-      "change": "-0.14%"
+      "price": "$306.84",
+      "change": "-1.67%"
     },
     {
       "symbol": "MSFT",
-      "price": "$450.24",
-      "change": "+5.45%"
+      "price": "$462.81",
+      "change": "+2.79%"
     },
     {
       "symbol": "NVDA",
-      "price": "$211.14",
-      "change": "-1.45%"
+      "price": "$220.57",
+      "change": "+4.47%"
     },
     {
       "symbol": "AMZN",
-      "price": "$270.64",
-      "change": "-1.23%"
+      "price": "$264.4143",
+      "change": "-2.30%"
     },
     {
       "symbol": "META",
-      "price": "$632.51",
-      "change": "-0.44%"
+      "price": "$615.669",
+      "change": "-2.66%"
     },
     {
       "symbol": "GOOGL",
-      "price": "$380.34",
-      "change": "-2.51%"
+      "price": "$375.73",
+      "change": "-1.21%"
     },
     {
       "symbol": "TSLA",
-      "price": "$435.79",
-      "change": "-1.43%"
+      "price": "$423.0701",
+      "change": "-2.92%"
     }
   ]
 }

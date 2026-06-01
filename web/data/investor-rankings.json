@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31 17:28 EDT",
-  "generated_at_iso": "2026-05-31T17:28:01.748261-04:00",
+  "generated_at": "2026-06-01 11:47 EDT",
+  "generated_at_iso": "2026-06-01T11:47:41.997239-04:00",
   "generation_status": "success",
   "count": 7,
   "rankings": [
@@ -22,8 +22,8 @@
       "debt_to_equity": 0.3561,
       "free_cash_flow": 46109000000,
       "rsi": 48.63,
-      "sma20": 613.33,
-      "sma50": 618.53,
+      "sma20": 613.63,
+      "sma50": 618.7,
       "sma200": null,
       "distance_from_52w_low": 15.4,
       "strengths": [
@@ -53,8 +53,8 @@
       "debt_to_equity": 0.1375,
       "free_cash_flow": 71611000000,
       "rsi": 52.35,
-      "sma20": 416.97,
-      "sma50": 402.06,
+      "sma20": 419.36,
+      "sma50": 403.53,
       "sma200": null,
       "distance_from_52w_low": 16.95,
       "strengths": [
@@ -83,8 +83,8 @@
       "debt_to_equity": 0.475,
       "free_cash_flow": 7695000000,
       "rsi": 48.36,
-      "sma20": 268.74,
-      "sma50": 246.67,
+      "sma20": 268.56,
+      "sma50": 247.79,
       "sma200": null,
       "distance_from_52w_low": 34.24,
       "strengths": [
@@ -112,8 +112,8 @@
       "debt_to_equity": 0.0656,
       "free_cash_flow": 96676000000,
       "rsi": 69.03,
-      "sma20": 215.46,
-      "sma50": 199.35,
+      "sma20": 216.54,
+      "sma50": 200.18,
       "sma200": null,
       "distance_from_52w_low": 68.85,
       "strengths": [
@@ -143,8 +143,8 @@
       "debt_to_equity": 0.189,
       "free_cash_flow": 73266000000,
       "rsi": 53.5,
-      "sma20": 391.15,
-      "sma50": 347.57,
+      "sma20": 390.62,
+      "sma50": 348.93,
       "sma200": null,
       "distance_from_52w_low": 136.31,
       "strengths": [
@@ -204,8 +204,8 @@
       "debt_to_equity": 0.1097,
       "free_cash_flow": 6220000000,
       "rsi": 60.74,
-      "sma20": 421.39,
-      "sma50": 391.8,
+      "sma20": 422.98,
+      "sma50": 392.64,
       "sma200": null,
       "distance_from_52w_low": 48.0,
       "strengths": [
