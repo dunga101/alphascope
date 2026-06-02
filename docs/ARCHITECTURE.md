@@ -76,6 +76,8 @@ Analytics live under `app/analytics/` and `app/processors/`.
 
 ### Investor Scoring
 
+#### Investor Scoring Diagram
+
 Investor scoring combines fundamental, dividend, technical, and price-position
 signals into a composite buy score.
 
@@ -258,6 +260,8 @@ automation-01
   -> Production dashboard
 ```
 
+### Infrastructure Diagram
+
 ```mermaid
 flowchart TB
     subgraph Proxmox
@@ -277,6 +281,8 @@ flowchart TB
 ## Data Flow
 
 Complete production lifecycle:
+
+### Data Flow Diagram
 
 ```mermaid
 flowchart LR
@@ -331,4 +337,3 @@ sequenceDiagram
     Git->>CF: Trigger deployment
     CF->>CF: Publish web directory
 ```
-

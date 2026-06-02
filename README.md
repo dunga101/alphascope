@@ -78,6 +78,8 @@ Production validation completed:
 
 ## Architecture Overview
 
+### High-Level Architecture Diagram
+
 ```mermaid
 flowchart LR
     FMP[FMP API]
@@ -123,6 +125,8 @@ flowchart TB
 ```
 
 ## Deployment Overview
+
+### Deployment Pipeline Diagram
 
 AlphaScope uses a Git-driven static deployment model. The systemd timer runs
 the production refresh on `automation-01`, validates generated dashboard JSON,
