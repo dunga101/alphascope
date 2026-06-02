@@ -1,325 +1,260 @@
-# AlphaScope 📈🧠
+# AlphaScope Investor Edition
 
-### AI-Powered Investor Intelligence Platform
+AlphaScope is an AI-assisted market intelligence and investor research platform
+that turns market, macroeconomic, technical, and fundamental data into ranked
+investment opportunities.
 
-AlphaScope is a Python-based investment intelligence platform that combines market data, company fundamentals, technical analysis, AI reasoning, and historical persistence to identify and rank potential investment opportunities.
+## Executive Summary
 
-The platform transforms raw market information into structured investor-focused intelligence through a transparent scoring and recommendation engine.
+AlphaScope exists to solve a practical investor workflow problem: market data is
+abundant, fragmented, and difficult to convert into repeatable decisions. The
+platform collects market and company data, applies deterministic analytics,
+persists results to PostgreSQL, generates investor rankings, publishes a static
+dashboard, and sends Telegram summaries after each production run.
 
-AlphaScope is not a trading bot.
+The intended audience is long-term investors, technical reviewers, future
+contributors, and hiring teams evaluating applied software engineering,
+automation, infrastructure, and AI-assisted analysis work.
 
-It is a decision-support platform designed to help investors identify quality opportunities using a disciplined, data-driven approach.
+AlphaScope is not a trading bot and does not provide financial advice. It is a
+decision-support system built around transparent scoring, durable persistence,
+and repeatable operations.
 
----
+## Current Status
 
-# Key Features
+**AlphaScope Investor Edition V1: Operational Production Release**
+
+Production validation completed:
+
+- Market, macro, technical, fundamental, and news collection operational.
+- Investor ranking engine operational.
+- PostgreSQL persistence operational.
+- Static web dashboard artifacts generated successfully.
+- Telegram summaries delivered successfully.
+- systemd timer runs unattended.
+- GitHub deploy-key issue remediated.
+- Automated push to `origin/web-launch` validated.
+- Cloudflare Pages deployment validated.
+- Production site update path verified.
+- Browser cache issue identified and resolved.
+
+## Core Capabilities
+
+- **Market intelligence**: collects broad market, sector, volatility, commodity,
+  crypto, and earnings context.
+- **Investor ranking engine**: ranks symbols by composite buy score and
+  recommendation category.
+- **Technical analysis**: evaluates RSI, moving averages, volatility, relative
+  strength, drawdown, and price position.
+- **Fundamental analysis**: collects and persists revenue, income, free cash
+  flow, valuation, balance sheet, ROE, debt, and dividend metrics.
+- **Macro intelligence**: integrates FRED macro observations and macro regime
+  snapshots.
+- **AI-assisted synthesis**: uses Gemini for market and event interpretation
+  after deterministic data collection.
+- **PostgreSQL persistence**: stores intelligence reports, technical snapshots,
+  fundamental snapshots, macro data, investor scores, and related history.
+- **Telegram delivery**: sends concise investor summaries after successful runs.
+- **Cloudflare-hosted dashboard**: publishes static dashboard assets through a
+  Git-driven Cloudflare Pages workflow.
+- **Unattended automation**: runs on an automation host via systemd timer.
+
+## Technology Stack
+
+| Area | Technology |
+|---|---|
+| Language | Python |
+| Database | PostgreSQL |
+| Dashboard hosting | Cloudflare Pages |
+| Source control and deployment trigger | GitHub |
+| Scheduler | systemd timer/service |
+| Virtualization / lab infrastructure | Proxmox |
+| Fundamentals and quotes | Financial Modeling Prep |
+| Macro data | FRED |
+| News | Finnhub, RSS financial feeds |
+| Market and technical context | Yahoo Finance |
+| AI synthesis | Google Gemini |
+| Notifications | Telegram Bot API |
+
+## Architecture Overview
+
+```mermaid
+flowchart LR
+    FMP[FMP API]
+    FRED[FRED API]
+    FINNHUB[Finnhub API]
+    YAHOO[Yahoo Finance]
+    RSS[RSS Feeds]
+
+    FMP --> COLLECTORS[Collectors]
+    FRED --> COLLECTORS
+    FINNHUB --> COLLECTORS
+    YAHOO --> COLLECTORS
+    RSS --> COLLECTORS
+
+    COLLECTORS --> ANALYTICS[Analytics Layer]
+    ANALYTICS --> SCORING[Investor Scoring Engine]
+    ANALYTICS --> GEMINI[Gemini Synthesis]
+    GEMINI --> PERSISTENCE[Persistence Layer]
+    SCORING --> PERSISTENCE
+
+    PERSISTENCE --> POSTGRES[(PostgreSQL)]
+    SCORING --> JSON[JSON Web Exports]
+    GEMINI --> JSON
+
+    JSON --> DASHBOARD[Cloudflare Dashboard]
+    JSON --> TELEGRAM[Telegram Summary]
+```
+
+## Infrastructure Overview
+
+```mermaid
+flowchart TB
+    subgraph Proxmox
+        AUTO[automation-01]
+        DB[db-01]
+    end
+
+    AUTO --> DB
+    AUTO --> GITHUB[GitHub Repository]
+    GITHUB --> CLOUDFLARE[Cloudflare Pages]
+    CLOUDFLARE --> USER[Investor / Browser]
+    AUTO --> TELEGRAM[Telegram Bot API]
+```
+
+## Deployment Overview
+
+AlphaScope uses a Git-driven static deployment model. The systemd timer runs
+the production refresh on `automation-01`, validates generated dashboard JSON,
+commits changed web data to `web-launch`, and pushes to GitHub. Cloudflare Pages
+deploys the static dashboard from the `web` directory on that branch.
+
+```mermaid
+sequenceDiagram
+    participant Timer as systemd timer
+    participant AlphaScope as AlphaScope pipeline
+    participant DB as PostgreSQL db-01
+    participant GitHub as GitHub web-launch
+    participant Cloudflare as Cloudflare Pages
+    participant User as Investor
+
+    Timer->>AlphaScope: Scheduled run
+    AlphaScope->>AlphaScope: Collect market, macro, news, technical, fundamental data
+    AlphaScope->>AlphaScope: Analyze and generate investor rankings
+    AlphaScope->>DB: Persist snapshots, reports, scores, macro data
+    AlphaScope->>AlphaScope: Export web/data JSON
+    AlphaScope->>GitHub: Commit and push web-launch
+    GitHub->>Cloudflare: Trigger Pages deployment
+    Cloudflare->>User: Serve updated dashboard
+    AlphaScope->>User: Send Telegram summary
+```
 
 ## Investor Scoring Engine
 
-AlphaScope evaluates each company using multiple scoring dimensions:
+```mermaid
+flowchart LR
+    Fundamentals[Fundamentals] --> ValuationScore[Valuation Score]
+    Fundamentals --> QualityScore[Financial Quality Score]
+    Dividends[Dividend Metrics] --> DividendScore[Dividend Score]
+    Technicals[Technical Metrics] --> TechnicalScore[Technical Score]
+    PriceData[Price Position] --> PricePositionScore[Price Position Score]
 
-* Valuation Score
-* Financial Quality Score
-* Dividend Score
-* Technical Score
-* Price Position Score
+    ValuationScore --> BuyScore[Composite Buy Score]
+    QualityScore --> BuyScore
+    DividendScore --> BuyScore
+    TechnicalScore --> BuyScore
+    PricePositionScore --> BuyScore
 
-Scores are combined into a composite:
-
-**BUY_SCORE (0-100)**
-
-which drives investment recommendations.
-
----
-
-## Investment Rankings
-
-The platform ranks opportunities across a watchlist and generates:
-
-* Strong Buy
-* Buy
-* Hold
-* Watch
-* Avoid
-
-recommendations based on objective criteria.
-
----
-
-## Technical Analysis
-
-Per-symbol analysis includes:
-
-* RSI
-* SMA20
-* SMA50
-* SMA200
-* ATR
-* Volatility
-* Relative Strength
-* Distance From 52-Week Low
-* Drawdown From 52-Week High
-
----
-
-## Fundamental Analysis
-
-AlphaScope collects and stores:
-
-* P/E Ratio
-* Revenue
-* Net Income
-* Free Cash Flow
-* Return on Equity (ROE)
-* Debt-to-Equity
-* Dividend Yield
-
-using Financial Modeling Prep (FMP).
-
----
-
-## AI-Assisted Market Intelligence
-
-Google Gemini provides:
-
-* Executive summaries
-* Market interpretation
-* Risk analysis
-* Opportunity commentary
-* Investment narratives
-
-AI is applied after deterministic analysis to ensure consistency and explainability.
-
----
-
-## Historical Intelligence Database
-
-All intelligence is stored in PostgreSQL.
-
-Current persistence includes:
-
-### intelligence_reports
-
-Daily market intelligence.
-
-### event_snapshots
-
-Market events and catalysts.
-
-### technical_snapshots
-
-Per-symbol technical analysis history.
-
-### fundamental_snapshots
-
-Historical company fundamentals.
-
-### investor_scores
-
-Historical investment rankings and Buy Scores.
-
----
-
-# Current Architecture
-
-```text
-Market Data Sources
-        │
-        ▼
-Collection Layer
-        │
-        ▼
-Technical Analysis
-        │
-        ▼
-Fundamental Analysis
-        │
-        ▼
-Investor Scoring Engine
-        │
-        ▼
-Ranking Engine
-        │
-        ▼
-Gemini Intelligence Layer
-        │
-        ▼
-PostgreSQL Persistence
-        │
-        ▼
-Dashboard & Reports
-        │
-        ▼
-Telegram Delivery
+    BuyScore --> Recommendation[Recommendation]
+    Recommendation --> Ranking[Ranked Opportunities]
 ```
 
----
+The current score weights are:
 
-# Technology Stack
+- Valuation: 25%
+- Financial quality: 30%
+- Dividend: 15%
+- Price position: 15%
+- Technical: 15%
 
-## Languages
+## Data Lifecycle
 
-* Python
+```mermaid
+flowchart LR
+    MarketData[Market Data] --> Collectors
+    MacroData[Macro Data] --> Collectors
+    NewsData[News Data] --> Collectors
+    CompanyData[Company Data] --> Collectors
 
-## Data Sources
+    Collectors --> Analytics
+    Analytics --> Scoring
+    Scoring --> PostgreSQL[(PostgreSQL)]
+    Analytics --> Reports[Reports and JSON Exports]
+    Scoring --> Reports
+    Reports --> Dashboard[Dashboard]
+    Reports --> Telegram[Telegram]
+```
 
-* Yahoo Finance
-* Financial Modeling Prep (FMP)
-* Finnhub
-* RSS Financial Feeds
-
-## AI
-
-* Google Gemini
-
-## Database
-
-* PostgreSQL
-
-## Delivery
-
-* Telegram Bot API
-
-## Infrastructure
-
-* Ubuntu Server
-* VS Code Remote SSH
-* GitHub
-* Python Virtual Environments
-
----
-
-# Project Structure
+## Repository Structure
 
 ```text
 alphascope/
-│
-├── app/
-│   ├── ai/
-│   ├── analytics/
-│   ├── collectors/
-│   ├── config/
-│   ├── db/
-│   ├── processors/
-│   ├── renderers/
-│   └── main.py
-│
-├── reports/
-├── web/
-├── requirements.txt
-└── README.md
+|-- app/
+|   |-- ai/              # Gemini and AI synthesis clients
+|   |-- analytics/       # scoring, ranking, macro, and technical engines
+|   |-- collectors/      # FMP, FRED, Finnhub, RSS, Yahoo-backed collectors
+|   |-- config/          # symbol and watchlist configuration
+|   |-- db/              # database models, migrations, persistence helpers
+|   |-- processors/      # signal, event, confidence, and news processing
+|   |-- renderers/       # reports, Telegram, and static web exports
+|   `-- main.py          # pipeline entry point
+|-- config/              # watchlist configuration
+|-- deploy/systemd/      # service and timer units
+|-- docs/                # architecture, operations, decisions, status
+|-- reports/             # generated report artifacts
+|-- scripts/             # production refresh wrapper
+|-- web/                 # static dashboard and generated JSON data
+`-- requirements.txt
 ```
 
----
+## Documentation
 
-# Current Development Status
+- [Architecture](docs/ARCHITECTURE.md)
+- [Operations Runbook](docs/OPERATIONS.md)
+- [Architecture Decisions](docs/DECISIONS.md)
+- [Project Status](docs/PROJECT_STATUS.md)
+- [Release Notes V1](docs/RELEASE_NOTES_V1.md)
+- [API Usage Audit](docs/API_USAGE_AUDIT.md)
+- [Documentation Archive](docs/archive/)
 
-## Completed
+## Screenshots
 
-✅ Market Intelligence Engine
+Screenshots are intentionally represented as placeholders until production
+captures are added to the repository.
 
-✅ Technical Analysis Engine
+| Screen | Placeholder |
+|---|---|
+| Investor dashboard | `docs/screenshots/investor-dashboard.png` |
+| Opportunity detail | `docs/screenshots/opportunity-detail.png` |
+| Cloudflare deployment | `docs/screenshots/cloudflare-deployment.png` |
+| Telegram summary | `docs/screenshots/telegram-summary.png` |
 
-✅ Fundamental Data Collection
-
-✅ Historical PostgreSQL Persistence
-
-✅ AI Intelligence Layer
-
-✅ Investor Scoring Engine
-
-✅ Investment Ranking Engine
-
-✅ Historical Investor Score Tracking
-
----
-
-## In Progress
-
-🔄 Investor Dashboard
-
-Active Sprint 1 requirements and implementation scope:
-
-* [Investor Dashboard V2](docs/INVESTOR_DASHBOARD_V2.md)
-
-Historical planning and superseded requirements:
-
-* [Documentation Archive](docs/archive/)
-
-Planned dashboard features:
-
-* Ranked Opportunities
-* Buy Scores
-* Recommendation Transparency
-* Historical Score Trends
-* Technical/Fundamental Breakdown
-* Investor-Friendly Interface
-
----
-
-# Future Roadmap
-
-## Phase 1 (Current)
-
-Investor Dashboard
-
-## Phase 2
-
-Opportunity Alerts
-
-## Phase 3
-
-Confidence Calibration Engine
-
-## Phase 4
-
-Prediction Accuracy Tracking
-
-## Phase 5
-
-Family Investment Portal
-
-## Phase 6
-
-Portfolio Analytics
-
----
-
-# Setup
-
-## Clone Repository
+## Setup
 
 ```bash
 git clone https://github.com/dunga101/alphascope.git
 cd alphascope
-```
-
-## Create Virtual Environment
-
-```bash
 python3 -m venv .venv
 source .venv/bin/activate
-```
-
-## Install Dependencies
-
-```bash
 pip install -r requirements.txt
 ```
 
-## Configure Environment Variables
-
-Create:
-
-```env
-.env
-```
-
-Example:
+Create `.env`:
 
 ```env
 GEMINI_API_KEY=
 FMP_API_KEY=
+FRED_API_KEY=
 FINNHUB_API_KEY=
 
 DB_HOST=
@@ -332,34 +267,54 @@ TELEGRAM_BOT_TOKEN=
 TELEGRAM_CHAT_ID=
 ```
 
----
-
-# Run AlphaScope
+Run locally:
 
 ```bash
-python -m app.main
+python -m app.main full
 ```
 
----
+## Production Automation
 
-# Disclaimer
+Production refresh is driven by:
 
-AlphaScope is an educational and engineering project.
+```text
+deploy/systemd/alphascope.timer
+  -> deploy/systemd/alphascope.service
+  -> scripts/alphascope_refresh.sh
+  -> python -m app.main full
+  -> web/data/*.json validation
+  -> git push origin web-launch
+  -> Cloudflare Pages deployment
+```
 
-It does not provide financial or investment advice.
+Timer schedule:
 
-Users remain solely responsible for all investment decisions.
+```text
+09:00 UTC
+13:00 UTC
+17:00 UTC
+```
 
----
+See [Operations Runbook](docs/OPERATIONS.md) for validation and recovery
+commands.
 
-# Author
+## Roadmap
 
-### Dulanga Mudalige
+Future ideas, not part of V1:
 
-Mechanical Engineer | Infrastructure Engineer | Cloud | Security | Automation
+- Historical buy-score trend charts.
+- Portfolio tracking and allocation analytics.
+- User-specific watchlists.
+- Opportunity alerts and alert history.
+- Prediction accuracy tracking.
+- Confidence calibration engine.
+- Expanded universe screening.
+- API usage and quota observability.
+- Dashboard screenshots and deployment evidence gallery.
+- Authenticated family investment portal.
 
-GitHub:
-https://github.com/dunga101
+## Disclaimer
 
-LinkedIn:
-https://www.linkedin.com/in/dulanga-mudalige
+AlphaScope is an educational and engineering project. It is not financial,
+investment, tax, or legal advice. Users remain solely responsible for all
+investment decisions.
