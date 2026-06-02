@@ -5,10 +5,13 @@ After=network-online.target
 
 [Service]
 Type=oneshot
+User=dmudalige
+Group=dmudalige
 WorkingDirectory=/home/dmudalige/projects/alphascope
 EnvironmentFile=/home/dmudalige/projects/alphascope/.env
 ExecStart=/home/dmudalige/projects/alphascope/scripts/alphascope_refresh.sh
 TimeoutStartSec=1800
+UMask=0002
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=alphascope

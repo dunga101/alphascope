@@ -6,3 +6,4 @@ reports/
 *.pyc
 alphascope.log
 logs/
+.deploy/
