@@ -1,115 +1,119 @@
 {
-  "generated_at": "2026-06-03 09:01 EDT",
-  "generated_at_iso": "2026-06-03T09:01:23.978379-04:00",
+  "generated_at": "2026-06-03 13:01 EDT",
+  "generated_at_iso": "2026-06-03T13:01:30.840835-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 46,
-  "summary": "The market exhibits mixed signals, with some sectors showing strength while others lag. Technology and Energy sectors are leading, while Communication Services and Consumer Cyclical sectors are showing weakness. Event risk is elevated for AVGO and ORCL due to upcoming earnings. Overall market breadth is not robust, and while some large-cap tech names show strong technicals, broader participation is limited. Caution is advised due to the mixed regime and potential for concentrated risk.",
+  "confidence": 47,
+  "summary": "Markets are exhibiting a risk-off sentiment, with broad indices declining and volatility increasing. Defensive sectors show some resilience, while technology and consumer discretionary areas are weaker. Event risk is elevated for AVGO and ORCL due to upcoming earnings. Fundamentals remain strong for many large-cap tech names, but technicals suggest caution due to potential overextension and mixed signals. A conservative approach is warranted.",
   "bullish": [
-    "SPY",
-    "QQQ",
-    "AMD",
-    "GOOGL",
-    "AMZN"
+    "UNH",
+    "JNJ",
+    "XOM",
+    "CVX",
+    "KO"
   ],
   "bearish": [
-    "META"
+    "AMZN",
+    "META",
+    "TSLA",
+    "NVDA",
+    "SHOP.TO"
   ],
   "ticker": [
     {
       "symbol": "SPY",
-      "price": "$759.57",
-      "change": "+0.14%"
+      "price": "$755.08",
+      "change": "-0.59%"
     },
     {
       "symbol": "AAPL",
-      "price": "$315.2",
-      "change": "+2.90%"
+      "price": "$310.2",
+      "change": "-1.59%"
     },
     {
       "symbol": "MSFT",
-      "price": "$441.31",
-      "change": "-4.17%"
+      "price": "$424.7436",
+      "change": "-3.75%"
     },
     {
       "symbol": "NVDA",
-      "price": "$222.82",
-      "change": "-0.69%"
+      "price": "$216.03",
+      "change": "-3.05%"
     },
     {
       "symbol": "AMZN",
-      "price": "$256.52",
-      "change": "-1.81%"
+      "price": "$248.5265",
+      "change": "-3.12%"
     },
     {
       "symbol": "META",
-      "price": "$597.63",
-      "change": "-0.47%"
+      "price": "$620.175",
+      "change": "+3.77%"
     },
     {
       "symbol": "GOOGL",
-      "price": "$361.85",
-      "change": "-3.86%"
+      "price": "$361.0851",
+      "change": "-0.21%"
     },
     {
       "symbol": "TSLA",
-      "price": "$423.74",
-      "change": "+1.89%"
+      "price": "$422.0858",
+      "change": "-0.39%"
     },
     {
       "symbol": "AMD",
-      "price": "$521.54",
-      "change": "+2.24%"
+      "price": "$534.186",
+      "change": "+2.42%"
     },
     {
       "symbol": "CSCO",
-      "price": "$128",
-      "change": "+5.50%"
+      "price": "$128.2701",
+      "change": "+0.21%"
     },
     {
       "symbol": "JPM",
-      "price": "$300.96",
-      "change": "+1.48%"
+      "price": "$300.26",
+      "change": "-0.23%"
     },
     {
       "symbol": "BAC",
-      "price": "$52.48",
-      "change": "+1.88%"
+      "price": "$52.2",
+      "change": "-0.53%"
     },
     {
       "symbol": "V",
-      "price": "$317.32",
-      "change": "-1.69%"
+      "price": "$312.74",
+      "change": "-1.44%"
     },
     {
       "symbol": "UNH",
-      "price": "$377.92",
-      "change": "-0.51%"
+      "price": "$385.225",
+      "change": "+1.93%"
     },
     {
       "symbol": "JNJ",
-      "price": "$222.89",
-      "change": "-0.28%"
+      "price": "$223.93",
+      "change": "+0.47%"
     },
     {
       "symbol": "XOM",
-      "price": "$149.66",
-      "change": "+0.19%"
+      "price": "$154.28",
+      "change": "+3.16%"
     },
     {
       "symbol": "CVX",
-      "price": "$187.65",
-      "change": "+0.98%"
+      "price": "$190.89",
+      "change": "+1.78%"
     },
     {
       "symbol": "KO",
-      "price": "$78.41",
-      "change": "-0.29%"
+      "price": "$78.85",
+      "change": "+0.56%"
     },
     {
       "symbol": "PEP",
-      "price": "$142",
-      "change": "+0.34%"
+      "price": "$143.1223",
+      "change": "+0.79%"
     }
   ],
   "macro": {
@@ -143,7 +147,7 @@
       "symbol": "KO",
       "company": "The Coca-Cola Company",
       "sector": "Consumer Defensive",
-      "current_price": 78.41,
+      "current_price": 78.85,
       "dividend_yield": 0.02627048,
       "buy_score": 80.4,
       "recommendation": "Strong Buy"
@@ -153,8 +157,8 @@
       "symbol": "META",
       "company": "Meta Platforms, Inc.",
       "sector": "Communication Services",
-      "current_price": 597.63,
-      "dividend_yield": 0.00348005,
+      "current_price": 620.175,
+      "dividend_yield": 0.003386,
       "buy_score": 76.5,
       "recommendation": "Buy"
     },
@@ -163,7 +167,7 @@
       "symbol": "BAC",
       "company": "Bank of America Corporation",
       "sector": "Financial Services",
-      "current_price": 52.48,
+      "current_price": 52.2,
       "dividend_yield": 0.02091652,
       "buy_score": 76.05,
       "recommendation": "Buy"
@@ -173,7 +177,7 @@
       "symbol": "PEP",
       "company": "PepsiCo, Inc.",
       "sector": "Consumer Defensive",
-      "current_price": 142.0,
+      "current_price": 143.1223,
       "dividend_yield": 0.04003659,
       "buy_score": 75.6,
       "recommendation": "Buy"
@@ -183,7 +187,7 @@
       "symbol": "XOM",
       "company": "Exxon Mobil Corporation",
       "sector": "Energy",
-      "current_price": 149.66,
+      "current_price": 154.28,
       "dividend_yield": 0.02716017,
       "buy_score": 74.4,
       "recommendation": "Buy"
