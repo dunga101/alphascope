@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-03 05:01 EDT",
-  "generated_at_iso": "2026-06-03T05:01:37.082083-04:00",
+  "generated_at": "2026-06-03 09:01 EDT",
+  "generated_at_iso": "2026-06-03T09:01:23.978379-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 35,
-  "summary": "The market exhibits mixed signals with some strength in technology and energy, but broader participation is lacking. Volatility is elevated, and yields are declining, suggesting a cautious environment. Event risk is concentrated around specific names with upcoming earnings. Fundamentals remain strong for many large-cap tech companies, but some consumer cyclical names show technical weakness.",
+  "confidence": 46,
+  "summary": "The market exhibits mixed signals, with some sectors showing strength while others lag. Technology and Energy sectors are leading, while Communication Services and Consumer Cyclical sectors are showing weakness. Event risk is elevated for AVGO and ORCL due to upcoming earnings. Overall market breadth is not robust, and while some large-cap tech names show strong technicals, broader participation is limited. Caution is advised due to the mixed regime and potential for concentrated risk.",
   "bullish": [
-    "NVDA",
-    "MSFT",
     "SPY",
     "QQQ",
-    "AMD"
+    "AMD",
+    "GOOGL",
+    "AMZN"
   ],
   "bearish": [
     "META"

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-03 05:01 EDT",
-  "generated_at_iso": "2026-06-03T05:01:37.082083-04:00",
+  "generated_at": "2026-06-03 09:01 EDT",
+  "generated_at_iso": "2026-06-03T09:01:23.978379-04:00",
   "generation_status": "success",
   "count": 25,
   "rankings": [
@@ -678,94 +678,6 @@
     },
     {
       "rank": 18,
-      "symbol": "AVGO",
-      "company": "Broadcom Inc.",
-      "current_price": 463.845,
-      "buy_score": 47.25,
-      "recommendation": "Avoid",
-      "dividend_yield": null,
-      "pe_ratio": null,
-      "roe": null,
-      "sector": "Technology",
-      "technical_score": 50.0,
-      "valuation_score": 45.0,
-      "financial_quality_score": 50.0,
-      "dividend_score": 40.0,
-      "price_position_score": 50.0,
-      "debt_to_equity": null,
-      "free_cash_flow": null,
-      "rsi": null,
-      "sma20": null,
-      "sma50": null,
-      "sma200": null,
-      "distance_from_52w_low": null,
-      "strengths": [],
-      "risks": [
-        "Composite investor score is below the investable threshold.",
-        "Valuation score is weak.",
-        "Dividend yield is unavailable.",
-        "ROE is unavailable in the latest fundamentals snapshot."
-      ],
-      "missing_data": [
-        "Dividend yield is unavailable.",
-        "P/E ratio is unavailable.",
-        "ROE is unavailable.",
-        "RSI is unavailable."
-      ],
-      "score_breakdown": {
-        "valuation": 45.0,
-        "dividend": 40.0,
-        "financial_quality": 50.0,
-        "price_position": 50.0,
-        "technical": 50.0
-      }
-    },
-    {
-      "rank": 19,
-      "symbol": "ORCL",
-      "company": "Oracle Corporation",
-      "current_price": 247.25,
-      "buy_score": 47.25,
-      "recommendation": "Avoid",
-      "dividend_yield": null,
-      "pe_ratio": null,
-      "roe": null,
-      "sector": "Technology",
-      "technical_score": 50.0,
-      "valuation_score": 45.0,
-      "financial_quality_score": 50.0,
-      "dividend_score": 40.0,
-      "price_position_score": 50.0,
-      "debt_to_equity": null,
-      "free_cash_flow": null,
-      "rsi": null,
-      "sma20": null,
-      "sma50": null,
-      "sma200": null,
-      "distance_from_52w_low": null,
-      "strengths": [],
-      "risks": [
-        "Composite investor score is below the investable threshold.",
-        "Valuation score is weak.",
-        "Dividend yield is unavailable.",
-        "ROE is unavailable in the latest fundamentals snapshot."
-      ],
-      "missing_data": [
-        "Dividend yield is unavailable.",
-        "P/E ratio is unavailable.",
-        "ROE is unavailable.",
-        "RSI is unavailable."
-      ],
-      "score_breakdown": {
-        "valuation": 45.0,
-        "dividend": 40.0,
-        "financial_quality": 50.0,
-        "price_position": 50.0,
-        "technical": 50.0
-      }
-    },
-    {
-      "rank": 20,
       "symbol": "IBM",
       "company": "International Business Machines Corporation",
       "current_price": 323.615,
@@ -809,51 +721,7 @@
       }
     },
     {
-      "rank": 21,
-      "symbol": "MA",
-      "company": "Mastercard Incorporated",
-      "current_price": 493.225,
-      "buy_score": 47.25,
-      "recommendation": "Avoid",
-      "dividend_yield": null,
-      "pe_ratio": null,
-      "roe": null,
-      "sector": "Financial Services",
-      "technical_score": 50.0,
-      "valuation_score": 45.0,
-      "financial_quality_score": 50.0,
-      "dividend_score": 40.0,
-      "price_position_score": 50.0,
-      "debt_to_equity": null,
-      "free_cash_flow": null,
-      "rsi": null,
-      "sma20": null,
-      "sma50": null,
-      "sma200": null,
-      "distance_from_52w_low": null,
-      "strengths": [],
-      "risks": [
-        "Composite investor score is below the investable threshold.",
-        "Valuation score is weak.",
-        "Dividend yield is unavailable.",
-        "ROE is unavailable in the latest fundamentals snapshot."
-      ],
-      "missing_data": [
-        "Dividend yield is unavailable.",
-        "P/E ratio is unavailable.",
-        "ROE is unavailable.",
-        "RSI is unavailable."
-      ],
-      "score_breakdown": {
-        "valuation": 45.0,
-        "dividend": 40.0,
-        "financial_quality": 50.0,
-        "price_position": 50.0,
-        "technical": 50.0
-      }
-    },
-    {
-      "rank": 22,
+      "rank": 19,
       "symbol": "LLY",
       "company": "Eli Lilly and Company",
       "current_price": 1075.907,
@@ -897,7 +765,7 @@
       }
     },
     {
-      "rank": 23,
+      "rank": 20,
       "symbol": "MRK",
       "company": "Merck & Co., Inc.",
       "current_price": 114.985,
@@ -941,7 +809,7 @@
       }
     },
     {
-      "rank": 24,
+      "rank": 21,
       "symbol": "PG",
       "company": "The Procter & Gamble Company",
       "current_price": 140.309,
@@ -951,6 +819,138 @@
       "pe_ratio": null,
       "roe": null,
       "sector": "Consumer Defensive",
+      "technical_score": 50.0,
+      "valuation_score": 45.0,
+      "financial_quality_score": 50.0,
+      "dividend_score": 40.0,
+      "price_position_score": 50.0,
+      "debt_to_equity": null,
+      "free_cash_flow": null,
+      "rsi": null,
+      "sma20": null,
+      "sma50": null,
+      "sma200": null,
+      "distance_from_52w_low": null,
+      "strengths": [],
+      "risks": [
+        "Composite investor score is below the investable threshold.",
+        "Valuation score is weak.",
+        "Dividend yield is unavailable.",
+        "ROE is unavailable in the latest fundamentals snapshot."
+      ],
+      "missing_data": [
+        "Dividend yield is unavailable.",
+        "P/E ratio is unavailable.",
+        "ROE is unavailable.",
+        "RSI is unavailable."
+      ],
+      "score_breakdown": {
+        "valuation": 45.0,
+        "dividend": 40.0,
+        "financial_quality": 50.0,
+        "price_position": 50.0,
+        "technical": 50.0
+      }
+    },
+    {
+      "rank": 22,
+      "symbol": "MA",
+      "company": "Mastercard Incorporated",
+      "current_price": 493.225,
+      "buy_score": 47.25,
+      "recommendation": "Avoid",
+      "dividend_yield": null,
+      "pe_ratio": null,
+      "roe": null,
+      "sector": "Financial Services",
+      "technical_score": 50.0,
+      "valuation_score": 45.0,
+      "financial_quality_score": 50.0,
+      "dividend_score": 40.0,
+      "price_position_score": 50.0,
+      "debt_to_equity": null,
+      "free_cash_flow": null,
+      "rsi": null,
+      "sma20": null,
+      "sma50": null,
+      "sma200": null,
+      "distance_from_52w_low": null,
+      "strengths": [],
+      "risks": [
+        "Composite investor score is below the investable threshold.",
+        "Valuation score is weak.",
+        "Dividend yield is unavailable.",
+        "ROE is unavailable in the latest fundamentals snapshot."
+      ],
+      "missing_data": [
+        "Dividend yield is unavailable.",
+        "P/E ratio is unavailable.",
+        "ROE is unavailable.",
+        "RSI is unavailable."
+      ],
+      "score_breakdown": {
+        "valuation": 45.0,
+        "dividend": 40.0,
+        "financial_quality": 50.0,
+        "price_position": 50.0,
+        "technical": 50.0
+      }
+    },
+    {
+      "rank": 23,
+      "symbol": "AVGO",
+      "company": "Broadcom Inc.",
+      "current_price": 463.845,
+      "buy_score": 47.25,
+      "recommendation": "Avoid",
+      "dividend_yield": null,
+      "pe_ratio": null,
+      "roe": null,
+      "sector": "Technology",
+      "technical_score": 50.0,
+      "valuation_score": 45.0,
+      "financial_quality_score": 50.0,
+      "dividend_score": 40.0,
+      "price_position_score": 50.0,
+      "debt_to_equity": null,
+      "free_cash_flow": null,
+      "rsi": null,
+      "sma20": null,
+      "sma50": null,
+      "sma200": null,
+      "distance_from_52w_low": null,
+      "strengths": [],
+      "risks": [
+        "Composite investor score is below the investable threshold.",
+        "Valuation score is weak.",
+        "Dividend yield is unavailable.",
+        "ROE is unavailable in the latest fundamentals snapshot."
+      ],
+      "missing_data": [
+        "Dividend yield is unavailable.",
+        "P/E ratio is unavailable.",
+        "ROE is unavailable.",
+        "RSI is unavailable."
+      ],
+      "score_breakdown": {
+        "valuation": 45.0,
+        "dividend": 40.0,
+        "financial_quality": 50.0,
+        "price_position": 50.0,
+        "technical": 50.0
+      }
+    },
+    {
+      "rank": 24,
+      "symbol": "ORCL",
+      "company": "Oracle Corporation",
+      "current_price": 247.25,
+      "buy_score": 47.25,
+      "recommendation": "Avoid",
+      "dividend_yield": null,
+      "pe_ratio": null,
+      "roe": null,
+      "sector": "Technology",
       "technical_score": 50.0,
       "valuation_score": 45.0,
       "financial_quality_score": 50.0,
