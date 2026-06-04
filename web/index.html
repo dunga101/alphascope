@@ -382,6 +382,43 @@ header {
   border-color: rgba(239,68,68,0.35);
 }
 
+.recommendation-insufficient {
+  color: #d1d5db;
+  background: rgba(107,114,128,0.14);
+  border-color: rgba(156,163,175,0.35);
+}
+
+.quality-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  border: 1px solid rgba(148,163,184,0.24);
+  color: #e2e8f0;
+  background: rgba(148,163,184,0.12);
+  white-space: nowrap;
+}
+
+.quality-complete {
+  color: #bbf7d0;
+  background: rgba(34,197,94,0.12);
+  border-color: rgba(34,197,94,0.35);
+}
+
+.quality-partial {
+  color: #fde68a;
+  background: rgba(245,158,11,0.12);
+  border-color: rgba(245,158,11,0.35);
+}
+
+.quality-insufficient {
+  color: #fecaca;
+  background: rgba(239,68,68,0.12);
+  border-color: rgba(239,68,68,0.35);
+}
+
 .status-message {
   color: #fecaca;
   line-height: 1.6;
@@ -641,12 +678,13 @@ header {
             <th>Price</th>
             <th>Dividend Yield</th>
             <th>Buy Score</th>
+            <th>Data Quality</th>
             <th>Recommendation</th>
           </tr>
         </thead>
         <tbody id="rankings-body">
           <tr>
-            <td colspan="8">Loading investor rankings...</td>
+            <td colspan="9">Loading investor rankings...</td>
           </tr>
         </tbody>
       </table>
@@ -713,9 +751,14 @@ function setText(id, value) {
   }
 }
 
+function isUnavailable(value) {
+  return value === null || value === undefined || value === '';
+}
+
 function formatNumber(value, digits = 2) {
+  if (isUnavailable(value)) return 'N/A';
   const number = Number(value);
-  if (!Number.isFinite(number)) return '--';
+  if (!Number.isFinite(number)) return 'N/A';
 
   return new Intl.NumberFormat('en-US', {
     maximumFractionDigits: digits
@@ -723,8 +766,9 @@ function formatNumber(value, digits = 2) {
 }
 
 function formatCurrency(value) {
+  if (isUnavailable(value)) return 'N/A';
   const number = Number(value);
-  if (!Number.isFinite(number)) return '--';
+  if (!Number.isFinite(number)) return 'N/A';
 
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -734,8 +778,9 @@ function formatCurrency(value) {
 }
 
 function formatPercent(value, digits = 2) {
+  if (isUnavailable(value)) return 'N/A';
   const number = Number(value);
-  if (!Number.isFinite(number)) return '--';
+  if (!Number.isFinite(number)) return 'N/A';
 
   return new Intl.NumberFormat('en-US', {
     style: 'percent',
@@ -749,6 +794,7 @@ function recommendationClass(recommendation) {
   if (normalized.includes('buy')) return 'recommendation-buy';
   if (normalized.includes('watch')) return 'recommendation-watch';
   if (normalized.includes('avoid')) return 'recommendation-avoid';
+  if (normalized.includes('insufficient')) return 'recommendation-insufficient';
 
   return '';
 }
@@ -757,6 +803,25 @@ function recommendationBadge(recommendation) {
   const badge = document.createElement('span');
   badge.className = `recommendation-badge ${recommendationClass(recommendation)}`.trim();
   badge.textContent = recommendation || '--';
+  return badge;
+}
+
+function qualityClass(status) {
+  const normalized = String(status || '').toLowerCase();
+
+  if (normalized.includes('complete')) return 'quality-complete';
+  if (normalized.includes('partial')) return 'quality-partial';
+  if (normalized.includes('insufficient')) return 'quality-insufficient';
+
+  return '';
+}
+
+function qualityBadge(item) {
+  const status = item.data_status || 'UNKNOWN';
+  const label = item.data_quality_label || status.replaceAll('_', ' ');
+  const badge = document.createElement('span');
+  badge.className = `quality-badge ${qualityClass(status)}`.trim();
+  badge.textContent = label;
   return badge;
 }
 
@@ -797,15 +862,26 @@ function showRankingsMessage(message) {
     body.innerHTML = '';
     const row = document.createElement('tr');
     appendCell(row, message, '');
-    row.firstChild.colSpan = 8;
+    row.firstChild.colSpan = 9;
     body.appendChild(row);
   }
 }
 
 function sortedRankings(rankings) {
+  const statusRank = {
+    COMPLETE: 0,
+    PARTIAL: 1,
+    INSUFFICIENT_DATA: 2
+  };
+
   return rankings
     .slice()
-    .sort((a, b) => Number(b.buy_score ?? -1) - Number(a.buy_score ?? -1));
+    .sort((a, b) => {
+      const aStatus = statusRank[a.data_status] ?? 1;
+      const bStatus = statusRank[b.data_status] ?? 1;
+      if (aStatus !== bStatus) return aStatus - bStatus;
+      return Number(b.buy_score ?? -1) - Number(a.buy_score ?? -1);
+    });
 }
 
 function renderTopOpportunities(rankings) {
@@ -840,7 +916,7 @@ function renderTopOpportunities(rankings) {
     meta.textContent = `Score ${formatNumber(item.buy_score)} | Div ${formatPercent(item.dividend_yield)} | ${item.sector || '--'}`;
     detail.append(title, meta);
 
-    row.append(rank, detail, recommendationBadge(item.recommendation));
+    row.append(rank, detail, qualityBadge(item), recommendationBadge(item.recommendation));
     target.appendChild(row);
   });
 }
@@ -894,6 +970,10 @@ function renderRankings(rankings) {
     scoreCell.appendChild(scoreWrap);
     row.appendChild(scoreCell);
 
+    const qualityCell = document.createElement('td');
+    qualityCell.appendChild(qualityBadge(item));
+    row.appendChild(qualityCell);
+
     const recommendationCell = document.createElement('td');
     recommendationCell.appendChild(recommendationBadge(recommendation));
     row.appendChild(recommendationCell);
@@ -945,9 +1025,10 @@ function renderDataQuality(summary) {
   const scores = summary?.scores_available ?? '--';
   const fundamentals = summary?.fundamentals_available ?? '--';
   const quotes = summary?.quotes_available ?? '--';
+  const providerCoverage = summary?.provider_coverage || {};
 
   setText('quality-scores', `${scores}/${denominator} Scores`);
-  setText('quality-fundamentals', `${fundamentals}/${denominator} Fundamentals`);
+  setText('quality-fundamentals', `${fundamentals}/${denominator} Fundamentals | Yahoo ${providerCoverage.YAHOO ?? '--'}/${denominator}`);
   setText('quality-quotes', `${quotes}/${denominator} Quotes`);
 }
 

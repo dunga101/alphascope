@@ -148,6 +148,7 @@ def persist_event_snapshot(event_output: dict):
 def persist_fundamental_snapshot(symbol: str, fundamentals: dict):
     conn = get_connection()
     cur = conn.cursor()
+    source = fundamentals.get("source") or fundamentals.get("provider_used") or "UNKNOWN"
 
     cur.execute(
         """
@@ -167,9 +168,25 @@ def persist_fundamental_snapshot(symbol: str, fundamentals: dict):
             roe,
             debt_to_equity,
             dividend_yield,
-            source
+            source,
+            provider_used,
+            providers_available,
+            pe_ratio_source,
+            roe_source,
+            dividend_yield_source,
+            debt_to_equity_source,
+            free_cash_flow_source,
+            market_cap,
+            market_cap_source,
+            sector,
+            industry,
+            data_completeness_percent,
+            available_fields,
+            missing_fields,
+            provider_errors,
+            raw_provider_data
         )
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 'FMP')
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         ON CONFLICT (symbol, snapshot_date)
         DO UPDATE SET
             revenue = EXCLUDED.revenue,
@@ -185,7 +202,23 @@ def persist_fundamental_snapshot(symbol: str, fundamentals: dict):
             roe = EXCLUDED.roe,
             debt_to_equity = EXCLUDED.debt_to_equity,
             dividend_yield = EXCLUDED.dividend_yield,
-            source = EXCLUDED.source;
+            source = EXCLUDED.source,
+            provider_used = EXCLUDED.provider_used,
+            providers_available = EXCLUDED.providers_available,
+            pe_ratio_source = EXCLUDED.pe_ratio_source,
+            roe_source = EXCLUDED.roe_source,
+            dividend_yield_source = EXCLUDED.dividend_yield_source,
+            debt_to_equity_source = EXCLUDED.debt_to_equity_source,
+            free_cash_flow_source = EXCLUDED.free_cash_flow_source,
+            market_cap = EXCLUDED.market_cap,
+            market_cap_source = EXCLUDED.market_cap_source,
+            sector = EXCLUDED.sector,
+            industry = EXCLUDED.industry,
+            data_completeness_percent = EXCLUDED.data_completeness_percent,
+            available_fields = EXCLUDED.available_fields,
+            missing_fields = EXCLUDED.missing_fields,
+            provider_errors = EXCLUDED.provider_errors,
+            raw_provider_data = EXCLUDED.raw_provider_data;
         """,
         (
             symbol.upper(),
@@ -203,6 +236,23 @@ def persist_fundamental_snapshot(symbol: str, fundamentals: dict):
             fundamentals.get("roe"),
             fundamentals.get("debt_to_equity"),
             fundamentals.get("dividend_yield"),
+            source,
+            fundamentals.get("provider_used") or source,
+            json.dumps(fundamentals.get("providers_available", [])),
+            fundamentals.get("pe_ratio_source"),
+            fundamentals.get("roe_source"),
+            fundamentals.get("dividend_yield_source"),
+            fundamentals.get("debt_to_equity_source"),
+            fundamentals.get("free_cash_flow_source"),
+            fundamentals.get("market_cap"),
+            fundamentals.get("market_cap_source"),
+            fundamentals.get("sector"),
+            fundamentals.get("industry"),
+            fundamentals.get("data_completeness_percent"),
+            json.dumps(fundamentals.get("available_fields", [])),
+            json.dumps(fundamentals.get("missing_fields", [])),
+            json.dumps(fundamentals.get("provider_errors", {})),
+            json.dumps(fundamentals.get("raw_provider_data", {})),
         ),
     )
 
@@ -317,6 +367,17 @@ def fetch_latest_investor_rankings() -> list[dict]:
             fundamentals.roe,
             fundamentals.debt_to_equity,
             fundamentals.free_cash_flow,
+            fundamentals.provider_used,
+            fundamentals.providers_available,
+            fundamentals.pe_ratio_source,
+            fundamentals.roe_source,
+            fundamentals.dividend_yield_source,
+            fundamentals.debt_to_equity_source,
+            fundamentals.free_cash_flow_source,
+            fundamentals.data_completeness_percent,
+            fundamentals.available_fields,
+            fundamentals.missing_fields,
+            fundamentals.provider_errors,
             technicals.raw_signals AS technical_raw_signals
         FROM investor_scores scores
         JOIN latest_scores latest
@@ -325,7 +386,18 @@ def fetch_latest_investor_rankings() -> list[dict]:
             SELECT
                 roe,
                 debt_to_equity,
-                free_cash_flow
+                free_cash_flow,
+                provider_used,
+                providers_available,
+                pe_ratio_source,
+                roe_source,
+                dividend_yield_source,
+                debt_to_equity_source,
+                free_cash_flow_source,
+                data_completeness_percent,
+                available_fields,
+                missing_fields,
+                provider_errors
             FROM fundamental_snapshots
             WHERE symbol = scores.symbol
             ORDER BY snapshot_date DESC

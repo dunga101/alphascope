@@ -73,6 +73,47 @@ ON investor_scores (score_date, buy_score DESC);
 CREATE INDEX IF NOT EXISTS idx_investor_scores_symbol_date
 ON investor_scores (symbol, score_date DESC);
 
+CREATE TABLE IF NOT EXISTS fundamental_snapshots (
+    id SERIAL PRIMARY KEY,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    snapshot_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    symbol VARCHAR(20) NOT NULL,
+    revenue NUMERIC,
+    net_income NUMERIC,
+    total_assets NUMERIC,
+    total_liabilities NUMERIC,
+    cash_and_equivalents NUMERIC,
+    total_debt NUMERIC,
+    operating_cash_flow NUMERIC,
+    free_cash_flow NUMERIC,
+    pe_ratio NUMERIC,
+    eps NUMERIC,
+    roe NUMERIC,
+    debt_to_equity NUMERIC,
+    dividend_yield NUMERIC,
+    source VARCHAR(20) NOT NULL DEFAULT 'UNKNOWN',
+    provider_used VARCHAR(20),
+    providers_available JSONB,
+    pe_ratio_source VARCHAR(20),
+    roe_source VARCHAR(20),
+    dividend_yield_source VARCHAR(20),
+    debt_to_equity_source VARCHAR(20),
+    free_cash_flow_source VARCHAR(20),
+    market_cap DOUBLE PRECISION,
+    market_cap_source VARCHAR(20),
+    sector VARCHAR(100),
+    industry VARCHAR(200),
+    data_completeness_percent DOUBLE PRECISION,
+    available_fields JSONB,
+    missing_fields JSONB,
+    provider_errors JSONB,
+    raw_provider_data JSONB,
+    UNIQUE (symbol, snapshot_date)
+);
+
+CREATE INDEX IF NOT EXISTS idx_fundamental_snapshots_symbol_date
+ON fundamental_snapshots (symbol, snapshot_date DESC);
+
 CREATE TABLE IF NOT EXISTS fred_observations (
     id SERIAL PRIMARY KEY,
     series_id VARCHAR(32) NOT NULL,

@@ -1,120 +1,29 @@
 {
-  "generated_at": "2026-06-01 15:03 EDT",
-  "generated_at_iso": "2026-06-01T15:03:05.432470-04:00",
+  "generated_at": "2026-06-04 09:35 EDT",
+  "generated_at_iso": "2026-06-04T09:35:09.036015-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 46,
-  "summary": "The market exhibits a mixed sentiment with technology leading gains, but broad weakness across other sectors. Volatility is elevated, and risk appetite is waning, evidenced by Bitcoin's decline. While some tech names show strong technicals, overall participation is low, and several sectors are under pressure. Event risk is low for most major companies, except for Broadcom. Caution is advised due to the lack of broad market support and signs of overheating in certain tech names.",
+  "confidence": 32,
+  "summary": "The market exhibits a mixed sentiment, with the Dow Jones Industrial Average showing strength while the Nasdaq shows weakness. Volatility is slightly elevated, and treasury yields are down. Gold is up, but oil is down. This suggests a cautious environment where defensive sectors are performing better than technology. Event risk is low for most major companies, but Oracle has near-term earnings. Overall, the market lacks strong conviction, and a conservative approach is warranted.",
   "bullish": [
     "SPY",
+    "MSFT",
     "QQQ",
     "AMD"
   ],
   "bearish": [
-    "META"
+    "NVDA",
+    "SHOP.TO",
+    "META",
+    "TSLA",
+    "GOOGL"
   ],
-  "ticker": [
-    {
-      "symbol": "SPY",
-      "price": "$759.62",
-      "change": "+0.42%"
-    },
-    {
-      "symbol": "AAPL",
-      "price": "$307.757",
-      "change": "-1.38%"
-    },
-    {
-      "symbol": "MSFT",
-      "price": "$461.18",
-      "change": "+2.43%"
-    },
-    {
-      "symbol": "NVDA",
-      "price": "$224.39",
-      "change": "+6.28%"
-    },
-    {
-      "symbol": "AMZN",
-      "price": "$263.28",
-      "change": "-2.72%"
-    },
-    {
-      "symbol": "META",
-      "price": "$605.375",
-      "change": "-4.29%"
-    },
-    {
-      "symbol": "GOOGL",
-      "price": "$378.12",
-      "change": "-0.58%"
-    },
-    {
-      "symbol": "TSLA",
-      "price": "$418.53",
-      "change": "-3.96%"
-    },
-    {
-      "symbol": "AMD",
-      "price": "$512.3",
-      "change": "-0.74%"
-    },
-    {
-      "symbol": "CSCO",
-      "price": "$120.8685",
-      "change": "+0.37%"
-    },
-    {
-      "symbol": "JPM",
-      "price": "$296.67",
-      "change": "-0.88%"
-    },
-    {
-      "symbol": "BAC",
-      "price": "$51.585",
-      "change": "-0.03%"
-    },
-    {
-      "symbol": "V",
-      "price": "$321.23",
-      "change": "-1.57%"
-    },
-    {
-      "symbol": "UNH",
-      "price": "$378.8",
-      "change": "-0.40%"
-    },
-    {
-      "symbol": "JNJ",
-      "price": "$224.03",
-      "change": "-0.58%"
-    },
-    {
-      "symbol": "XOM",
-      "price": "$148.645",
-      "change": "+2.33%"
-    },
-    {
-      "symbol": "CVX",
-      "price": "$186.23",
-      "change": "+2.07%"
-    },
-    {
-      "symbol": "KO",
-      "price": "$78.82",
-      "change": "-0.24%"
-    },
-    {
-      "symbol": "PEP",
-      "price": "$141.875",
-      "change": "-1.61%"
-    }
-  ],
+  "ticker": [],
   "macro": {
     "source": "FRED",
     "status": "OK",
-    "fed_funds_rate": 3.64,
-    "fed_funds_date": "2026-04-01",
+    "fed_funds_rate": 3.63,
+    "fed_funds_date": "2026-05-01",
     "cpi_value": 332.407,
     "cpi_date": "2026-04-01",
     "cpi_yoy": 3.95,
@@ -122,83 +31,134 @@
     "unemployment_rate": 4.3,
     "unemployment_date": "2026-04-01",
     "unemployment_trend": "STABLE",
-    "treasury_10y": 4.45,
-    "treasury_10y_date": "2026-05-28",
-    "treasury_2y": 3.99,
-    "treasury_2y_date": "2026-05-28",
-    "yield_curve_spread": 0.46,
+    "treasury_10y": 4.46,
+    "treasury_10y_date": "2026-06-02",
+    "treasury_2y": 4.05,
+    "treasury_2y_date": "2026-06-02",
+    "yield_curve_spread": 0.41,
     "yield_curve_state": "NORMAL",
     "interest_rate_trend": "STABLE",
     "inflation_trend": "REACCELERATING",
     "macro_regime": "MIXED",
     "macro_risk_score": 65,
     "errors": {},
-    "summary": "Macro regime is MIXED. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.46%."
+    "summary": "Macro regime is MIXED. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.41%."
   },
   "top_opportunities": [
     {
       "rank": 1,
-      "symbol": "KO",
-      "company": "The Coca-Cola Company",
+      "symbol": "PG",
+      "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
-      "current_price": 78.82,
-      "dividend_yield": 0.02616039,
-      "buy_score": 80.4,
-      "recommendation": "Strong Buy"
+      "current_price": 140.309,
+      "dividend_yield": 0.0304,
+      "buy_score": 76.65,
+      "recommendation": "Buy",
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0
     },
     {
       "rank": 2,
-      "symbol": "META",
-      "company": "Meta Platforms, Inc.",
-      "sector": "Communication Services",
-      "current_price": 605.375,
-      "dividend_yield": 0.00332011,
-      "buy_score": 76.5,
-      "recommendation": "Buy"
+      "symbol": "KO",
+      "company": "The Coca-Cola Company",
+      "sector": "Consumer Defensive",
+      "current_price": 78.735,
+      "dividend_yield": 0.02615541,
+      "buy_score": 76.65,
+      "recommendation": "Buy",
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0
     },
     {
       "rank": 3,
-      "symbol": "BAC",
-      "company": "Bank of America Corporation",
-      "sector": "Financial Services",
-      "current_price": 51.585,
-      "dividend_yield": 0.02126015,
-      "buy_score": 76.05,
-      "recommendation": "Buy"
+      "symbol": "META",
+      "company": "Meta Platforms, Inc.",
+      "sector": "Communication Services",
+      "current_price": 632.51,
+      "dividend_yield": 0.003386,
+      "buy_score": 76.5,
+      "recommendation": "Buy",
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0
     },
     {
       "rank": 4,
-      "symbol": "PEP",
-      "company": "PepsiCo, Inc.",
-      "sector": "Consumer Defensive",
-      "current_price": 141.875,
-      "dividend_yield": 0.04002814,
-      "buy_score": 75.6,
-      "recommendation": "Buy"
+      "symbol": "BAC",
+      "company": "Bank of America Corporation",
+      "sector": "Financial Services",
+      "current_price": 51.75,
+      "dividend_yield": 0.02099237,
+      "buy_score": 76.05,
+      "recommendation": "Buy",
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0
     },
     {
       "rank": 5,
-      "symbol": "XOM",
-      "company": "Exxon Mobil Corporation",
-      "sector": "Energy",
-      "current_price": 148.645,
-      "dividend_yield": 0.02746365,
-      "buy_score": 74.4,
-      "recommendation": "Buy"
+      "symbol": "MSFT",
+      "company": "Microsoft Corporation",
+      "sector": "Technology",
+      "current_price": 450.24,
+      "dividend_yield": 0.00838236,
+      "buy_score": 72.75,
+      "recommendation": "Buy",
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0
     }
   ],
   "data_quality": {
-    "total_symbols": 25,
-    "complete_symbols": 14,
-    "partial_symbols": 11,
+    "total_symbols": 50,
+    "complete_symbols": 0,
+    "partial_symbols": 46,
+    "insufficient_data_symbols": 4,
     "missing_symbols": 0,
-    "coverage_percentage": 56.0,
-    "quotes_available": 18,
-    "fundamentals_available": 18,
-    "scores_available": 25,
+    "coverage_percentage": 0.0,
+    "quotes_available": 0,
+    "fundamentals_available": 50,
+    "scores_available": 50,
+    "provider_coverage": {
+      "FMP": 27,
+      "YAHOO": 50,
+      "COMBINED": 27,
+      "combined_symbols": 50,
+      "total_symbols": 50
+    },
+    "metric_coverage": {
+      "pe_ratio": {
+        "available": 49,
+        "fmp": 27,
+        "yahoo": 22,
+        "unknown": 0,
+        "missing": 1
+      },
+      "roe": {
+        "available": 48,
+        "fmp": 27,
+        "yahoo": 21,
+        "unknown": 0,
+        "missing": 2
+      },
+      "dividend_yield": {
+        "available": 48,
+        "fmp": 27,
+        "yahoo": 21,
+        "unknown": 0,
+        "missing": 2
+      }
+    },
+    "missing_symbols_list": [
+      "CRWD",
+      "PANW",
+      "MCD",
+      "LOW"
+    ],
     "warnings": [
-      "Fundamentals coverage below symbol count: 18/25.",
-      "Complete coverage below 95%: 56.0%."
+      "Complete coverage below 95%: 0.0%."
     ]
   }
 }

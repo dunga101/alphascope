@@ -5,6 +5,12 @@ from app.logger import setup_logger
 
 log = setup_logger()
 
+DATA_STATUS_PRIORITY = {
+    "COMPLETE": 0,
+    "PARTIAL": 1,
+    "INSUFFICIENT_DATA": 2,
+}
+
 
 def get_investor_symbols() -> list[str]:
     config = load_watchlist_config()
@@ -51,8 +57,11 @@ def build_investor_rankings(
         rankings.append(score)
 
     rankings.sort(
-        key=lambda item: item.get("buy_score", 0),
-        reverse=True,
+        key=lambda item: (
+            DATA_STATUS_PRIORITY.get(item.get("data_status"), 1),
+            -(item.get("buy_score") or 0),
+            item.get("symbol", ""),
+        ),
     )
 
     return rankings

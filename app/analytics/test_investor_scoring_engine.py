@@ -44,6 +44,36 @@ class InvestorScoringEngineTests(unittest.TestCase):
         self.assertIn(result["recommendation"], {"Strong Buy", "Buy", "Watch", "Avoid"})
         self.assertEqual(result["pe_ratio"], 22)
         self.assertEqual(result["rsi"], 58)
+        self.assertEqual(result["data_status"], "COMPLETE")
+
+    def test_missing_critical_fundamentals_returns_insufficient_data(self):
+        result = score_investor_opportunity(
+            symbol="AVGO",
+            fundamentals=None,
+            profile={"company_name": "Broadcom Inc."},
+            quote={"price": 463.84},
+        )
+
+        self.assertEqual(result["recommendation"], "Insufficient Data")
+        self.assertEqual(result["buy_score"], 0)
+        self.assertEqual(result["data_status"], "INSUFFICIENT_DATA")
+        self.assertIn("pe_ratio", result["critical_missing_fields"])
+        self.assertEqual(result["raw_score"]["calculated_buy_score"], 47.25)
+
+    def test_zero_dividend_yield_is_valid_fundamental(self):
+        result = score_investor_opportunity(
+            symbol="AMZN",
+            fundamentals={
+                "pe_ratio": 29,
+                "roe": 0.18,
+                "debt_to_equity": 0.4,
+                "dividend_yield": 0,
+                "free_cash_flow": 7695000000,
+            },
+        )
+
+        self.assertNotEqual(result["recommendation"], "Insufficient Data")
+        self.assertEqual(result["data_status"], "COMPLETE")
 
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
 import os
 import json
 import time
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 from pathlib import Path
 
 import requests
@@ -69,6 +70,28 @@ def _calculate_roe(net_income, total_stockholders_equity):
         return None
 
     return net_income / total_stockholders_equity
+
+
+def _redact_api_key(text: str) -> str:
+    if not API_KEY or not text:
+        return text
+
+    redacted = text.replace(API_KEY, "[REDACTED]")
+
+    if "apikey=" not in redacted:
+        return redacted
+
+    try:
+        parts = urlsplit(redacted)
+        query = urlencode(
+            [
+                (key, "[REDACTED]" if key.lower() == "apikey" else value)
+                for key, value in parse_qsl(parts.query, keep_blank_values=True)
+            ]
+        )
+        return urlunsplit((parts.scheme, parts.netloc, parts.path, query, parts.fragment))
+    except Exception:
+        return redacted
 
 
 def collect_fundamentals(symbol: str):
@@ -143,5 +166,5 @@ def collect_fundamentals(symbol: str):
         return {
             "status": "ERROR",
             "symbol": symbol,
-            "reason": str(e),
+            "reason": _redact_api_key(str(e)),
         }

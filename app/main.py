@@ -12,7 +12,7 @@ from app.collectors.breadth import collect_sector_breadth
 from app.collectors.earnings import collect_earnings_context
 from app.collectors.fmp_quotes import collect_fmp_quotes
 from app.collectors.fmp_profile import collect_company_profile
-from app.collectors.fmp_fundamentals import collect_fundamentals
+from app.collectors.fundamentals_provider import collect_combined_fundamentals
 from app.collectors.fred_macro import collect_fred_macro
 from app.collectors.news_intelligence import collect_news_intelligence
 from app.analytics.macro_regime_engine import build_macro_snapshot
@@ -407,6 +407,8 @@ def format_fundamentals(data: dict) -> str:
         if f.get("status") == "OK":
             lines.append(
                 f"{symbol}: "
+                f"Provider={f.get('provider_used') or f.get('source')} | "
+                f"Completeness={f.get('data_completeness_percent')}% | "
                 f"Revenue={f.get('revenue')} | "
                 f"NetIncome={f.get('net_income')} | "
                 f"FCF={f.get('free_cash_flow')} | "
@@ -448,13 +450,13 @@ def collect_fmp_layer(mode: str):
     company_profile_summary = format_company_profiles(company_profiles)
 
     log.info("Collecting fundamentals")
-    fundamentals = {}
-
-    for symbol in FUNDAMENTAL_SYMBOLS:
-        f = collect_fundamentals(symbol)
-
-        if f.get("status") == "OK":
-            fundamentals[symbol] = f
+    fundamentals, fundamental_diagnostics = collect_combined_fundamentals(
+        FUNDAMENTAL_SYMBOLS,
+    )
+    log.info(
+        "Fundamentals provider coverage: "
+        f"{fundamental_diagnostics.get('provider_counts', {})}"
+    )
 
     fundamentals_summary = format_fundamentals(fundamentals)
 

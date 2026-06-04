@@ -1,6 +1,20 @@
 from dataclasses import asdict, is_dataclass
 from typing import Any, Optional
 
+CRITICAL_FUNDAMENTAL_FIELDS = (
+    "pe_ratio",
+    "roe",
+    "dividend_yield",
+)
+
+SCORING_FUNDAMENTAL_FIELDS = (
+    "pe_ratio",
+    "roe",
+    "debt_to_equity",
+    "dividend_yield",
+    "free_cash_flow",
+)
+
 
 def _to_float(value) -> Optional[float]:
     if value is None:
@@ -24,6 +38,33 @@ def _get_metric(source: Any, key: str):
         return source.get(key)
 
     return getattr(source, key, None)
+
+
+def _valid_fundamental_value(field: str, value) -> bool:
+    if field == "dividend_yield":
+        return _to_float(value) is not None
+
+    if field == "roe":
+        return _to_float(value) is not None
+
+    if field == "free_cash_flow":
+        return _to_float(value) is not None
+
+    if field == "debt_to_equity":
+        return _to_float(value) is not None
+
+    if field == "pe_ratio":
+        pe = _to_float(value)
+        return pe is not None and pe > 0
+
+    return value is not None
+
+
+def _missing_fundamental_fields(fundamentals: dict, fields: tuple[str, ...]) -> list[str]:
+    return [
+        field for field in fields
+        if not _valid_fundamental_value(field, fundamentals.get(field))
+    ]
 
 
 def recommendation_for_score(buy_score: float) -> str:
@@ -166,6 +207,14 @@ def score_investor_opportunity(
     debt_to_equity = fundamentals.get("debt_to_equity")
     dividend_yield = fundamentals.get("dividend_yield")
     free_cash_flow = fundamentals.get("free_cash_flow")
+    critical_missing_fields = _missing_fundamental_fields(
+        fundamentals,
+        CRITICAL_FUNDAMENTAL_FIELDS,
+    )
+    scoring_missing_fields = _missing_fundamental_fields(
+        fundamentals,
+        SCORING_FUNDAMENTAL_FIELDS,
+    )
 
     distance_from_52w_low = _get_metric(
         technical_data,
@@ -191,7 +240,7 @@ def score_investor_opportunity(
     price_position_score = score_price_position(distance_from_52w_low)
     technical_score = score_technical(rsi, technical_confidence)
 
-    buy_score = round(
+    calculated_buy_score = round(
         (
             valuation_score * 0.25
             + dividend_score * 0.15
@@ -201,6 +250,15 @@ def score_investor_opportunity(
         ),
         2,
     )
+
+    if critical_missing_fields:
+        data_status = "INSUFFICIENT_DATA"
+        recommendation = "Insufficient Data"
+        buy_score = 0
+    else:
+        data_status = "PARTIAL" if scoring_missing_fields else "COMPLETE"
+        recommendation = recommendation_for_score(calculated_buy_score)
+        buy_score = calculated_buy_score
 
     company_name = (
         profile.get("company_name")
@@ -212,10 +270,10 @@ def score_investor_opportunity(
     result = {
         "symbol": symbol.upper(),
         "company": company_name,
-        "sector": profile.get("sector"),
+        "sector": profile.get("sector") or fundamentals.get("sector"),
         "current_price": current_price,
         "buy_score": buy_score,
-        "recommendation": recommendation_for_score(buy_score),
+        "recommendation": recommendation,
         "valuation_score": round(valuation_score, 2),
         "dividend_score": round(dividend_score, 2),
         "financial_quality_score": round(financial_quality_score, 2),
@@ -223,6 +281,19 @@ def score_investor_opportunity(
         "technical_score": round(technical_score, 2),
         "dividend_yield": dividend_yield,
         "pe_ratio": pe_ratio,
+        "roe": roe,
+        "debt_to_equity": debt_to_equity,
+        "free_cash_flow": free_cash_flow,
+        "data_status": data_status,
+        "data_quality_label": data_status.replace("_", " ").title(),
+        "data_completeness_percent": fundamentals.get("data_completeness_percent"),
+        "missing_fundamental_fields": scoring_missing_fields,
+        "critical_missing_fields": critical_missing_fields,
+        "provider_used": fundamentals.get("provider_used") or fundamentals.get("source"),
+        "providers_available": fundamentals.get("providers_available", []),
+        "pe_ratio_source": fundamentals.get("pe_ratio_source"),
+        "roe_source": fundamentals.get("roe_source"),
+        "dividend_yield_source": fundamentals.get("dividend_yield_source"),
         "distance_from_52w_low": (
             round(distance_from_52w_low, 2)
             if distance_from_52w_low is not None
@@ -235,6 +306,21 @@ def score_investor_opportunity(
         "fundamentals_available": bool(fundamentals),
         "technical_available": bool(technical_data),
         "current_price": current_price,
+        "calculated_buy_score": calculated_buy_score,
+        "data_status": data_status,
+        "data_quality_label": data_status.replace("_", " ").title(),
+        "data_completeness_percent": fundamentals.get("data_completeness_percent"),
+        "missing_fundamental_fields": scoring_missing_fields,
+        "critical_missing_fields": critical_missing_fields,
+        "provider_used": fundamentals.get("provider_used") or fundamentals.get("source"),
+        "providers_available": fundamentals.get("providers_available", []),
+        "metric_sources": {
+            "pe_ratio": fundamentals.get("pe_ratio_source"),
+            "roe": fundamentals.get("roe_source"),
+            "dividend_yield": fundamentals.get("dividend_yield_source"),
+            "debt_to_equity": fundamentals.get("debt_to_equity_source"),
+            "free_cash_flow": fundamentals.get("free_cash_flow_source"),
+        },
         "weights": {
             "valuation": 0.25,
             "dividend": 0.15,

@@ -151,6 +151,43 @@ body {
   border-color: rgba(239,68,68,0.35);
 }
 
+.recommendation-insufficient {
+  color: #d1d5db;
+  background: rgba(107,114,128,0.14);
+  border-color: rgba(156,163,175,0.35);
+}
+
+.quality-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  border: 1px solid rgba(148,163,184,0.24);
+  color: #e2e8f0;
+  background: rgba(148,163,184,0.12);
+  white-space: nowrap;
+}
+
+.quality-complete {
+  color: #bbf7d0;
+  background: rgba(34,197,94,0.12);
+  border-color: rgba(34,197,94,0.35);
+}
+
+.quality-partial {
+  color: #fde68a;
+  background: rgba(245,158,11,0.12);
+  border-color: rgba(245,158,11,0.35);
+}
+
+.quality-insufficient {
+  color: #fecaca;
+  background: rgba(239,68,68,0.12);
+  border-color: rgba(239,68,68,0.35);
+}
+
 .status-banner {
   display: none;
   margin-bottom: 24px;
@@ -331,9 +368,14 @@ function showError(message) {
   root.innerHTML = '';
 }
 
+function isUnavailable(value) {
+  return value === null || value === undefined || value === '';
+}
+
 function formatNumber(value, digits = 2) {
+  if (isUnavailable(value)) return 'N/A';
   const number = Number(value);
-  if (!Number.isFinite(number)) return 'Unavailable';
+  if (!Number.isFinite(number)) return 'N/A';
 
   return new Intl.NumberFormat('en-US', {
     maximumFractionDigits: digits
@@ -341,8 +383,9 @@ function formatNumber(value, digits = 2) {
 }
 
 function formatPercent(value, digits = 2) {
+  if (isUnavailable(value)) return 'N/A';
   const number = Number(value);
-  if (!Number.isFinite(number)) return 'Unavailable';
+  if (!Number.isFinite(number)) return 'N/A';
 
   return new Intl.NumberFormat('en-US', {
     style: 'percent',
@@ -351,15 +394,17 @@ function formatPercent(value, digits = 2) {
 }
 
 function formatPercentPoints(value, digits = 2) {
+  if (isUnavailable(value)) return 'N/A';
   const number = Number(value);
-  if (!Number.isFinite(number)) return 'Unavailable';
+  if (!Number.isFinite(number)) return 'N/A';
 
   return `${formatNumber(number, digits)}%`;
 }
 
 function formatCurrency(value) {
+  if (isUnavailable(value)) return 'N/A';
   const number = Number(value);
-  if (!Number.isFinite(number)) return 'Unavailable';
+  if (!Number.isFinite(number)) return 'N/A';
 
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -375,6 +420,17 @@ function recommendationClass(recommendation) {
   if (normalized.includes('buy')) return 'recommendation-buy';
   if (normalized.includes('watch')) return 'recommendation-watch';
   if (normalized.includes('avoid')) return 'recommendation-avoid';
+  if (normalized.includes('insufficient')) return 'recommendation-insufficient';
+
+  return '';
+}
+
+function qualityClass(status) {
+  const normalized = String(status || '').toLowerCase();
+
+  if (normalized.includes('complete')) return 'quality-complete';
+  if (normalized.includes('partial')) return 'quality-partial';
+  if (normalized.includes('insufficient')) return 'quality-insufficient';
 
   return '';
 }
@@ -414,8 +470,13 @@ function renderOpportunity(item) {
   const top = el('div', 'hero-top');
   const title = el('h2', '', item.symbol || 'Unavailable');
   const badge = el('span', `recommendation-badge ${recommendationClass(recommendation)}`.trim(), recommendation);
+  const quality = el(
+    'span',
+    `quality-badge ${qualityClass(item.data_status)}`.trim(),
+    item.data_quality_label || String(item.data_status || 'Unknown').replaceAll('_', ' ')
+  );
 
-  append(top, [title, badge]);
+  append(top, [title, quality, badge]);
   append(hero, [
     top,
     el('p', '', item.company || 'Company unavailable'),
@@ -438,8 +499,11 @@ function renderOpportunity(item) {
   append(metricsGrid, [
     metricCard('Sector', item.sector || 'Unavailable'),
     metricCard('PE Ratio', formatNumber(item.pe_ratio)),
+    metricCard('PE Source', item.pe_ratio_source || 'N/A'),
     metricCard('ROE', formatPercent(item.roe)),
+    metricCard('ROE Source', item.roe_source || 'N/A'),
     metricCard('Dividend Yield', formatPercent(item.dividend_yield)),
+    metricCard('Dividend Source', item.dividend_yield_source || 'N/A'),
     metricCard('Debt To Equity', formatNumber(item.debt_to_equity)),
     metricCard('Free Cash Flow', formatCurrency(item.free_cash_flow)),
     metricCard('RSI', formatNumber(item.rsi)),
