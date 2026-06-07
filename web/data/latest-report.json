@@ -1,22 +1,23 @@
 {
-  "generated_at": "2026-06-06 18:02 EDT",
-  "generated_at_iso": "2026-06-06T18:02:23.744204-04:00",
+  "generated_at": "2026-06-07 18:02 EDT",
+  "generated_at_iso": "2026-06-07T18:02:00.234046-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
   "confidence": 85,
-  "summary": "Markets experienced a significant risk-off shift, marked by broad index declines and a sharp VIX increase. Technology sectors and high-beta names were particularly weak. Defensive sectors showed some resilience. Event risk is currently low, but attention should be paid to upcoming earnings. The current environment favors caution and capital preservation.",
+  "summary": "Markets experienced a significant risk-off shift, marked by broad index declines and a sharp increase in volatility. Technology sectors were particularly weak, while defensive sectors showed some resilience. Event risk is elevated for Oracle (ORCL) due to its imminent earnings report. Investors should prioritize capital preservation and monitor for signs of stabilization or a shift back to risk appetite.",
   "bullish": [
     "JNJ",
     "KO",
+    "UNH",
     "V",
     "WMT"
   ],
   "bearish": [
+    "AMZN",
+    "MSFT",
     "NVDA",
-    "AMD",
-    "CSCO",
-    "META",
-    "TSLA"
+    "TSLA",
+    "META"
   ],
   "ticker": [
     {

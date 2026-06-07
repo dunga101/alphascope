@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-06 18:02 EDT",
-  "generated_at_iso": "2026-06-06T18:02:23.744204-04:00",
+  "generated_at": "2026-06-07 18:02 EDT",
+  "generated_at_iso": "2026-06-07T18:02:00.234046-04:00",
   "generation_status": "success",
   "count": 50,
   "rankings": [
@@ -491,6 +491,58 @@
     },
     {
       "rank": 10,
+      "symbol": "JPM",
+      "company": "JPMorgan Chase & Co.",
+      "current_price": 312.37,
+      "buy_score": 70.65,
+      "recommendation": "Buy",
+      "dividend_yield": 0.01888786,
+      "pe_ratio": 14.789830370634476,
+      "roe": 0.1574,
+      "sector": "Financial Services",
+      "technical_score": 50.0,
+      "valuation_score": 90.0,
+      "financial_quality_score": 63.0,
+      "dividend_score": 70.0,
+      "price_position_score": 75.0,
+      "debt_to_equity": 3.3882,
+      "free_cash_flow": 100867000000,
+      "rsi": 40.13,
+      "sma20": null,
+      "sma50": null,
+      "sma200": null,
+      "distance_from_52w_low": 15.85,
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0,
+      "provider_used": "COMBINED",
+      "providers_available": [
+        "FMP",
+        "YAHOO"
+      ],
+      "pe_ratio_source": "FMP",
+      "roe_source": "FMP",
+      "dividend_yield_source": "FMP",
+      "debt_to_equity_source": "FMP",
+      "free_cash_flow_source": "FMP",
+      "missing_fundamental_fields": [],
+      "strengths": [
+        "Buy recommendation based on composite investor score.",
+        "Valuation score is supportive relative to the ranked universe.",
+        "Dividend yield is present for income-oriented investors."
+      ],
+      "risks": [],
+      "missing_data": [],
+      "score_breakdown": {
+        "valuation": 90.0,
+        "dividend": 70.0,
+        "financial_quality": 63.0,
+        "price_position": 75.0,
+        "technical": 50.0
+      }
+    },
+    {
+      "rank": 11,
       "symbol": "V",
       "company": "Visa Inc.",
       "current_price": 323.57,
@@ -539,58 +591,6 @@
         "valuation": 60.0,
         "dividend": 50.0,
         "financial_quality": 98.0,
-        "price_position": 75.0,
-        "technical": 50.0
-      }
-    },
-    {
-      "rank": 11,
-      "symbol": "JPM",
-      "company": "JPMorgan Chase & Co.",
-      "current_price": 312.37,
-      "buy_score": 70.65,
-      "recommendation": "Buy",
-      "dividend_yield": 0.01888786,
-      "pe_ratio": 14.789830370634476,
-      "roe": 0.1574,
-      "sector": "Financial Services",
-      "technical_score": 50.0,
-      "valuation_score": 90.0,
-      "financial_quality_score": 63.0,
-      "dividend_score": 70.0,
-      "price_position_score": 75.0,
-      "debt_to_equity": 3.3882,
-      "free_cash_flow": 100867000000,
-      "rsi": 40.13,
-      "sma20": null,
-      "sma50": null,
-      "sma200": null,
-      "distance_from_52w_low": 15.85,
-      "data_status": "COMPLETE",
-      "data_quality_label": "Complete",
-      "data_completeness_percent": 100.0,
-      "provider_used": "COMBINED",
-      "providers_available": [
-        "FMP",
-        "YAHOO"
-      ],
-      "pe_ratio_source": "FMP",
-      "roe_source": "FMP",
-      "dividend_yield_source": "FMP",
-      "debt_to_equity_source": "FMP",
-      "free_cash_flow_source": "FMP",
-      "missing_fundamental_fields": [],
-      "strengths": [
-        "Buy recommendation based on composite investor score.",
-        "Valuation score is supportive relative to the ranked universe.",
-        "Dividend yield is present for income-oriented investors."
-      ],
-      "risks": [],
-      "missing_data": [],
-      "score_breakdown": {
-        "valuation": 90.0,
-        "dividend": 70.0,
-        "financial_quality": 63.0,
         "price_position": 75.0,
         "technical": 50.0
       }
@@ -1139,6 +1139,59 @@
     },
     {
       "rank": 22,
+      "symbol": "GOOGL",
+      "company": "Alphabet Inc.",
+      "current_price": 368.53,
+      "buy_score": 66.0,
+      "recommendation": "Buy",
+      "dividend_yield": 0.00227933,
+      "pe_ratio": 27.831596861579943,
+      "roe": 0.3183,
+      "sector": "Communication Services",
+      "technical_score": 60.0,
+      "valuation_score": 60.0,
+      "financial_quality_score": 100.0,
+      "dividend_score": 50.0,
+      "price_position_score": 30.0,
+      "debt_to_equity": 0.189,
+      "free_cash_flow": 73266000000,
+      "rsi": 53.5,
+      "sma20": 385.38,
+      "sma50": 354.5,
+      "sma200": null,
+      "distance_from_52w_low": 136.31,
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0,
+      "provider_used": "COMBINED",
+      "providers_available": [
+        "FMP",
+        "YAHOO"
+      ],
+      "pe_ratio_source": "FMP",
+      "roe_source": "FMP",
+      "dividend_yield_source": "FMP",
+      "debt_to_equity_source": "FMP",
+      "free_cash_flow_source": "FMP",
+      "missing_fundamental_fields": [],
+      "strengths": [
+        "Buy recommendation based on composite investor score.",
+        "Financial quality score is above the preferred threshold.",
+        "Dividend yield is present for income-oriented investors.",
+        "Technical score is constructive."
+      ],
+      "risks": [],
+      "missing_data": [],
+      "score_breakdown": {
+        "valuation": 60.0,
+        "dividend": 50.0,
+        "financial_quality": 100.0,
+        "price_position": 30.0,
+        "technical": 60.0
+      }
+    },
+    {
+      "rank": 23,
       "symbol": "NVDA",
       "company": "NVIDIA Corporation",
       "current_price": 205.1,
@@ -1189,59 +1242,6 @@
         "financial_quality": 100.0,
         "price_position": 45.0,
         "technical": 45.0
-      }
-    },
-    {
-      "rank": 23,
-      "symbol": "GOOGL",
-      "company": "Alphabet Inc.",
-      "current_price": 368.53,
-      "buy_score": 66.0,
-      "recommendation": "Buy",
-      "dividend_yield": 0.00227933,
-      "pe_ratio": 27.831596861579943,
-      "roe": 0.3183,
-      "sector": "Communication Services",
-      "technical_score": 60.0,
-      "valuation_score": 60.0,
-      "financial_quality_score": 100.0,
-      "dividend_score": 50.0,
-      "price_position_score": 30.0,
-      "debt_to_equity": 0.189,
-      "free_cash_flow": 73266000000,
-      "rsi": 53.5,
-      "sma20": 385.38,
-      "sma50": 354.5,
-      "sma200": null,
-      "distance_from_52w_low": 136.31,
-      "data_status": "COMPLETE",
-      "data_quality_label": "Complete",
-      "data_completeness_percent": 100.0,
-      "provider_used": "COMBINED",
-      "providers_available": [
-        "FMP",
-        "YAHOO"
-      ],
-      "pe_ratio_source": "FMP",
-      "roe_source": "FMP",
-      "dividend_yield_source": "FMP",
-      "debt_to_equity_source": "FMP",
-      "free_cash_flow_source": "FMP",
-      "missing_fundamental_fields": [],
-      "strengths": [
-        "Buy recommendation based on composite investor score.",
-        "Financial quality score is above the preferred threshold.",
-        "Dividend yield is present for income-oriented investors.",
-        "Technical score is constructive."
-      ],
-      "risks": [],
-      "missing_data": [],
-      "score_breakdown": {
-        "valuation": 60.0,
-        "dividend": 50.0,
-        "financial_quality": 100.0,
-        "price_position": 30.0,
-        "technical": 60.0
       }
     },
     {
@@ -1404,63 +1404,6 @@
     },
     {
       "rank": 27,
-      "symbol": "TD",
-      "company": "The Toronto-Dominion Bank",
-      "current_price": 112.36,
-      "buy_score": 64.65,
-      "recommendation": "Watch",
-      "dividend_yield": 0.0287,
-      "pe_ratio": 18.460033,
-      "roe": 0.1191,
-      "sector": "Financial Services",
-      "technical_score": 50.0,
-      "valuation_score": 75.0,
-      "financial_quality_score": 58.0,
-      "dividend_score": 90.0,
-      "price_position_score": 50.0,
-      "debt_to_equity": null,
-      "free_cash_flow": null,
-      "rsi": null,
-      "sma20": null,
-      "sma50": null,
-      "sma200": null,
-      "distance_from_52w_low": null,
-      "data_status": "PARTIAL",
-      "data_quality_label": "Partial",
-      "data_completeness_percent": 75.0,
-      "provider_used": "YAHOO",
-      "providers_available": [
-        "YAHOO"
-      ],
-      "pe_ratio_source": "YAHOO",
-      "roe_source": "YAHOO",
-      "dividend_yield_source": "YAHOO",
-      "debt_to_equity_source": "UNKNOWN",
-      "free_cash_flow_source": "UNKNOWN",
-      "missing_fundamental_fields": [
-        "debt_to_equity",
-        "free_cash_flow"
-      ],
-      "strengths": [
-        "Valuation score is supportive relative to the ranked universe.",
-        "Dividend yield is present for income-oriented investors."
-      ],
-      "risks": [],
-      "missing_data": [
-        "RSI is unavailable.",
-        "Debt to equity is unavailable.",
-        "Free cash flow is unavailable."
-      ],
-      "score_breakdown": {
-        "valuation": 75.0,
-        "dividend": 90.0,
-        "financial_quality": 58.0,
-        "price_position": 50.0,
-        "technical": 50.0
-      }
-    },
-    {
-      "rank": 28,
       "symbol": "GE",
       "company": "GE Aerospace",
       "current_price": 328.0,
@@ -1515,7 +1458,7 @@
       }
     },
     {
-      "rank": 29,
+      "rank": 28,
       "symbol": "BNS",
       "company": "The Bank of Nova Scotia",
       "current_price": 80.26,
@@ -1524,6 +1467,63 @@
       "dividend_yield": 0.040999999999999995,
       "pe_ratio": 15.43295,
       "roe": 0.1104,
+      "sector": "Financial Services",
+      "technical_score": 50.0,
+      "valuation_score": 75.0,
+      "financial_quality_score": 58.0,
+      "dividend_score": 90.0,
+      "price_position_score": 50.0,
+      "debt_to_equity": null,
+      "free_cash_flow": null,
+      "rsi": null,
+      "sma20": null,
+      "sma50": null,
+      "sma200": null,
+      "distance_from_52w_low": null,
+      "data_status": "PARTIAL",
+      "data_quality_label": "Partial",
+      "data_completeness_percent": 75.0,
+      "provider_used": "YAHOO",
+      "providers_available": [
+        "YAHOO"
+      ],
+      "pe_ratio_source": "YAHOO",
+      "roe_source": "YAHOO",
+      "dividend_yield_source": "YAHOO",
+      "debt_to_equity_source": "UNKNOWN",
+      "free_cash_flow_source": "UNKNOWN",
+      "missing_fundamental_fields": [
+        "debt_to_equity",
+        "free_cash_flow"
+      ],
+      "strengths": [
+        "Valuation score is supportive relative to the ranked universe.",
+        "Dividend yield is present for income-oriented investors."
+      ],
+      "risks": [],
+      "missing_data": [
+        "RSI is unavailable.",
+        "Debt to equity is unavailable.",
+        "Free cash flow is unavailable."
+      ],
+      "score_breakdown": {
+        "valuation": 75.0,
+        "dividend": 90.0,
+        "financial_quality": 58.0,
+        "price_position": 50.0,
+        "technical": 50.0
+      }
+    },
+    {
+      "rank": 29,
+      "symbol": "TD",
+      "company": "The Toronto-Dominion Bank",
+      "current_price": 112.36,
+      "buy_score": 64.65,
+      "recommendation": "Watch",
+      "dividend_yield": 0.0287,
+      "pe_ratio": 18.460033,
+      "roe": 0.1191,
       "sector": "Financial Services",
       "technical_score": 50.0,
       "valuation_score": 75.0,
@@ -2484,61 +2484,6 @@
     },
     {
       "rank": 47,
-      "symbol": "PANW",
-      "company": "Palo Alto Networks, Inc.",
-      "current_price": 280.43,
-      "buy_score": 0.0,
-      "recommendation": "Insufficient Data",
-      "dividend_yield": null,
-      "pe_ratio": 238.64035,
-      "roe": 0.0483,
-      "sector": "Technology",
-      "technical_score": 50.0,
-      "valuation_score": 25.0,
-      "financial_quality_score": 45.0,
-      "dividend_score": 40.0,
-      "price_position_score": 50.0,
-      "debt_to_equity": 7.698,
-      "free_cash_flow": 3579375104,
-      "rsi": null,
-      "sma20": null,
-      "sma50": null,
-      "sma200": null,
-      "distance_from_52w_low": null,
-      "data_status": "INSUFFICIENT_DATA",
-      "data_quality_label": "Insufficient Data",
-      "data_completeness_percent": 87.5,
-      "provider_used": "YAHOO",
-      "providers_available": [
-        "YAHOO"
-      ],
-      "pe_ratio_source": "YAHOO",
-      "roe_source": "YAHOO",
-      "dividend_yield_source": "UNKNOWN",
-      "debt_to_equity_source": "YAHOO",
-      "free_cash_flow_source": "YAHOO",
-      "missing_fundamental_fields": [
-        "dividend_yield"
-      ],
-      "strengths": [],
-      "risks": [
-        "Valuation score is weak.",
-        "Dividend yield is unavailable."
-      ],
-      "missing_data": [
-        "Dividend yield is unavailable.",
-        "RSI is unavailable."
-      ],
-      "score_breakdown": {
-        "valuation": 25.0,
-        "dividend": 40.0,
-        "financial_quality": 45.0,
-        "price_position": 50.0,
-        "technical": 50.0
-      }
-    },
-    {
-      "rank": 48,
       "symbol": "MCD",
       "company": "McDonald's Corporation",
       "current_price": 273.29,
@@ -2597,7 +2542,119 @@
       }
     },
     {
+      "rank": 48,
+      "symbol": "CRWD",
+      "company": "CrowdStrike Holdings, Inc.",
+      "current_price": 747.61,
+      "buy_score": 0.0,
+      "recommendation": "Insufficient Data",
+      "dividend_yield": null,
+      "pe_ratio": null,
+      "roe": -0.0025,
+      "sector": "Technology",
+      "technical_score": 50.0,
+      "valuation_score": 45.0,
+      "financial_quality_score": 60.0,
+      "dividend_score": 40.0,
+      "price_position_score": 50.0,
+      "debt_to_equity": 0.1757,
+      "free_cash_flow": 1926365056,
+      "rsi": null,
+      "sma20": null,
+      "sma50": null,
+      "sma200": null,
+      "distance_from_52w_low": null,
+      "data_status": "INSUFFICIENT_DATA",
+      "data_quality_label": "Insufficient Data",
+      "data_completeness_percent": 75.0,
+      "provider_used": "YAHOO",
+      "providers_available": [
+        "YAHOO"
+      ],
+      "pe_ratio_source": "UNKNOWN",
+      "roe_source": "YAHOO",
+      "dividend_yield_source": "UNKNOWN",
+      "debt_to_equity_source": "YAHOO",
+      "free_cash_flow_source": "YAHOO",
+      "missing_fundamental_fields": [
+        "pe_ratio",
+        "dividend_yield"
+      ],
+      "strengths": [],
+      "risks": [
+        "Valuation score is weak.",
+        "Dividend yield is unavailable."
+      ],
+      "missing_data": [
+        "Dividend yield is unavailable.",
+        "P/E ratio is unavailable.",
+        "RSI is unavailable."
+      ],
+      "score_breakdown": {
+        "valuation": 45.0,
+        "dividend": 40.0,
+        "financial_quality": 60.0,
+        "price_position": 50.0,
+        "technical": 50.0
+      }
+    },
+    {
       "rank": 49,
+      "symbol": "PANW",
+      "company": "Palo Alto Networks, Inc.",
+      "current_price": 280.43,
+      "buy_score": 0.0,
+      "recommendation": "Insufficient Data",
+      "dividend_yield": null,
+      "pe_ratio": 238.64035,
+      "roe": 0.0483,
+      "sector": "Technology",
+      "technical_score": 50.0,
+      "valuation_score": 25.0,
+      "financial_quality_score": 45.0,
+      "dividend_score": 40.0,
+      "price_position_score": 50.0,
+      "debt_to_equity": 7.698,
+      "free_cash_flow": 3579375104,
+      "rsi": null,
+      "sma20": null,
+      "sma50": null,
+      "sma200": null,
+      "distance_from_52w_low": null,
+      "data_status": "INSUFFICIENT_DATA",
+      "data_quality_label": "Insufficient Data",
+      "data_completeness_percent": 87.5,
+      "provider_used": "YAHOO",
+      "providers_available": [
+        "YAHOO"
+      ],
+      "pe_ratio_source": "YAHOO",
+      "roe_source": "YAHOO",
+      "dividend_yield_source": "UNKNOWN",
+      "debt_to_equity_source": "YAHOO",
+      "free_cash_flow_source": "YAHOO",
+      "missing_fundamental_fields": [
+        "dividend_yield"
+      ],
+      "strengths": [],
+      "risks": [
+        "Valuation score is weak.",
+        "Dividend yield is unavailable."
+      ],
+      "missing_data": [
+        "Dividend yield is unavailable.",
+        "RSI is unavailable."
+      ],
+      "score_breakdown": {
+        "valuation": 25.0,
+        "dividend": 40.0,
+        "financial_quality": 45.0,
+        "price_position": 50.0,
+        "technical": 50.0
+      }
+    },
+    {
+      "rank": 50,
       "symbol": "LOW",
       "company": "Lowe's Companies, Inc.",
       "current_price": 207.67999,
@@ -2651,63 +2708,6 @@
         "valuation": 75.0,
         "dividend": 70.0,
         "financial_quality": 65.0,
-        "price_position": 50.0,
-        "technical": 50.0
-      }
-    },
-    {
-      "rank": 50,
-      "symbol": "CRWD",
-      "company": "CrowdStrike Holdings, Inc.",
-      "current_price": 747.61,
-      "buy_score": 0.0,
-      "recommendation": "Insufficient Data",
-      "dividend_yield": null,
-      "pe_ratio": null,
-      "roe": -0.0025,
-      "sector": "Technology",
-      "technical_score": 50.0,
-      "valuation_score": 45.0,
-      "financial_quality_score": 60.0,
-      "dividend_score": 40.0,
-      "price_position_score": 50.0,
-      "debt_to_equity": 0.1757,
-      "free_cash_flow": 1926365056,
-      "rsi": null,
-      "sma20": null,
-      "sma50": null,
-      "sma200": null,
-      "distance_from_52w_low": null,
-      "data_status": "INSUFFICIENT_DATA",
-      "data_quality_label": "Insufficient Data",
-      "data_completeness_percent": 75.0,
-      "provider_used": "YAHOO",
-      "providers_available": [
-        "YAHOO"
-      ],
-      "pe_ratio_source": "UNKNOWN",
-      "roe_source": "YAHOO",
-      "dividend_yield_source": "UNKNOWN",
-      "debt_to_equity_source": "YAHOO",
-      "free_cash_flow_source": "YAHOO",
-      "missing_fundamental_fields": [
-        "pe_ratio",
-        "dividend_yield"
-      ],
-      "strengths": [],
-      "risks": [
-        "Valuation score is weak.",
-        "Dividend yield is unavailable."
-      ],
-      "missing_data": [
-        "Dividend yield is unavailable.",
-        "P/E ratio is unavailable.",
-        "RSI is unavailable."
-      ],
-      "score_breakdown": {
-        "valuation": 45.0,
-        "dividend": 40.0,
-        "financial_quality": 60.0,
         "price_position": 50.0,
         "technical": 50.0
       }
