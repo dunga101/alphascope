@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-12 18:02 EDT",
-  "generated_at_iso": "2026-06-12T18:02:52.672120-04:00",
+  "generated_at": "2026-06-13 18:02 EDT",
+  "generated_at_iso": "2026-06-13T18:02:05.060779-04:00",
   "generation_status": "success",
-  "regime": "RISK_ON",
-  "confidence": 44,
-  "summary": "Markets show a constructive bias with broad index gains and declining volatility. However, underlying breadth is mixed, with some key technology names showing technical weakness despite generally positive sector performance. Event risk is currently low due to distant earnings dates. Focus remains on identifying resilient companies amidst a generally positive but not uniformly strong environment.",
+  "regime": "MIXED",
+  "confidence": 35,
+  "summary": "Markets are exhibiting a risk-on sentiment with broad index gains and declining volatility. However, underlying breadth is mixed, with some key technology names showing technical weakness despite generally positive macro signals. Energy prices are declining, while gold is rising, suggesting some caution. Event risk from upcoming earnings is currently low, but this could change.",
   "bullish": [
     "AMD",
     "QQQ",
