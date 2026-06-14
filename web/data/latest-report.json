@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-13 18:02 EDT",
-  "generated_at_iso": "2026-06-13T18:02:05.060779-04:00",
+  "generated_at": "2026-06-14 18:02 EDT",
+  "generated_at_iso": "2026-06-14T18:02:34.370075-04:00",
   "generation_status": "success",
   "regime": "MIXED",
-  "confidence": 35,
-  "summary": "Markets are exhibiting a risk-on sentiment with broad index gains and declining volatility. However, underlying breadth is mixed, with some key technology names showing technical weakness despite generally positive macro signals. Energy prices are declining, while gold is rising, suggesting some caution. Event risk from upcoming earnings is currently low, but this could change.",
+  "confidence": 29,
+  "summary": "Markets are showing a risk-on sentiment with broad index gains and declining volatility. However, underlying breadth is mixed, with some sectors showing weakness. While major tech earnings are not imminent, individual stock performance varies, with some showing strong technicals but others exhibiting weakness. Investors should remain cautious due to the mixed signals and focus on quality.",
   "bullish": [
     "AMD",
     "QQQ",
@@ -15,7 +15,7 @@
     "AMZN",
     "MSFT",
     "GOOGL",
-    "NVDA",
+    "SHOP.TO",
     "META"
   ],
   "ticker": [
@@ -192,7 +192,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 145.1,
-      "dividend_yield": 0.0287,
+      "dividend_yield": 0.0285,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
