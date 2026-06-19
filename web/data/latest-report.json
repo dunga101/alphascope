@@ -1,29 +1,25 @@
 {
-  "generated_at": "2026-06-18 18:03 EDT",
-  "generated_at_iso": "2026-06-18T18:03:07.927453-04:00",
+  "generated_at": "2026-06-19 18:02 EDT",
+  "generated_at_iso": "2026-06-19T18:02:00.085234-04:00",
   "generation_status": "success",
   "regime": "MIXED",
-  "confidence": 55,
-  "summary": "The market is exhibiting strong risk-on sentiment, driven by gains in technology and communication services sectors. However, breadth is mixed, with some key indices trading below their short-term moving averages. Commodities and crypto are showing weakness, suggesting potential divergence. Event risk is currently low due to distant earnings dates. Focus remains on technology leaders, but caution is warranted due to mixed breadth and commodity weakness.",
+  "confidence": 52,
+  "summary": "The market is exhibiting strong risk-on sentiment, driven by technology sector strength and broad index gains. However, underlying breadth is mixed, with some sectors showing weakness. While major tech names are performing well, attention should be paid to potential overheating in certain areas and the fundamental quality of companies showing technical weakness. Event risk remains low due to distant earnings dates.",
   "bullish": [
-    "QQQ",
     "AMD",
-    "SPY",
-    "NVDA",
-    "GOOGL"
+    "NVDA"
   ],
   "bearish": [
     "MSFT",
     "AMZN",
     "META",
-    "TSLA",
-    "SHOP.TO"
+    "TSLA"
   ],
   "ticker": [
     {
       "symbol": "SPY",
-      "price": "$746.52",
-      "change": "+0.75%"
+      "price": "$746.74",
+      "change": "+0.78%"
     },
     {
       "symbol": "AAPL",
