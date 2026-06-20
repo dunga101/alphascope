@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-19 18:02 EDT",
-  "generated_at_iso": "2026-06-19T18:02:00.085234-04:00",
+  "generated_at": "2026-06-20 18:02 EDT",
+  "generated_at_iso": "2026-06-20T18:02:28.568835-04:00",
   "generation_status": "success",
   "summary": {
     "total_symbols": 50,
     "complete_symbols": 16,
-    "partial_symbols": 23,
-    "insufficient_data_symbols": 11,
+    "partial_symbols": 30,
+    "insufficient_data_symbols": 4,
     "missing_symbols": 0,
     "coverage_percentage": 32.0,
     "quotes_available": 27,
@@ -35,25 +35,18 @@
         "missing": 2
       },
       "dividend_yield": {
-        "available": 40,
+        "available": 48,
         "fmp": 27,
-        "yahoo": 13,
+        "yahoo": 21,
         "unknown": 0,
-        "missing": 10
+        "missing": 2
       }
     },
     "missing_symbols_list": [
-      "ORCL",
       "CRWD",
       "PANW",
-      "BLK",
-      "LLY",
-      "PG",
       "MCD",
-      "LOW",
-      "TD",
-      "BNS",
-      "ENB"
+      "LOW"
     ],
     "warnings": [
       "Complete coverage below 95%: 32.0%."
@@ -93,7 +86,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -129,7 +122,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -165,7 +158,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -201,7 +194,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -236,7 +229,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -250,9 +243,9 @@
       "technical_snapshot_available": false,
       "fundamental_snapshot_available": true,
       "investor_score_available": true,
-      "data_status": "INSUFFICIENT_DATA",
-      "data_quality_label": "Insufficient Data",
-      "data_completeness_percent": 87.5,
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0,
       "provider_used": "YAHOO",
       "providers_available": [
         "YAHOO"
@@ -260,20 +253,19 @@
       "available_fields": [
         "pe_ratio",
         "roe",
+        "dividend_yield",
         "debt_to_equity",
         "free_cash_flow",
         "revenue",
         "total_debt",
         "operating_margin"
       ],
-      "missing_fields": [
-        "dividend_yield"
-      ],
+      "missing_fields": [],
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
-      "dividend_yield_source": "UNKNOWN",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
-      "status": "INSUFFICIENT_DATA"
+      "dividend_yield_source": "YAHOO",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
+      "status": "PARTIAL"
     },
     {
       "symbol": "IBM",
@@ -307,7 +299,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -343,7 +335,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -378,7 +370,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -414,7 +406,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -450,7 +442,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -486,7 +478,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -522,7 +514,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -558,7 +550,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -594,7 +586,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -630,7 +622,7 @@
       "pe_ratio_source": "UNKNOWN",
       "roe_source": "YAHOO",
       "dividend_yield_source": "UNKNOWN",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "INSUFFICIENT_DATA"
     },
     {
@@ -666,7 +658,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "UNKNOWN",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "INSUFFICIENT_DATA"
     },
     {
@@ -702,7 +694,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -738,7 +730,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -774,7 +766,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -810,7 +802,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -846,7 +838,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -881,7 +873,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -917,7 +909,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -931,9 +923,9 @@
       "technical_snapshot_available": false,
       "fundamental_snapshot_available": true,
       "investor_score_available": true,
-      "data_status": "INSUFFICIENT_DATA",
-      "data_quality_label": "Insufficient Data",
-      "data_completeness_percent": 87.5,
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0,
       "provider_used": "YAHOO",
       "providers_available": [
         "YAHOO"
@@ -941,20 +933,19 @@
       "available_fields": [
         "pe_ratio",
         "roe",
+        "dividend_yield",
         "debt_to_equity",
         "free_cash_flow",
         "revenue",
         "total_debt",
         "operating_margin"
       ],
-      "missing_fields": [
-        "dividend_yield"
-      ],
+      "missing_fields": [],
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
-      "dividend_yield_source": "UNKNOWN",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
-      "status": "INSUFFICIENT_DATA"
+      "dividend_yield_source": "YAHOO",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
+      "status": "PARTIAL"
     },
     {
       "symbol": "LLY",
@@ -967,9 +958,9 @@
       "technical_snapshot_available": false,
       "fundamental_snapshot_available": true,
       "investor_score_available": true,
-      "data_status": "INSUFFICIENT_DATA",
-      "data_quality_label": "Insufficient Data",
-      "data_completeness_percent": 87.5,
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0,
       "provider_used": "YAHOO",
       "providers_available": [
         "YAHOO"
@@ -977,20 +968,19 @@
       "available_fields": [
         "pe_ratio",
         "roe",
+        "dividend_yield",
         "debt_to_equity",
         "free_cash_flow",
         "revenue",
         "total_debt",
         "operating_margin"
       ],
-      "missing_fields": [
-        "dividend_yield"
-      ],
+      "missing_fields": [],
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
-      "dividend_yield_source": "UNKNOWN",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
-      "status": "INSUFFICIENT_DATA"
+      "dividend_yield_source": "YAHOO",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
+      "status": "PARTIAL"
     },
     {
       "symbol": "JNJ",
@@ -1025,7 +1015,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -1060,7 +1050,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1096,7 +1086,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1132,7 +1122,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -1168,7 +1158,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1204,7 +1194,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1240,7 +1230,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1254,9 +1244,9 @@
       "technical_snapshot_available": false,
       "fundamental_snapshot_available": true,
       "investor_score_available": true,
-      "data_status": "INSUFFICIENT_DATA",
-      "data_quality_label": "Insufficient Data",
-      "data_completeness_percent": 87.5,
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0,
       "provider_used": "YAHOO",
       "providers_available": [
         "YAHOO"
@@ -1264,20 +1254,19 @@
       "available_fields": [
         "pe_ratio",
         "roe",
+        "dividend_yield",
         "debt_to_equity",
         "free_cash_flow",
         "revenue",
         "total_debt",
         "operating_margin"
       ],
-      "missing_fields": [
-        "dividend_yield"
-      ],
+      "missing_fields": [],
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
-      "dividend_yield_source": "UNKNOWN",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
-      "status": "INSUFFICIENT_DATA"
+      "dividend_yield_source": "YAHOO",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
+      "status": "PARTIAL"
     },
     {
       "symbol": "COST",
@@ -1312,7 +1301,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1348,7 +1337,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -1364,13 +1353,14 @@
       "investor_score_available": true,
       "data_status": "INSUFFICIENT_DATA",
       "data_quality_label": "Insufficient Data",
-      "data_completeness_percent": 62.5,
+      "data_completeness_percent": 75.0,
       "provider_used": "YAHOO",
       "providers_available": [
         "YAHOO"
       ],
       "available_fields": [
         "pe_ratio",
+        "dividend_yield",
         "free_cash_flow",
         "revenue",
         "total_debt",
@@ -1378,13 +1368,12 @@
       ],
       "missing_fields": [
         "roe",
-        "dividend_yield",
         "debt_to_equity"
       ],
       "pe_ratio_source": "YAHOO",
       "roe_source": "UNKNOWN",
-      "dividend_yield_source": "UNKNOWN",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "dividend_yield_source": "YAHOO",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "INSUFFICIENT_DATA"
     },
     {
@@ -1419,7 +1408,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1455,7 +1444,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "UNKNOWN",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "INSUFFICIENT_DATA"
     },
     {
@@ -1491,7 +1480,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -1527,7 +1516,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "COMPLETE"
     },
     {
@@ -1562,7 +1551,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1597,7 +1586,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1633,7 +1622,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1668,7 +1657,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1704,7 +1693,7 @@
       "pe_ratio_source": "FMP",
       "roe_source": "FMP",
       "dividend_yield_source": "FMP",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1740,7 +1729,7 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
       "dividend_yield_source": "YAHOO",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
       "status": "PARTIAL"
     },
     {
@@ -1754,9 +1743,9 @@
       "technical_snapshot_available": false,
       "fundamental_snapshot_available": true,
       "investor_score_available": true,
-      "data_status": "INSUFFICIENT_DATA",
-      "data_quality_label": "Insufficient Data",
-      "data_completeness_percent": 62.5,
+      "data_status": "PARTIAL",
+      "data_quality_label": "Partial",
+      "data_completeness_percent": 75.0,
       "provider_used": "YAHOO",
       "providers_available": [
         "YAHOO"
@@ -1764,20 +1753,20 @@
       "available_fields": [
         "pe_ratio",
         "roe",
+        "dividend_yield",
         "revenue",
         "total_debt",
         "operating_margin"
       ],
       "missing_fields": [
-        "dividend_yield",
         "debt_to_equity",
         "free_cash_flow"
       ],
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
-      "dividend_yield_source": "UNKNOWN",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
-      "status": "INSUFFICIENT_DATA"
+      "dividend_yield_source": "YAHOO",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
+      "status": "PARTIAL"
     },
     {
       "symbol": "BNS",
@@ -1790,9 +1779,9 @@
       "technical_snapshot_available": false,
       "fundamental_snapshot_available": true,
       "investor_score_available": true,
-      "data_status": "INSUFFICIENT_DATA",
-      "data_quality_label": "Insufficient Data",
-      "data_completeness_percent": 62.5,
+      "data_status": "PARTIAL",
+      "data_quality_label": "Partial",
+      "data_completeness_percent": 75.0,
       "provider_used": "YAHOO",
       "providers_available": [
         "YAHOO"
@@ -1800,20 +1789,20 @@
       "available_fields": [
         "pe_ratio",
         "roe",
+        "dividend_yield",
         "revenue",
         "total_debt",
         "operating_margin"
       ],
       "missing_fields": [
-        "dividend_yield",
         "debt_to_equity",
         "free_cash_flow"
       ],
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
-      "dividend_yield_source": "UNKNOWN",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
-      "status": "INSUFFICIENT_DATA"
+      "dividend_yield_source": "YAHOO",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
+      "status": "PARTIAL"
     },
     {
       "symbol": "ENB",
@@ -1826,9 +1815,9 @@
       "technical_snapshot_available": false,
       "fundamental_snapshot_available": true,
       "investor_score_available": true,
-      "data_status": "INSUFFICIENT_DATA",
-      "data_quality_label": "Insufficient Data",
-      "data_completeness_percent": 87.5,
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0,
       "provider_used": "YAHOO",
       "providers_available": [
         "YAHOO"
@@ -1836,20 +1825,19 @@
       "available_fields": [
         "pe_ratio",
         "roe",
+        "dividend_yield",
         "debt_to_equity",
         "free_cash_flow",
         "revenue",
         "total_debt",
         "operating_margin"
       ],
-      "missing_fields": [
-        "dividend_yield"
-      ],
+      "missing_fields": [],
       "pe_ratio_source": "YAHOO",
       "roe_source": "YAHOO",
-      "dividend_yield_source": "UNKNOWN",
-      "last_update_timestamp": "2026-06-19T18:02:00.085234-04:00",
-      "status": "INSUFFICIENT_DATA"
+      "dividend_yield_source": "YAHOO",
+      "last_update_timestamp": "2026-06-20T18:02:28.568835-04:00",
+      "status": "PARTIAL"
     }
   ]
 }

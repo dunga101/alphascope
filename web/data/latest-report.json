@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-19 18:02 EDT",
-  "generated_at_iso": "2026-06-19T18:02:00.085234-04:00",
+  "generated_at": "2026-06-20 18:02 EDT",
+  "generated_at_iso": "2026-06-20T18:02:28.568835-04:00",
   "generation_status": "success",
   "regime": "MIXED",
-  "confidence": 52,
-  "summary": "The market is exhibiting strong risk-on sentiment, driven by technology sector strength and broad index gains. However, underlying breadth is mixed, with some sectors showing weakness. While major tech names are performing well, attention should be paid to potential overheating in certain areas and the fundamental quality of companies showing technical weakness. Event risk remains low due to distant earnings dates.",
+  "confidence": 54,
+  "summary": "The market is exhibiting strong risk-on sentiment, driven by broad participation and positive momentum, particularly in technology. However, some individual names are showing signs of technical weakness despite positive macro trends. Investors should monitor for potential shifts in leadership and be aware of any emerging event risks, though current earnings event risk appears low.",
   "bullish": [
     "AMD",
     "NVDA"
@@ -13,7 +13,8 @@
     "MSFT",
     "AMZN",
     "META",
-    "TSLA"
+    "TSLA",
+    "SHOP.TO"
   ],
   "ticker": [
     {
@@ -198,6 +199,19 @@
     },
     {
       "rank": 2,
+      "symbol": "PG",
+      "company": "The Procter & Gamble Company",
+      "sector": "Consumer Defensive",
+      "current_price": 150.485,
+      "dividend_yield": 0.028300000000000002,
+      "buy_score": 76.65,
+      "recommendation": "Buy",
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0
+    },
+    {
+      "rank": 3,
       "symbol": "META",
       "company": "Meta Platforms, Inc.",
       "sector": "Communication Services",
@@ -210,7 +224,7 @@
       "data_completeness_percent": 100.0
     },
     {
-      "rank": 3,
+      "rank": 4,
       "symbol": "MSFT",
       "company": "Microsoft Corporation",
       "sector": "Technology",
@@ -223,7 +237,7 @@
       "data_completeness_percent": 100.0
     },
     {
-      "rank": 4,
+      "rank": 5,
       "symbol": "BAC",
       "company": "Bank of America Corporation",
       "sector": "Financial Services",
@@ -234,26 +248,13 @@
       "data_status": "COMPLETE",
       "data_quality_label": "Complete",
       "data_completeness_percent": 100.0
-    },
-    {
-      "rank": 5,
-      "symbol": "LMT",
-      "company": "Lockheed Martin Corporation",
-      "sector": "Industrials",
-      "current_price": 510.95,
-      "dividend_yield": 0.02671494,
-      "buy_score": 75.6,
-      "recommendation": "Buy",
-      "data_status": "COMPLETE",
-      "data_quality_label": "Complete",
-      "data_completeness_percent": 100.0
     }
   ],
   "data_quality": {
     "total_symbols": 50,
     "complete_symbols": 16,
-    "partial_symbols": 23,
-    "insufficient_data_symbols": 11,
+    "partial_symbols": 30,
+    "insufficient_data_symbols": 4,
     "missing_symbols": 0,
     "coverage_percentage": 32.0,
     "quotes_available": 27,
@@ -282,25 +283,18 @@
         "missing": 2
       },
       "dividend_yield": {
-        "available": 40,
+        "available": 48,
         "fmp": 27,
-        "yahoo": 13,
+        "yahoo": 21,
         "unknown": 0,
-        "missing": 10
+        "missing": 2
       }
     },
     "missing_symbols_list": [
-      "ORCL",
       "CRWD",
       "PANW",
-      "BLK",
-      "LLY",
-      "PG",
       "MCD",
-      "LOW",
-      "TD",
-      "BNS",
-      "ENB"
+      "LOW"
     ],
     "warnings": [
       "Complete coverage below 95%: 32.0%."
