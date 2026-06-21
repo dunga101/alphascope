@@ -1,20 +1,19 @@
 {
-  "generated_at": "2026-06-20 18:02 EDT",
-  "generated_at_iso": "2026-06-20T18:02:28.568835-04:00",
+  "generated_at": "2026-06-21 18:02 EDT",
+  "generated_at_iso": "2026-06-21T18:02:05.094401-04:00",
   "generation_status": "success",
-  "regime": "MIXED",
-  "confidence": 54,
-  "summary": "The market is exhibiting strong risk-on sentiment, driven by broad participation and positive momentum, particularly in technology. However, some individual names are showing signs of technical weakness despite positive macro trends. Investors should monitor for potential shifts in leadership and be aware of any emerging event risks, though current earnings event risk appears low.",
+  "regime": "RISK_ON",
+  "confidence": 74,
+  "summary": "The market is exhibiting strong risk-on sentiment, driven by broad participation and positive momentum in growth sectors like technology. However, some individual names show signs of technical weakness despite positive macro trends. Investors should monitor for potential shifts in leadership and be aware of the concentration risk within leading technology stocks. Near-term outlook remains positive, but medium-term caution is warranted due to potential overextension.",
   "bullish": [
     "AMD",
     "NVDA"
   ],
   "bearish": [
     "MSFT",
+    "SHOP.TO",
     "AMZN",
-    "META",
-    "TSLA",
-    "SHOP.TO"
+    "META"
   ],
   "ticker": [
     {
