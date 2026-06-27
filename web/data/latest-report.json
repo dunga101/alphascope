@@ -1,164 +1,164 @@
 {
-  "generated_at": "2026-06-24 18:03 EDT",
-  "generated_at_iso": "2026-06-24T18:03:08.093125-04:00",
+  "generated_at": "2026-06-27 18:01 EDT",
+  "generated_at_iso": "2026-06-27T18:01:44.377976-04:00",
   "generation_status": "success",
-  "regime": "RISK_OFF",
-  "confidence": 55,
-  "summary": "The market is exhibiting mixed signals, with some defensive sectors showing strength while growth areas face headwinds. Treasury yields are declining, and volatility is subdued, suggesting a cautious risk environment. Key technology stocks are showing technical weakness, warranting close observation. Fundamentals remain robust for many large-cap companies, but the current technical landscape suggests a period of consolidation or potential further downside before a clear upward trend re-establishes.",
+  "regime": "RISK_ON",
+  "confidence": 46,
+  "summary": "The market exhibits mixed signals, with some defensive sectors showing strength while growth areas face technical headwinds. Volatility remains subdued, but broad participation is inconsistent. Near-term outlook is cautious due to technical weakness in key indices and individual names. Focus on quality and resilience is advised.",
   "bullish": [
-    "AMD",
-    "V",
+    "AAPL",
+    "MSFT",
+    "AMZN",
     "JNJ",
-    "KO",
-    "GE"
+    "KO"
   ],
   "bearish": [
-    "MSFT",
     "NVDA",
-    "META",
     "GOOGL",
-    "AMZN"
+    "TSLA",
+    "META",
+    "MSFT"
   ],
   "ticker": [
     {
       "symbol": "SPY",
-      "price": "$733.24",
-      "change": "-0.05%"
+      "price": "$728.99",
+      "change": "-0.72%"
     },
     {
       "symbol": "AAPL",
-      "price": "$293.08",
-      "change": "-0.41%"
+      "price": "$283.78",
+      "change": "+3.14%"
     },
     {
       "symbol": "MSFT",
-      "price": "$365.46",
-      "change": "-2.27%"
+      "price": "$372.97",
+      "change": "+5.71%"
     },
     {
       "symbol": "NVDA",
-      "price": "$199",
-      "change": "-0.52%"
+      "price": "$192.53",
+      "change": "-1.64%"
     },
     {
       "symbol": "AMD",
-      "price": "$519.74",
-      "change": "-0.02%"
+      "price": "$521.58",
+      "change": "-2.06%"
     },
     {
       "symbol": "CSCO",
-      "price": "$119.73",
-      "change": "-1.17%"
+      "price": "$113.77",
+      "change": "-4.37%"
     },
     {
       "symbol": "META",
-      "price": "$557.67",
-      "change": "-0.81%"
+      "price": "$550.25",
+      "change": "+1.36%"
     },
     {
       "symbol": "AMZN",
-      "price": "$234.27",
-      "change": "+0.07%"
+      "price": "$232.69",
+      "change": "+2.50%"
     },
     {
       "symbol": "GOOGL",
-      "price": "$345.29",
-      "change": "-0.24%"
+      "price": "$337.39",
+      "change": "-1.84%"
     },
     {
       "symbol": "TSLA",
-      "price": "$375.53",
-      "change": "-1.59%"
+      "price": "$379.71",
+      "change": "+1.22%"
     },
     {
       "symbol": "NFLX",
-      "price": "$71.84",
-      "change": "-1.35%"
+      "price": "$73.81",
+      "change": "+4.10%"
     },
     {
       "symbol": "PLTR",
-      "price": "$113.5",
-      "change": "-2.74%"
+      "price": "$112.93",
+      "change": "+5.28%"
     },
     {
       "symbol": "JPM",
-      "price": "$333.45",
-      "change": "-0.21%"
+      "price": "$329.05",
+      "change": "-1.81%"
     },
     {
       "symbol": "BAC",
-      "price": "$57.73",
-      "change": "-0.31%"
+      "price": "$57.88",
+      "change": "-0.53%"
     },
     {
       "symbol": "GS",
-      "price": "$1076.91",
-      "change": "-1.60%"
+      "price": "$1019.61",
+      "change": "-4.27%"
     },
     {
       "symbol": "V",
-      "price": "$332.23",
-      "change": "+1.14%"
+      "price": "$336.23",
+      "change": "+1.73%"
     },
     {
       "symbol": "JNJ",
-      "price": "$241",
-      "change": "+0.81%"
+      "price": "$254.66",
+      "change": "+3.99%"
     },
     {
       "symbol": "ABBV",
-      "price": "$234.89",
-      "change": "+0.06%"
+      "price": "$251.52",
+      "change": "+3.45%"
     },
     {
       "symbol": "UNH",
-      "price": "$405.8",
-      "change": "-0.84%"
+      "price": "$427.89",
+      "change": "+2.97%"
     },
     {
       "symbol": "PFE",
-      "price": "$24.05",
-      "change": "-2.71%"
+      "price": "$24.285",
+      "change": "+2.60%"
     },
     {
       "symbol": "KO",
-      "price": "$80.6",
-      "change": "+0.36%"
+      "price": "$82.63",
+      "change": "+2.75%"
     },
     {
       "symbol": "PEP",
-      "price": "$142.27",
-      "change": "+0.15%"
+      "price": "$141.39",
+      "change": "+1.34%"
     },
     {
       "symbol": "COST",
-      "price": "$961.09",
-      "change": "+0.36%"
+      "price": "$952.54",
+      "change": "+1.09%"
     },
     {
       "symbol": "WMT",
-      "price": "$119",
-      "change": "-0.35%"
+      "price": "$115.69",
+      "change": "-0.08%"
     },
     {
       "symbol": "XOM",
-      "price": "$136.92",
-      "change": "-2.01%"
+      "price": "$136.54",
+      "change": "-0.73%"
     },
     {
       "symbol": "CVX",
-      "price": "$171.565",
-      "change": "-2.51%"
+      "price": "$171.06",
+      "change": "-0.69%"
     },
     {
       "symbol": "LMT",
-      "price": "$491.64",
-      "change": "-2.39%"
+      "price": "$507.4",
+      "change": "+0.47%"
     },
     {
       "symbol": "GE",
-      "price": "$365.88",
-      "change": "+2.64%"
+      "price": "$369",
+      "change": "-0.64%"
     }
   ],
   "macro": {
@@ -173,28 +173,28 @@
     "unemployment_rate": 4.3,
     "unemployment_date": "2026-05-01",
     "unemployment_trend": "STABLE",
-    "treasury_10y": 4.5,
-    "treasury_10y_date": "2026-06-23",
-    "treasury_2y": 4.16,
-    "treasury_2y_date": "2026-06-23",
-    "yield_curve_spread": 0.34,
+    "treasury_10y": 4.4,
+    "treasury_10y_date": "2026-06-25",
+    "treasury_2y": 4.09,
+    "treasury_2y_date": "2026-06-25",
+    "yield_curve_spread": 0.31,
     "yield_curve_state": "NORMAL",
     "interest_rate_trend": "STABLE",
     "inflation_trend": "REACCELERATING",
     "macro_regime": "MIXED",
     "macro_risk_score": 65,
     "errors": {},
-    "summary": "Macro regime is MIXED. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.34%."
+    "summary": "Macro regime is MIXED. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.31%."
   },
   "top_opportunities": [
     {
       "rank": 1,
-      "symbol": "KO",
-      "company": "The Coca-Cola Company",
+      "symbol": "PEP",
+      "company": "PepsiCo, Inc.",
       "sector": "Consumer Defensive",
-      "current_price": 80.6,
-      "dividend_yield": 0.02580645,
-      "buy_score": 76.65,
+      "current_price": 141.39,
+      "dividend_yield": 0.04064998,
+      "buy_score": 77.1,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
       "data_quality_label": "Complete",
@@ -206,7 +206,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 150.86,
-      "dividend_yield": 0.0282,
+      "dividend_yield": 0.0287,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -218,8 +218,8 @@
       "symbol": "META",
       "company": "Meta Platforms, Inc.",
       "sector": "Communication Services",
-      "current_price": 557.67,
-      "dividend_yield": 0.00376567,
+      "current_price": 550.25,
+      "dividend_yield": 0.00381645,
       "buy_score": 76.5,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -231,8 +231,8 @@
       "symbol": "MSFT",
       "company": "Microsoft Corporation",
       "sector": "Technology",
-      "current_price": 365.46,
-      "dividend_yield": 0.00974115,
+      "current_price": 372.97,
+      "dividend_yield": 0.009545,
       "buy_score": 76.5,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -244,8 +244,8 @@
       "symbol": "BAC",
       "company": "Bank of America Corporation",
       "sector": "Financial Services",
-      "current_price": 57.73,
-      "dividend_yield": 0.01940066,
+      "current_price": 57.88,
+      "dividend_yield": 0.01935038,
       "buy_score": 76.05,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
