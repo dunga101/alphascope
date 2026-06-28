@@ -1,16 +1,14 @@
 {
-  "generated_at": "2026-06-27 18:01 EDT",
-  "generated_at_iso": "2026-06-27T18:01:44.377976-04:00",
+  "generated_at": "2026-06-28 18:01 EDT",
+  "generated_at_iso": "2026-06-28T18:01:56.192699-04:00",
   "generation_status": "success",
   "regime": "RISK_ON",
   "confidence": 46,
-  "summary": "The market exhibits mixed signals, with some defensive sectors showing strength while growth areas face technical headwinds. Volatility remains subdued, but broad participation is inconsistent. Near-term outlook is cautious due to technical weakness in key indices and individual names. Focus on quality and resilience is advised.",
+  "summary": "The market is exhibiting mixed signals, with some sectors showing resilience while broader indices face downward pressure. Volatility is moderate, and treasury yields are declining, suggesting a cautious risk environment. Key technology stocks are showing technical weakness, while healthcare and consumer staples offer relative stability. Event risk from earnings is low in the immediate term. Investors should maintain a defensive posture and monitor for potential shifts in market leadership.",
   "bullish": [
-    "AAPL",
-    "MSFT",
-    "AMZN",
-    "JNJ",
-    "KO"
+    "AMD",
+    "LLY",
+    "JNJ"
   ],
   "bearish": [
     "NVDA",
@@ -206,7 +204,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 150.86,
-      "dividend_yield": 0.0287,
+      "dividend_yield": 0.0286,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -265,8 +263,8 @@
     "scores_available": 50,
     "provider_coverage": {
       "FMP": 27,
-      "YAHOO": 50,
-      "COMBINED": 27,
+      "YAHOO": 49,
+      "COMBINED": 26,
       "combined_symbols": 50,
       "total_symbols": 50
     },
