@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-07-02 18:02 EDT",
-  "generated_at_iso": "2026-07-02T18:02:47.010629-04:00",
+  "generated_at": "2026-07-03 18:01 EDT",
+  "generated_at_iso": "2026-07-03T18:01:58.979829-04:00",
   "generation_status": "success",
-  "regime": "RISK_ON",
-  "confidence": 47,
-  "summary": "The market exhibits a mixed sentiment, with strength in some sectors like financials and healthcare, while technology faces headwinds. Volatility is subdued, and treasury yields are rising. Concentration risk remains a concern in mega-cap tech. Near-term outlook is cautious due to mixed signals and upcoming event risks, while the medium term is uncertain.",
+  "regime": "RISK_OFF",
+  "confidence": 42,
+  "summary": "The market exhibits a mixed sentiment with conflicting signals across indices and sectors. While the Dow Jones shows strength, the Nasdaq is weaker, and volatility is subdued. Defensive sectors like Consumer Staples and Utilities are showing relative strength, suggesting a cautious undertone. Technology stocks, particularly semiconductors, are experiencing technical weakness despite strong underlying fundamentals for some. Event risk is low in the near term, but attention should be paid to upcoming earnings. Overall, a neutral to slightly risk-off environment prevails, warranting a conservative approach.",
   "bullish": [
-    "SHOP.TO",
     "SPY",
+    "SHOP.TO",
     "AMD"
   ],
   "bearish": [
+    "NVDA",
     "MSFT",
     "GOOGL",
     "AMZN",
-    "TSLA",
-    "NVDA"
+    "TSLA"
   ],
   "ticker": [
     {
