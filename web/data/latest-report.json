@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-07-03 18:01 EDT",
-  "generated_at_iso": "2026-07-03T18:01:58.979829-04:00",
+  "generated_at": "2026-07-04 18:02 EDT",
+  "generated_at_iso": "2026-07-04T18:02:19.523145-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 42,
-  "summary": "The market exhibits a mixed sentiment with conflicting signals across indices and sectors. While the Dow Jones shows strength, the Nasdaq is weaker, and volatility is subdued. Defensive sectors like Consumer Staples and Utilities are showing relative strength, suggesting a cautious undertone. Technology stocks, particularly semiconductors, are experiencing technical weakness despite strong underlying fundamentals for some. Event risk is low in the near term, but attention should be paid to upcoming earnings. Overall, a neutral to slightly risk-off environment prevails, warranting a conservative approach.",
+  "confidence": 51,
+  "summary": "The market exhibits mixed signals, with some indices showing strength while others lag. Volatility is subdued, and gold prices are rising, suggesting a cautious undertone. Technology stocks are facing headwinds, while defensive sectors like healthcare and consumer staples show resilience. Event risk is low for most major companies in the near term, but attention should be paid to upcoming earnings. Overall, a neutral stance with a focus on quality and defensive positioning is warranted.",
   "bullish": [
     "SPY",
     "SHOP.TO",
     "AMD"
   ],
   "bearish": [
-    "NVDA",
     "MSFT",
     "GOOGL",
     "AMZN",
-    "TSLA"
+    "TSLA",
+    "NVDA"
   ],
   "ticker": [
     {
@@ -204,7 +204,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 147.445,
-      "dividend_yield": 0.028900000000000002,
+      "dividend_yield": 0.0281,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -254,8 +254,8 @@
   "data_quality": {
     "total_symbols": 50,
     "complete_symbols": 16,
-    "partial_symbols": 28,
-    "insufficient_data_symbols": 6,
+    "partial_symbols": 30,
+    "insufficient_data_symbols": 4,
     "missing_symbols": 0,
     "coverage_percentage": 32.0,
     "quotes_available": 27,
@@ -284,20 +284,18 @@
         "missing": 2
       },
       "dividend_yield": {
-        "available": 46,
+        "available": 48,
         "fmp": 27,
-        "yahoo": 19,
+        "yahoo": 21,
         "unknown": 0,
-        "missing": 4
+        "missing": 2
       }
     },
     "missing_symbols_list": [
       "CRWD",
       "PANW",
-      "MA",
       "MCD",
-      "LOW",
-      "CAT"
+      "LOW"
     ],
     "warnings": [
       "Complete coverage below 95%: 32.0%."
