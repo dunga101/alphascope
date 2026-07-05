@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-04 18:02 EDT",
-  "generated_at_iso": "2026-07-04T18:02:19.523145-04:00",
+  "generated_at": "2026-07-05 18:01 EDT",
+  "generated_at_iso": "2026-07-05T18:01:52.055024-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
   "confidence": 51,
-  "summary": "The market exhibits mixed signals, with some indices showing strength while others lag. Volatility is subdued, and gold prices are rising, suggesting a cautious undertone. Technology stocks are facing headwinds, while defensive sectors like healthcare and consumer staples show resilience. Event risk is low for most major companies in the near term, but attention should be paid to upcoming earnings. Overall, a neutral stance with a focus on quality and defensive positioning is warranted.",
+  "summary": "The market shows mixed signals with some strength in industrials and defensive sectors, but technology is under pressure. Volatility is subdued, and yields are stable. Event risk is low for most major companies in the near term, with the exception of PepsiCo. Overall, a cautious approach is warranted due to the lack of broad-based strength and some concerning technicals in key growth areas.",
   "bullish": [
     "SPY",
     "SHOP.TO",
