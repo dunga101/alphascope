@@ -1,164 +1,162 @@
 {
-  "generated_at": "2026-07-09 18:02 EDT",
-  "generated_at_iso": "2026-07-09T18:02:01.521314-04:00",
+  "generated_at": "2026-07-10 18:02 EDT",
+  "generated_at_iso": "2026-07-10T18:02:10.035400-04:00",
   "generation_status": "success",
-  "regime": "MIXED",
-  "confidence": 50,
-  "summary": "The market is exhibiting a risk-on sentiment, driven by broad index gains and declining volatility. However, participation quality is mixed, with technology leading but some cyclical and defensive sectors showing weakness. Event risk is elevated for a few names with near-term earnings. Investors should monitor for potential shifts in sentiment and focus on quality amidst the current rally.",
+  "regime": "RISK_OFF",
+  "confidence": 44,
+  "summary": "The market is exhibiting mixed signals, with broad indices showing modest gains but underlying breadth and momentum suggesting caution. Technology and energy sectors are showing relative strength, while healthcare and consumer staples are lagging. Several large-cap technology names are technically extended, warranting close observation for potential pullbacks. Near-term event risk is elevated due to upcoming earnings, particularly for companies like NFLX, JPM, and BAC.",
   "bullish": [
-    "AAPL",
-    "MSFT",
-    "GOOGL",
-    "AMZN",
-    "LLY"
+    "SPY",
+    "AMD",
+    "NVDA",
+    "META"
   ],
   "bearish": [
-    "NVDA",
     "MSFT",
-    "GOOGL",
     "AMZN",
-    "TSLA"
+    "TSLA",
+    "GOOGL"
   ],
   "ticker": [
     {
       "symbol": "SPY",
-      "price": "$751.71",
-      "change": "+0.85%"
+      "price": "$754.95",
+      "change": "+0.43%"
     },
     {
       "symbol": "AAPL",
-      "price": "$316.22",
-      "change": "+0.90%"
+      "price": "$315.32",
+      "change": "-0.28%"
     },
     {
       "symbol": "MSFT",
-      "price": "$384.36",
-      "change": "+0.27%"
-    },
-    {
-      "symbol": "NVDA",
-      "price": "$202.78",
-      "change": "-0.66%"
-    },
-    {
-      "symbol": "AMD",
-      "price": "$546.72",
-      "change": "+5.67%"
-    },
-    {
-      "symbol": "CSCO",
-      "price": "$118.31",
-      "change": "+3.94%"
-    },
-    {
-      "symbol": "META",
-      "price": "$631.48",
-      "change": "+4.70%"
-    },
-    {
-      "symbol": "AMZN",
-      "price": "$247.04",
-      "change": "+1.40%"
-    },
-    {
-      "symbol": "GOOGL",
-      "price": "$358.89",
-      "change": "-0.84%"
-    },
-    {
-      "symbol": "TSLA",
-      "price": "$406.55",
-      "change": "+3.17%"
-    },
-    {
-      "symbol": "NFLX",
-      "price": "$75.47",
-      "change": "-0.16%"
-    },
-    {
-      "symbol": "PLTR",
-      "price": "$129.04",
-      "change": "-2.41%"
-    },
-    {
-      "symbol": "JPM",
-      "price": "$335.47",
-      "change": "+1.47%"
-    },
-    {
-      "symbol": "BAC",
-      "price": "$59.25",
-      "change": "+1.63%"
-    },
-    {
-      "symbol": "GS",
-      "price": "$1055.97",
-      "change": "+2.56%"
-    },
-    {
-      "symbol": "V",
-      "price": "$348.2",
+      "price": "$385.1",
       "change": "+0.19%"
     },
     {
+      "symbol": "NVDA",
+      "price": "$210.96",
+      "change": "+4.03%"
+    },
+    {
+      "symbol": "AMD",
+      "price": "$557.89",
+      "change": "+2.04%"
+    },
+    {
+      "symbol": "CSCO",
+      "price": "$121.31",
+      "change": "+2.54%"
+    },
+    {
+      "symbol": "META",
+      "price": "$669.21",
+      "change": "+5.97%"
+    },
+    {
+      "symbol": "AMZN",
+      "price": "$245.34",
+      "change": "-0.69%"
+    },
+    {
+      "symbol": "GOOGL",
+      "price": "$357.18",
+      "change": "-0.48%"
+    },
+    {
+      "symbol": "TSLA",
+      "price": "$407.76",
+      "change": "+0.30%"
+    },
+    {
+      "symbol": "NFLX",
+      "price": "$73.37",
+      "change": "-2.78%"
+    },
+    {
+      "symbol": "PLTR",
+      "price": "$126.79",
+      "change": "-1.74%"
+    },
+    {
+      "symbol": "JPM",
+      "price": "$336.47",
+      "change": "+0.30%"
+    },
+    {
+      "symbol": "BAC",
+      "price": "$59.67",
+      "change": "+0.71%"
+    },
+    {
+      "symbol": "GS",
+      "price": "$1055.18",
+      "change": "-0.07%"
+    },
+    {
+      "symbol": "V",
+      "price": "$348.97",
+      "change": "+0.22%"
+    },
+    {
       "symbol": "JNJ",
-      "price": "$259.1",
-      "change": "-1.63%"
+      "price": "$256.98",
+      "change": "-0.82%"
     },
     {
       "symbol": "ABBV",
-      "price": "$249.91",
-      "change": "-1.12%"
+      "price": "$248.08",
+      "change": "-0.73%"
     },
     {
       "symbol": "UNH",
-      "price": "$431.68",
-      "change": "+1.43%"
+      "price": "$424.62",
+      "change": "-1.64%"
     },
     {
       "symbol": "PFE",
-      "price": "$24.25",
-      "change": "+0.83%"
+      "price": "$24.17",
+      "change": "-0.33%"
     },
     {
       "symbol": "KO",
-      "price": "$82.63",
-      "change": "-0.92%"
+      "price": "$83.49",
+      "change": "+1.04%"
     },
     {
       "symbol": "PEP",
-      "price": "$137.86",
-      "change": "-3.26%"
+      "price": "$137.38",
+      "change": "-0.35%"
     },
     {
       "symbol": "COST",
-      "price": "$912.97",
-      "change": "-4.21%"
+      "price": "$916.25",
+      "change": "+0.36%"
     },
     {
       "symbol": "WMT",
-      "price": "$112.21",
-      "change": "-0.79%"
+      "price": "$113.9",
+      "change": "+1.51%"
     },
     {
       "symbol": "XOM",
-      "price": "$137.37",
-      "change": "-2.66%"
+      "price": "$138.825",
+      "change": "+0.99%"
     },
     {
       "symbol": "CVX",
-      "price": "$174.05",
-      "change": "-1.09%"
+      "price": "$176.4",
+      "change": "+1.35%"
     },
     {
       "symbol": "LMT",
-      "price": "$518.26",
-      "change": "-1.84%"
+      "price": "$523.22",
+      "change": "+0.96%"
     },
     {
       "symbol": "GE",
-      "price": "$359.04",
-      "change": "+0.85%"
+      "price": "$359.27",
+      "change": "+0.06%"
     }
   ],
   "macro": {
@@ -173,18 +171,18 @@
     "unemployment_rate": 4.2,
     "unemployment_date": "2026-06-01",
     "unemployment_trend": "STABLE",
-    "treasury_10y": 4.56,
-    "treasury_10y_date": "2026-07-08",
-    "treasury_2y": 4.21,
-    "treasury_2y_date": "2026-07-08",
-    "yield_curve_spread": 0.35,
+    "treasury_10y": 4.54,
+    "treasury_10y_date": "2026-07-09",
+    "treasury_2y": 4.16,
+    "treasury_2y_date": "2026-07-09",
+    "yield_curve_spread": 0.38,
     "yield_curve_state": "NORMAL",
     "interest_rate_trend": "STABLE",
     "inflation_trend": "REACCELERATING",
     "macro_regime": "MIXED",
     "macro_risk_score": 65,
     "errors": {},
-    "summary": "Macro regime is MIXED. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.35%."
+    "summary": "Macro regime is MIXED. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.38%."
   },
   "top_opportunities": [
     {
@@ -192,8 +190,8 @@
       "symbol": "PEP",
       "company": "PepsiCo, Inc.",
       "sector": "Consumer Defensive",
-      "current_price": 137.86,
-      "dividend_yield": 0.0403305,
+      "current_price": 137.38,
+      "dividend_yield": 0.04183651,
       "buy_score": 77.1,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -206,7 +204,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 148.4,
-      "dividend_yield": 0.0279,
+      "dividend_yield": 0.028999999999999998,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -218,8 +216,8 @@
       "symbol": "META",
       "company": "Meta Platforms, Inc.",
       "sector": "Communication Services",
-      "current_price": 631.48,
-      "dividend_yield": 0.00348189,
+      "current_price": 669.21,
+      "dividend_yield": 0.00313803,
       "buy_score": 76.5,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -231,8 +229,8 @@
       "symbol": "MSFT",
       "company": "Microsoft Corporation",
       "sector": "Technology",
-      "current_price": 384.36,
-      "dividend_yield": 0.0092868,
+      "current_price": 385.1,
+      "dividend_yield": 0.00924435,
       "buy_score": 76.5,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -244,8 +242,8 @@
       "symbol": "BAC",
       "company": "Bank of America Corporation",
       "sector": "Financial Services",
-      "current_price": 59.25,
-      "dividend_yield": 0.01921098,
+      "current_price": 59.67,
+      "dividend_yield": 0.0187699,
       "buy_score": 76.05,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
