@@ -1,15 +1,16 @@
 {
-  "generated_at": "2026-07-10 18:02 EDT",
-  "generated_at_iso": "2026-07-10T18:02:10.035400-04:00",
+  "generated_at": "2026-07-11 18:02 EDT",
+  "generated_at_iso": "2026-07-11T18:02:39.668932-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
   "confidence": 44,
-  "summary": "The market is exhibiting mixed signals, with broad indices showing modest gains but underlying breadth and momentum suggesting caution. Technology and energy sectors are showing relative strength, while healthcare and consumer staples are lagging. Several large-cap technology names are technically extended, warranting close observation for potential pullbacks. Near-term event risk is elevated due to upcoming earnings, particularly for companies like NFLX, JPM, and BAC.",
+  "summary": "The market is exhibiting mixed signals, with broad indices showing modest gains but underlying breadth and momentum suggesting caution. Technology and communication services sectors are showing strength, while healthcare is lagging. Several large-cap tech names are technically strong but face potential event risk from upcoming earnings. Overall, a neutral stance with a focus on quality and risk management is advised.",
   "bullish": [
-    "SPY",
-    "AMD",
+    "META",
     "NVDA",
-    "META"
+    "AMD",
+    "MSFT",
+    "AMZN"
   ],
   "bearish": [
     "MSFT",
@@ -200,19 +201,6 @@
     },
     {
       "rank": 2,
-      "symbol": "PG",
-      "company": "The Procter & Gamble Company",
-      "sector": "Consumer Defensive",
-      "current_price": 148.4,
-      "dividend_yield": 0.028999999999999998,
-      "buy_score": 76.65,
-      "recommendation": "Buy",
-      "data_status": "COMPLETE",
-      "data_quality_label": "Complete",
-      "data_completeness_percent": 100.0
-    },
-    {
-      "rank": 3,
       "symbol": "META",
       "company": "Meta Platforms, Inc.",
       "sector": "Communication Services",
@@ -225,7 +213,7 @@
       "data_completeness_percent": 100.0
     },
     {
-      "rank": 4,
+      "rank": 3,
       "symbol": "MSFT",
       "company": "Microsoft Corporation",
       "sector": "Technology",
@@ -238,7 +226,7 @@
       "data_completeness_percent": 100.0
     },
     {
-      "rank": 5,
+      "rank": 4,
       "symbol": "BAC",
       "company": "Bank of America Corporation",
       "sector": "Financial Services",
@@ -249,55 +237,70 @@
       "data_status": "COMPLETE",
       "data_quality_label": "Complete",
       "data_completeness_percent": 100.0
+    },
+    {
+      "rank": 5,
+      "symbol": "XOM",
+      "company": "Exxon Mobil Corporation",
+      "sector": "Energy",
+      "current_price": 138.825,
+      "dividend_yield": 0.02938952,
+      "buy_score": 74.4,
+      "recommendation": "Buy",
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0
     }
   ],
   "data_quality": {
     "total_symbols": 50,
     "complete_symbols": 16,
-    "partial_symbols": 30,
-    "insufficient_data_symbols": 4,
+    "partial_symbols": 29,
+    "insufficient_data_symbols": 5,
     "missing_symbols": 0,
     "coverage_percentage": 32.0,
     "quotes_available": 27,
-    "fundamentals_available": 50,
+    "fundamentals_available": 49,
     "scores_available": 50,
     "provider_coverage": {
       "FMP": 27,
-      "YAHOO": 50,
+      "YAHOO": 49,
       "COMBINED": 27,
-      "combined_symbols": 50,
+      "combined_symbols": 49,
       "total_symbols": 50
     },
     "metric_coverage": {
       "pe_ratio": {
-        "available": 49,
+        "available": 48,
         "fmp": 27,
-        "yahoo": 22,
+        "yahoo": 21,
         "unknown": 0,
-        "missing": 1
+        "missing": 2
       },
       "roe": {
-        "available": 48,
+        "available": 47,
         "fmp": 27,
-        "yahoo": 21,
+        "yahoo": 20,
         "unknown": 0,
-        "missing": 2
+        "missing": 3
       },
       "dividend_yield": {
-        "available": 48,
+        "available": 47,
         "fmp": 27,
-        "yahoo": 21,
+        "yahoo": 20,
         "unknown": 0,
-        "missing": 2
+        "missing": 3
       }
     },
     "missing_symbols_list": [
       "CRWD",
       "PANW",
+      "PG",
       "MCD",
       "LOW"
     ],
     "warnings": [
+      "Fundamentals coverage below symbol count: 49/50.",
       "Complete coverage below 95%: 32.0%."
     ]
   }
