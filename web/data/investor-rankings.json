@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-11 18:02 EDT",
-  "generated_at_iso": "2026-07-11T18:02:39.668932-04:00",
+  "generated_at": "2026-07-12 18:02 EDT",
+  "generated_at_iso": "2026-07-12T18:02:27.399447-04:00",
   "generation_status": "success",
   "count": 50,
   "rankings": [
@@ -61,6 +61,60 @@
     },
     {
       "rank": 2,
+      "symbol": "PG",
+      "company": "The Procter & Gamble Company",
+      "current_price": 148.4,
+      "buy_score": 76.65,
+      "recommendation": "Buy",
+      "dividend_yield": 0.028999999999999998,
+      "pe_ratio": 21.497074,
+      "roe": 0.3111,
+      "sector": "Consumer Defensive",
+      "technical_score": 50.0,
+      "valuation_score": 75.0,
+      "financial_quality_score": 98.0,
+      "dividend_score": 90.0,
+      "price_position_score": 50.0,
+      "debt_to_equity": 0.6765,
+      "free_cash_flow": 12733750272,
+      "rsi": null,
+      "sma20": null,
+      "sma50": null,
+      "sma200": null,
+      "distance_from_52w_low": null,
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0,
+      "provider_used": "YAHOO",
+      "providers_available": [
+        "YAHOO"
+      ],
+      "pe_ratio_source": "YAHOO",
+      "roe_source": "YAHOO",
+      "dividend_yield_source": "YAHOO",
+      "debt_to_equity_source": "YAHOO",
+      "free_cash_flow_source": "YAHOO",
+      "missing_fundamental_fields": [],
+      "strengths": [
+        "Buy recommendation based on composite investor score.",
+        "Financial quality score is above the preferred threshold.",
+        "Valuation score is supportive relative to the ranked universe.",
+        "Dividend yield is present for income-oriented investors."
+      ],
+      "risks": [],
+      "missing_data": [
+        "RSI is unavailable."
+      ],
+      "score_breakdown": {
+        "valuation": 75.0,
+        "dividend": 90.0,
+        "financial_quality": 98.0,
+        "price_position": 50.0,
+        "technical": 50.0
+      }
+    },
+    {
+      "rank": 3,
       "symbol": "META",
       "company": "Meta Platforms, Inc.",
       "current_price": 669.21,
@@ -114,7 +168,7 @@
       }
     },
     {
-      "rank": 3,
+      "rank": 4,
       "symbol": "MSFT",
       "company": "Microsoft Corporation",
       "current_price": 385.1,
@@ -168,7 +222,7 @@
       }
     },
     {
-      "rank": 4,
+      "rank": 5,
       "symbol": "BAC",
       "company": "Bank of America Corporation",
       "current_price": 59.67,
@@ -221,7 +275,7 @@
       }
     },
     {
-      "rank": 5,
+      "rank": 6,
       "symbol": "XOM",
       "company": "Exxon Mobil Corporation",
       "current_price": 138.825,
@@ -275,7 +329,7 @@
       }
     },
     {
-      "rank": 6,
+      "rank": 7,
       "symbol": "NFLX",
       "company": "Netflix, Inc.",
       "current_price": 73.37,
@@ -329,10 +383,10 @@
       }
     },
     {
-      "rank": 7,
+      "rank": 8,
       "symbol": "CRM",
       "company": "Salesforce, Inc.",
-      "current_price": 166.11,
+      "current_price": 163.32,
       "buy_score": 71.55,
       "recommendation": "Buy",
       "dividend_yield": 0.0108,
@@ -383,7 +437,7 @@
       }
     },
     {
-      "rank": 8,
+      "rank": 9,
       "symbol": "PFE",
       "company": "Pfizer Inc.",
       "current_price": 24.17,
@@ -438,7 +492,7 @@
       }
     },
     {
-      "rank": 9,
+      "rank": 10,
       "symbol": "KO",
       "company": "The Coca-Cola Company",
       "current_price": 83.49,
@@ -492,7 +546,7 @@
       }
     },
     {
-      "rank": 10,
+      "rank": 11,
       "symbol": "MRK",
       "company": "Merck & Co., Inc.",
       "current_price": 125.99,
@@ -545,7 +599,7 @@
       }
     },
     {
-      "rank": 11,
+      "rank": 12,
       "symbol": "JNJ",
       "company": "Johnson & Johnson",
       "current_price": 256.98,
@@ -598,7 +652,7 @@
       }
     },
     {
-      "rank": 12,
+      "rank": 13,
       "symbol": "V",
       "company": "Visa Inc.",
       "current_price": 348.97,
@@ -652,7 +706,7 @@
       }
     },
     {
-      "rank": 13,
+      "rank": 14,
       "symbol": "CVX",
       "company": "Chevron Corporation",
       "current_price": 176.4,
@@ -705,7 +759,7 @@
       }
     },
     {
-      "rank": 14,
+      "rank": 15,
       "symbol": "LMT",
       "company": "Lockheed Martin Corporation",
       "current_price": 523.22,
@@ -759,7 +813,7 @@
       }
     },
     {
-      "rank": 15,
+      "rank": 16,
       "symbol": "COST",
       "company": "Costco Wholesale Corporation",
       "current_price": 916.25,
@@ -815,10 +869,10 @@
       }
     },
     {
-      "rank": 16,
+      "rank": 17,
       "symbol": "HD",
       "company": "The Home Depot, Inc.",
-      "current_price": 357.9,
+      "current_price": 343.3,
       "buy_score": 68.25,
       "recommendation": "Buy",
       "dividend_yield": 0.0271,
@@ -869,7 +923,7 @@
       }
     },
     {
-      "rank": 17,
+      "rank": 18,
       "symbol": "AMZN",
       "company": "Amazon.com, Inc.",
       "current_price": 245.34,
@@ -921,10 +975,10 @@
       }
     },
     {
-      "rank": 18,
+      "rank": 19,
       "symbol": "BLK",
       "company": "BlackRock, Inc.",
-      "current_price": 995.73,
+      "current_price": 1036.11,
       "buy_score": 66.9,
       "recommendation": "Buy",
       "dividend_yield": 0.0225,
@@ -974,7 +1028,7 @@
       }
     },
     {
-      "rank": 19,
+      "rank": 20,
       "symbol": "JPM",
       "company": "JPMorgan Chase & Co.",
       "current_price": 336.47,
@@ -1026,7 +1080,7 @@
       }
     },
     {
-      "rank": 20,
+      "rank": 21,
       "symbol": "GOOGL",
       "company": "Alphabet Inc.",
       "current_price": 357.18,
@@ -1079,7 +1133,7 @@
       }
     },
     {
-      "rank": 21,
+      "rank": 22,
       "symbol": "NVDA",
       "company": "NVIDIA Corporation",
       "current_price": 210.96,
@@ -1133,7 +1187,7 @@
       }
     },
     {
-      "rank": 22,
+      "rank": 23,
       "symbol": "UNH",
       "company": "UnitedHealth Group Incorporated",
       "current_price": 424.62,
@@ -1186,7 +1240,7 @@
       }
     },
     {
-      "rank": 23,
+      "rank": 24,
       "symbol": "IBM",
       "company": "International Business Machines Corporation",
       "current_price": 302.05,
@@ -1239,7 +1293,7 @@
       }
     },
     {
-      "rank": 24,
+      "rank": 25,
       "symbol": "GE",
       "company": "GE Aerospace",
       "current_price": 359.27,
@@ -1294,10 +1348,10 @@
       }
     },
     {
-      "rank": 25,
+      "rank": 26,
       "symbol": "BNS",
       "company": "The Bank of Nova Scotia",
-      "current_price": 85.4,
+      "current_price": 87.59,
       "buy_score": 64.65,
       "recommendation": "Watch",
       "dividend_yield": 0.036699999999999997,
@@ -1351,10 +1405,10 @@
       }
     },
     {
-      "rank": 26,
+      "rank": 27,
       "symbol": "RY",
       "company": "Royal Bank of Canada",
-      "current_price": 204.79,
+      "current_price": 211.09,
       "buy_score": 64.65,
       "recommendation": "Watch",
       "dividend_yield": 0.0242,
@@ -1408,10 +1462,10 @@
       }
     },
     {
-      "rank": 27,
+      "rank": 28,
       "symbol": "TD",
       "company": "The Toronto-Dominion Bank",
-      "current_price": 119.3,
+      "current_price": 120.53,
       "buy_score": 64.65,
       "recommendation": "Watch",
       "dividend_yield": 0.0269,
@@ -1465,10 +1519,10 @@
       }
     },
     {
-      "rank": 28,
+      "rank": 29,
       "symbol": "AXP",
       "company": "American Express Company",
-      "current_price": 351.96,
+      "current_price": 350.58,
       "buy_score": 64.35,
       "recommendation": "Watch",
       "dividend_yield": 0.0108,
@@ -1520,7 +1574,7 @@
       }
     },
     {
-      "rank": 29,
+      "rank": 30,
       "symbol": "CSCO",
       "company": "Cisco Systems, Inc.",
       "current_price": 121.31,
@@ -1575,13 +1629,13 @@
       }
     },
     {
-      "rank": 30,
+      "rank": 31,
       "symbol": "LLY",
       "company": "Eli Lilly and Company",
       "current_price": 1215.83,
       "buy_score": 63.15,
       "recommendation": "Watch",
-      "dividend_yield": 0.005699999999999999,
+      "dividend_yield": 0.0058,
       "pe_ratio": 42.19311,
       "roe": 1.0746,
       "sector": "Healthcare",
@@ -1629,7 +1683,7 @@
       }
     },
     {
-      "rank": 31,
+      "rank": 32,
       "symbol": "MA",
       "company": "Mastercard Incorporated",
       "current_price": 519.86,
@@ -1681,10 +1735,10 @@
       }
     },
     {
-      "rank": 32,
+      "rank": 33,
       "symbol": "RTX",
       "company": "RTX Corporation",
-      "current_price": 199.25,
+      "current_price": 195.93,
       "buy_score": 61.05,
       "recommendation": "Watch",
       "dividend_yield": 0.0149,
@@ -1735,7 +1789,7 @@
       }
     },
     {
-      "rank": 33,
+      "rank": 34,
       "symbol": "WMT",
       "company": "Walmart Inc.",
       "current_price": 113.9,
@@ -1789,7 +1843,7 @@
       }
     },
     {
-      "rank": 34,
+      "rank": 35,
       "symbol": "AAPL",
       "company": "Apple Inc.",
       "current_price": 315.32,
@@ -1843,7 +1897,7 @@
       }
     },
     {
-      "rank": 35,
+      "rank": 36,
       "symbol": "PLTR",
       "company": "Palantir Technologies Inc.",
       "current_price": 126.79,
@@ -1897,10 +1951,10 @@
       }
     },
     {
-      "rank": 36,
+      "rank": 37,
       "symbol": "DE",
       "company": "Deere & Company",
-      "current_price": 621.27,
+      "current_price": 586.86,
       "buy_score": 59.4,
       "recommendation": "Watch",
       "dividend_yield": 0.011000000000000001,
@@ -1948,10 +2002,10 @@
       }
     },
     {
-      "rank": 37,
+      "rank": 38,
       "symbol": "MS",
       "company": "Morgan Stanley",
-      "current_price": 213.92,
+      "current_price": 222.28,
       "buy_score": 58.65,
       "recommendation": "Watch",
       "dividend_yield": 0.018000000000000002,
@@ -2003,10 +2057,10 @@
       }
     },
     {
-      "rank": 38,
+      "rank": 39,
       "symbol": "CAT",
       "company": "Caterpillar Inc.",
-      "current_price": 963.53,
+      "current_price": 952.41,
       "buy_score": 58.35,
       "recommendation": "Watch",
       "dividend_yield": 0.0068000000000000005,
@@ -2057,7 +2111,7 @@
       }
     },
     {
-      "rank": 39,
+      "rank": 40,
       "symbol": "AVGO",
       "company": "Broadcom Inc.",
       "current_price": 388.69,
@@ -2111,7 +2165,7 @@
       }
     },
     {
-      "rank": 40,
+      "rank": 41,
       "symbol": "ORCL",
       "company": "Oracle Corporation",
       "current_price": 140.565,
@@ -2163,7 +2217,7 @@
       }
     },
     {
-      "rank": 41,
+      "rank": 42,
       "symbol": "TSLA",
       "company": "Tesla, Inc.",
       "current_price": 407.76,
@@ -2216,10 +2270,10 @@
       }
     },
     {
-      "rank": 42,
+      "rank": 43,
       "symbol": "ENB",
       "company": "Enbridge Inc.",
-      "current_price": 54.08,
+      "current_price": 54.66,
       "buy_score": 52.5,
       "recommendation": "Watch",
       "dividend_yield": 0.051399999999999994,
@@ -2267,7 +2321,7 @@
       }
     },
     {
-      "rank": 43,
+      "rank": 44,
       "symbol": "GS",
       "company": "The Goldman Sachs Group, Inc.",
       "current_price": 1055.18,
@@ -2319,7 +2373,7 @@
       }
     },
     {
-      "rank": 44,
+      "rank": 45,
       "symbol": "ABBV",
       "company": "AbbVie Inc.",
       "current_price": 248.08,
@@ -2374,7 +2428,7 @@
       }
     },
     {
-      "rank": 45,
+      "rank": 46,
       "symbol": "AMD",
       "company": "Advanced Micro Devices, Inc.",
       "current_price": 557.89,
@@ -2428,10 +2482,10 @@
       }
     },
     {
-      "rank": 46,
+      "rank": 47,
       "symbol": "CRWD",
       "company": "CrowdStrike Holdings, Inc.",
-      "current_price": 193.98,
+      "current_price": 187.18,
       "buy_score": 0.0,
       "recommendation": "Insufficient Data",
       "dividend_yield": null,
@@ -2485,10 +2539,10 @@
       }
     },
     {
-      "rank": 47,
+      "rank": 48,
       "symbol": "LOW",
       "company": "Lowe's Companies, Inc.",
-      "current_price": 227.5,
+      "current_price": 211.63,
       "buy_score": 0.0,
       "recommendation": "Insufficient Data",
       "dividend_yield": 0.0236,
@@ -2544,10 +2598,10 @@
       }
     },
     {
-      "rank": 48,
+      "rank": 49,
       "symbol": "MCD",
       "company": "McDonald's Corporation",
-      "current_price": 280.63,
+      "current_price": 274.6,
       "buy_score": 0.0,
       "recommendation": "Insufficient Data",
       "dividend_yield": 0.0269,
@@ -2603,10 +2657,10 @@
       }
     },
     {
-      "rank": 49,
+      "rank": 50,
       "symbol": "PANW",
       "company": "Palo Alto Networks, Inc.",
-      "current_price": 348.06,
+      "current_price": 325.91,
       "buy_score": 0.0,
       "recommendation": "Insufficient Data",
       "dividend_yield": null,
@@ -2653,69 +2707,6 @@
         "valuation": 25.0,
         "dividend": 40.0,
         "financial_quality": 45.0,
-        "price_position": 50.0,
-        "technical": 50.0
-      }
-    },
-    {
-      "rank": 50,
-      "symbol": "PG",
-      "company": "The Procter & Gamble Company",
-      "current_price": 148.4,
-      "buy_score": 0.0,
-      "recommendation": "Insufficient Data",
-      "dividend_yield": null,
-      "pe_ratio": null,
-      "roe": 0.3111,
-      "sector": "Consumer Defensive",
-      "technical_score": 50.0,
-      "valuation_score": 45.0,
-      "financial_quality_score": 50.0,
-      "dividend_score": 40.0,
-      "price_position_score": 50.0,
-      "debt_to_equity": 0.6765,
-      "free_cash_flow": 12733750272,
-      "rsi": null,
-      "sma20": null,
-      "sma50": null,
-      "sma200": null,
-      "distance_from_52w_low": null,
-      "data_status": "INSUFFICIENT_DATA",
-      "data_quality_label": "Insufficient Data",
-      "data_completeness_percent": 100.0,
-      "provider_used": "YAHOO",
-      "providers_available": [
-        "YAHOO"
-      ],
-      "pe_ratio_source": "YAHOO",
-      "roe_source": "YAHOO",
-      "dividend_yield_source": "YAHOO",
-      "debt_to_equity_source": "YAHOO",
-      "free_cash_flow_source": "YAHOO",
-      "missing_fundamental_fields": [
-        "pe_ratio",
-        "roe",
-        "debt_to_equity",
-        "dividend_yield",
-        "free_cash_flow"
-      ],
-      "strengths": [],
-      "risks": [
-        "Valuation score is weak.",
-        "Dividend yield is unavailable."
-      ],
-      "missing_data": [
-        "Dividend yield is unavailable.",
-        "P/E ratio is unavailable.",
-        "RSI is unavailable.",
-        "ROE is unavailable.",
-        "Debt to equity is unavailable.",
-        "Free cash flow is unavailable."
-      ],
-      "score_breakdown": {
-        "valuation": 45.0,
-        "dividend": 40.0,
-        "financial_quality": 50.0,
         "price_position": 50.0,
         "technical": 50.0
       }
