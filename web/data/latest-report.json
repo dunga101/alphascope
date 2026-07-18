@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-07-17 18:02 EDT",
-  "generated_at_iso": "2026-07-17T18:02:01.054014-04:00",
+  "generated_at": "2026-07-18 18:02 EDT",
+  "generated_at_iso": "2026-07-18T18:02:09.724516-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
   "confidence": 61,
-  "summary": "Markets are exhibiting a risk-off sentiment, with major indices declining and volatility increasing. Defensive sectors are showing relative strength, while growth-oriented technology names are under pressure. Event risk is elevated for several large-cap technology and industrial companies with near-term earnings reports. Investors should maintain a cautious stance, focusing on quality and defensive positioning.",
+  "summary": "Markets are experiencing a risk-off sentiment, with broad indices declining and volatility increasing. Defensive sectors are showing relative strength, while growth-oriented technology names are under pressure. Event risk is elevated for a few select names with near-term earnings reports. Investors should prioritize capital preservation and monitor for signs of stabilization or a shift in market leadership.",
   "bullish": [
     "META"
   ],
   "bearish": [
-    "NVDA",
-    "MSFT",
-    "AMZN",
     "QQQ",
-    "GOOGL"
+    "GOOGL",
+    "TSLA",
+    "NVDA",
+    "MSFT"
   ],
   "ticker": [
     {
@@ -189,7 +189,7 @@
       "company": "PepsiCo, Inc.",
       "sector": "Consumer Defensive",
       "current_price": 137.12,
-      "dividend_yield": 0.0412214,
+      "dividend_yield": 0.04191584,
       "buy_score": 77.1,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -198,11 +198,11 @@
     },
     {
       "rank": 2,
-      "symbol": "PG",
-      "company": "The Procter & Gamble Company",
+      "symbol": "KO",
+      "company": "The Coca-Cola Company",
       "sector": "Consumer Defensive",
-      "current_price": 148.00999,
-      "dividend_yield": 0.0294,
+      "current_price": 81.56,
+      "dividend_yield": 0.0255027,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -211,12 +211,12 @@
     },
     {
       "rank": 3,
-      "symbol": "META",
-      "company": "Meta Platforms, Inc.",
-      "sector": "Communication Services",
-      "current_price": 646.01,
-      "dividend_yield": 0.00316008,
-      "buy_score": 76.5,
+      "symbol": "PG",
+      "company": "The Procter & Gamble Company",
+      "sector": "Consumer Defensive",
+      "current_price": 148.00999,
+      "dividend_yield": 0.028999999999999998,
+      "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
       "data_quality_label": "Complete",
@@ -224,11 +224,11 @@
     },
     {
       "rank": 4,
-      "symbol": "MSFT",
-      "company": "Microsoft Corporation",
-      "sector": "Technology",
-      "current_price": 393.82,
-      "dividend_yield": 0.00887559,
+      "symbol": "META",
+      "company": "Meta Platforms, Inc.",
+      "sector": "Communication Services",
+      "current_price": 646.01,
+      "dividend_yield": 0.00325072,
       "buy_score": 76.5,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -237,12 +237,12 @@
     },
     {
       "rank": 5,
-      "symbol": "LMT",
-      "company": "Lockheed Martin Corporation",
-      "sector": "Industrials",
-      "current_price": 508.77,
-      "dividend_yield": 0.02658124,
-      "buy_score": 75.6,
+      "symbol": "MSFT",
+      "company": "Microsoft Corporation",
+      "sector": "Technology",
+      "current_price": 393.82,
+      "dividend_yield": 0.00903966,
+      "buy_score": 76.5,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
       "data_quality_label": "Complete",
@@ -252,8 +252,8 @@
   "data_quality": {
     "total_symbols": 50,
     "complete_symbols": 16,
-    "partial_symbols": 30,
-    "insufficient_data_symbols": 4,
+    "partial_symbols": 28,
+    "insufficient_data_symbols": 6,
     "missing_symbols": 0,
     "coverage_percentage": 32.0,
     "quotes_available": 27,
@@ -275,11 +275,11 @@
         "missing": 1
       },
       "roe": {
-        "available": 48,
+        "available": 46,
         "fmp": 27,
-        "yahoo": 21,
+        "yahoo": 19,
         "unknown": 0,
-        "missing": 2
+        "missing": 4
       },
       "dividend_yield": {
         "available": 48,
@@ -292,6 +292,8 @@
     "missing_symbols_list": [
       "CRWD",
       "PANW",
+      "MS",
+      "BLK",
       "MCD",
       "LOW"
     ],
