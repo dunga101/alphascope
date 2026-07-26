@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-25 18:02 EDT",
-  "generated_at_iso": "2026-07-25T18:02:10.961556-04:00",
+  "generated_at": "2026-07-26 18:02 EDT",
+  "generated_at_iso": "2026-07-26T18:02:32.224468-04:00",
   "generation_status": "success",
   "count": 50,
   "rankings": [
@@ -1484,7 +1484,7 @@
       "financial_quality_score": 67.0,
       "dividend_score": 70.0,
       "price_position_score": 50.0,
-      "debt_to_equity": 1.7226,
+      "debt_to_equity": 1.7238,
       "free_cash_flow": null,
       "rsi": null,
       "sma20": null,

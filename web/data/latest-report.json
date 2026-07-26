@@ -1,14 +1,15 @@
 {
-  "generated_at": "2026-07-25 18:02 EDT",
-  "generated_at_iso": "2026-07-25T18:02:10.961556-04:00",
+  "generated_at": "2026-07-26 18:02 EDT",
+  "generated_at_iso": "2026-07-26T18:02:32.224468-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
   "confidence": 55,
-  "summary": "The market exhibits a mixed sentiment, with some indices showing gains while others decline. Volatility is subdued, and treasury yields are falling, suggesting a cautious risk environment. Technology sectors are underperforming, while financials and consumer staples show relative strength. Upcoming earnings for major tech companies like Apple and Meta present near-term event risk. Overall, the market lacks strong conviction, with a neutral to slightly cautious outlook.",
+  "summary": "Markets are exhibiting mixed signals, with some indices showing strength while others lag. Technology stocks are facing headwinds, and several large-cap tech names have upcoming earnings events that could increase volatility. Defensive sectors and some financial services are showing relative strength. Caution is advised due to the mixed technical picture and upcoming event risks.",
   "bullish": [
-    "AAPL",
-    "MSFT",
     "V",
+    "MA",
+    "JPM",
+    "BAC",
     "KO"
   ],
   "bearish": [
