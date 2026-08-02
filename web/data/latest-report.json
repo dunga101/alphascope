@@ -1,20 +1,21 @@
 {
-  "generated_at": "2026-08-01 18:02 EDT",
-  "generated_at_iso": "2026-08-01T18:02:23.748501-04:00",
+  "generated_at": "2026-08-02 18:02 EDT",
+  "generated_at_iso": "2026-08-02T18:02:34.728539-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 37,
-  "summary": "The market shows mixed signals with broad indices showing modest gains, but underlying breadth is uneven. Technology sectors are experiencing some weakness, while energy and industrials show strength. Significant event risk is present for AMD and PLTR due to upcoming earnings. Investors should monitor for potential shifts in market leadership and be aware of the concentration risk in mega-cap tech. Overall, a cautious approach is warranted given the current environment.",
+  "confidence": 46,
+  "summary": "The market shows mixed signals with broad indices up but sector rotation favoring cyclicals over defensives. Technology stocks are showing signs of overheating and technical weakness, while some energy and industrial names are showing strength. Event risk is elevated for a few names with imminent earnings reports. Overall, the environment suggests caution due to conflicting technical and fundamental signals and a lack of broad-based participation.",
   "bullish": [
+    "AMZN",
     "MSFT",
     "NVDA"
   ],
   "bearish": [
     "META",
     "AMD",
+    "QQQ",
     "NVDA",
-    "TSLA",
-    "QQQ"
+    "TSLA"
   ],
   "ticker": [
     {
