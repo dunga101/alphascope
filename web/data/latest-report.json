@@ -1,17 +1,22 @@
 {
-  "generated_at": "2026-08-07 18:02 EDT",
-  "generated_at_iso": "2026-08-07T18:02:34.071135-04:00",
+  "generated_at": "2026-08-08 18:02 EDT",
+  "generated_at_iso": "2026-08-08T18:02:19.300535-04:00",
   "generation_status": "success",
   "regime": "MIXED",
   "confidence": 40,
-  "summary": "The market exhibits a risk-on sentiment driven by technology sector strength and broad index gains, though confidence is moderate due to mixed breadth signals and some technical overextension. Key technology names show strong upward trends, but attention should be paid to potential pullbacks in names like SHOP.TO and MSFT. Event risk is low for most major companies, with CSCO being a near-term exception. Defensive sectors are not leading, and energy prices are volatile. Overall, a cautious optimism prevails, with a focus on quality and avoiding technically weak names.",
+  "summary": "The market shows a constructive bias with major indices trading higher and volatility subdued. Technology and Consumer Discretionary sectors are leading, while Energy and Financials lag. Event risk is low for most major companies, with CSCO being a near-term exception. While broad market strength is present, a closer look reveals some technical weakness in specific names like TSLA and AMD, warranting caution.",
   "bullish": [
-    "SHOP.TO",
-    "MSFT"
+    "NVDA",
+    "AVGO",
+    "CRM",
+    "CRWD",
+    "PANW"
   ],
   "bearish": [
+    "TSLA",
     "AMD",
-    "TSLA"
+    "GOOGL",
+    "META"
   ],
   "ticker": [
     {
@@ -160,29 +165,27 @@
     "status": "OK",
     "fed_funds_rate": null,
     "fed_funds_date": null,
-    "cpi_value": null,
-    "cpi_date": null,
-    "cpi_yoy": null,
-    "cpi_3m_annualized": null,
+    "cpi_value": 332.568,
+    "cpi_date": "2026-06-01",
+    "cpi_yoy": 3.73,
+    "cpi_3m_annualized": 2.78,
     "unemployment_rate": 4.1,
     "unemployment_date": "2026-07-01",
     "unemployment_trend": "STABLE",
     "treasury_10y": 4.69,
     "treasury_10y_date": "2026-08-06",
-    "treasury_2y": null,
-    "treasury_2y_date": null,
-    "yield_curve_spread": null,
-    "yield_curve_state": "UNKNOWN",
-    "interest_rate_trend": "UNKNOWN",
-    "inflation_trend": "UNKNOWN",
-    "macro_regime": "UNKNOWN",
-    "macro_risk_score": 35,
+    "treasury_2y": 4.25,
+    "treasury_2y_date": "2026-08-06",
+    "yield_curve_spread": 0.44,
+    "yield_curve_state": "NORMAL",
+    "interest_rate_trend": "STABLE",
+    "inflation_trend": "COOLING",
+    "macro_regime": "GOLDILOCKS",
+    "macro_risk_score": 20,
     "errors": {
-      "FEDFUNDS": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=REDACTED&file_type=json&sort_order=desc&limit=24",
-      "CPIAUCSL": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)",
-      "DGS2": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)"
+      "FEDFUNDS": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=REDACTED&file_type=json&sort_order=desc&limit=24"
     },
-    "summary": "Macro regime is UNKNOWN. Inflation trend is UNKNOWN, interest rate trend is UNKNOWN, and the yield curve is UNKNOWN with a 10Y-2Y spread of unavailable."
+    "summary": "Macro regime is GOLDILOCKS. Inflation trend is COOLING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.44%."
   },
   "top_opportunities": [
     {
@@ -191,7 +194,7 @@
       "company": "PepsiCo, Inc.",
       "sector": "Consumer Defensive",
       "current_price": 139.02,
-      "dividend_yield": 0.04151618,
+      "dividend_yield": 0.04134297,
       "buy_score": 77.1,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -200,12 +203,12 @@
     },
     {
       "rank": 2,
-      "symbol": "META",
-      "company": "Meta Platforms, Inc.",
-      "sector": "Communication Services",
-      "current_price": 592.1,
-      "dividend_yield": 0.00355993,
-      "buy_score": 76.5,
+      "symbol": "PG",
+      "company": "The Procter & Gamble Company",
+      "sector": "Consumer Defensive",
+      "current_price": 145.77,
+      "dividend_yield": 0.029900000000000003,
+      "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
       "data_quality_label": "Complete",
@@ -213,12 +216,12 @@
     },
     {
       "rank": 3,
-      "symbol": "XOM",
-      "company": "Exxon Mobil Corporation",
-      "sector": "Energy",
-      "current_price": 152.94,
-      "dividend_yield": 0.02635148,
-      "buy_score": 74.4,
+      "symbol": "META",
+      "company": "Meta Platforms, Inc.",
+      "sector": "Communication Services",
+      "current_price": 592.1,
+      "dividend_yield": 0.0035467,
+      "buy_score": 76.5,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
       "data_quality_label": "Complete",
@@ -226,12 +229,12 @@
     },
     {
       "rank": 4,
-      "symbol": "CVX",
-      "company": "Chevron Corporation",
+      "symbol": "XOM",
+      "company": "Exxon Mobil Corporation",
       "sector": "Energy",
-      "current_price": 186.565,
-      "dividend_yield": 0.03688341,
-      "buy_score": 74.25,
+      "current_price": 152.94,
+      "dividend_yield": 0.02667713,
+      "buy_score": 74.4,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
       "data_quality_label": "Complete",
@@ -239,12 +242,12 @@
     },
     {
       "rank": 5,
-      "symbol": "MSFT",
-      "company": "Microsoft Corporation",
-      "sector": "Technology",
-      "current_price": 499.99,
-      "dividend_yield": 0.00712199,
-      "buy_score": 72.75,
+      "symbol": "CVX",
+      "company": "Chevron Corporation",
+      "sector": "Energy",
+      "current_price": 186.565,
+      "dividend_yield": 0.03741323,
+      "buy_score": 74.25,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
       "data_quality_label": "Complete",
@@ -254,8 +257,8 @@
   "data_quality": {
     "total_symbols": 50,
     "complete_symbols": 16,
-    "partial_symbols": 21,
-    "insufficient_data_symbols": 13,
+    "partial_symbols": 29,
+    "insufficient_data_symbols": 5,
     "missing_symbols": 0,
     "coverage_percentage": 32.0,
     "quotes_available": 27,
@@ -277,34 +280,26 @@
         "missing": 1
       },
       "roe": {
-        "available": 44,
+        "available": 47,
         "fmp": 27,
-        "yahoo": 17,
+        "yahoo": 20,
         "unknown": 0,
-        "missing": 6
+        "missing": 3
       },
       "dividend_yield": {
-        "available": 40,
+        "available": 48,
         "fmp": 27,
-        "yahoo": 13,
+        "yahoo": 21,
         "unknown": 0,
-        "missing": 10
+        "missing": 2
       }
     },
     "missing_symbols_list": [
-      "ORCL",
       "CRWD",
       "PANW",
-      "MS",
-      "BLK",
-      "LLY",
       "MRK",
-      "PG",
       "MCD",
-      "LOW",
-      "TD",
-      "BNS",
-      "ENB"
+      "LOW"
     ],
     "warnings": [
       "Complete coverage below 95%: 32.0%."
