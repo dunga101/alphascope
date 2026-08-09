@@ -1,14 +1,13 @@
 {
-  "generated_at": "2026-08-08 18:02 EDT",
-  "generated_at_iso": "2026-08-08T18:02:19.300535-04:00",
+  "generated_at": "2026-08-09 18:02 EDT",
+  "generated_at_iso": "2026-08-09T18:02:24.432576-04:00",
   "generation_status": "success",
   "regime": "MIXED",
   "confidence": 40,
-  "summary": "The market shows a constructive bias with major indices trading higher and volatility subdued. Technology and Consumer Discretionary sectors are leading, while Energy and Financials lag. Event risk is low for most major companies, with CSCO being a near-term exception. While broad market strength is present, a closer look reveals some technical weakness in specific names like TSLA and AMD, warranting caution.",
+  "summary": "Markets show a risk-on sentiment with broad index gains, led by technology. However, underlying breadth is mixed, and some individual names exhibit signs of overheating or technical weakness. Event risk is low for most major companies, but CSCO has an imminent earnings report. Investors should remain cautious due to the mixed breadth and potential for individual stock volatility.",
   "bullish": [
     "NVDA",
     "AVGO",
-    "CRM",
     "CRWD",
     "PANW"
   ],
@@ -163,8 +162,8 @@
   "macro": {
     "source": "FRED",
     "status": "OK",
-    "fed_funds_rate": null,
-    "fed_funds_date": null,
+    "fed_funds_rate": 3.63,
+    "fed_funds_date": "2026-07-01",
     "cpi_value": 332.568,
     "cpi_date": "2026-06-01",
     "cpi_yoy": 3.73,
@@ -182,9 +181,7 @@
     "inflation_trend": "COOLING",
     "macro_regime": "GOLDILOCKS",
     "macro_risk_score": 20,
-    "errors": {
-      "FEDFUNDS": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=REDACTED&file_type=json&sort_order=desc&limit=24"
-    },
+    "errors": {},
     "summary": "Macro regime is GOLDILOCKS. Inflation trend is COOLING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.44%."
   },
   "top_opportunities": [
@@ -257,8 +254,8 @@
   "data_quality": {
     "total_symbols": 50,
     "complete_symbols": 16,
-    "partial_symbols": 29,
-    "insufficient_data_symbols": 5,
+    "partial_symbols": 30,
+    "insufficient_data_symbols": 4,
     "missing_symbols": 0,
     "coverage_percentage": 32.0,
     "quotes_available": 27,
@@ -280,11 +277,11 @@
         "missing": 1
       },
       "roe": {
-        "available": 47,
+        "available": 48,
         "fmp": 27,
-        "yahoo": 20,
+        "yahoo": 21,
         "unknown": 0,
-        "missing": 3
+        "missing": 2
       },
       "dividend_yield": {
         "available": 48,
@@ -297,7 +294,6 @@
     "missing_symbols_list": [
       "CRWD",
       "PANW",
-      "MRK",
       "MCD",
       "LOW"
     ],

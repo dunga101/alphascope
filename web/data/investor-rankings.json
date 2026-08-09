@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-08 18:02 EDT",
-  "generated_at_iso": "2026-08-08T18:02:19.300535-04:00",
+  "generated_at": "2026-08-09 18:02 EDT",
+  "generated_at_iso": "2026-08-09T18:02:24.432576-04:00",
   "generation_status": "success",
   "count": 50,
   "rankings": [
@@ -2009,6 +2009,60 @@
     },
     {
       "rank": 38,
+      "symbol": "MRK",
+      "company": "Merck & Co., Inc.",
+      "current_price": 128.57,
+      "buy_score": 56.65,
+      "recommendation": "Watch",
+      "dividend_yield": 0.0264,
+      "pe_ratio": 102.864,
+      "roe": 0.0696,
+      "sector": "Healthcare",
+      "technical_score": 50.0,
+      "valuation_score": 25.0,
+      "financial_quality_score": 73.0,
+      "dividend_score": 90.0,
+      "price_position_score": 50.0,
+      "debt_to_equity": 1.2841,
+      "free_cash_flow": 15171500032,
+      "rsi": null,
+      "sma20": null,
+      "sma50": null,
+      "sma200": null,
+      "distance_from_52w_low": null,
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0,
+      "provider_used": "YAHOO",
+      "providers_available": [
+        "YAHOO"
+      ],
+      "pe_ratio_source": "YAHOO",
+      "roe_source": "YAHOO",
+      "dividend_yield_source": "YAHOO",
+      "debt_to_equity_source": "YAHOO",
+      "free_cash_flow_source": "YAHOO",
+      "missing_fundamental_fields": [],
+      "strengths": [
+        "Financial quality score is above the preferred threshold.",
+        "Dividend yield is present for income-oriented investors."
+      ],
+      "risks": [
+        "Valuation score is weak."
+      ],
+      "missing_data": [
+        "RSI is unavailable."
+      ],
+      "score_breakdown": {
+        "valuation": 25.0,
+        "dividend": 90.0,
+        "financial_quality": 73.0,
+        "price_position": 50.0,
+        "technical": 50.0
+      }
+    },
+    {
+      "rank": 39,
       "symbol": "DE",
       "company": "Deere & Company",
       "current_price": 605.06,
@@ -2061,7 +2115,7 @@
       }
     },
     {
-      "rank": 39,
+      "rank": 40,
       "symbol": "PLTR",
       "company": "Palantir Technologies Inc.",
       "current_price": 172.01,
@@ -2115,7 +2169,7 @@
       }
     },
     {
-      "rank": 40,
+      "rank": 41,
       "symbol": "ABBV",
       "company": "AbbVie Inc.",
       "current_price": 246.04,
@@ -2169,7 +2223,7 @@
       }
     },
     {
-      "rank": 41,
+      "rank": 42,
       "symbol": "TSLA",
       "company": "Tesla, Inc.",
       "current_price": 328.58,
@@ -2222,7 +2276,7 @@
       }
     },
     {
-      "rank": 42,
+      "rank": 43,
       "symbol": "ENB",
       "company": "Enbridge Inc.",
       "current_price": 54.1,
@@ -2273,7 +2327,7 @@
       }
     },
     {
-      "rank": 43,
+      "rank": 44,
       "symbol": "ORCL",
       "company": "Oracle Corporation",
       "current_price": 146.94,
@@ -2324,7 +2378,7 @@
       }
     },
     {
-      "rank": 44,
+      "rank": 45,
       "symbol": "GS",
       "company": "The Goldman Sachs Group, Inc.",
       "current_price": 1039.61,
@@ -2376,7 +2430,7 @@
       }
     },
     {
-      "rank": 45,
+      "rank": 46,
       "symbol": "AMD",
       "company": "Advanced Micro Devices, Inc.",
       "current_price": 483.36,
@@ -2430,7 +2484,7 @@
       }
     },
     {
-      "rank": 46,
+      "rank": 47,
       "symbol": "CRWD",
       "company": "CrowdStrike Holdings, Inc.",
       "current_price": 202.54,
@@ -2487,7 +2541,7 @@
       }
     },
     {
-      "rank": 47,
+      "rank": 48,
       "symbol": "LOW",
       "company": "Lowe's Companies, Inc.",
       "current_price": 212.05,
@@ -2546,7 +2600,7 @@
       }
     },
     {
-      "rank": 48,
+      "rank": 49,
       "symbol": "MCD",
       "company": "McDonald's Corporation",
       "current_price": 265.23,
@@ -2558,72 +2612,11 @@
       "sector": "Consumer Cyclical",
       "technical_score": 50.0,
       "valuation_score": 75.0,
-      "financial_quality_score": 50.0,
+      "financial_quality_score": 65.0,
       "dividend_score": 90.0,
       "price_position_score": 50.0,
       "debt_to_equity": null,
-      "free_cash_flow": null,
-      "rsi": null,
-      "sma20": null,
-      "sma50": null,
-      "sma200": null,
-      "distance_from_52w_low": null,
-      "data_status": "INSUFFICIENT_DATA",
-      "data_quality_label": "Insufficient Data",
-      "data_completeness_percent": 62.5,
-      "provider_used": "YAHOO",
-      "providers_available": [
-        "YAHOO"
-      ],
-      "pe_ratio_source": "YAHOO",
-      "roe_source": "UNKNOWN",
-      "dividend_yield_source": "YAHOO",
-      "debt_to_equity_source": "UNKNOWN",
-      "free_cash_flow_source": "UNKNOWN",
-      "missing_fundamental_fields": [
-        "roe",
-        "debt_to_equity",
-        "free_cash_flow"
-      ],
-      "strengths": [
-        "Valuation score is supportive relative to the ranked universe.",
-        "Dividend yield is present for income-oriented investors."
-      ],
-      "risks": [
-        "ROE is unavailable in the latest fundamentals snapshot."
-      ],
-      "missing_data": [
-        "ROE is unavailable.",
-        "RSI is unavailable.",
-        "Debt to equity is unavailable.",
-        "Free cash flow is unavailable."
-      ],
-      "score_breakdown": {
-        "valuation": 75.0,
-        "dividend": 90.0,
-        "financial_quality": 50.0,
-        "price_position": 50.0,
-        "technical": 50.0
-      }
-    },
-    {
-      "rank": 49,
-      "symbol": "MRK",
-      "company": "Merck & Co., Inc.",
-      "current_price": 128.57,
-      "buy_score": 0.0,
-      "recommendation": "Insufficient Data",
-      "dividend_yield": 0.0264,
-      "pe_ratio": 102.864,
-      "roe": null,
-      "sector": "Healthcare",
-      "technical_score": 50.0,
-      "valuation_score": 25.0,
-      "financial_quality_score": 58.0,
-      "dividend_score": 90.0,
-      "price_position_score": 50.0,
-      "debt_to_equity": 1.0694,
-      "free_cash_flow": null,
+      "free_cash_flow": 6262374912,
       "rsi": null,
       "sma20": null,
       "sma50": null,
@@ -2639,28 +2632,28 @@
       "pe_ratio_source": "YAHOO",
       "roe_source": "UNKNOWN",
       "dividend_yield_source": "YAHOO",
-      "debt_to_equity_source": "YAHOO",
-      "free_cash_flow_source": "UNKNOWN",
+      "debt_to_equity_source": "UNKNOWN",
+      "free_cash_flow_source": "YAHOO",
       "missing_fundamental_fields": [
         "roe",
-        "free_cash_flow"
+        "debt_to_equity"
       ],
       "strengths": [
+        "Valuation score is supportive relative to the ranked universe.",
         "Dividend yield is present for income-oriented investors."
       ],
       "risks": [
-        "Valuation score is weak.",
         "ROE is unavailable in the latest fundamentals snapshot."
       ],
       "missing_data": [
         "ROE is unavailable.",
         "RSI is unavailable.",
-        "Free cash flow is unavailable."
+        "Debt to equity is unavailable."
       ],
       "score_breakdown": {
-        "valuation": 25.0,
+        "valuation": 75.0,
         "dividend": 90.0,
-        "financial_quality": 58.0,
+        "financial_quality": 65.0,
         "price_position": 50.0,
         "technical": 50.0
       }
