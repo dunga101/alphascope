@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-15 18:02 EDT",
-  "generated_at_iso": "2026-08-15T18:02:18.274912-04:00",
+  "generated_at": "2026-08-16 18:01 EDT",
+  "generated_at_iso": "2026-08-16T18:01:51.277312-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 46,
-  "summary": "The market is exhibiting mixed signals, with broad indices showing slight declines while some sectors like energy and industrials show strength. Volatility remains subdued. Technology stocks are showing signs of overheating in some cases, while others are experiencing technical weakness. Event risk is low for most major companies in the near term, but a few are approaching significant earnings dates. Overall, a cautious, selective approach is warranted given the lack of clear directional conviction.",
+  "confidence": 32,
+  "summary": "The market exhibits a mixed and uncertain regime, with broad indices showing slight declines and volatility remaining subdued. While some sectors like energy and industrials show strength, technology and financials are weaker. Event risk is low for most major companies, but a few are approaching near-term catalysts. Fundamentals for many large-cap tech names remain strong, but some are showing signs of technical overextension. Caution is advised due to the lack of clear directional conviction.",
   "bullish": [
     "SPY",
     "NVDA",
@@ -13,10 +13,7 @@
   ],
   "bearish": [
     "GOOGL",
-    "META",
-    "TSLA",
-    "AMD",
-    "QQQ"
+    "META"
   ],
   "ticker": [
     {
