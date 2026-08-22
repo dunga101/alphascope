@@ -1,20 +1,19 @@
 {
-  "generated_at": "2026-08-21 18:02 EDT",
-  "generated_at_iso": "2026-08-21T18:02:30.058271-04:00",
+  "generated_at": "2026-08-22 18:01 EDT",
+  "generated_at_iso": "2026-08-22T18:01:42.188956-04:00",
   "generation_status": "success",
   "regime": "MIXED",
   "confidence": 39,
-  "summary": "Markets are showing a risk-on sentiment with broad index gains and declining volatility. However, confidence is moderate due to mixed sector performance and some technical divergences. Near-term focus remains on key earnings events, particularly for NVDA and CRM, which carry medium event risk. Investors should monitor the resilience of leading sectors while being mindful of potential pullbacks in technically extended names.",
+  "summary": "Markets showed broad gains with technology and financials leading, while utilities lagged. Volatility eased, and yields rose slightly. Near-term event risk is elevated for a few tech names due to upcoming earnings. Overall, the market exhibits a mixed risk-on sentiment with moderate conviction, but caution is warranted due to potential concentration in leading tech names and a lack of broad participation.",
   "bullish": [
-    "MSFT",
-    "SPY",
     "NVDA",
-    "SHOP.TO"
+    "CRM",
+    "CRWD"
   ],
   "bearish": [
-    "AMD",
+    "META",
     "GOOGL",
-    "META"
+    "AMD"
   ],
   "ticker": [
     {
@@ -170,21 +169,18 @@
     "unemployment_rate": 4.1,
     "unemployment_date": "2026-07-01",
     "unemployment_trend": "STABLE",
-    "treasury_10y": null,
-    "treasury_10y_date": null,
-    "treasury_2y": null,
-    "treasury_2y_date": null,
-    "yield_curve_spread": null,
-    "yield_curve_state": "UNKNOWN",
+    "treasury_10y": 4.69,
+    "treasury_10y_date": "2026-08-20",
+    "treasury_2y": 4.19,
+    "treasury_2y_date": "2026-08-20",
+    "yield_curve_spread": 0.5,
+    "yield_curve_state": "NORMAL",
     "interest_rate_trend": "STABLE",
     "inflation_trend": "COOLING",
-    "macro_regime": "UNKNOWN",
-    "macro_risk_score": 35,
-    "errors": {
-      "DGS10": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)",
-      "DGS2": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)"
-    },
-    "summary": "Macro regime is UNKNOWN. Inflation trend is COOLING, interest rate trend is STABLE, and the yield curve is UNKNOWN with a 10Y-2Y spread of unavailable."
+    "macro_regime": "GOLDILOCKS",
+    "macro_risk_score": 20,
+    "errors": {},
+    "summary": "Macro regime is GOLDILOCKS. Inflation trend is COOLING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.50%."
   },
   "top_opportunities": [
     {

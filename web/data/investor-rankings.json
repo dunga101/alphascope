@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-21 18:02 EDT",
-  "generated_at_iso": "2026-08-21T18:02:30.058271-04:00",
+  "generated_at": "2026-08-22 18:01 EDT",
+  "generated_at_iso": "2026-08-22T18:01:42.188956-04:00",
   "generation_status": "success",
   "count": 50,
   "rankings": [
@@ -1263,7 +1263,7 @@
       "sma20": null,
       "sma50": null,
       "sma200": null,
-      "distance_from_52w_low": 30.78,
+      "distance_from_52w_low": 30.69,
       "data_status": "COMPLETE",
       "data_quality_label": "Complete",
       "data_completeness_percent": 100.0,
