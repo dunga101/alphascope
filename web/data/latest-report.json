@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-08-22 18:01 EDT",
-  "generated_at_iso": "2026-08-22T18:01:42.188956-04:00",
+  "generated_at": "2026-08-23 18:02 EDT",
+  "generated_at_iso": "2026-08-23T18:02:19.563499-04:00",
   "generation_status": "success",
   "regime": "MIXED",
   "confidence": 39,
-  "summary": "Markets showed broad gains with technology and financials leading, while utilities lagged. Volatility eased, and yields rose slightly. Near-term event risk is elevated for a few tech names due to upcoming earnings. Overall, the market exhibits a mixed risk-on sentiment with moderate conviction, but caution is warranted due to potential concentration in leading tech names and a lack of broad participation.",
+  "summary": "The market shows a constructive bias with broad index gains and declining volatility. However, underlying breadth is weak, with limited participation and a notable lack of conviction in many sectors. Event risk is elevated for a few key technology names in the very short term. Investors should remain cautious due to the mixed signals between price action and underlying participation.",
   "bullish": [
-    "NVDA",
-    "CRM",
-    "CRWD"
+    "MSFT",
+    "SPY",
+    "NVDA"
   ],
   "bearish": [
-    "META",
+    "AMD",
     "GOOGL",
-    "AMD"
+    "META"
   ],
   "ticker": [
     {
@@ -201,8 +201,8 @@
       "symbol": "PG",
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
-      "current_price": 144.55,
-      "dividend_yield": 0.0305,
+      "current_price": 144.68,
+      "dividend_yield": 0.0301,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
