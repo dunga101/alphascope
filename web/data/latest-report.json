@@ -1,19 +1,21 @@
 {
-  "generated_at": "2026-08-28 18:02 EDT",
-  "generated_at_iso": "2026-08-28T18:02:25.345500-04:00",
+  "generated_at": "2026-08-29 18:01 EDT",
+  "generated_at_iso": "2026-08-29T18:01:36.124071-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 41,
-  "summary": "The market is exhibiting a risk-off sentiment, with broad indices showing slight declines and volatility remaining subdued. Technology sectors are under pressure, while consumer discretionary and financials show some strength. Event risk is low for most major companies, but a few are nearing earnings reports. Technical indicators suggest a mixed picture, with some names showing strength but overall participation is weak. Fundamentals for many large-cap tech companies remain robust, but caution is advised due to the prevailing risk-off environment.",
+  "confidence": 38,
+  "summary": "Markets are exhibiting a risk-off sentiment with broad index weakness and declining participation. Technology sectors are showing signs of overheating and weakness, while consumer discretionary and defensive sectors are showing relative strength. Event risk is low for most major companies, but near-term earnings for AVGO and PANW warrant attention. Overall, a cautious stance is advised due to deteriorating breadth and technical signals.",
   "bullish": [
     "SPY",
-    "MSFT"
+    "MSFT",
+    "SHOP.TO"
   ],
   "bearish": [
     "GOOGL",
     "META",
     "TSLA",
-    "AMD"
+    "AMD",
+    "NVDA"
   ],
   "ticker": [
     {
