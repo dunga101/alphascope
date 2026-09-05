@@ -1,28 +1,25 @@
 {
-  "generated_at": "2026-09-04 18:02 EDT",
-  "generated_at_iso": "2026-09-04T18:02:24.347959-04:00",
+  "generated_at": "2026-09-05 18:01 EDT",
+  "generated_at_iso": "2026-09-05T18:01:38.767443-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 36,
-  "summary": "The market is exhibiting mixed signals, with some technology sectors showing strength while broader indices and other sectors are weaker. Volatility is slightly elevated, and treasury yields are rising. Event risk is low for most major companies, with the exception of Oracle and Palo Alto Networks. Investors should maintain a cautious stance, focusing on quality and resilience.",
+  "confidence": 47,
+  "summary": "The market exhibits mixed signals, with technology sectors showing some strength while broader indices and other sectors are down. Volatility is slightly elevated. Event risk is low for most major companies, with Oracle being a near-term exception. Technicals show strength in some large-cap tech names, but participation is inconsistent. Fundamentals for top tech companies remain robust, but caution is warranted due to mixed breadth and elevated VIX.",
   "bullish": [
     "NVDA",
-    "QQQ",
-    "SPY",
     "MSFT"
   ],
   "bearish": [
     "GOOGL",
-    "TSLA",
-    "AMZN",
-    "AMD",
-    "META"
+    "NFLX",
+    "PLTR",
+    "AMD"
   ],
   "ticker": [
     {
       "symbol": "SPY",
-      "price": "$770.24",
-      "change": "-0.38%"
+      "price": "$770.19",
+      "change": "-0.39%"
     },
     {
       "symbol": "AAPL",
