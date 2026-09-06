@@ -1,19 +1,22 @@
 {
-  "generated_at": "2026-09-05 18:01 EDT",
-  "generated_at_iso": "2026-09-05T18:01:38.767443-04:00",
+  "generated_at": "2026-09-06 18:02 EDT",
+  "generated_at_iso": "2026-09-06T18:02:09.496695-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 47,
-  "summary": "The market exhibits mixed signals, with technology sectors showing some strength while broader indices and other sectors are down. Volatility is slightly elevated. Event risk is low for most major companies, with Oracle being a near-term exception. Technicals show strength in some large-cap tech names, but participation is inconsistent. Fundamentals for top tech companies remain robust, but caution is warranted due to mixed breadth and elevated VIX.",
+  "confidence": 36,
+  "summary": "The market is exhibiting mixed signals, with some technology leaders showing strength while broader indices and other sectors are down. Volatility is increasing slightly, and treasury yields are rising. Event risk is low for most major companies, but Oracle has an upcoming earnings report. Overall, a cautious approach is warranted due to the lack of clear directional conviction and mixed breadth.",
   "bullish": [
     "NVDA",
+    "QQQ",
+    "SPY",
     "MSFT"
   ],
   "bearish": [
     "GOOGL",
-    "NFLX",
-    "PLTR",
-    "AMD"
+    "TSLA",
+    "AMZN",
+    "AMD",
+    "NFLX"
   ],
   "ticker": [
     {
@@ -160,8 +163,8 @@
   "macro": {
     "source": "FRED",
     "status": "OK",
-    "fed_funds_rate": 3.63,
-    "fed_funds_date": "2026-08-01",
+    "fed_funds_rate": null,
+    "fed_funds_date": null,
     "cpi_value": 332.813,
     "cpi_date": "2026-07-01",
     "cpi_yoy": 3.54,
@@ -179,7 +182,9 @@
     "inflation_trend": "COOLING",
     "macro_regime": "GOLDILOCKS",
     "macro_risk_score": 20,
-    "errors": {},
+    "errors": {
+      "FEDFUNDS": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=REDACTED&file_type=json&sort_order=desc&limit=24"
+    },
     "summary": "Macro regime is GOLDILOCKS. Inflation trend is COOLING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.43%."
   },
   "top_opportunities": [
@@ -202,7 +207,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 143.76,
-      "dividend_yield": 0.0296,
+      "dividend_yield": 0.0297,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -252,8 +257,8 @@
   "data_quality": {
     "total_symbols": 50,
     "complete_symbols": 16,
-    "partial_symbols": 29,
-    "insufficient_data_symbols": 5,
+    "partial_symbols": 30,
+    "insufficient_data_symbols": 4,
     "missing_symbols": 0,
     "coverage_percentage": 32.0,
     "quotes_available": 27,
@@ -282,17 +287,16 @@
         "missing": 2
       },
       "dividend_yield": {
-        "available": 47,
+        "available": 48,
         "fmp": 27,
-        "yahoo": 20,
+        "yahoo": 21,
         "unknown": 0,
-        "missing": 3
+        "missing": 2
       }
     },
     "missing_symbols_list": [
       "CRWD",
       "PANW",
-      "MA",
       "MCD",
       "LOW"
     ],
