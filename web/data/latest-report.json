@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-06 18:02 EDT",
-  "generated_at_iso": "2026-09-06T18:02:09.496695-04:00",
+  "generated_at": "2026-09-07 18:02 EDT",
+  "generated_at_iso": "2026-09-07T18:02:33.362245-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 36,
-  "summary": "The market is exhibiting mixed signals, with some technology leaders showing strength while broader indices and other sectors are down. Volatility is increasing slightly, and treasury yields are rising. Event risk is low for most major companies, but Oracle has an upcoming earnings report. Overall, a cautious approach is warranted due to the lack of clear directional conviction and mixed breadth.",
+  "confidence": 46,
+  "summary": "The market is exhibiting mixed signals, with some sectors showing strength while others lag. Volatility has increased, and treasury yields are rising, suggesting a cautious environment. Event risk is low for most major companies, but Oracle (ORCL) has an upcoming earnings report. Technology and Industrials sectors show some positive technicals, while Consumer Cyclical and Defensive sectors are weaker. Focus remains on high-quality names with solid fundamentals.",
   "bullish": [
     "NVDA",
     "QQQ",
@@ -15,8 +15,7 @@
     "GOOGL",
     "TSLA",
     "AMZN",
-    "AMD",
-    "NFLX"
+    "AMD"
   ],
   "ticker": [
     {
@@ -163,8 +162,8 @@
   "macro": {
     "source": "FRED",
     "status": "OK",
-    "fed_funds_rate": null,
-    "fed_funds_date": null,
+    "fed_funds_rate": 3.63,
+    "fed_funds_date": "2026-08-01",
     "cpi_value": 332.813,
     "cpi_date": "2026-07-01",
     "cpi_yoy": 3.54,
@@ -182,9 +181,7 @@
     "inflation_trend": "COOLING",
     "macro_regime": "GOLDILOCKS",
     "macro_risk_score": 20,
-    "errors": {
-      "FEDFUNDS": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&api_key=REDACTED&file_type=json&sort_order=desc&limit=24"
-    },
+    "errors": {},
     "summary": "Macro regime is GOLDILOCKS. Inflation trend is COOLING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.43%."
   },
   "top_opportunities": [
@@ -206,7 +203,7 @@
       "symbol": "PG",
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
-      "current_price": 143.76,
+      "current_price": 146.43,
       "dividend_yield": 0.0297,
       "buy_score": 76.65,
       "recommendation": "Buy",
