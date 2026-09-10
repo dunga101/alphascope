@@ -1,160 +1,161 @@
 {
-  "generated_at": "2026-09-09 18:02 EDT",
-  "generated_at_iso": "2026-09-09T18:02:11.330495-04:00",
+  "generated_at": "2026-09-10 18:02 EDT",
+  "generated_at_iso": "2026-09-10T18:02:43.528767-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 49,
-  "summary": "Markets are exhibiting a risk-off sentiment, with broad indices declining and volatility increasing. Defensive sectors are showing relative weakness, while energy is showing strength. Several technology names are showing signs of overheating or weakening technicals. Event risk is low for most major companies, with Oracle being the primary exception due to an imminent earnings report. Overall, the environment suggests caution and a focus on quality.",
+  "confidence": 60,
+  "summary": "Markets are exhibiting a risk-off sentiment, with major indices declining and volatility increasing. Defensive sectors are showing relative resilience, while technology and growth-oriented areas are under pressure. Event risk is low for most major companies, but Oracle (ORCL) has a high event risk due to its upcoming earnings. Investors should maintain a cautious stance, focusing on quality and capital preservation.",
   "bullish": [
-    "XLE"
+    "XLP",
+    "XLC"
   ],
   "bearish": [
-    "AMZN",
-    "GOOGL",
-    "SPY",
     "QQQ",
-    "MSFT"
+    "SPY",
+    "SHOP.TO",
+    "AMZN",
+    "GOOGL"
   ],
   "ticker": [
     {
       "symbol": "SPY",
-      "price": "$762.4",
-      "change": "-0.46%"
+      "price": "$757.83",
+      "change": "-0.60%"
     },
     {
       "symbol": "AAPL",
-      "price": "$315.34",
-      "change": "-0.28%"
+      "price": "$326.57",
+      "change": "+3.56%"
     },
     {
       "symbol": "MSFT",
-      "price": "$491.65",
-      "change": "-0.47%"
+      "price": "$492.44",
+      "change": "+0.16%"
     },
     {
       "symbol": "NVDA",
-      "price": "$223.67",
-      "change": "-0.91%"
+      "price": "$218.36",
+      "change": "-2.37%"
     },
     {
       "symbol": "AMD",
-      "price": "$521.095",
-      "change": "+3.04%"
+      "price": "$503.6",
+      "change": "-3.36%"
     },
     {
       "symbol": "CSCO",
-      "price": "$109.43",
-      "change": "+0.24%"
+      "price": "$107.44",
+      "change": "-1.82%"
     },
     {
       "symbol": "META",
-      "price": "$653.69",
-      "change": "+6.55%"
+      "price": "$644.38",
+      "change": "-1.42%"
     },
     {
       "symbol": "AMZN",
-      "price": "$252.4",
-      "change": "-1.78%"
+      "price": "$251.89",
+      "change": "-0.20%"
     },
     {
       "symbol": "GOOGL",
-      "price": "$330.65",
-      "change": "-2.28%"
+      "price": "$332.6",
+      "change": "+0.59%"
     },
     {
       "symbol": "TSLA",
-      "price": "$367.81",
-      "change": "-0.10%"
+      "price": "$363.56",
+      "change": "-1.16%"
     },
     {
       "symbol": "NFLX",
-      "price": "$76.03",
-      "change": "-0.96%"
+      "price": "$76.01",
+      "change": "-0.03%"
     },
     {
       "symbol": "PLTR",
-      "price": "$169.53",
-      "change": "-0.45%"
+      "price": "$165.86",
+      "change": "-2.16%"
     },
     {
       "symbol": "JPM",
-      "price": "$354.71",
-      "change": "+0.34%"
+      "price": "$353.56",
+      "change": "-0.32%"
     },
     {
       "symbol": "BAC",
-      "price": "$62.67",
-      "change": "+0.45%"
+      "price": "$62.56",
+      "change": "-0.18%"
     },
     {
       "symbol": "GS",
-      "price": "$1028.78",
-      "change": "-0.75%"
+      "price": "$1019.77",
+      "change": "-0.88%"
     },
     {
       "symbol": "V",
-      "price": "$367.39",
-      "change": "-0.34%"
+      "price": "$367.21",
+      "change": "-0.05%"
     },
     {
       "symbol": "JNJ",
-      "price": "$267.08",
-      "change": "-0.76%"
+      "price": "$266.35",
+      "change": "-0.27%"
     },
     {
       "symbol": "ABBV",
-      "price": "$250.98",
-      "change": "+0.88%"
+      "price": "$254.98",
+      "change": "+1.62%"
     },
     {
       "symbol": "UNH",
-      "price": "$393.06",
-      "change": "-1.94%"
+      "price": "$388.28",
+      "change": "-1.22%"
     },
     {
       "symbol": "PFE",
-      "price": "$27.78",
-      "change": "-0.04%"
+      "price": "$27.65",
+      "change": "-0.47%"
     },
     {
       "symbol": "KO",
-      "price": "$87.55",
-      "change": "-0.92%"
+      "price": "$87.83",
+      "change": "+0.32%"
     },
     {
       "symbol": "PEP",
-      "price": "$136.69",
-      "change": "-1.27%"
+      "price": "$136.65",
+      "change": "-0.03%"
     },
     {
       "symbol": "COST",
-      "price": "$902.6",
-      "change": "-0.83%"
+      "price": "$902.38",
+      "change": "-0.02%"
     },
     {
       "symbol": "WMT",
-      "price": "$105.83",
-      "change": "-0.21%"
+      "price": "$105.73",
+      "change": "-0.09%"
     },
     {
       "symbol": "XOM",
-      "price": "$164.26",
-      "change": "+2.24%"
+      "price": "$165.23",
+      "change": "+0.61%"
     },
     {
       "symbol": "CVX",
-      "price": "$213.81",
-      "change": "+1.91%"
+      "price": "$212.75",
+      "change": "-0.50%"
     },
     {
       "symbol": "LMT",
-      "price": "$524.46",
-      "change": "-2.18%"
+      "price": "$530.12",
+      "change": "+1.08%"
     },
     {
       "symbol": "GE",
-      "price": "$325.42",
-      "change": "-2.83%"
+      "price": "$324.15",
+      "change": "-0.39%"
     }
   ],
   "macro": {
@@ -180,8 +181,8 @@
     "macro_regime": "UNKNOWN",
     "macro_risk_score": 35,
     "errors": {
-      "CPIAUCSL": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)",
-      "DGS10": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=DGS10&api_key=REDACTED&file_type=json&sort_order=desc&limit=90",
+      "CPIAUCSL": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=CPIAUCSL&api_key=REDACTED&file_type=json&sort_order=desc&limit=36",
+      "DGS10": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)",
       "DGS2": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)"
     },
     "summary": "Macro regime is UNKNOWN. Inflation trend is UNKNOWN, interest rate trend is STABLE, and the yield curve is UNKNOWN with a 10Y-2Y spread of unavailable."
@@ -192,8 +193,8 @@
       "symbol": "PEP",
       "company": "PepsiCo, Inc.",
       "sector": "Consumer Defensive",
-      "current_price": 136.69,
-      "dividend_yield": 0.04192849,
+      "current_price": 136.65,
+      "dividend_yield": 0.04248079,
       "buy_score": 77.1,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -206,7 +207,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 146.43,
-      "dividend_yield": 0.0297,
+      "dividend_yield": 0.0305,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -218,8 +219,8 @@
       "symbol": "META",
       "company": "Meta Platforms, Inc.",
       "sector": "Communication Services",
-      "current_price": 653.69,
-      "dividend_yield": 0.00342309,
+      "current_price": 644.38,
+      "dividend_yield": 0.00325895,
       "buy_score": 76.5,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -231,8 +232,8 @@
       "symbol": "LMT",
       "company": "Lockheed Martin Corporation",
       "sector": "Industrials",
-      "current_price": 524.46,
-      "dividend_yield": 0.02573907,
+      "current_price": 530.12,
+      "dividend_yield": 0.02603184,
       "buy_score": 75.6,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -241,12 +242,12 @@
     },
     {
       "rank": 5,
-      "symbol": "XOM",
-      "company": "Exxon Mobil Corporation",
+      "symbol": "CVX",
+      "company": "Chevron Corporation",
       "sector": "Energy",
-      "current_price": 164.26,
-      "dividend_yield": 0.02564422,
-      "buy_score": 74.4,
+      "current_price": 212.75,
+      "dividend_yield": 0.03313749,
+      "buy_score": 74.25,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
       "data_quality_label": "Complete",
