@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-12 18:02 EDT",
-  "generated_at_iso": "2026-09-12T18:02:23.077837-04:00",
+  "generated_at": "2026-09-13 18:01 EDT",
+  "generated_at_iso": "2026-09-13T18:01:50.620012-04:00",
   "generation_status": "success",
   "count": 50,
   "rankings": [
@@ -278,6 +278,59 @@
     },
     {
       "rank": 6,
+      "symbol": "MSFT",
+      "company": "Microsoft Corporation",
+      "current_price": 495.63,
+      "buy_score": 72.75,
+      "recommendation": "Buy",
+      "dividend_yield": 0.00734419,
+      "pe_ratio": 27.534999999999997,
+      "roe": 0.3023,
+      "sector": "Technology",
+      "technical_score": 60.0,
+      "valuation_score": 60.0,
+      "financial_quality_score": 100.0,
+      "dividend_score": 50.0,
+      "price_position_score": 75.0,
+      "debt_to_equity": 0.2912,
+      "free_cash_flow": 66987000000,
+      "rsi": 52.35,
+      "sma20": 494.25,
+      "sma50": 453.12,
+      "sma200": null,
+      "distance_from_52w_low": 16.95,
+      "data_status": "COMPLETE",
+      "data_quality_label": "Complete",
+      "data_completeness_percent": 100.0,
+      "provider_used": "COMBINED",
+      "providers_available": [
+        "FMP",
+        "YAHOO"
+      ],
+      "pe_ratio_source": "FMP",
+      "roe_source": "FMP",
+      "dividend_yield_source": "FMP",
+      "debt_to_equity_source": "FMP",
+      "free_cash_flow_source": "FMP",
+      "missing_fundamental_fields": [],
+      "strengths": [
+        "Buy recommendation based on composite investor score.",
+        "Financial quality score is above the preferred threshold.",
+        "Dividend yield is present for income-oriented investors.",
+        "Technical score is constructive."
+      ],
+      "risks": [],
+      "missing_data": [],
+      "score_breakdown": {
+        "valuation": 60.0,
+        "dividend": 50.0,
+        "financial_quality": 100.0,
+        "price_position": 75.0,
+        "technical": 60.0
+      }
+    },
+    {
+      "rank": 7,
       "symbol": "NFLX",
       "company": "Netflix, Inc.",
       "current_price": 77.4,
@@ -328,59 +381,6 @@
         "financial_quality": 100.0,
         "price_position": 75.0,
         "technical": 50.0
-      }
-    },
-    {
-      "rank": 7,
-      "symbol": "MSFT",
-      "company": "Microsoft Corporation",
-      "current_price": 495.63,
-      "buy_score": 72.75,
-      "recommendation": "Buy",
-      "dividend_yield": 0.00734419,
-      "pe_ratio": 27.534999999999997,
-      "roe": 0.3023,
-      "sector": "Technology",
-      "technical_score": 60.0,
-      "valuation_score": 60.0,
-      "financial_quality_score": 100.0,
-      "dividend_score": 50.0,
-      "price_position_score": 75.0,
-      "debt_to_equity": 0.2912,
-      "free_cash_flow": 66987000000,
-      "rsi": 52.35,
-      "sma20": 494.25,
-      "sma50": 453.12,
-      "sma200": null,
-      "distance_from_52w_low": 16.95,
-      "data_status": "COMPLETE",
-      "data_quality_label": "Complete",
-      "data_completeness_percent": 100.0,
-      "provider_used": "COMBINED",
-      "providers_available": [
-        "FMP",
-        "YAHOO"
-      ],
-      "pe_ratio_source": "FMP",
-      "roe_source": "FMP",
-      "dividend_yield_source": "FMP",
-      "debt_to_equity_source": "FMP",
-      "free_cash_flow_source": "FMP",
-      "missing_fundamental_fields": [],
-      "strengths": [
-        "Buy recommendation based on composite investor score.",
-        "Financial quality score is above the preferred threshold.",
-        "Dividend yield is present for income-oriented investors.",
-        "Technical score is constructive."
-      ],
-      "risks": [],
-      "missing_data": [],
-      "score_breakdown": {
-        "valuation": 60.0,
-        "dividend": 50.0,
-        "financial_quality": 100.0,
-        "price_position": 75.0,
-        "technical": 60.0
       }
     },
     {

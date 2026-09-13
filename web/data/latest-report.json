@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-12 18:02 EDT",
-  "generated_at_iso": "2026-09-12T18:02:23.077837-04:00",
+  "generated_at": "2026-09-13 18:01 EDT",
+  "generated_at_iso": "2026-09-13T18:01:50.620012-04:00",
   "generation_status": "success",
   "regime": "MIXED",
   "confidence": 49,
-  "summary": "Markets showed broad strength with major indices and VIX moving favorably. However, underlying breadth and technical signals suggest caution. While technology sectors led, some individual names show mixed technicals and potential overheating. Event risk is currently low, but attention should be paid to upcoming earnings. Fundamentals remain strong for many large-cap tech and financial names, but a conservative approach is warranted given the mixed technical signals and moderate confidence.",
+  "summary": "Markets showed broad strength with major indices and many sectors advancing, supported by a declining VIX. However, underlying breadth and technical signals suggest caution. While technology and communication services led, some key names are showing mixed technicals. Event risk is currently low, but attention should be paid to upcoming earnings. The overall market regime is leaning towards risk-on, but with moderate confidence due to mixed technical signals and potential for rotation.",
   "bullish": [
     "MSFT",
     "TSLA",
@@ -167,23 +167,23 @@
     "cpi_date": "2026-08-01",
     "cpi_yoy": 3.71,
     "cpi_3m_annualized": 0.18,
-    "unemployment_rate": 4.1,
-    "unemployment_date": "2026-08-01",
-    "unemployment_trend": "STABLE",
+    "unemployment_rate": null,
+    "unemployment_date": null,
+    "unemployment_trend": "UNKNOWN",
     "treasury_10y": 4.95,
     "treasury_10y_date": "2026-09-10",
-    "treasury_2y": null,
-    "treasury_2y_date": null,
-    "yield_curve_spread": null,
-    "yield_curve_state": "UNKNOWN",
+    "treasury_2y": 4.56,
+    "treasury_2y_date": "2026-09-10",
+    "yield_curve_spread": 0.39,
+    "yield_curve_state": "NORMAL",
     "interest_rate_trend": "STABLE",
     "inflation_trend": "REACCELERATING",
     "macro_regime": "UNKNOWN",
     "macro_risk_score": 50,
     "errors": {
-      "DGS2": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)"
+      "UNRATE": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=REDACTED&file_type=json&sort_order=desc&limit=24"
     },
-    "summary": "Macro regime is UNKNOWN. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is UNKNOWN with a 10Y-2Y spread of unavailable."
+    "summary": "Macro regime is UNKNOWN. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.39%."
   },
   "top_opportunities": [
     {
