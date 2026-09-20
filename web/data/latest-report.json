@@ -1,18 +1,19 @@
 {
-  "generated_at": "2026-09-19 18:02 EDT",
-  "generated_at_iso": "2026-09-19T18:02:02.533810-04:00",
+  "generated_at": "2026-09-20 18:01 EDT",
+  "generated_at_iso": "2026-09-20T18:01:39.021472-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 47,
-  "summary": "The market exhibits mixed signals, with technology stocks showing strength while other sectors lag. Volatility is subdued, and treasury yields are rising. Concentration risk in mega-cap tech remains a key consideration. Near-term outlook is cautious due to conflicting sector performance and potential for rotation.",
+  "confidence": 51,
+  "summary": "The market exhibits mixed signals, with technology sectors showing strength while broader indices and other sectors display weakness. Volatility is subdued, but treasury yields are rising. Event risk is currently low, but attention should be paid to upcoming earnings. Fundamentals for many large-cap tech names remain robust, though some are technically extended. A cautious, selective approach is warranted.",
   "bullish": [
-    "QQQ",
-    "META",
     "NVDA",
-    "TSLA",
-    "AMD"
+    "MSFT",
+    "GOOGL",
+    "AMZN"
   ],
   "bearish": [
+    "NFLX",
+    "PEP",
     "SHOP.TO",
     "AMZN"
   ],
@@ -167,21 +168,25 @@
     "cpi_date": "2026-08-01",
     "cpi_yoy": 3.71,
     "cpi_3m_annualized": 0.18,
-    "unemployment_rate": 4.1,
-    "unemployment_date": "2026-08-01",
-    "unemployment_trend": "STABLE",
-    "treasury_10y": 4.94,
-    "treasury_10y_date": "2026-09-17",
-    "treasury_2y": 4.67,
-    "treasury_2y_date": "2026-09-17",
-    "yield_curve_spread": 0.27,
-    "yield_curve_state": "NORMAL",
-    "interest_rate_trend": "RISING",
+    "unemployment_rate": null,
+    "unemployment_date": null,
+    "unemployment_trend": "UNKNOWN",
+    "treasury_10y": null,
+    "treasury_10y_date": null,
+    "treasury_2y": null,
+    "treasury_2y_date": null,
+    "yield_curve_spread": null,
+    "yield_curve_state": "UNKNOWN",
+    "interest_rate_trend": "STABLE",
     "inflation_trend": "REACCELERATING",
-    "macro_regime": "RESTRICTIVE_POLICY",
-    "macro_risk_score": 75,
-    "errors": {},
-    "summary": "Macro regime is RESTRICTIVE_POLICY. Inflation trend is REACCELERATING, interest rate trend is RISING, and the yield curve is NORMAL with a 10Y-2Y spread of 0.27%."
+    "macro_regime": "UNKNOWN",
+    "macro_risk_score": 50,
+    "errors": {
+      "UNRATE": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)",
+      "DGS10": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=DGS10&api_key=REDACTED&file_type=json&sort_order=desc&limit=90",
+      "DGS2": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=DGS2&api_key=REDACTED&file_type=json&sort_order=desc&limit=90"
+    },
+    "summary": "Macro regime is UNKNOWN. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is UNKNOWN with a 10Y-2Y spread of unavailable."
   },
   "top_opportunities": [
     {
