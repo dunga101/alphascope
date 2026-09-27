@@ -1,20 +1,16 @@
 {
-  "generated_at": "2026-09-26 18:01 EDT",
-  "generated_at_iso": "2026-09-26T18:01:53.015395-04:00",
+  "generated_at": "2026-09-27 18:02 EDT",
+  "generated_at_iso": "2026-09-27T18:02:11.510911-04:00",
   "generation_status": "success",
   "regime": "MIXED",
   "confidence": 38,
-  "summary": "Markets show a risk-on sentiment with broad index gains and declining volatility. However, participation is uneven, with technology leading and energy/communications lagging. While many large-cap tech names exhibit strong technicals, some are showing signs of overheating. Fundamentals for many leaders remain robust, but a cautious approach is warranted due to mixed breadth and potential concentration risks.",
+  "summary": "Markets are exhibiting a risk-on sentiment with broad index gains and declining volatility. However, participation is concentrated in a few large-cap technology names, while other sectors and some individual stocks show signs of weakness or overheating. Treasury yields are rising, which could present a headwind. Caution is advised due to the lack of broad-based strength and potential for rotation.",
   "bullish": [
     "MSFT",
-    "TSLA",
-    "SPY",
-    "QQQ",
-    "NVDA"
+    "TSLA"
   ],
   "bearish": [
-    "AMZN",
-    "GOOGL"
+    "AMZN"
   ],
   "ticker": [
     {
@@ -163,10 +159,10 @@
     "status": "OK",
     "fed_funds_rate": 3.63,
     "fed_funds_date": "2026-08-01",
-    "cpi_value": 334.131,
-    "cpi_date": "2026-08-01",
-    "cpi_yoy": 3.71,
-    "cpi_3m_annualized": 0.18,
+    "cpi_value": null,
+    "cpi_date": null,
+    "cpi_yoy": null,
+    "cpi_3m_annualized": null,
     "unemployment_rate": 4.1,
     "unemployment_date": "2026-08-01",
     "unemployment_trend": "STABLE",
@@ -177,13 +173,14 @@
     "yield_curve_spread": null,
     "yield_curve_state": "UNKNOWN",
     "interest_rate_trend": "STABLE",
-    "inflation_trend": "REACCELERATING",
+    "inflation_trend": "UNKNOWN",
     "macro_regime": "UNKNOWN",
-    "macro_risk_score": 50,
+    "macro_risk_score": 35,
     "errors": {
-      "DGS2": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)"
+      "CPIAUCSL": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=CPIAUCSL&api_key=REDACTED&file_type=json&sort_order=desc&limit=36",
+      "DGS2": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=DGS2&api_key=REDACTED&file_type=json&sort_order=desc&limit=90"
     },
-    "summary": "Macro regime is UNKNOWN. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is UNKNOWN with a 10Y-2Y spread of unavailable."
+    "summary": "Macro regime is UNKNOWN. Inflation trend is UNKNOWN, interest rate trend is STABLE, and the yield curve is UNKNOWN with a 10Y-2Y spread of unavailable."
   },
   "top_opportunities": [
     {
@@ -205,7 +202,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 147.45,
-      "dividend_yield": 0.029900000000000003,
+      "dividend_yield": 0.0298,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
