@@ -1,18 +1,17 @@
 {
-  "generated_at": "2026-10-02 18:01 EDT",
-  "generated_at_iso": "2026-10-02T18:01:54.524781-04:00",
+  "generated_at": "2026-10-03 18:02 EDT",
+  "generated_at_iso": "2026-10-03T18:02:13.468372-04:00",
   "generation_status": "success",
   "regime": "MIXED",
-  "confidence": 38,
-  "summary": "Markets showed broad strength with major indices advancing and volatility declining. Technology and Consumer Discretionary sectors led gains, while Healthcare and Utilities lagged. Despite positive price action, participation in some large-cap tech names appears concentrated. Treasury yields rose, and commodities saw mixed performance. Event risk is currently low with earnings dates mostly distant, but attention should be paid to upcoming reports. Overall, a constructive but cautious stance is warranted given mixed breadth signals and potential concentration.",
+  "confidence": 40,
+  "summary": "Markets are exhibiting a risk-on sentiment with major indices showing gains and volatility decreasing. However, participation is mixed, with some sectors showing stronger leadership than others. While broad market trends are positive, individual stock performance varies, and some names show signs of overheating or technical weakness. Event risk from upcoming earnings is currently low for most monitored companies, but a few are approaching medium-risk thresholds.",
   "bullish": [
     "AMD",
-    "CSCO"
+    "IBM"
   ],
   "bearish": [
     "AMZN",
-    "GOOGL",
-    "NFLX"
+    "GOOGL"
   ],
   "ticker": [
     {
@@ -201,7 +200,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 143.95,
-      "dividend_yield": 0.0302,
+      "dividend_yield": 0.03,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
