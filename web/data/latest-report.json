@@ -1,16 +1,18 @@
 {
-  "generated_at": "2026-10-03 18:02 EDT",
-  "generated_at_iso": "2026-10-03T18:02:13.468372-04:00",
+  "generated_at": "2026-10-04 18:01 EDT",
+  "generated_at_iso": "2026-10-04T18:01:49.505216-04:00",
   "generation_status": "success",
   "regime": "MIXED",
-  "confidence": 40,
-  "summary": "Markets are exhibiting a risk-on sentiment with major indices showing gains and volatility decreasing. However, participation is mixed, with some sectors showing stronger leadership than others. While broad market trends are positive, individual stock performance varies, and some names show signs of overheating or technical weakness. Event risk from upcoming earnings is currently low for most monitored companies, but a few are approaching medium-risk thresholds.",
+  "confidence": 38,
+  "summary": "Markets showed broad strength with major indices and technology sectors leading gains. Volatility declined, and treasury yields rose, suggesting a risk-on sentiment. However, participation quality is mixed, with some sectors lagging and a few individual names showing signs of overheating. Near-term outlook is cautiously constructive, but attention should be paid to upcoming earnings events and potential shifts in market leadership.",
   "bullish": [
     "AMD",
-    "IBM"
+    "CSCO"
   ],
   "bearish": [
     "AMZN",
+    "NFLX",
+    "PLTR",
     "GOOGL"
   ],
   "ticker": [
