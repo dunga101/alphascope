@@ -1,160 +1,159 @@
 {
-  "generated_at": "2026-10-04 18:01 EDT",
-  "generated_at_iso": "2026-10-04T18:01:49.505216-04:00",
+  "generated_at": "2026-10-05 18:02 EDT",
+  "generated_at_iso": "2026-10-05T18:02:15.004492-04:00",
   "generation_status": "success",
-  "regime": "MIXED",
-  "confidence": 38,
-  "summary": "Markets showed broad strength with major indices and technology sectors leading gains. Volatility declined, and treasury yields rose, suggesting a risk-on sentiment. However, participation quality is mixed, with some sectors lagging and a few individual names showing signs of overheating. Near-term outlook is cautiously constructive, but attention should be paid to upcoming earnings events and potential shifts in market leadership.",
+  "regime": "RISK_ON",
+  "confidence": 28,
+  "summary": "Markets are exhibiting a risk-on sentiment with broad index gains, led by technology and energy sectors. However, confidence is moderate due to low participation in some key indices and mixed technical signals. Several technology names show strong upward momentum but are approaching overheated levels. Event risk is low for most major companies in the near term, with the exception of a few financial and healthcare names. Caution is advised due to the potential for overextension in leading stocks and limited breadth.",
   "bullish": [
-    "AMD",
-    "CSCO"
+    "NVDA",
+    "MSFT",
+    "TSLA"
   ],
   "bearish": [
     "AMZN",
-    "NFLX",
-    "PLTR",
     "GOOGL"
   ],
   "ticker": [
     {
       "symbol": "SPY",
-      "price": "$769.64",
-      "change": "+0.74%"
+      "price": "$774.88",
+      "change": "+0.68%"
     },
     {
       "symbol": "AAPL",
-      "price": "$333.69",
-      "change": "+1.02%"
+      "price": "$332.89",
+      "change": "-0.24%"
     },
     {
       "symbol": "MSFT",
-      "price": "$517.53",
-      "change": "+0.92%"
+      "price": "$525.18",
+      "change": "+1.48%"
     },
     {
       "symbol": "NVDA",
-      "price": "$233.95",
-      "change": "+1.34%"
+      "price": "$238.9",
+      "change": "+2.12%"
     },
     {
       "symbol": "AMD",
-      "price": "$633.91",
-      "change": "+2.95%"
+      "price": "$631.75",
+      "change": "-0.34%"
     },
     {
       "symbol": "CSCO",
-      "price": "$112.2",
-      "change": "+3.16%"
+      "price": "$112.82",
+      "change": "+0.55%"
     },
     {
       "symbol": "META",
-      "price": "$728.08",
-      "change": "+0.30%"
+      "price": "$741.9",
+      "change": "+1.90%"
     },
     {
       "symbol": "AMZN",
-      "price": "$251.52",
-      "change": "+1.33%"
+      "price": "$251.4",
+      "change": "-0.05%"
     },
     {
       "symbol": "GOOGL",
-      "price": "$343.5",
-      "change": "+1.56%"
+      "price": "$346.47",
+      "change": "+0.86%"
     },
     {
       "symbol": "TSLA",
-      "price": "$370.59",
-      "change": "+4.65%"
+      "price": "$378.73",
+      "change": "+2.20%"
     },
     {
       "symbol": "NFLX",
-      "price": "$67.06",
-      "change": "-1.16%"
+      "price": "$67.5",
+      "change": "+0.66%"
     },
     {
       "symbol": "PLTR",
-      "price": "$188.75",
-      "change": "-0.68%"
+      "price": "$189.4",
+      "change": "+0.34%"
     },
     {
       "symbol": "JPM",
       "price": "$332.38",
-      "change": "-0.24%"
-    },
-    {
-      "symbol": "BAC",
-      "price": "$53.75",
-      "change": "+0.04%"
-    },
-    {
-      "symbol": "GS",
-      "price": "$902.56",
-      "change": "+0.66%"
-    },
-    {
-      "symbol": "V",
-      "price": "$360.66",
-      "change": "+0.23%"
-    },
-    {
-      "symbol": "JNJ",
-      "price": "$256.03",
-      "change": "-1.02%"
-    },
-    {
-      "symbol": "ABBV",
-      "price": "$262.82",
-      "change": "+1.11%"
-    },
-    {
-      "symbol": "UNH",
-      "price": "$371.9",
-      "change": "+1.83%"
-    },
-    {
-      "symbol": "PFE",
-      "price": "$27.8",
-      "change": "-1.14%"
-    },
-    {
-      "symbol": "KO",
-      "price": "$85.65",
-      "change": "-0.52%"
-    },
-    {
-      "symbol": "PEP",
-      "price": "$125.89",
-      "change": "+0.23%"
-    },
-    {
-      "symbol": "COST",
-      "price": "$920.65",
-      "change": "+0.62%"
-    },
-    {
-      "symbol": "WMT",
-      "price": "$104.26",
       "change": "+0.00%"
     },
     {
+      "symbol": "BAC",
+      "price": "$54",
+      "change": "+0.47%"
+    },
+    {
+      "symbol": "GS",
+      "price": "$893.46",
+      "change": "-1.01%"
+    },
+    {
+      "symbol": "V",
+      "price": "$369.71",
+      "change": "+2.51%"
+    },
+    {
+      "symbol": "JNJ",
+      "price": "$252.93",
+      "change": "-1.21%"
+    },
+    {
+      "symbol": "ABBV",
+      "price": "$265.76",
+      "change": "+1.12%"
+    },
+    {
+      "symbol": "UNH",
+      "price": "$378.58",
+      "change": "+1.80%"
+    },
+    {
+      "symbol": "PFE",
+      "price": "$27.41",
+      "change": "-1.40%"
+    },
+    {
+      "symbol": "KO",
+      "price": "$86.51",
+      "change": "+1.00%"
+    },
+    {
+      "symbol": "PEP",
+      "price": "$125.65",
+      "change": "-0.19%"
+    },
+    {
+      "symbol": "COST",
+      "price": "$923.52",
+      "change": "+0.31%"
+    },
+    {
+      "symbol": "WMT",
+      "price": "$105.07",
+      "change": "+0.78%"
+    },
+    {
       "symbol": "XOM",
-      "price": "$164.01",
-      "change": "+0.12%"
+      "price": "$164.02",
+      "change": "+0.01%"
     },
     {
       "symbol": "CVX",
-      "price": "$206.77",
-      "change": "-0.16%"
+      "price": "$206.47",
+      "change": "-0.11%"
     },
     {
       "symbol": "LMT",
-      "price": "$505.41",
-      "change": "-0.02%"
+      "price": "$506.63",
+      "change": "+0.24%"
     },
     {
       "symbol": "GE",
-      "price": "$309.56",
-      "change": "-0.91%"
+      "price": "$306.34",
+      "change": "-1.04%"
     }
   ],
   "macro": {
@@ -162,25 +161,29 @@
     "status": "OK",
     "fed_funds_rate": 3.75,
     "fed_funds_date": "2026-09-01",
-    "cpi_value": 334.131,
-    "cpi_date": "2026-08-01",
-    "cpi_yoy": 3.71,
-    "cpi_3m_annualized": 0.18,
-    "unemployment_rate": 4.2,
-    "unemployment_date": "2026-09-01",
-    "unemployment_trend": "STABLE",
-    "treasury_10y": 5.24,
-    "treasury_10y_date": "2026-10-01",
-    "treasury_2y": 4.78,
-    "treasury_2y_date": "2026-10-01",
-    "yield_curve_spread": 0.46,
-    "yield_curve_state": "NORMAL",
-    "interest_rate_trend": "RISING",
-    "inflation_trend": "REACCELERATING",
-    "macro_regime": "RESTRICTIVE_POLICY",
-    "macro_risk_score": 75,
-    "errors": {},
-    "summary": "Macro regime is RESTRICTIVE_POLICY. Inflation trend is REACCELERATING, interest rate trend is RISING, and the yield curve is NORMAL with a 10Y-2Y spread of 0.46%."
+    "cpi_value": null,
+    "cpi_date": null,
+    "cpi_yoy": null,
+    "cpi_3m_annualized": null,
+    "unemployment_rate": null,
+    "unemployment_date": null,
+    "unemployment_trend": "UNKNOWN",
+    "treasury_10y": 5.28,
+    "treasury_10y_date": "2026-10-02",
+    "treasury_2y": null,
+    "treasury_2y_date": null,
+    "yield_curve_spread": null,
+    "yield_curve_state": "UNKNOWN",
+    "interest_rate_trend": "STABLE",
+    "inflation_trend": "UNKNOWN",
+    "macro_regime": "UNKNOWN",
+    "macro_risk_score": 35,
+    "errors": {
+      "CPIAUCSL": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=CPIAUCSL&api_key=REDACTED&file_type=json&sort_order=desc&limit=36",
+      "UNRATE": "502 Server Error: Bad Gateway for url: https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE&api_key=REDACTED&file_type=json&sort_order=desc&limit=24",
+      "DGS2": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)"
+    },
+    "summary": "Macro regime is UNKNOWN. Inflation trend is UNKNOWN, interest rate trend is STABLE, and the yield curve is UNKNOWN with a 10Y-2Y spread of unavailable."
   },
   "top_opportunities": [
     {
@@ -188,8 +191,8 @@
       "symbol": "PEP",
       "company": "PepsiCo, Inc.",
       "sector": "Consumer Defensive",
-      "current_price": 125.89,
-      "dividend_yield": 0.04611168,
+      "current_price": 125.65,
+      "dividend_yield": 0.04619976,
       "buy_score": 77.1,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -214,8 +217,8 @@
       "symbol": "LMT",
       "company": "Lockheed Martin Corporation",
       "sector": "Industrials",
-      "current_price": 505.41,
-      "dividend_yield": 0.02730456,
+      "current_price": 506.63,
+      "dividend_yield": 0.02723881,
       "buy_score": 75.6,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -227,8 +230,8 @@
       "symbol": "XOM",
       "company": "Exxon Mobil Corporation",
       "sector": "Energy",
-      "current_price": 164.01,
-      "dividend_yield": 0.02512042,
+      "current_price": 164.02,
+      "dividend_yield": 0.02511889,
       "buy_score": 74.4,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -240,8 +243,8 @@
       "symbol": "CVX",
       "company": "Chevron Corporation",
       "sector": "Energy",
-      "current_price": 206.77,
-      "dividend_yield": 0.03409586,
+      "current_price": 206.47,
+      "dividend_yield": 0.0341454,
       "buy_score": 74.25,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -252,8 +255,8 @@
   "data_quality": {
     "total_symbols": 50,
     "complete_symbols": 16,
-    "partial_symbols": 30,
-    "insufficient_data_symbols": 4,
+    "partial_symbols": 32,
+    "insufficient_data_symbols": 2,
     "missing_symbols": 0,
     "coverage_percentage": 32.0,
     "quotes_available": 27,
@@ -282,16 +285,14 @@
         "missing": 2
       },
       "dividend_yield": {
-        "available": 48,
+        "available": 50,
         "fmp": 27,
-        "yahoo": 21,
+        "yahoo": 23,
         "unknown": 0,
-        "missing": 2
+        "missing": 0
       }
     },
     "missing_symbols_list": [
-      "CRWD",
-      "PANW",
       "MCD",
       "LOW"
     ],
