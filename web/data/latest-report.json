@@ -1,20 +1,16 @@
 {
-  "generated_at": "2026-10-09 18:02 EDT",
-  "generated_at_iso": "2026-10-09T18:02:23.235003-04:00",
+  "generated_at": "2026-10-10 18:01 EDT",
+  "generated_at_iso": "2026-10-10T18:01:33.046430-04:00",
   "generation_status": "success",
   "regime": "MIXED",
   "confidence": 32,
-  "summary": "Markets showed broad strength with major indices advancing and volatility declining. However, participation appears concentrated in a few large-cap technology and financial names, while breadth is not uniformly strong. Near-term outlook is cautiously constructive, but attention should be paid to upcoming earnings events and potential overextension in some high-momentum names. Fundamentals for many leading companies remain robust, but a few names show technical strength without corresponding fundamental support.",
+  "summary": "The market is exhibiting a risk-on sentiment with broad index gains and declining volatility. However, participation appears concentrated, and several high-growth technology names show signs of overheating. Upcoming earnings for some financial institutions present near-term event risk. While the overall trend is positive, caution is warranted due to potential concentration and event-driven volatility.",
   "bullish": [
     "GOOGL",
     "AMZN",
-    "META",
-    "SHOP.TO"
+    "META"
   ],
-  "bearish": [
-    "AMD",
-    "NFLX"
-  ],
+  "bearish": [],
   "ticker": [
     {
       "symbol": "SPY",
