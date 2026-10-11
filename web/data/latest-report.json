@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-10 18:01 EDT",
-  "generated_at_iso": "2026-10-10T18:01:33.046430-04:00",
+  "generated_at": "2026-10-11 18:02 EDT",
+  "generated_at_iso": "2026-10-11T18:02:34.824221-04:00",
   "generation_status": "success",
   "regime": "MIXED",
-  "confidence": 32,
-  "summary": "The market is exhibiting a risk-on sentiment with broad index gains and declining volatility. However, participation appears concentrated, and several high-growth technology names show signs of overheating. Upcoming earnings for some financial institutions present near-term event risk. While the overall trend is positive, caution is warranted due to potential concentration and event-driven volatility.",
+  "confidence": 48,
+  "summary": "Markets show a generally positive trend with broad index gains and declining volatility. However, participation is concentrated, and some sectors are showing signs of overheating. Near-term outlook is cautiously optimistic, but event risk from upcoming earnings and potential shifts in defensive sector performance warrant close monitoring. Confidence in the current regime is moderate due to mixed breadth signals.",
   "bullish": [
     "GOOGL",
     "AMZN",
@@ -198,7 +198,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 151.23,
-      "dividend_yield": 0.028900000000000002,
+      "dividend_yield": 0.0288,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
