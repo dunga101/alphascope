@@ -1,19 +1,23 @@
 {
-  "generated_at": "2026-10-16 18:02 EDT",
-  "generated_at_iso": "2026-10-16T18:02:46.268735-04:00",
+  "generated_at": "2026-10-17 18:02 EDT",
+  "generated_at_iso": "2026-10-17T18:02:04.560627-04:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 74,
-  "summary": "Markets are exhibiting a strong risk-off sentiment, with major indices declining and volatility increasing. Technology sectors are particularly weak, while energy and defensive sectors show some resilience. Several technology names are showing technical weakness, trading below key moving averages. Upcoming earnings for a few companies present near-term event risk. Overall, a cautious stance is warranted given the current market environment.",
+  "confidence": 69,
+  "summary": "Markets are experiencing a strong risk-off sentiment, marked by broad index declines and a surge in volatility. Technology sectors are particularly weak, while energy and defensive consumer staples show relative strength. Several high-profile technology names are exhibiting deteriorating technicals, suggesting potential further downside. Near-term outlook remains cautious, with elevated event risk around upcoming earnings for a few key companies.",
   "bullish": [
-    "MSFT"
+    "MSFT",
+    "JPM",
+    "KO",
+    "PEP",
+    "COST"
   ],
   "bearish": [
     "NVDA",
     "AMD",
-    "CSCO",
     "META",
-    "AMZN"
+    "SPY",
+    "QQQ"
   ],
   "ticker": [
     {
