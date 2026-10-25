@@ -1,22 +1,20 @@
 {
-  "generated_at": "2026-10-24 18:01 EDT",
-  "generated_at_iso": "2026-10-24T18:01:30.748580-04:00",
+  "generated_at": "2026-10-25 18:02 EDT",
+  "generated_at_iso": "2026-10-25T18:02:45.791544-04:00",
   "generation_status": "success",
-  "regime": "MIXED",
-  "confidence": 38,
-  "summary": "The market is exhibiting mixed signals, with broad indices showing weakness and volatility increasing. While some technology and energy sectors show resilience, overall breadth is poor. Upcoming earnings events for key companies like Visa and Coca-Cola present near-term event risk. Fundamentals remain strong for many large-cap tech names, but technicals are deteriorating, suggesting caution.",
+  "regime": "RISK_OFF",
+  "confidence": 37,
+  "summary": "The market is exhibiting mixed signals, with broad indices showing weakness and volatility increasing. Technology sectors are showing some resilience, but overall breadth is poor. Upcoming earnings events for major tech companies like Microsoft and Alphabet present significant event risk. Fundamentals for many large-cap tech names remain strong, but technicals are deteriorating, suggesting caution is warranted.",
   "bullish": [
     "MSFT",
-    "AMD",
-    "XOM",
-    "CVX"
+    "AAPL"
   ],
   "bearish": [
     "SPY",
     "QQQ",
     "NVDA",
-    "GOOGL",
-    "AMZN"
+    "AMD",
+    "META"
   ],
   "ticker": [
     {
@@ -169,21 +167,24 @@
     "cpi_date": "2026-09-01",
     "cpi_yoy": 4.02,
     "cpi_3m_annualized": 4.56,
-    "unemployment_rate": 4.2,
-    "unemployment_date": "2026-09-01",
-    "unemployment_trend": "STABLE",
+    "unemployment_rate": null,
+    "unemployment_date": null,
+    "unemployment_trend": "UNKNOWN",
     "treasury_10y": 4.96,
     "treasury_10y_date": "2026-10-22",
-    "treasury_2y": 4.65,
-    "treasury_2y_date": "2026-10-22",
-    "yield_curve_spread": 0.31,
-    "yield_curve_state": "NORMAL",
+    "treasury_2y": null,
+    "treasury_2y_date": null,
+    "yield_curve_spread": null,
+    "yield_curve_state": "UNKNOWN",
     "interest_rate_trend": "STABLE",
     "inflation_trend": "REACCELERATING",
-    "macro_regime": "MIXED",
-    "macro_risk_score": 65,
-    "errors": {},
-    "summary": "Macro regime is MIXED. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.31%."
+    "macro_regime": "UNKNOWN",
+    "macro_risk_score": 50,
+    "errors": {
+      "UNRATE": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)",
+      "DGS2": "HTTPSConnectionPool(host='api.stlouisfed.org', port=443): Read timed out. (read timeout=15)"
+    },
+    "summary": "Macro regime is UNKNOWN. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is UNKNOWN with a 10Y-2Y spread of unavailable."
   },
   "top_opportunities": [
     {
@@ -205,7 +206,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 161.02,
-      "dividend_yield": 0.0263,
+      "dividend_yield": 0.027000000000000003,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
