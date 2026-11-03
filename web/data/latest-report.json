@@ -1,161 +1,162 @@
 {
-  "generated_at": "2026-11-02 18:01 EST",
-  "generated_at_iso": "2026-11-02T18:01:32.482956-05:00",
+  "generated_at": "2026-11-03 18:02 EST",
+  "generated_at_iso": "2026-11-03T18:02:05.488397-05:00",
   "generation_status": "success",
   "regime": "MIXED",
-  "confidence": 38,
-  "summary": "Markets are exhibiting risk-off sentiment, with broad weakness across major indices and elevated volatility. Defensive sectors show some resilience, while technology and energy are under pressure. Several technology names are technically weak and facing event risk from upcoming earnings. Caution is advised due to the prevailing negative sentiment and lack of broad participation.",
+  "confidence": 48,
+  "summary": "The market exhibits mixed signals, with technology sectors showing some strength while broader indices and defensive sectors lag. Treasury yields are elevated, suggesting a cautious macro environment. Event risk is low for most major companies, but a few names have upcoming earnings that warrant attention. Overall, the current environment calls for a balanced approach, focusing on quality and avoiding overextended positions.",
   "bullish": [
-    "JPM",
-    "V"
+    "MSFT",
+    "NVDA",
+    "GOOGL"
   ],
   "bearish": [
-    "MSFT",
+    "AMD",
     "SPY",
-    "AMZN",
+    "META",
     "QQQ",
-    "AMD"
+    "GOOGL"
   ],
   "ticker": [
     {
       "symbol": "SPY",
-      "price": "$752.1",
-      "change": "-0.48%"
+      "price": "$754.35",
+      "change": "+0.30%"
     },
     {
       "symbol": "AAPL",
-      "price": "$338.32",
-      "change": "-1.83%"
+      "price": "$331.9",
+      "change": "-1.90%"
     },
     {
       "symbol": "MSFT",
-      "price": "$507.12",
-      "change": "-2.83%"
+      "price": "$520.99",
+      "change": "+2.74%"
     },
     {
       "symbol": "NVDA",
-      "price": "$202.06",
-      "change": "-1.26%"
+      "price": "$206.69",
+      "change": "+2.29%"
     },
     {
       "symbol": "AMD",
-      "price": "$466.84",
-      "change": "-7.52%"
+      "price": "$483.9",
+      "change": "+3.65%"
     },
     {
       "symbol": "CSCO",
-      "price": "$101.61",
-      "change": "-2.77%"
+      "price": "$102.97",
+      "change": "+1.34%"
     },
     {
       "symbol": "META",
-      "price": "$606.73",
-      "change": "-1.34%"
+      "price": "$621.03",
+      "change": "+2.36%"
     },
     {
       "symbol": "AMZN",
-      "price": "$245.63",
-      "change": "+2.20%"
+      "price": "$250.69",
+      "change": "+2.06%"
     },
     {
       "symbol": "GOOGL",
-      "price": "$278.99",
-      "change": "-0.30%"
+      "price": "$280.03",
+      "change": "+0.37%"
     },
     {
       "symbol": "TSLA",
-      "price": "$403.82",
-      "change": "+1.00%"
+      "price": "$398.5",
+      "change": "-1.32%"
     },
     {
       "symbol": "NFLX",
-      "price": "$62.34",
-      "change": "+0.42%"
+      "price": "$63.42",
+      "change": "+1.73%"
     },
     {
       "symbol": "PLTR",
-      "price": "$178.34",
-      "change": "-3.13%"
+      "price": "$175.4",
+      "change": "-1.65%"
     },
     {
       "symbol": "JPM",
-      "price": "$340.58",
-      "change": "+1.05%"
+      "price": "$337.98",
+      "change": "-0.76%"
     },
     {
       "symbol": "BAC",
-      "price": "$49.57",
-      "change": "-0.88%"
+      "price": "$49.66",
+      "change": "+0.18%"
     },
     {
       "symbol": "GS",
-      "price": "$898.72",
-      "change": "+0.47%"
+      "price": "$896.09",
+      "change": "-0.29%"
     },
     {
       "symbol": "V",
-      "price": "$425.51",
-      "change": "+2.88%"
+      "price": "$420.42",
+      "change": "-1.20%"
     },
     {
       "symbol": "JNJ",
-      "price": "$270.56",
-      "change": "-0.97%"
+      "price": "$266.17",
+      "change": "-1.62%"
     },
     {
       "symbol": "ABBV",
-      "price": "$288.94",
-      "change": "-2.02%"
+      "price": "$286",
+      "change": "-0.98%"
     },
     {
       "symbol": "UNH",
-      "price": "$400.44",
-      "change": "-1.60%"
+      "price": "$404.44",
+      "change": "+1.00%"
     },
     {
       "symbol": "PFE",
-      "price": "$30.67",
-      "change": "+0.49%"
+      "price": "$30",
+      "change": "-2.18%"
     },
     {
       "symbol": "KO",
-      "price": "$95.83",
-      "change": "+1.86%"
+      "price": "$94.8",
+      "change": "-1.07%"
     },
     {
       "symbol": "PEP",
-      "price": "$140.42",
-      "change": "+2.24%"
+      "price": "$137.27",
+      "change": "-2.24%"
     },
     {
       "symbol": "COST",
-      "price": "$1040.55",
-      "change": "+2.79%"
+      "price": "$1019.26",
+      "change": "-2.05%"
     },
     {
       "symbol": "WMT",
-      "price": "$127.69",
-      "change": "+3.38%"
+      "price": "$124.86",
+      "change": "-2.22%"
     },
     {
       "symbol": "XOM",
-      "price": "$179.67",
-      "change": "-4.05%"
+      "price": "$177.46001",
+      "change": "-1.23%"
     },
     {
       "symbol": "CVX",
-      "price": "$227.77",
-      "change": "-3.29%"
+      "price": "$225.24",
+      "change": "-1.11%"
     },
     {
       "symbol": "LMT",
-      "price": "$643.15",
-      "change": "+0.97%"
+      "price": "$639",
+      "change": "-0.65%"
     },
     {
       "symbol": "GE",
-      "price": "$315.78",
-      "change": "+4.63%"
+      "price": "$320.67",
+      "change": "+1.55%"
     }
   ],
   "macro": {
@@ -170,18 +171,18 @@
     "unemployment_rate": 4.2,
     "unemployment_date": "2026-09-01",
     "unemployment_trend": "STABLE",
-    "treasury_10y": 4.94,
-    "treasury_10y_date": "2026-10-30",
-    "treasury_2y": 4.56,
-    "treasury_2y_date": "2026-10-30",
-    "yield_curve_spread": 0.38,
+    "treasury_10y": 4.91,
+    "treasury_10y_date": "2026-11-02",
+    "treasury_2y": 4.59,
+    "treasury_2y_date": "2026-11-02",
+    "yield_curve_spread": 0.32,
     "yield_curve_state": "NORMAL",
     "interest_rate_trend": "STABLE",
     "inflation_trend": "REACCELERATING",
     "macro_regime": "MIXED",
     "macro_risk_score": 65,
     "errors": {},
-    "summary": "Macro regime is MIXED. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.38%."
+    "summary": "Macro regime is MIXED. Inflation trend is REACCELERATING, interest rate trend is STABLE, and the yield curve is NORMAL with a 10Y-2Y spread of 0.32%."
   },
   "top_opportunities": [
     {
@@ -190,7 +191,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 161.57,
-      "dividend_yield": 0.0269,
+      "dividend_yield": 0.026600000000000002,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -202,8 +203,8 @@
       "symbol": "META",
       "company": "Meta Platforms, Inc.",
       "sector": "Communication Services",
-      "current_price": 606.73,
-      "dividend_yield": 0.00341469,
+      "current_price": 621.03,
+      "dividend_yield": 0.00338148,
       "buy_score": 76.5,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -215,8 +216,8 @@
       "symbol": "BAC",
       "company": "Bank of America Corporation",
       "sector": "Financial Services",
-      "current_price": 49.57,
-      "dividend_yield": 0.02319536,
+      "current_price": 49.66,
+      "dividend_yield": 0.02335884,
       "buy_score": 76.05,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -228,8 +229,8 @@
       "symbol": "PEP",
       "company": "PepsiCo, Inc.",
       "sector": "Consumer Defensive",
-      "current_price": 140.42,
-      "dividend_yield": 0.04226737,
+      "current_price": 137.27,
+      "dividend_yield": 0.04228892,
       "buy_score": 75.6,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -241,8 +242,8 @@
       "symbol": "CVX",
       "company": "Chevron Corporation",
       "sector": "Energy",
-      "current_price": 227.77,
-      "dividend_yield": 0.02993376,
+      "current_price": 225.24,
+      "dividend_yield": 0.03129995,
       "buy_score": 74.25,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
