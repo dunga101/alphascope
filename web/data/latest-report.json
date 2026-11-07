@@ -1,22 +1,19 @@
 {
-  "generated_at": "2026-11-06 18:02 EST",
-  "generated_at_iso": "2026-11-06T18:02:07.871395-05:00",
+  "generated_at": "2026-11-07 18:01 EST",
+  "generated_at_iso": "2026-11-07T18:01:17.130837-05:00",
   "generation_status": "success",
-  "regime": "MIXED",
-  "confidence": 48,
-  "summary": "Markets show mixed signals with technology leading gains, but broader indices are below key moving averages, indicating a cautious risk-on environment. Volatility is down, but treasury yields are rising. Several tech names are technically weak, while some consumer defensive and healthcare stocks exhibit relative strength. Event risk is low for most major companies, with CSCO having near-term earnings risk. Focus on quality and resilience.",
+  "regime": "RISK_OFF",
+  "confidence": 45,
+  "summary": "The market exhibits a mixed risk sentiment, with technology leading gains while other sectors lag. Volatility has decreased, but treasury yields are rising. Several technology stocks show strong technical weakness despite positive macro signals. Event risk is low for most major companies, with a few exceptions in the near term. Focus on quality and resilience amidst this divergence.",
   "bullish": [
     "AMZN",
-    "MSFT",
-    "JNJ",
-    "ABBV",
-    "V"
+    "MSFT"
   ],
   "bearish": [
-    "NVDA",
-    "AMD",
     "TSLA",
+    "AMD",
     "SPY",
+    "NVDA",
     "QQQ"
   ],
   "ticker": [
