@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-07 18:01 EST",
-  "generated_at_iso": "2026-11-07T18:01:17.130837-05:00",
+  "generated_at": "2026-11-08 18:01 EST",
+  "generated_at_iso": "2026-11-08T18:01:56.546358-05:00",
   "generation_status": "success",
   "regime": "RISK_OFF",
-  "confidence": 45,
-  "summary": "The market exhibits a mixed risk sentiment, with technology leading gains while other sectors lag. Volatility has decreased, but treasury yields are rising. Several technology stocks show strong technical weakness despite positive macro signals. Event risk is low for most major companies, with a few exceptions in the near term. Focus on quality and resilience amidst this divergence.",
+  "confidence": 43,
+  "summary": "The market exhibits a mixed risk sentiment, with technology leading gains while other sectors lag. Volatility has decreased, but treasury yields are rising, creating a cautious backdrop. Several technology and growth names show concerning technical weakness despite some positive fundamental attributes. Event risk is low for most major companies in the near term, but upcoming earnings for CSCO and NVDA warrant attention. Overall, a conservative approach is advised due to conflicting signals and technical deterioration in key areas.",
   "bullish": [
     "AMZN",
     "MSFT"
@@ -190,7 +190,7 @@
       "company": "The Procter & Gamble Company",
       "sector": "Consumer Defensive",
       "current_price": 161.57,
-      "dividend_yield": 0.026099999999999998,
+      "dividend_yield": 0.0263,
       "buy_score": 76.65,
       "recommendation": "Buy",
       "data_status": "COMPLETE",
@@ -253,8 +253,8 @@
   "data_quality": {
     "total_symbols": 50,
     "complete_symbols": 16,
-    "partial_symbols": 31,
-    "insufficient_data_symbols": 3,
+    "partial_symbols": 32,
+    "insufficient_data_symbols": 2,
     "missing_symbols": 0,
     "coverage_percentage": 32.0,
     "quotes_available": 27,
@@ -276,11 +276,11 @@
         "missing": 0
       },
       "roe": {
-        "available": 47,
+        "available": 48,
         "fmp": 27,
-        "yahoo": 20,
+        "yahoo": 21,
         "unknown": 0,
-        "missing": 3
+        "missing": 2
       },
       "dividend_yield": {
         "available": 50,
@@ -291,7 +291,6 @@
       }
     },
     "missing_symbols_list": [
-      "MS",
       "MCD",
       "LOW"
     ],
